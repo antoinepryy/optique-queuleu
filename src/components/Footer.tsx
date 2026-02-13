@@ -83,10 +83,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/homemade"
+                  href="/oomade"
                   className="text-sm text-foreground/80 transition-colors hover:text-primary"
                 >
-                  HomeMade
+                  OOMADE
                 </Link>
               </li>
             </ul>

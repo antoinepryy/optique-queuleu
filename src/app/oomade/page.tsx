@@ -5,7 +5,7 @@ import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "HomeMade par OOMADE",
+  title: "OOMADE",
   description:
     "Créez vos lunettes sur mesure grâce à la technologie OOMADE d'impression 3D. Montures personnalisées uniques chez Optique Queuleu à Metz.",
 };
@@ -118,14 +118,14 @@ const avantages = [
   },
 ];
 
-export default function HomeMadePage() {
+export default function OOMADEPage() {
   return (
     <>
       {/* Hero Banner */}
       <section className="relative flex h-64 items-center pt-20 sm:h-80">
         <Image
           src="/images/boutique/choix.jpg"
-          alt="HomeMade - Lunettes sur mesure"
+          alt="OOMADE - Lunettes sur mesure"
           fill
           className="object-cover"
           priority
@@ -133,14 +133,14 @@ export default function HomeMadePage() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
           <h1 className="text-4xl font-bold uppercase tracking-[0.15em] text-white sm:text-5xl">
-            HomeMade
+            OOMADE
           </h1>
           <nav className="mt-4 text-sm text-white/70">
             <Link href="/" className="hover:text-white">
               Accueil
             </Link>
             <span className="mx-2">&gt;</span>
-            <span className="text-white">HomeMade</span>
+            <span className="text-white">OOMADE</span>
           </nav>
         </div>
       </section>
@@ -290,7 +290,7 @@ export default function HomeMadePage() {
         </div>
       </section>
 
-      {/* Pourquoi HomeMade */}
+      {/* Pourquoi OOMADE */}
       <section className="bg-muted py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
@@ -298,7 +298,7 @@ export default function HomeMadePage() {
               <p className="text-sm font-semibold uppercase tracking-widest text-accent">
                 L&apos;excellence sur mesure
               </p>
-              <SectionTitle>Pourquoi HomeMade ?</SectionTitle>
+              <SectionTitle>Pourquoi OOMADE ?</SectionTitle>
             </div>
           </ScrollReveal>
 
@@ -335,7 +335,7 @@ export default function HomeMadePage() {
                   Technologie OOMADE
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  HomeMade utilise la technologie brevet&eacute;e OOMADE
+                  OOMADE utilise la technologie brevet&eacute;e OOMADE
                   d&apos;impression 3D, d&eacute;velopp&eacute;e en partenariat avec
                   ZEISS, leader mondial de l&apos;optique de pr&eacute;cision.
                 </p>

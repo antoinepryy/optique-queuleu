@@ -15,7 +15,7 @@ const navigation = [
 
 const services = [
   { name: "Vision Minute", href: "/vision-minute", description: "Monture 3D en 15 min" },
-  { name: "HomeMade", href: "/homemade", description: "Monture sur mesure OOMADE" },
+  { name: "OOMADE", href: "/oomade", description: "Monture sur mesure 3D" },
 ];
 
 export default function Header() {
