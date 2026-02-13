@@ -55,7 +55,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Adresse */}
+          {/* Col 2: Adresse + Services */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-accent">
               Adresse
@@ -68,6 +68,28 @@ export default function Footer() {
             <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-primary">
               Parking gratuit
             </p>
+
+            <h3 className="mt-6 text-sm font-bold uppercase tracking-wider text-accent">
+              Services
+            </h3>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <Link
+                  href="/vision-minute"
+                  className="text-sm text-foreground/80 transition-colors hover:text-primary"
+                >
+                  Vision Minute
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/homemade"
+                  className="text-sm text-foreground/80 transition-colors hover:text-primary"
+                >
+                  HomeMade
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Col 3: Horaires */}
