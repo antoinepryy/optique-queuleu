@@ -89,6 +89,14 @@ export default function Footer() {
                   OOMADE
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/prescription-48h"
+                  className="text-sm text-foreground/80 transition-colors hover:text-primary"
+                >
+                  Prescription 48h
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
+import { articles } from "./articles-data";
 
 export const metadata: Metadata = {
   title: "Blog Optique Metz | Conseils Lunettes & Actualités | Optique Queuleu",
@@ -18,91 +18,6 @@ export const metadata: Metadata = {
     siteName: "Optique Queuleu",
   },
 };
-
-const articles = [
-  {
-    title:
-      "Nouvelle façade, nouvelles collections : découvrez Optique Queuleu autrement",
-    date: "11 septembre 2025",
-    dateISO: "2025-09-11",
-    excerpt:
-      "Optique Queuleu fait peau neuve ! Nouvelle façade, nouvel accès… et surtout de nouvelles collections exclusives : Eleven Paris pour les ados, Star Wars, Barbie et Tête à Lunettes pour les enfants...",
-    image: "/images/boutique/facade.jpg",
-    imageAlt:
-      "Nouvelle façade du magasin Optique Queuleu à Metz après rénovation",
-  },
-  {
-    title: "Vos ordonnances en 48h avec Lyleoo",
-    date: "30 juin 2025",
-    dateISO: "2025-06-30",
-    excerpt:
-      "Vous avez besoin de lunettes ou de lentilles, mais pas de rendez-vous chez l'ophtalmo avant des semaines ? Avec Lyleoo, notre partenaire télé-ophtalmologie, obtenez votre prescription en 48h.",
-    image: "/images/boutique/optique.jpg",
-    imageAlt:
-      "Service télé-ophtalmologie Lyleoo chez Optique Queuleu Metz pour ordonnances rapides",
-  },
-  {
-    title: "Soldes d'été 2025",
-    date: "25 juin 2025",
-    dateISO: "2025-06-25",
-    excerpt:
-      "Semaines privilèges chez Optique Queuleu ! Du 25 juin au 22 juillet 2025 : jusqu'à -50% sur une sélection de montures, 2e paire à -50% ou offerte, examen de vue offert...",
-    image: "/images/produits/collection.jpg",
-    imageAlt:
-      "Soldes d'été 2025 Optique Queuleu Metz : promotions montures lunettes",
-  },
-  {
-    title:
-      "Impression 3D de pièces de lunettes à Metz – Optique Queuleu innove avec OOMADE",
-    date: "23 juin 2025",
-    dateISO: "2025-06-23",
-    excerpt:
-      "Une branche cassée ? Une pièce introuvable ? Ce n'est plus une fatalité. On recrée la pièce manquante en boutique grâce à l'impression 3D, en moins de 15 minutes.",
-    image: "/images/boutique/interieur-4.jpg",
-    imageAlt:
-      "Service impression 3D OOMADE pour réparation lunettes Optique Queuleu Metz",
-  },
-  {
-    title: "Découvrez nos dernières collections",
-    date: "6 décembre 2024",
-    dateISO: "2024-12-06",
-    excerpt:
-      "TALLA : la perfection du design minimaliste. La marque TALLA se distingue par ses designs épurés et modernes. Conçues pour ceux qui recherchent des lunettes élégantes et fonctionnelles...",
-    image: "/images/produits/talla.jpg",
-    imageAlt: "Collection lunettes TALLA design minimaliste chez Optique Queuleu Metz",
-  },
-  {
-    title:
-      "Le masque de ski Izipizi : l'accessoire mode incontournable",
-    date: "6 décembre 2024",
-    dateISO: "2024-12-06",
-    excerpt:
-      "Les fêtes de Noël approchent, et si vous cherchez le cadeau parfait pour un amateur de ski, nous avons la solution ! Le masque de ski Izipizi allie style et performance.",
-    image: "/images/produits/izipizi-ski.jpg",
-    imageAlt:
-      "Masque de ski Izipizi disponible chez Optique Queuleu Metz pour Noël",
-  },
-  {
-    title: "Où trouver des lunettes Moscot à Metz ?",
-    date: "6 décembre 2024",
-    dateISO: "2024-12-06",
-    excerpt:
-      "Les lunettes sont bien plus qu'un simple accessoire. Si vous êtes à la recherche d'une paire intemporelle, les lunettes Moscot sont le choix idéal.",
-    image: "/images/produits/moscot-miltzen.jpg",
-    imageAlt:
-      "Lunettes Moscot Miltzen disponibles chez Optique Queuleu opticien à Metz",
-  },
-  {
-    title: "Découvrez Kaleos : L'Essence de l'Art Lunetier",
-    date: "22 mai 2024",
-    dateISO: "2024-05-22",
-    excerpt:
-      "Bienvenue chez Kaleos, la marque espagnole qui révolutionne l'univers de la lunetterie avec des créations où l'art, la mode et la qualité se rencontrent.",
-    image: "/images/produits/galerie.jpg",
-    imageAlt:
-      "Collection lunettes Kaleos espagnole créative chez Optique Queuleu Metz",
-  },
-];
 
 export default function BlogPage() {
   // Schema.org Blog structured data
@@ -131,6 +46,7 @@ export default function BlogPage() {
       datePublished: article.dateISO,
       description: article.excerpt,
       image: `https://www.optiquequeuleu.com${article.image}`,
+      url: `https://www.optiquequeuleu.com/blog/${article.slug}`,
       author: {
         "@type": "Organization",
         name: "Optique Queuleu",
@@ -182,44 +98,65 @@ export default function BlogPage() {
           <ScrollReveal className="stagger-children">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {articles.map((article, index) => (
-                <article
-                  key={article.title}
-                  className="group overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all hover:shadow-lg"
-                  itemScope
-                  itemType="https://schema.org/BlogPosting"
+                <Link
+                  key={article.slug}
+                  href={`/blog/${article.slug}`}
+                  className="group"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={article.image}
-                      alt={article.imageAlt}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      loading={index < 3 ? "eager" : "lazy"}
-                      itemProp="image"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <time
-                      className="text-xs font-medium uppercase tracking-wider text-primary"
-                      dateTime={article.dateISO}
-                      itemProp="datePublished"
-                    >
-                      {article.date}
-                    </time>
-                    <h2
-                      className="mt-2 text-lg font-semibold leading-snug text-foreground"
-                      itemProp="headline"
-                    >
-                      {article.title}
-                    </h2>
-                    <p
-                      className="mt-3 text-sm leading-relaxed text-muted-foreground"
-                      itemProp="description"
-                    >
-                      {article.excerpt}
-                    </p>
-                  </div>
-                </article>
+                  <article
+                    className="h-full overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg group-hover:border-primary/20"
+                    itemScope
+                    itemType="https://schema.org/BlogPosting"
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src={article.image}
+                        alt={article.imageAlt}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading={index < 3 ? "eager" : "lazy"}
+                        itemProp="image"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <time
+                        className="text-xs font-medium uppercase tracking-wider text-primary"
+                        dateTime={article.dateISO}
+                        itemProp="datePublished"
+                      >
+                        {article.date}
+                      </time>
+                      <h2
+                        className="mt-2 text-lg font-semibold leading-snug text-foreground group-hover:text-primary transition-colors duration-300"
+                        itemProp="headline"
+                      >
+                        {article.title}
+                      </h2>
+                      <p
+                        className="mt-3 text-sm leading-relaxed text-muted-foreground"
+                        itemProp="description"
+                      >
+                        {article.excerpt}
+                      </p>
+                      <span className="mt-4 inline-flex items-center text-sm font-medium text-primary">
+                        Lire l&apos;article
+                        <svg
+                          className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </article>
+                </Link>
               ))}
             </div>
           </ScrollReveal>

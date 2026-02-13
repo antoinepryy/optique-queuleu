@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
+import Testimonials from "@/components/Testimonials";
 
 export const metadata: Metadata = {
   title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
@@ -431,6 +432,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ═══ Témoignages ═══ */}
+      <Testimonials />
 
       {/* ═══ Contact ═══ */}
       <section className="bg-white py-28" aria-labelledby="contact-heading">
