@@ -5,9 +5,43 @@ import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Vision Minute",
+  title: "Vision Minute Metz | Monture de Remplacement en 15 Minutes | OOMADE",
   description:
-    "Service OOMADE d'impression 3D de monture de remplacement. Monture cassée ? Repartez en 15 minutes avec une monture imprimée en 3D. Gratuit chez Optique Queuleu.",
+    "Monture cassée à Metz ? Vision Minute OOMADE : impression 3D de lunettes de remplacement en 15 minutes chrono. Service gratuit, écologique et rapide chez Optique Queuleu.",
+  keywords: [
+    "vision minute metz",
+    "monture remplacement rapide",
+    "impression 3D lunettes",
+    "OOMADE metz",
+    "lunettes 15 minutes",
+    "monture cassée urgence",
+    "opticien express metz",
+    "réparation lunettes rapide",
+  ],
+  openGraph: {
+    title: "Vision Minute Metz | Monture en 15 Minutes | OOMADE",
+    description:
+      "Monture cassée ? Repartez en 15 minutes avec une monture imprimée en 3D. Service OOMADE gratuit et écologique à Metz.",
+    url: "https://www.optiquequeuleu.com/vision-minute",
+    siteName: "Optique Queuleu",
+    locale: "fr_FR",
+    type: "website",
+    images: [
+      {
+        url: "/images/produits/oomade.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Service Vision Minute OOMADE - Impression 3D de montures",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vision Minute Metz | Monture en 15 Minutes",
+    description:
+      "Monture cassée ? Impression 3D en 15 minutes chez Optique Queuleu.",
+    images: ["/images/produits/oomade.jpg"],
+  },
 };
 
 const etapes = [
@@ -127,37 +161,79 @@ const casUsage = [
 export default function VisionMinutePage() {
   return (
     <>
+      {/* JSON-LD Schema.org */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Vision Minute OOMADE",
+            "description": "Service d'impression 3D de montures de remplacement en 15 minutes. Gratuit, rapide et écologique.",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Optique Queuleu",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "65 Rue Mazelle",
+                "addressLocality": "Metz",
+                "postalCode": "57000",
+                "addressCountry": "FR",
+              },
+              "telephone": "+33387373036",
+              "url": "https://www.optiquequeuleu.com",
+            },
+            "serviceType": "Réparation express de lunettes",
+            "areaServed": {
+              "@type": "City",
+              "name": "Metz",
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR",
+              "description": "Service gratuit de remplacement de monture par impression 3D",
+            },
+            "duration": "PT15M",
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "serviceUrl": "https://www.doctolib.fr/opticien/metz/optique-queuleu",
+            },
+          }),
+        }}
+      />
+
       {/* Hero Banner */}
-      <section className="relative flex h-64 items-center pt-20 sm:h-80">
+      <section className="relative flex h-64 items-center pt-20 sm:h-80" aria-label="Bannière Vision Minute">
         <Image
           src="/images/produits/oomade.jpg"
-          alt="Vision Minute - Impression 3D de montures"
+          alt="Machine OOMADE d'impression 3D de montures de lunettes en magasin à Metz"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
           <h1 className="text-4xl font-bold uppercase tracking-[0.15em] text-white sm:text-5xl">
             Vision Minute
           </h1>
-          <nav className="mt-4 text-sm text-white/70">
+          <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-white">
               Accueil
             </Link>
-            <span className="mx-2">&gt;</span>
+            <span className="mx-2" aria-hidden="true">&gt;</span>
             <span className="text-white">Vision Minute</span>
           </nav>
         </div>
       </section>
 
       {/* Impact Banner */}
-      <section className="bg-primary py-10">
+      <section className="bg-primary py-10" aria-labelledby="impact-heading">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <p className="text-6xl font-extrabold text-white sm:text-7xl">
+          <p className="text-6xl font-extrabold text-white sm:text-7xl" aria-label="15 minutes">
             15<span className="text-3xl sm:text-4xl"> min</span>
           </p>
-          <p className="mt-2 text-lg font-semibold uppercase tracking-widest text-white/90">
+          <p id="impact-heading" className="mt-2 text-lg font-semibold uppercase tracking-widest text-white/90">
             chrono pour repartir avec vos lunettes
           </p>
           <p className="mt-1 text-sm text-white/70">
@@ -167,17 +243,17 @@ export default function VisionMinutePage() {
       </section>
 
       {/* Introduction */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24" aria-labelledby="intro-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <p className="text-sm font-semibold uppercase tracking-widest text-accent">
                 Service exclusif OOMADE
               </p>
-              <SectionTitle>Monture cass&eacute;e ? On s&apos;en occupe.</SectionTitle>
+              <SectionTitle id="intro-heading">Monture cass&eacute;e ? On s&apos;en occupe.</SectionTitle>
               <p className="mt-6 leading-relaxed text-muted-foreground">
-                Gr&acirc;ce &agrave; la technologie OOMADE d&apos;impression 3D, nous
-                fabriquons une monture de remplacement directement en magasin. Vos
+                Gr&acirc;ce &agrave; la technologie <Link href="/oomade" className="font-semibold text-primary hover:underline">OOMADE</Link> d&apos;impression 3D, nous
+                fabriquons une monture de remplacement directement en <Link href="/magasin" className="font-semibold text-primary hover:underline">magasin</Link>. Vos
                 verres existants sont mont&eacute;s sur la nouvelle monture et vous
                 repartez en quelques minutes seulement.
               </p>
@@ -194,7 +270,7 @@ export default function VisionMinutePage() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
                   src="/images/produits/oomade.jpg"
-                  alt="Service OOMADE impression 3D"
+                  alt="Imprimante 3D OOMADE créant une monture de lunettes de remplacement en magasin"
                   fill
                   className="object-cover"
                 />
@@ -205,28 +281,30 @@ export default function VisionMinutePage() {
       </section>
 
       {/* Processus en 3 étapes */}
-      <section className="bg-muted py-24">
+      <section className="bg-muted py-24" aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
               <p className="text-sm font-semibold uppercase tracking-widest text-accent">
                 Simple et rapide
               </p>
-              <SectionTitle>Comment &ccedil;a marche ?</SectionTitle>
+              <h2 id="process-heading" className="mt-4 text-3xl font-bold uppercase tracking-wide text-foreground sm:text-4xl">
+                Comment &ccedil;a marche ?
+              </h2>
             </div>
           </ScrollReveal>
 
           <ScrollReveal className="stagger-children">
             <div className="mt-16 grid gap-8 md:grid-cols-3">
               {etapes.map((etape) => (
-                <div
+                <article
                   key={etape.numero}
                   className="card-3d rounded-2xl border border-gray-100 bg-white p-8 text-center"
                 >
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden="true">
                     {etape.icon}
                   </div>
-                  <p className="mt-4 text-3xl font-extrabold text-primary/20">
+                  <p className="mt-4 text-3xl font-extrabold text-primary/20" aria-hidden="true">
                     {etape.numero}
                   </p>
                   <h3 className="mt-2 text-lg font-bold uppercase tracking-wide text-foreground">
@@ -235,7 +313,7 @@ export default function VisionMinutePage() {
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {etape.description}
                   </p>
-                </div>
+                </article>
               ))}
             </div>
           </ScrollReveal>
@@ -243,25 +321,27 @@ export default function VisionMinutePage() {
       </section>
 
       {/* Avantages */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24" aria-labelledby="advantages-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
               <p className="text-sm font-semibold uppercase tracking-widest text-accent">
                 Pourquoi choisir Vision Minute ?
               </p>
-              <SectionTitle>Les avantages</SectionTitle>
+              <h2 id="advantages-heading" className="mt-4 text-3xl font-bold uppercase tracking-wide text-foreground sm:text-4xl">
+                Les avantages
+              </h2>
             </div>
           </ScrollReveal>
 
           <ScrollReveal className="stagger-children">
             <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {avantages.map((avantage) => (
-                <div
+                <article
                   key={avantage.titre}
                   className="card-3d rounded-2xl border border-gray-100 bg-white p-8 text-center"
                 >
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden="true">
                     {avantage.icon}
                   </div>
                   <h3 className="mt-4 text-lg font-bold uppercase tracking-wide text-foreground">
@@ -270,7 +350,7 @@ export default function VisionMinutePage() {
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {avantage.description}
                   </p>
-                </div>
+                </article>
               ))}
             </div>
           </ScrollReveal>
@@ -278,25 +358,27 @@ export default function VisionMinutePage() {
       </section>
 
       {/* C'est pour vous si... */}
-      <section className="bg-muted py-24">
+      <section className="bg-muted py-24" aria-labelledby="usecases-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
               <p className="text-sm font-semibold uppercase tracking-widest text-accent">
                 Situations d&apos;urgence
               </p>
-              <SectionTitle>C&apos;est pour vous si...</SectionTitle>
+              <h2 id="usecases-heading" className="mt-4 text-3xl font-bold uppercase tracking-wide text-foreground sm:text-4xl">
+                C&apos;est pour vous si...
+              </h2>
             </div>
           </ScrollReveal>
 
           <ScrollReveal className="stagger-children">
             <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {casUsage.map((cas) => (
-                <div
+                <article
                   key={cas.titre}
                   className="flex items-start gap-4 rounded-xl border border-gray-100 bg-white p-6"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent" aria-hidden="true">
                     {cas.icon}
                   </div>
                   <div>
@@ -305,7 +387,7 @@ export default function VisionMinutePage() {
                       {cas.description}
                     </p>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </ScrollReveal>
@@ -313,16 +395,16 @@ export default function VisionMinutePage() {
       </section>
 
       {/* Partenariat ZEISS / OOMADE */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" aria-labelledby="partners-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="flex flex-col items-center justify-center gap-8 rounded-2xl border border-gray-100 bg-muted p-8 sm:flex-row sm:gap-16">
               <div className="text-center sm:text-left">
-                <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+                <p id="partners-heading" className="text-sm font-semibold uppercase tracking-widest text-accent">
                   En partenariat avec
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  La technologie OOMADE est d&eacute;velopp&eacute;e en partenariat avec ZEISS,
+                  La technologie OOMADE est d&eacute;velopp&eacute;e en partenariat avec <Link href="/verres" className="font-semibold text-primary hover:underline">ZEISS</Link>,
                   leader mondial de l&apos;optique de pr&eacute;cision.
                 </p>
               </div>
@@ -330,17 +412,19 @@ export default function VisionMinutePage() {
                 <div className="relative h-12 w-28">
                   <Image
                     src="/images/verriers/zeiss.jpg"
-                    alt="ZEISS"
+                    alt="Logo ZEISS - Partenaire Vision Minute"
                     fill
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
                 <div className="relative h-12 w-28">
                   <Image
                     src="/images/marques/oomade.png"
-                    alt="OOMADE"
+                    alt="Logo OOMADE - Technologie d'impression 3D de montures"
                     fill
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -350,14 +434,16 @@ export default function VisionMinutePage() {
       </section>
 
       {/* CTA Doctolib */}
-      <section className="bg-muted py-24">
+      <section className="bg-muted py-24" aria-labelledby="cta-heading">
         <ScrollReveal className="reveal-scale">
           <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
-            <SectionTitle>Monture cass&eacute;e ?</SectionTitle>
+            <h2 id="cta-heading" className="text-3xl font-bold uppercase tracking-wide text-foreground sm:text-4xl">
+              Monture cass&eacute;e ?
+            </h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              Prenez rendez-vous ou passez directement en magasin. Notre
+              Prenez rendez-vous ou passez directement en <Link href="/magasin" className="font-semibold text-primary hover:underline">magasin</Link>. Notre
               &eacute;quipe vous accueille et r&eacute;alise votre monture de
-              remplacement en 15 minutes.
+              remplacement en 15 minutes. Pour toute question, n&apos;h&eacute;sitez pas &agrave; nous <Link href="/contact" className="font-semibold text-primary hover:underline">contacter</Link>.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
@@ -365,8 +451,9 @@ export default function VisionMinutePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+                aria-label="Prendre rendez-vous sur Doctolib pour Vision Minute"
               >
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Prendre RDV sur Doctolib
@@ -374,8 +461,9 @@ export default function VisionMinutePage() {
               <a
                 href="tel:+33387373036"
                 className="inline-flex items-center gap-2 rounded-full border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+                aria-label="Appeler Optique Queuleu au 03 87 37 30 36"
               >
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                 </svg>
                 03 87 37 30 36

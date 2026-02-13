@@ -6,19 +6,95 @@ import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Opticien Metz - Optique Queuleu | Prendre Rendez-vous",
   description:
-    "Pour toutes informations supplémentaires ou questions relatives à nos produits et services, contactez-nous !",
+    "Contactez votre opticien à Metz Queuleu. Prise de rendez-vous, devis lunettes et verres, parking gratuit. Optique Queuleu : 28 rue de Queuleu, 57070 Metz. Tél : 03 87 30 18 65",
+  openGraph: {
+    title: "Contact Opticien Metz - Optique Queuleu",
+    description:
+      "Contactez votre opticien à Metz Queuleu. Prise de rendez-vous, devis lunettes et verres, parking gratuit.",
+    url: "https://www.optiquequeuleu.com/contact",
+    siteName: "Optique Queuleu",
+    locale: "fr_FR",
+    type: "website",
+    images: [
+      {
+        url: "/images/boutique/contact.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact Optique Queuleu - Opticien Metz Queuleu",
+      },
+    ],
+  },
 };
 
 export default function ContactPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    mainEntity: {
+      "@type": "LocalBusiness",
+      "@id": "https://www.optiquequeuleu.com/#business",
+      name: "Optique Queuleu",
+      image: "https://www.optiquequeuleu.com/images/boutique/contact.jpg",
+      telephone: "+33387301865",
+      email: "contact@optiquequeuleu.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "28 rue de Queuleu",
+        addressLocality: "Metz",
+        postalCode: "57070",
+        addressCountry: "FR",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: "49.0953",
+        longitude: "6.1977",
+      },
+      url: "https://www.optiquequeuleu.com",
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Friday"],
+          opens: "09:00",
+          closes: "12:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Friday"],
+          opens: "14:00",
+          closes: "19:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Thursday",
+          opens: "14:00",
+          closes: "19:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Saturday",
+          opens: "09:00",
+          closes: "13:00",
+        },
+      ],
+      priceRange: "€€",
+      hasMap: "https://maps.google.com/?q=28+Rue+de+Queuleu,+57070+Metz",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero Banner */}
       <section className="relative flex h-64 items-center pt-20 sm:h-80">
         <Image
           src="/images/boutique/contact.jpg"
-          alt="Optique Queuleu - Contact"
+          alt="Contact opticien Metz - Optique Queuleu, 28 rue de Queuleu"
           fill
           className="object-cover"
           priority
@@ -28,7 +104,7 @@ export default function ContactPage() {
           <h1 className="text-4xl font-bold uppercase tracking-[0.15em] text-white sm:text-5xl">
             Prendre contact
           </h1>
-          <nav className="mt-4 text-sm text-white/70">
+          <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-white">
               Accueil
             </Link>
@@ -42,6 +118,7 @@ export default function ContactPage() {
       <section className="bg-white py-16">
         <ScrollReveal>
           <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+            <h2 className="sr-only">Votre opticien à Metz Queuleu</h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
               Optique Queuleu est là pour vous offrir une vision claire et
               précise, à chaque étape de votre parcours optique. Que vous ayez des
@@ -51,13 +128,31 @@ export default function ContactPage() {
               Notre équipe d&apos;experts se fera un plaisir de vous aider à
               trouver la solution qui correspond à vos besoins.
             </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+              <p>
+                <strong>Adresse :</strong> 28 rue de Queuleu, 57070 Metz
+              </p>
+              <p>
+                <strong>Tél :</strong>{" "}
+                <a
+                  href="tel:+33387301865"
+                  className="text-primary hover:underline"
+                  aria-label="Appeler Optique Queuleu au 03 87 30 18 65"
+                >
+                  03 87 30 18 65
+                </a>
+              </p>
+            </div>
           </div>
         </ScrollReveal>
       </section>
 
       {/* Contact section: Map + Form */}
-      <section className="bg-muted py-24">
+      <section className="bg-muted py-24" aria-labelledby="contact-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 id="contact-heading" className="sr-only">
+            Nous contacter et nous localiser
+          </h2>
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Google Maps */}
             <ScrollReveal className="reveal-left">
@@ -70,7 +165,8 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localisation Optique Queuleu"
+                  title="Carte Google Maps - Optique Queuleu, 28 rue de Queuleu, 57070 Metz"
+                  aria-label="Localisation Optique Queuleu sur Google Maps"
                 />
               </div>
             </ScrollReveal>
@@ -89,23 +185,55 @@ export default function ContactPage() {
       </section>
 
       {/* Parking */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24" aria-labelledby="parking-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <SectionTitle color="accent">Parking gratuit</SectionTitle>
+              <SectionTitle color="accent" id="parking-heading">
+                Parking gratuit
+              </SectionTitle>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 Nous disposons d&apos;un parking privé, totalement gratuit !
                 Avancez jusqu&apos;à la porte de garage, ouverture automatique.
               </p>
+              <div className="mt-6 space-y-4">
+                <p className="text-sm text-muted-foreground">
+                  <strong>Besoin d&apos;un rendez-vous ?</strong> Consultez les{" "}
+                  <Link
+                    href="/magasin"
+                    className="text-primary underline hover:text-primary/80"
+                  >
+                    horaires de notre magasin
+                  </Link>{" "}
+                  ou découvrez notre service de{" "}
+                  <Link
+                    href="/vision-minute"
+                    className="text-primary underline hover:text-primary/80"
+                  >
+                    Vision Minute
+                  </Link>
+                  .
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Vous souhaitez commander en ligne ? Visitez{" "}
+                  <Link
+                    href="/oomade"
+                    className="text-primary underline hover:text-primary/80"
+                  >
+                    notre boutique Oomade
+                  </Link>
+                  .
+                </p>
+              </div>
             </ScrollReveal>
             <ScrollReveal className="reveal-right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
                   src="/images/boutique/parking.jpg"
-                  alt="Parking privé Optique Queuleu"
+                  alt="Parking privé gratuit devant Optique Queuleu - accès automatique"
                   fill
                   className="object-cover"
+                  loading="lazy"
                 />
               </div>
             </ScrollReveal>

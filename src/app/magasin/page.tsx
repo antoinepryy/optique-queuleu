@@ -5,9 +5,44 @@ import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Magasin",
+  title: "Magasin Optique Queuleu Metz | Opticien à Queuleu | Examen de Vue Gratuit",
   description:
-    "Situé à Metz, votre magasin Optique Queuleu vous propose des services optiques sur mesure !",
+    "Opticien à Metz Queuleu : examen de vue gratuit, lunettes de vue, lentilles de contact, verres fabriqués en France. RDV jusqu'à 22h. Parking privé gratuit. 28 Rue de Queuleu, 57070 Metz.",
+  keywords: [
+    "opticien Metz",
+    "opticien Queuleu",
+    "magasin optique Metz",
+    "examen de vue gratuit Metz",
+    "lunettes Metz",
+    "lentilles de contact Metz",
+    "verres fabriqués en France",
+    "opticien frontaliers",
+    "parking privé opticien",
+  ],
+  openGraph: {
+    title: "Magasin Optique Queuleu Metz | Opticien à Queuleu",
+    description:
+      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. RDV jusqu'à 22h. Parking privé.",
+    url: "https://optiquequeuleu.com/magasin",
+    siteName: "Optique Queuleu",
+    images: [
+      {
+        url: "/images/boutique/facade.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Façade du magasin Optique Queuleu à Metz",
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Magasin Optique Queuleu Metz | Opticien à Queuleu",
+    description:
+      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. RDV jusqu'à 22h.",
+    images: ["/images/boutique/facade.jpg"],
+  },
 };
 
 const avantages = [
@@ -27,47 +62,93 @@ const avantages = [
 export default function MagasinPage() {
   return (
     <>
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Optician",
+            name: "Optique Queuleu",
+            image: "https://optiquequeuleu.com/images/boutique/facade.jpg",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "28 Rue de Queuleu",
+              addressLocality: "Metz",
+              postalCode: "57070",
+              addressCountry: "FR",
+            },
+            telephone: "+33387373036",
+            openingHours: [
+              "Mo 14:00-19:00",
+              "Tu-Fr 09:00-12:00,14:00-19:00",
+              "Sa 09:00-12:00,14:00-18:00",
+            ],
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 49.0953,
+              longitude: 6.1977,
+            },
+            url: "https://optiquequeuleu.com",
+            priceRange: "€€",
+            hasMap: "https://www.google.com/maps/place/Optique+Queuleu",
+            amenityFeature: [
+              {
+                "@type": "LocationFeatureSpecification",
+                name: "Parking privé gratuit",
+                value: true,
+              },
+              {
+                "@type": "LocationFeatureSpecification",
+                name: "Examen de vue gratuit",
+                value: true,
+              },
+            ],
+          }),
+        }}
+      />
+
       {/* Hero Banner */}
-      <section className="relative flex h-64 items-center pt-20 sm:h-80">
+      <section className="relative flex h-64 items-center pt-20 sm:h-80" aria-label="Bannière d'accueil magasin">
         <Image
           src="/images/boutique/facade.jpg"
-          alt="Magasin Optique Queuleu"
+          alt="Façade du magasin Optique Queuleu situé 28 Rue de Queuleu à Metz, opticien spécialiste lunettes et lentilles"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
           <h1 className="text-4xl font-bold uppercase tracking-[0.15em] text-white sm:text-5xl">
-            Notre magasin
+            Magasin Optique Queuleu à Metz
           </h1>
-          <nav className="mt-4 text-sm text-white/70">
+          <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-white">
               Accueil
             </Link>
-            <span className="mx-2">&gt;</span>
+            <span className="mx-2" aria-hidden="true">&gt;</span>
             <span className="text-white">Magasin</span>
           </nav>
         </div>
       </section>
 
       {/* Presentation */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24" aria-labelledby="presentation-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-start gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+              <h2 id="presentation-heading" className="text-sm font-semibold uppercase tracking-widest text-accent">
                 Vos spécialistes vous conseillent
-              </p>
+              </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 Découvrez Optique Queuleu, votre adresse incontournable pour
                 tous vos besoins en matière de vision. Implantés au
-                c&oelig;ur d&apos;un quartier dynamique, nous sommes fiers de
+                c&oelig;ur d&apos;un quartier dynamique de Metz, nous sommes fiers de
                 vous offrir une expérience optique exceptionnelle.
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
-                Que vous cherchiez des lunettes de vue, des lentilles de
-                contact, ou des lunettes de soleil tendance, notre équipe
+                Que vous cherchiez des <Link href="/marques" className="text-primary hover:underline">lunettes de vue</Link>, des <Link href="/lentilles" className="text-primary hover:underline">lentilles de
+                contact</Link>, ou des lunettes de soleil tendance, notre équipe
                 expérimentée est là pour vous guider à chaque étape. Nous
                 mettons l&apos;accent sur le service personnalisé et la
                 satisfaction du client, en combinant expertise technique avec une
@@ -75,7 +156,7 @@ export default function MagasinPage() {
                 technologies de correction visuelle de pointe.
               </p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
-                Explorez notre gamme de produits en ligne ou rendez-nous visite
+                Explorez notre gamme de <Link href="/verres" className="text-primary hover:underline">verres fabriqués en France</Link> en ligne ou rendez-nous visite
                 en magasin pour une expérience optique sur mesure. Bénéficiez de
                 notre prise de rendez-vous simple et rapide, directement sur
                 Doctolib. Choisissez un motif de consultation, une date, un
@@ -88,18 +169,42 @@ export default function MagasinPage() {
               </p>
             </ScrollReveal>
             <ScrollReveal className="reveal-right">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4" role="img" aria-label="Galerie photos du magasin Optique Queuleu">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                  <Image src="/images/boutique/magasin.jpg" alt="Magasin" fill className="object-cover" />
+                  <Image
+                    src="/images/boutique/magasin.jpg"
+                    alt="Espace d'accueil du magasin Optique Queuleu à Metz avec présentation des montures"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                  <Image src="/images/boutique/interieur-2.jpg" alt="Intérieur" fill className="object-cover" />
+                  <Image
+                    src="/images/boutique/interieur-2.jpg"
+                    alt="Intérieur moderne et chaleureux du magasin opticien Optique Queuleu"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                  <Image src="/images/boutique/interieur-3.jpg" alt="Conseil" fill className="object-cover" />
+                  <Image
+                    src="/images/boutique/interieur-3.jpg"
+                    alt="Espace de conseil personnalisé avec opticien diplômé chez Optique Queuleu Metz"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                  <Image src="/images/boutique/choix.jpg" alt="Choix" fill className="object-cover" />
+                  <Image
+                    src="/images/boutique/choix.jpg"
+                    alt="Large choix de montures de lunettes et marques disponibles chez Optique Queuleu"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </ScrollReveal>
@@ -108,21 +213,21 @@ export default function MagasinPage() {
       </section>
 
       {/* Services & Avantages */}
-      <section className="bg-muted py-24">
+      <section className="bg-muted py-24" aria-labelledby="avantages-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-accent">
                 Des services optiques sur mesure !
-              </p>
-              <SectionTitle>Les avantages Optique Queuleu</SectionTitle>
+              </h3>
+              <SectionTitle id="avantages-heading">Les avantages Optique Queuleu</SectionTitle>
             </div>
           </ScrollReveal>
 
           <ScrollReveal className="stagger-children">
-            <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="Liste des avantages du magasin">
               {avantages.map((avantage) => (
-                <div
+                <li
                   key={avantage}
                   className="flex items-center gap-3 rounded-xl border border-gray-100 bg-white p-5"
                 >
@@ -130,6 +235,7 @@ export default function MagasinPage() {
                     className="h-5 w-5 shrink-0 text-primary"
                     fill="currentColor"
                     viewBox="0 0 20 20"
+                    aria-hidden="true"
                   >
                     <path
                       fillRule="evenodd"
@@ -140,54 +246,64 @@ export default function MagasinPage() {
                   <span className="text-sm font-medium text-foreground">
                     {avantage}
                   </span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </ScrollReveal>
 
           <ScrollReveal className="stagger-children">
             <div className="mt-16 grid gap-8 md:grid-cols-3">
-              <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center">
+              <article className="rounded-2xl border border-gray-100 bg-white p-8 text-center">
+                <h3 className="sr-only">Verres fabriqués en France</h3>
                 <p className="text-muted-foreground">
                   Chez Optique Queuleu, nous sommes fiers de vous proposer une
-                  sélection exclusive de verres fabriqués en France, alliant
+                  sélection exclusive de <Link href="/verres" className="text-primary hover:underline">verres fabriqués en France</Link>, alliant
                   expertise artisanale et technologies de pointe pour une qualité
                   inégalée.
                 </p>
-              </div>
-              <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center">
+              </article>
+              <article className="rounded-2xl border border-gray-100 bg-white p-8 text-center">
+                <h3 className="sr-only">Examens de vue et services</h3>
                 <p className="text-muted-foreground">
-                  Profitez de nos examens de vue gratuits, réalisés par nos
+                  Profitez de nos <strong>examens de vue gratuits</strong>, réalisés par nos
                   opticiens expérimentés. Nous proposons également un service de
                   prêt de montures pour essayer plusieurs styles dans le confort de
                   votre foyer.
                 </p>
-              </div>
-              <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center">
+              </article>
+              <article className="rounded-2xl border border-gray-100 bg-white p-8 text-center">
+                <h3 className="sr-only">Offres et facilités de paiement</h3>
                 <p className="text-muted-foreground">
                   Une deuxième paire de lunettes à partir de seulement 1&euro;.
-                  Nous vous offrons la possibilité de payer en 3 fois sans frais.
+                  Nous vous offrons la possibilité de <strong>payer en 3 fois sans frais</strong>.
                 </p>
-              </div>
+              </article>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Parking */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24" aria-labelledby="parking-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <SectionTitle color="accent">Parking privé</SectionTitle>
+              <SectionTitle id="parking-heading" color="accent">Parking privé gratuit</SectionTitle>
               <p className="mt-6 leading-relaxed text-muted-foreground">
-                Nous disposons d&apos;un parking privé, totalement gratuit !
+                Nous disposons d&apos;un <strong>parking privé, totalement gratuit</strong> !
                 Avancez jusqu&apos;à la porte de garage, ouverture automatique.
+                Un accès facile et pratique pour votre visite chez votre opticien à Metz Queuleu.
               </p>
             </ScrollReveal>
             <ScrollReveal className="reveal-right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                <Image src="/images/boutique/parking.jpg" alt="Parking privé" fill className="object-cover" />
+                <Image
+                  src="/images/boutique/parking.jpg"
+                  alt="Parking privé gratuit avec ouverture automatique chez Optique Queuleu Metz"
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                />
               </div>
             </ScrollReveal>
           </div>
@@ -195,14 +311,14 @@ export default function MagasinPage() {
       </section>
 
       {/* Doctolib CTA */}
-      <section className="bg-muted py-24">
+      <section className="bg-muted py-24" aria-labelledby="rdv-heading">
         <ScrollReveal className="reveal-scale">
           <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
-            <SectionTitle>Prendre rendez-vous</SectionTitle>
+            <SectionTitle id="rdv-heading">Prendre rendez-vous chez votre opticien à Metz</SectionTitle>
             <p className="mt-6 leading-relaxed text-muted-foreground">
               Prenez rendez-vous en toute simplicité sur Doctolib ! Choisissez
               l&apos;heure qui vous convient parmi nos créneaux disponibles et
-              laissez-nous prendre soin de votre vision.
+              laissez-nous prendre soin de votre vision. <strong>Examen de vue gratuit</strong> sur rendez-vous.
             </p>
             <p className="mt-4 font-semibold text-primary">
               On s&apos;occupe de vous jusqu&apos;à 22h !
@@ -212,12 +328,16 @@ export default function MagasinPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+              aria-label="Prendre rendez-vous sur Doctolib pour un examen de vue chez Optique Queuleu Metz"
             >
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Prendre RDV sur Doctolib
             </a>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Vous avez des questions ? <Link href="/contact" className="text-primary hover:underline">Contactez-nous</Link> ou consultez nos <Link href="/marques" className="text-primary hover:underline">marques de lunettes</Link> et nos <Link href="/verres" className="text-primary hover:underline">verres optiques</Link>.
+            </p>
           </div>
         </ScrollReveal>
       </section>

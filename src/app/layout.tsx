@@ -12,6 +12,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://optique-queuleu.vercel.app"),
   title: {
     default: "Optique Queuleu | Votre Opticien à Metz",
     template: "%s | Optique Queuleu",

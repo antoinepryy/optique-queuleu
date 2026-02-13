@@ -1,7 +1,46 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
+
+export const metadata: Metadata = {
+  title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
+  description:
+    "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil (Ray-Ban, Gucci, Carrera), lentilles de contact, examen de vue. Verres Zeiss, Essilor, Seiko. Parking privé. RDV sur Doctolib.",
+  keywords: [
+    "opticien Metz",
+    "lunettes Metz",
+    "lentilles de contact Metz",
+    "examen de vue Metz",
+    "opticien Queuleu",
+    "Ray-Ban Metz",
+    "Gucci lunettes Metz",
+    "verres Zeiss Metz",
+    "verres Essilor Metz",
+    "opticien parking privé Metz",
+    "Doctolib opticien Metz",
+    "lunettes de vue Metz",
+    "lunettes de soleil Metz",
+  ],
+  openGraph: {
+    title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
+    description:
+      "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil, lentilles, examen de vue. Parking privé. RDV Doctolib.",
+    type: "website",
+    locale: "fr_FR",
+    url: "https://optique-queuleu.vercel.app",
+    siteName: "Optique Queuleu",
+    images: [
+      {
+        url: "https://optique-queuleu.vercel.app/images/boutique/facade.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Façade de la boutique Optique Queuleu à Metz",
+      },
+    ],
+  },
+};
 
 const marques = [
   { name: "Ray-Ban", src: "/images/marques/ray-ban.png" },
@@ -58,11 +97,77 @@ const socialImages = [
 export default function Home() {
   return (
     <>
+      {/* JSON-LD Schema.org structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Optician",
+            name: "Optique Queuleu",
+            description: "Opticien à Metz spécialisé dans les lunettes de vue, lunettes de soleil, lentilles de contact et examens de vue.",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "28 Rue de Queuleu",
+              addressLocality: "Metz",
+              postalCode: "57070",
+              addressCountry: "FR",
+            },
+            telephone: "+33387373036",
+            url: "https://optique-queuleu.vercel.app",
+            image: "https://optique-queuleu.vercel.app/images/logo/optique-queuleu.png",
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: "Monday",
+                opens: "14:00",
+                closes: "19:00",
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "09:00",
+                closes: "12:00",
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "14:00",
+                closes: "19:00",
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: "Saturday",
+                opens: "09:00",
+                closes: "12:00",
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: "Saturday",
+                opens: "14:00",
+                closes: "18:00",
+              },
+            ],
+            priceRange: "€€",
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 49.0953,
+              longitude: 6.1977,
+            },
+            sameAs: [
+              "https://www.facebook.com/optiquequeuleu",
+              "https://www.instagram.com/optiquequeuleu",
+              "https://www.doctolib.fr/opticien/metz/optique-queuleu",
+            ],
+          }),
+        }}
+      />
+
       {/* ═══ Hero ═══ */}
-      <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
+      <section className="relative flex min-h-screen items-center overflow-hidden pt-20" aria-label="Bannière d'accueil">
         <Image
           src="/images/boutique/interieur-1.jpg"
-          alt="Boutique Optique Queuleu"
+          alt="Intérieur élégant de la boutique Optique Queuleu à Metz avec exposition de lunettes de vue et lunettes de soleil"
           fill
           className="animate-hero-bg object-cover"
           priority
@@ -109,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* ═══ Collections ═══ */}
-      <section className="relative overflow-hidden bg-white py-28">
+      <section className="relative overflow-hidden bg-white py-28" aria-labelledby="collections-heading">
         <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -138,7 +243,14 @@ export default function Home() {
                     key={marque.name}
                     className="card-3d flex h-24 items-center justify-center rounded-2xl border border-gray-100 bg-white px-3 shadow-layered"
                   >
-                    <Image src={marque.src} alt={marque.name} width={100} height={50} className="h-10 w-auto max-w-[80px] object-contain" />
+                    <Image
+                      src={marque.src}
+                      alt={`Logo de la marque ${marque.name} disponible chez Optique Queuleu Metz`}
+                      width={100}
+                      height={50}
+                      className="h-10 w-auto max-w-[80px] object-contain"
+                      loading="lazy"
+                    />
                   </div>
                 ))}
               </div>
@@ -148,7 +260,7 @@ export default function Home() {
       </section>
 
       {/* ═══ Verres ═══ */}
-      <section className="relative overflow-hidden bg-muted py-28">
+      <section className="relative overflow-hidden bg-muted py-28" aria-labelledby="verres-heading">
         <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-accent/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -174,7 +286,14 @@ export default function Home() {
               <div className="grid grid-cols-3 gap-6">
                 {verriers.map((v) => (
                   <div key={v.name} className="card-3d flex flex-col items-center rounded-2xl bg-white p-8 shadow-layered">
-                    <Image src={v.src} alt={v.name} width={120} height={60} className="h-14 w-auto object-contain" />
+                    <Image
+                      src={v.src}
+                      alt={`Logo ${v.name} - Verres optiques de qualité disponibles chez Optique Queuleu Metz`}
+                      width={120}
+                      height={60}
+                      className="h-14 w-auto object-contain"
+                      loading="lazy"
+                    />
                     <span className="mt-4 text-sm font-bold uppercase tracking-wider text-foreground">{v.name}</span>
                   </div>
                 ))}
@@ -185,7 +304,7 @@ export default function Home() {
       </section>
 
       {/* ═══ Magasin ═══ */}
-      <section className="bg-white py-28">
+      <section className="bg-white py-28" aria-labelledby="magasin-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
@@ -208,10 +327,22 @@ export default function Home() {
             <ScrollReveal className="reveal-right">
               <div className="grid grid-cols-2 gap-5">
                 <div className="img-lift relative aspect-[4/3] overflow-hidden rounded-2xl shadow-layered">
-                  <Image src="/images/boutique/facade.jpg" alt="Façade" fill className="object-cover" />
+                  <Image
+                    src="/images/boutique/facade.jpg"
+                    alt="Façade de la boutique Optique Queuleu située au 28 rue de Queuleu à Metz"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="img-lift relative mt-8 aspect-[4/3] overflow-hidden rounded-2xl shadow-layered">
-                  <Image src="/images/boutique/interieur-2.jpg" alt="Intérieur" fill className="object-cover" />
+                  <Image
+                    src="/images/boutique/interieur-2.jpg"
+                    alt="Intérieur moderne et élégant du magasin Optique Queuleu avec présentoirs de lunettes"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </ScrollReveal>
@@ -220,7 +351,7 @@ export default function Home() {
       </section>
 
       {/* ═══ Services ═══ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-muted via-white to-muted py-28">
+      <section className="relative overflow-hidden bg-gradient-to-br from-muted via-white to-muted py-28" aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
@@ -239,7 +370,7 @@ export default function Home() {
           <ScrollReveal className="stagger-children">
             <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {services.map((service) => (
-                <div
+                <article
                   key={service.title}
                   className="card-3d group rounded-2xl border border-gray-100 bg-white p-8 shadow-layered"
                   style={{ perspective: "600px" }}
@@ -253,7 +384,7 @@ export default function Home() {
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                </div>
+                </article>
               ))}
             </div>
           </ScrollReveal>
@@ -261,13 +392,13 @@ export default function Home() {
       </section>
 
       {/* ═══ Doctolib ═══ */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-primary to-primary-light py-28 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-r from-primary to-primary-light py-28 text-white" aria-labelledby="doctolib-heading">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)]" />
         <div className="absolute -bottom-10 -left-10 h-60 w-60 rounded-full bg-white/5 blur-2xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <h2 className="text-4xl font-bold uppercase tracking-[0.15em] drop-shadow-md sm:text-5xl">
+              <h2 id="doctolib-heading" className="text-4xl font-bold uppercase tracking-[0.15em] drop-shadow-md sm:text-5xl">
                 Doctolib
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-white/85">
@@ -288,7 +419,13 @@ export default function Home() {
 
             <ScrollReveal className="reveal-scale">
               <div className="img-lift relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl ring-4 ring-white/20">
-                <Image src="/images/divers/doctolib.webp" alt="Doctolib" fill className="object-cover" />
+                <Image
+                  src="/images/divers/doctolib.webp"
+                  alt="Prise de rendez-vous en ligne sur Doctolib pour examen de vue chez Optique Queuleu Metz"
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                />
               </div>
             </ScrollReveal>
           </div>
@@ -296,7 +433,7 @@ export default function Home() {
       </section>
 
       {/* ═══ Contact ═══ */}
-      <section className="bg-white py-28">
+      <section className="bg-white py-28" aria-labelledby="contact-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
@@ -319,7 +456,7 @@ export default function Home() {
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2606.5!2d6.1977!3d49.0953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794dc1b16aa5555%3A0x0!2s28+Rue+de+Queuleu%2C+57070+Metz!5e0!3m2!1sfr!2sfr!4v1700000000000"
                   width="100%" height="320" style={{ border: 0 }} allowFullScreen loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade" title="Localisation Optique Queuleu"
+                  referrerPolicy="no-referrer-when-downgrade" title="Localisation Optique Queuleu sur Google Maps - 28 Rue de Queuleu, 57070 Metz"
                 />
               </div>
             </ScrollReveal>
@@ -328,7 +465,7 @@ export default function Home() {
       </section>
 
       {/* ═══ Parking Privé ═══ */}
-      <section className="relative overflow-hidden bg-muted py-28">
+      <section className="relative overflow-hidden bg-muted py-28" aria-labelledby="parking-heading">
         <div className="absolute top-10 right-1/4 h-72 w-72 rounded-full bg-accent/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -345,7 +482,13 @@ export default function Home() {
 
             <ScrollReveal className="reveal-scale">
               <div className="img-lift relative aspect-[4/3] overflow-hidden rounded-3xl shadow-layered">
-                <Image src="/images/boutique/parking.jpg" alt="Parking privé Optique Queuleu" fill className="object-cover" />
+                <Image
+                  src="/images/boutique/parking.jpg"
+                  alt="Parking privé gratuit avec ouverture automatique chez Optique Queuleu à Metz"
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                />
               </div>
             </ScrollReveal>
           </div>
@@ -353,18 +496,19 @@ export default function Home() {
       </section>
 
       {/* ═══ Prescription & Oomade ═══ */}
-      <section className="bg-white py-28">
+      <section className="bg-white py-28" aria-label="Services innovants">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal className="stagger-children">
             <div className="grid gap-8 md:grid-cols-2">
               {/* Prescription en 48h */}
-              <div className="card-3d group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-layered">
+              <article className="card-3d group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-layered">
                 <div className="relative aspect-[3/2] overflow-hidden">
                   <Image
                     src="/images/boutique/prescription.jpg"
-                    alt="Prescription lunettes et lentilles en 48h"
+                    alt="Service de prescription de lunettes et lentilles en 48h par télé-expertise avec ophtalmologiste"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-8">
@@ -384,17 +528,18 @@ export default function Home() {
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                   </Link>
                 </div>
-              </div>
+              </article>
 
               {/* Oomade – Vision Minute */}
-              <div className="card-3d group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-layered">
+              <article className="card-3d group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-layered">
                 <div className="flex aspect-[3/2] items-center justify-center bg-muted p-10">
                   <Image
                     src="/images/marques/oomade.png"
-                    alt="Logo Oomade"
+                    alt="Logo Oomade - Service d'impression 3D de montures de lunettes en 10 minutes"
                     width={400}
                     height={80}
                     className="h-auto w-full max-w-xs object-contain transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-8">
@@ -414,14 +559,14 @@ export default function Home() {
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                   </Link>
                 </div>
-              </div>
+              </article>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ═══ Réseaux sociaux ═══ */}
-      <section className="relative overflow-hidden bg-muted py-28">
+      <section className="relative overflow-hidden bg-muted py-28" aria-labelledby="social-heading">
         <div className="absolute -top-20 left-1/3 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
@@ -437,7 +582,13 @@ export default function Home() {
                   key={img.src}
                   className="img-lift group relative aspect-square overflow-hidden rounded-2xl shadow-layered"
                 >
-                  <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <Image
+                    src={img.src}
+                    alt={`${img.alt} - Collection de lunettes disponible chez Optique Queuleu Metz`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
               ))}
@@ -445,14 +596,15 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="mt-12 flex items-center justify-center gap-6">
+            <nav className="mt-12 flex items-center justify-center gap-6" aria-label="Réseaux sociaux">
               <a
                 href="https://www.facebook.com/optiquequeuleu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                aria-label="Suivez Optique Queuleu sur Facebook"
               >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
                 Facebook
               </a>
               <a
@@ -460,11 +612,12 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-pink-500/25 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                aria-label="Suivez Optique Queuleu sur Instagram"
               >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>
                 Instagram
               </a>
-            </div>
+            </nav>
           </ScrollReveal>
         </div>
       </section>
