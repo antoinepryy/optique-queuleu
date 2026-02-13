@@ -34,45 +34,89 @@ export default function MarquesPage() {
       <section className="bg-white py-16">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
           <p className="text-lg leading-relaxed text-muted-foreground">
-            D\u00E9couvrez une s\u00E9lection de montures de cr\u00E9ateurs, alliant style, confort et qualit\u00E9 visuelle. Trouvez la paire de lunettes parfaite qui exprimera votre personnalit\u00E9.
+            D&eacute;couvrez une s&eacute;lection de montures de cr&eacute;ateurs, alliant style, confort et qualit&eacute; visuelle. Trouvez la paire de lunettes parfaite qui exprimera votre personnalit&eacute;.
           </p>
         </div>
       </section>
 
-      {/* Featured Brands */}
+      {/* Featured Brands - Image-first design */}
       <section className="bg-white pb-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
-            <div className="mb-12 text-center">
+            <div className="mb-14 text-center">
               <SectionTitle color="accent">Marques du moment</SectionTitle>
-              <p className="mt-4 text-muted-foreground">Notre s\u00E9lection de marques tendance et nouveaut\u00E9s</p>
+              <p className="mt-4 text-muted-foreground">Notre s&eacute;lection de marques tendance et nouveaut&eacute;s</p>
             </div>
           </ScrollReveal>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {featuredBrands.map((brand) => (
               <ScrollReveal key={brand.slug}>
-                <div className="card-3d group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 shadow-layered">
+                <div className="group relative aspect-[3/4] overflow-hidden rounded-3xl">
+                  {/* Background image */}
+                  {brand.heroImage ? (
+                    <Image
+                      src={brand.heroImage}
+                      alt={brand.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900" />
+                  )}
+
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                  {/* Badge */}
                   {brand.badge && (
-                    <span className={`absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-semibold text-white ${
-                      brand.badge === "Tendance" ? "bg-primary" : brand.badge === "Nouveaut\u00E9" ? "bg-accent" : "bg-foreground"
+                    <span className={`absolute right-4 top-4 z-10 rounded-full px-3 py-1 text-xs font-semibold tracking-wide text-white backdrop-blur-sm ${
+                      brand.badge === "Tendance" ? "bg-primary/80" : brand.badge === "Nouveaut\u00E9" ? "bg-accent/80" : "bg-white/20"
                     }`}>{brand.badge}</span>
                   )}
-                  <span className="absolute left-4 top-4 text-lg">{brand.countryFlag}</span>
-                  <div className="flex h-20 items-center justify-center">
-                    {brand.image ? (
-                      <Image src={brand.image} alt={brand.name} width={140} height={70} className="h-16 w-auto max-w-[140px] object-contain transition-transform duration-500 group-hover:scale-110" />
-                    ) : (
-                      <span className="text-xl font-bold text-foreground">{brand.name}</span>
+
+                  {/* Country flag */}
+                  <span className="absolute left-4 top-4 z-10 text-lg drop-shadow-md">{brand.countryFlag}</span>
+
+                  {/* Content overlay at bottom */}
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-6">
+                    {/* Logo */}
+                    {brand.image && (
+                      <div className="mb-4">
+                        <Image
+                          src={brand.image}
+                          alt={brand.name}
+                          width={100}
+                          height={40}
+                          className="h-8 w-auto max-w-[100px] object-contain brightness-0 invert"
+                        />
+                      </div>
                     )}
-                  </div>
-                  <div className="mt-6 text-center">
-                    <h3 className="text-lg font-bold text-foreground">{brand.name}</h3>
+
+                    <h3 className="text-xl font-bold tracking-wide text-white">{brand.name}</h3>
+
                     {brand.description && (
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{brand.description}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-white/70 transition-all duration-500 group-hover:text-white/90">
+                        {brand.description}
+                      </p>
                     )}
+
+                    {/* Price range & tags */}
+                    <div className="mt-3 flex items-center gap-3">
+                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
+                        {brand.priceRange}
+                      </span>
+                      {brand.french && (
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
+                          Made in France
+                        </span>
+                      )}
+                    </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-primary to-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                  {/* Hover border glow */}
+                  <div className="absolute inset-0 rounded-3xl ring-1 ring-white/10 transition-all duration-500 group-hover:ring-2 group-hover:ring-primary/40" />
                 </div>
               </ScrollReveal>
             ))}
@@ -83,8 +127,8 @@ export default function MarquesPage() {
       {/* French Brands Banner */}
       <section className="bg-gradient-to-r from-primary to-primary-light py-12">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <p className="text-lg font-semibold text-white">{"\uD83C\uDDEB\uD83C\uDDF7"} Plus de 30 marques fran\u00E7aises dans notre collection</p>
-          <p className="mt-2 text-sm text-white/80">Nous privil\u00E9gions les cr\u00E9ateurs fran\u00E7ais pour leur savoir-faire et leur originalit\u00E9</p>
+          <p className="text-lg font-semibold text-white">{"\uD83C\uDDEB\uD83C\uDDF7"} Plus de 30 marques fran&ccedil;aises dans notre collection</p>
+          <p className="mt-2 text-sm text-white/80">Nous privil&eacute;gions les cr&eacute;ateurs fran&ccedil;ais pour leur savoir-faire et leur originalit&eacute;</p>
         </div>
       </section>
 

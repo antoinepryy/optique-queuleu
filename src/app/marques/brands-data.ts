@@ -12,6 +12,7 @@ export interface Brand {
   name: string;
   slug: string;
   image: string | null;
+  heroImage?: string;
   country: string;
   countryFlag: string;
   priceRange: PriceRange;
@@ -84,6 +85,7 @@ export const brands: Brand[] = [
     name: "MOSCOT Eyewear",
     slug: "moscot-eyewear",
     image: "/images/marques/moscot.jpg",
+    heroImage: "/images/produits/moscot-miltzen.jpg",
     country: "USA",
     countryFlag: "\uD83C\uDDFA\uD83C\uDDF8",
     priceRange: "\u20AC\u20AC\u20AC",
@@ -410,6 +412,7 @@ export const brands: Brand[] = [
     name: "Friendly Frenchy",
     slug: "friendly-frenchy",
     image: "/images/marques/friendly-frenchy.jpg",
+    heroImage: "/images/produits/friendly-frenchy.jpg",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
     priceRange: "\u20AC",
@@ -463,6 +466,7 @@ export const brands: Brand[] = [
     name: "La Brique & la Violette",
     slug: "la-brique-et-la-violette",
     image: "/images/marques/la-brique-et-la-violette.png",
+    heroImage: "/images/produits/collection.jpg",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
     priceRange: "\u20AC\u20AC",
@@ -492,6 +496,7 @@ export const brands: Brand[] = [
     name: "Etnia Barcelona",
     slug: "etnia-barcelona",
     image: "/images/marques/etnia-barcelona.jpg",
+    heroImage: "/images/produits/etnia-barcelona.jpg",
     country: "Espagne",
     countryFlag: "\uD83C\uDDEA\uD83C\uDDF8",
     priceRange: "\u20AC\u20AC\u20AC",
@@ -517,6 +522,7 @@ export const brands: Brand[] = [
     name: "Kaleos",
     slug: "kaleos",
     image: "/images/marques/kaleos.jpg",
+    heroImage: "/images/produits/kaleos.jpg",
     country: "Espagne",
     countryFlag: "\uD83C\uDDEA\uD83C\uDDF8",
     priceRange: "\u20AC\u20AC\u20AC",
@@ -566,6 +572,7 @@ export const brands: Brand[] = [
     name: "Veronika Wildgruber",
     slug: "veronika-wildgruber",
     image: "/images/marques/veronika-wildgruber.png",
+    heroImage: "/images/boutique/veronika.png",
     country: "Allemagne",
     countryFlag: "\uD83C\uDDE9\uD83C\uDDEA",
     priceRange: "\u20AC\u20AC\u20AC",
