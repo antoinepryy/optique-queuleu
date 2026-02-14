@@ -16,6 +16,21 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://www.optiquequeuleu.com/blog",
     siteName: "Optique Queuleu",
+    images: [
+      {
+        url: "/images/boutique/facade.webp",
+        width: 1200,
+        height: 630,
+        alt: "Blog Optique Queuleu - Opticien à Metz",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog Optique Metz | Conseils Lunettes & Actualités | Optique Queuleu",
+    description:
+      "Découvrez les actualités, conseils et tendances lunettes sur le blog d'Optique Queuleu à Metz.",
+    images: ["/images/boutique/facade.webp"],
   },
 };
 
@@ -31,10 +46,10 @@ export default function BlogPage() {
     publisher: {
       "@type": "LocalBusiness",
       name: "Optique Queuleu",
-      image: "https://www.optiquequeuleu.com/images/boutique/facade.jpg",
+      image: "https://www.optiquequeuleu.com/images/boutique/facade.webp",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "7 Rue Queuleu",
+        streetAddress: "28 Rue de Queuleu",
         addressLocality: "Metz",
         postalCode: "57070",
         addressCountry: "FR",
@@ -68,7 +83,7 @@ export default function BlogPage() {
         aria-label="En-tête du blog"
       >
         <Image
-          src="/images/boutique/interieur-1.jpg"
+          src="/images/boutique/interieur-1.webp"
           alt="Intérieur moderne du magasin Optique Queuleu à Metz"
           fill
           className="object-cover"

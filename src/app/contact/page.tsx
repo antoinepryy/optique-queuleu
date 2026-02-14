@@ -8,7 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Contact Opticien Metz - Optique Queuleu | Prendre Rendez-vous",
   description:
-    "Contactez votre opticien à Metz Queuleu. Prise de rendez-vous, devis lunettes et verres, parking gratuit. Optique Queuleu : 28 rue de Queuleu, 57070 Metz. Tél : 03 87 30 18 65",
+    "Contactez votre opticien à Metz Queuleu. Prise de rendez-vous, devis lunettes et verres, parking gratuit. Optique Queuleu : 28 rue de Queuleu, 57070 Metz. Tél : 03 87 37 30 36",
   openGraph: {
     title: "Contact Opticien Metz - Optique Queuleu",
     description:
@@ -19,12 +19,19 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/boutique/contact.jpg",
+        url: "/images/boutique/contact.webp",
         width: 1200,
         height: 630,
         alt: "Contact Optique Queuleu - Opticien Metz Queuleu",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Opticien Metz - Optique Queuleu",
+    description:
+      "Contactez votre opticien à Metz Queuleu. Prise de rendez-vous, devis lunettes et verres, parking gratuit.",
+    images: ["/images/boutique/contact.webp"],
   },
 };
 
@@ -36,8 +43,8 @@ export default function ContactPage() {
       "@type": "LocalBusiness",
       "@id": "https://www.optiquequeuleu.com/#business",
       name: "Optique Queuleu",
-      image: "https://www.optiquequeuleu.com/images/boutique/contact.jpg",
-      telephone: "+33387301865",
+      image: "https://www.optiquequeuleu.com/images/boutique/contact.webp",
+      telephone: "+33387373036",
       email: "contact@optiquequeuleu.com",
       address: {
         "@type": "PostalAddress",
@@ -93,7 +100,7 @@ export default function ContactPage() {
       {/* Hero Banner */}
       <section className="relative flex h-64 items-center pt-20 sm:h-80">
         <Image
-          src="/images/boutique/contact.jpg"
+          src="/images/boutique/contact.webp"
           alt="Contact opticien Metz - Optique Queuleu, 28 rue de Queuleu"
           fill
           className="object-cover"
@@ -135,11 +142,11 @@ export default function ContactPage() {
               <p>
                 <strong>Tél :</strong>{" "}
                 <a
-                  href="tel:+33387301865"
+                  href="tel:+33387373036"
                   className="text-primary hover:underline"
-                  aria-label="Appeler Optique Queuleu au 03 87 30 18 65"
+                  aria-label="Appeler Optique Queuleu au 03 87 37 30 36"
                 >
-                  03 87 30 18 65
+                  03 87 37 30 36
                 </a>
               </p>
             </div>
@@ -229,7 +236,7 @@ export default function ContactPage() {
             <ScrollReveal className="reveal-right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/boutique/parking.jpg"
+                  src="/images/boutique/parking.webp"
                   alt="Parking privé gratuit devant Optique Queuleu - accès automatique"
                   fill
                   className="object-cover"

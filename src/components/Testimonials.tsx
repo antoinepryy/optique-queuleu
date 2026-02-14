@@ -6,45 +6,45 @@ const GOOGLE_MAPS_URL =
 
 const reviews = [
   {
-    name: "Sophie L.",
+    name: "Tony",
     rating: 5,
-    text: "Très beau magasin et très professionnel. Romain a pris le temps de me conseiller avec beaucoup d'attention. Un très bon choix de montures, je recommande vivement !",
-    date: "Il y a 2 mois",
-  },
-  {
-    name: "Marc D.",
-    rating: 5,
-    text: "Excellent opticien, à l'écoute de mes problèmes de vue et prêt à les résoudre rapidement. Grand choix de lunettes de qualité et originales. Très bon accueil.",
-    date: "Il y a 3 mois",
-  },
-  {
-    name: "Camille R.",
-    rating: 5,
-    text: "Équipe au top ! Conseils personnalisés et un large choix de marques. Mes nouvelles lunettes sont parfaites. Le parking privé est un vrai plus.",
-    date: "Il y a 4 mois",
-  },
-  {
-    name: "Thomas B.",
-    rating: 5,
-    text: "Service impeccable du début à la fin. L'adaptation de mes lentilles a été faite avec beaucoup de soin. Prix très attractifs pour la qualité proposée.",
+    text: "Excellente boutique ! Le personnel est à la fois agréable et de très bon conseil. On y trouve de superbes lunettes, difficiles à dénicher chez d'autres opticiens.",
     date: "Il y a 5 mois",
   },
   {
-    name: "Nathalie P.",
+    name: "Quentin M.",
     rating: 5,
-    text: "Je suis cliente depuis plusieurs années et la qualité de service est toujours au rendez-vous. Des conseils avisés et une équipe vraiment sympathique.",
-    date: "Il y a 6 mois",
+    text: "Je recommande vivement Romain pour son professionnalisme et son accueil chaleureux ! Il prend le temps d'écouter ses clients et de conseiller les meilleures options adaptées à leurs besoins.",
+    date: "Il y a 1 an",
   },
   {
-    name: "Julien M.",
+    name: "Noémie S.",
     rating: 5,
-    text: "Montures tendance et verres de grande qualité. Le service de prescription en 48h est vraiment pratique. Je recommande les yeux fermés !",
-    date: "Il y a 8 mois",
+    text: "Un grand merci à Romain, à Eric et plus généralement à l'ensemble de cette super équipe pour leur avis, accompagnement et professionnalisme dans le choix de cette première monture !",
+    date: "Il y a 1 an",
+  },
+  {
+    name: "Morgane P.",
+    rating: 5,
+    text: "Cliente depuis plusieurs années je recommande Optique Queuleu à 100%. Service et conseil de qualité. Très beau choix de monture et avec des marques que l'on ne trouve pas partout.",
+    date: "Il y a 1 an",
+  },
+  {
+    name: "Quentin K.",
+    rating: 5,
+    text: "Boutique avec un large choix de montures variées et originales. L'équipe est au petit soin avec sa clientèle et est surtout d'excellent conseil. Je recommande très chaudement !",
+    date: "Il y a 1 an",
+  },
+  {
+    name: "Sarah G.",
+    rating: 5,
+    text: "Optique Queuleu bénéficie d'une équipe à la fois compétente et chaleureuse. J'ai choisi mes nouvelles montures avec plaisir, grâce à leur large sélection. Au plaisir de revenir !",
+    date: "Il y a 1 an",
   },
 ];
 
-const AVERAGE_RATING = 5.0;
-const TOTAL_REVIEWS = 47;
+const AVERAGE_RATING = 4.8;
+const TOTAL_REVIEWS = 62;
 
 function StarIcon({ filled }: { filled: boolean }) {
   return (

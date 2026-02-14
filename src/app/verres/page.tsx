@@ -235,7 +235,7 @@ export default function VerresPage() {
             <ScrollReveal className="reveal-right">
               <div className="flex items-center justify-center rounded-2xl bg-muted p-12">
                 <Image
-                  src="/images/verriers/zeiss.jpg"
+                  src="/images/verriers/zeiss.webp"
                   alt="Logo ZEISS - Verres optiques haute précision disponibles chez Optique Queuleu Metz"
                   width={300}
                   height={150}
@@ -255,7 +255,7 @@ export default function VerresPage() {
             <ScrollReveal className="reveal-left">
               <div className="flex items-center justify-center rounded-2xl bg-white p-12 lg:order-first">
                 <Image
-                  src="/images/verriers/essilor-logo.png"
+                  src="/images/verriers/essilor-logo.webp"
                   alt="Logo Essilor - Leader mondial des verres optiques - Optique Queuleu Metz"
                   width={300}
                   height={150}
@@ -325,7 +325,7 @@ export default function VerresPage() {
             <ScrollReveal className="reveal-right">
               <div className="flex items-center justify-center rounded-2xl bg-muted p-12">
                 <Image
-                  src="/images/marques/seiko.png"
+                  src="/images/marques/seiko.webp"
                   alt="Logo Seiko - Verres progressifs Made in France Origine France Garantie - Optique Queuleu Metz"
                   width={300}
                   height={150}

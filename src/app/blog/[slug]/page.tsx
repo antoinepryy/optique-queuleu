@@ -95,10 +95,10 @@ export default async function ArticlePage({
         "@type": "ImageObject",
         url: "https://www.optiquequeuleu.com/images/logo/favicon.png",
       },
-      image: "https://www.optiquequeuleu.com/images/boutique/facade.jpg",
+      image: "https://www.optiquequeuleu.com/images/boutique/facade.webp",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "7 Rue Queuleu",
+        streetAddress: "28 Rue de Queuleu",
         addressLocality: "Metz",
         postalCode: "57070",
         addressCountry: "FR",

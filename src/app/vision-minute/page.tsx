@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/produits/oomade.jpg",
+        url: "/images/produits/oomade.webp",
         width: 1200,
         height: 630,
         alt: "Service Vision Minute OOMADE - Impression 3D de montures",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Vision Minute Metz | Monture en 15 Minutes",
     description:
       "Monture cassée ? Impression 3D en 15 minutes chez Optique Queuleu.",
-    images: ["/images/produits/oomade.jpg"],
+    images: ["/images/produits/oomade.webp"],
   },
 };
 
@@ -175,9 +175,9 @@ export default function VisionMinutePage() {
               "name": "Optique Queuleu",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "65 Rue Mazelle",
+                "streetAddress": "28 Rue de Queuleu",
                 "addressLocality": "Metz",
-                "postalCode": "57000",
+                "postalCode": "57070",
                 "addressCountry": "FR",
               },
               "telephone": "+33387373036",
@@ -206,7 +206,7 @@ export default function VisionMinutePage() {
       {/* Hero Banner */}
       <section className="relative flex h-64 items-center pt-20 sm:h-80" aria-label="Bannière Vision Minute">
         <Image
-          src="/images/produits/oomade.jpg"
+          src="/images/produits/oomade.webp"
           alt="Machine OOMADE d'impression 3D de montures de lunettes en magasin à Metz"
           fill
           className="object-cover"
@@ -269,7 +269,7 @@ export default function VisionMinutePage() {
             <ScrollReveal className="reveal-right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/produits/oomade.jpg"
+                  src="/images/produits/oomade.webp"
                   alt="Imprimante 3D OOMADE créant une monture de lunettes de remplacement en magasin"
                   fill
                   className="object-cover"
@@ -411,7 +411,7 @@ export default function VisionMinutePage() {
               <div className="flex items-center gap-8">
                 <div className="relative h-12 w-28">
                   <Image
-                    src="/images/verriers/zeiss.jpg"
+                    src="/images/verriers/zeiss.webp"
                     alt="Logo ZEISS - Partenaire Vision Minute"
                     fill
                     className="object-contain"
@@ -420,7 +420,7 @@ export default function VisionMinutePage() {
                 </div>
                 <div className="relative h-12 w-28">
                   <Image
-                    src="/images/marques/oomade.png"
+                    src="/images/marques/oomade.webp"
                     alt="Logo OOMADE - Technologie d'impression 3D de montures"
                     fill
                     className="object-contain"

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.optiquequeuleu.com/images/magasin/magasin-01.jpg",
+        url: "https://www.optiquequeuleu.com/images/boutique/prescription.webp",
         width: 1200,
         height: 630,
         alt: "Bilan visuel chez Optique Queuleu Metz - Prescription en 48h",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Prescription Lunettes & Lentilles en 48h | Optique Queuleu Metz",
     description:
       "Ordonnance en 48h par tele-expertise. Bilan visuel complet chez votre opticien a Metz.",
-    images: ["/images/magasin/magasin-01.jpg"],
+    images: ["/images/boutique/prescription.webp"],
   },
 };
 

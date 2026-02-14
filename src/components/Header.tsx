@@ -11,6 +11,7 @@ const navigation = [
   { name: "Verres", href: "/verres" },
   { name: "Magasin", href: "/magasin" },
   { name: "Lentilles", href: "/lentilles" },
+  { name: "Blog", href: "/blog" },
 ];
 
 const services = [
@@ -71,7 +72,7 @@ export default function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
         <Link href="/">
           <Image
-            src="/images/logo/optique-queuleu.png"
+            src="/images/logo/optique-queuleu.webp"
             alt="Optique Queuleu"
             width={44}
             height={44}

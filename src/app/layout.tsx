@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://optique-queuleu.vercel.app"),
+  metadataBase: new URL("https://www.optiquequeuleu.com"),
   title: {
     default: "Optique Queuleu | Votre Opticien à Metz",
     template: "%s | Optique Queuleu",
@@ -28,9 +28,7 @@ export const metadata: Metadata = {
     "optique",
     "montures",
   ],
-  icons: {
-    icon: "/images/logo/favicon.png",
-  },
+  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({
@@ -41,8 +39,9 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${montserrat.variable} antialiased`}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-primary">Aller au contenu</a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <PromoBanner />
       </body>

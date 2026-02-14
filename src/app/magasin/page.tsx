@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     title: "Magasin Optique Queuleu Metz | Opticien à Queuleu",
     description:
       "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. RDV jusqu'à 22h. Parking privé.",
-    url: "https://optiquequeuleu.com/magasin",
+    url: "https://www.optiquequeuleu.com/magasin",
     siteName: "Optique Queuleu",
     images: [
       {
-        url: "/images/boutique/facade.jpg",
+        url: "/images/boutique/facade.webp",
         width: 1200,
         height: 630,
         alt: "Façade du magasin Optique Queuleu à Metz",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Magasin Optique Queuleu Metz | Opticien à Queuleu",
     description:
       "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. RDV jusqu'à 22h.",
-    images: ["/images/boutique/facade.jpg"],
+    images: ["/images/boutique/facade.webp"],
   },
 };
 
@@ -70,7 +70,7 @@ export default function MagasinPage() {
             "@context": "https://schema.org",
             "@type": "Optician",
             name: "Optique Queuleu",
-            image: "https://optiquequeuleu.com/images/boutique/facade.jpg",
+            image: "https://www.optiquequeuleu.com/images/boutique/facade.webp",
             address: {
               "@type": "PostalAddress",
               streetAddress: "28 Rue de Queuleu",
@@ -89,7 +89,7 @@ export default function MagasinPage() {
               latitude: 49.0953,
               longitude: 6.1977,
             },
-            url: "https://optiquequeuleu.com",
+            url: "https://www.optiquequeuleu.com",
             priceRange: "€€",
             hasMap: "https://www.google.com/maps/place/Optique+Queuleu",
             amenityFeature: [
@@ -111,7 +111,7 @@ export default function MagasinPage() {
       {/* Hero Banner */}
       <section className="relative flex h-64 items-center pt-20 sm:h-80" aria-label="Bannière d'accueil magasin">
         <Image
-          src="/images/boutique/facade.jpg"
+          src="/images/boutique/facade.webp"
           alt="Façade du magasin Optique Queuleu situé 28 Rue de Queuleu à Metz, opticien spécialiste lunettes et lentilles"
           fill
           className="object-cover"
@@ -172,7 +172,7 @@ export default function MagasinPage() {
               <div className="grid grid-cols-2 gap-4" role="img" aria-label="Galerie photos du magasin Optique Queuleu">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                   <Image
-                    src="/images/boutique/magasin.jpg"
+                    src="/images/boutique/magasin.webp"
                     alt="Espace d'accueil du magasin Optique Queuleu à Metz avec présentation des montures"
                     fill
                     className="object-cover"
@@ -181,7 +181,7 @@ export default function MagasinPage() {
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                   <Image
-                    src="/images/boutique/interieur-2.jpg"
+                    src="/images/boutique/interieur-2.webp"
                     alt="Intérieur moderne et chaleureux du magasin opticien Optique Queuleu"
                     fill
                     className="object-cover"
@@ -190,7 +190,7 @@ export default function MagasinPage() {
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                   <Image
-                    src="/images/boutique/interieur-3.jpg"
+                    src="/images/boutique/interieur-3.webp"
                     alt="Espace de conseil personnalisé avec opticien diplômé chez Optique Queuleu Metz"
                     fill
                     className="object-cover"
@@ -199,7 +199,7 @@ export default function MagasinPage() {
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                   <Image
-                    src="/images/boutique/choix.jpg"
+                    src="/images/boutique/choix.webp"
                     alt="Large choix de montures de lunettes et marques disponibles chez Optique Queuleu"
                     fill
                     className="object-cover"
@@ -298,7 +298,7 @@ export default function MagasinPage() {
             <ScrollReveal className="reveal-right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/boutique/parking.jpg"
+                  src="/images/boutique/parking.webp"
                   alt="Parking privé gratuit avec ouverture automatique chez Optique Queuleu Metz"
                   fill
                   className="object-cover"

@@ -30,35 +30,42 @@ export const metadata: Metadata = {
       "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil, lentilles, examen de vue. Parking privé. RDV Doctolib.",
     type: "website",
     locale: "fr_FR",
-    url: "https://optique-queuleu.vercel.app",
+    url: "https://www.optiquequeuleu.com",
     siteName: "Optique Queuleu",
     images: [
       {
-        url: "https://optique-queuleu.vercel.app/images/boutique/facade.jpg",
+        url: "https://www.optiquequeuleu.com/images/boutique/facade.webp",
         width: 1200,
         height: 630,
         alt: "Façade de la boutique Optique Queuleu à Metz",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
+    description:
+      "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil, lentilles, examen de vue. Parking privé. RDV Doctolib.",
+    images: ["https://www.optiquequeuleu.com/images/boutique/facade.webp"],
+  },
 };
 
 const marques = [
-  { name: "Ray-Ban", src: "/images/marques/ray-ban.png" },
-  { name: "Gucci", src: "/images/marques/gucci.png" },
-  { name: "Carrera", src: "/images/marques/carrera.png" },
-  { name: "Julbo", src: "/images/marques/julbo.png" },
-  { name: "Chloé", src: "/images/marques/chloe.png" },
-  { name: "Isabel Marant", src: "/images/marques/isabel-marant.png" },
-  { name: "Pierre Cardin", src: "/images/marques/pierre-cardin.png" },
-  { name: "François Pinton", src: "/images/marques/francois-pinton.png" },
-  { name: "Moscot", src: "/images/marques/moscot.jpg" },
+  { name: "Ray-Ban", src: "/images/marques/ray-ban.webp" },
+  { name: "Gucci", src: "/images/marques/gucci.webp" },
+  { name: "Carrera", src: "/images/marques/carrera.webp" },
+  { name: "Julbo", src: "/images/marques/julbo.webp" },
+  { name: "Chloé", src: "/images/marques/chloe.webp" },
+  { name: "Isabel Marant", src: "/images/marques/isabel-marant.webp" },
+  { name: "Pierre Cardin", src: "/images/marques/pierre-cardin.webp" },
+  { name: "François Pinton", src: "/images/marques/francois-pinton.webp" },
+  { name: "Moscot", src: "/images/marques/moscot.webp" },
 ];
 
 const verriers = [
-  { name: "Essilor", src: "/images/verriers/essilor-logo.png" },
-  { name: "Seiko", src: "/images/marques/seiko.png" },
-  { name: "Zeiss", src: "/images/verriers/zeiss.jpg" },
+  { name: "Essilor", src: "/images/verriers/essilor-logo.webp" },
+  { name: "Seiko", src: "/images/marques/seiko.webp" },
+  { name: "Zeiss", src: "/images/verriers/zeiss.webp" },
 ];
 
 const services = [
@@ -85,14 +92,14 @@ const services = [
 ];
 
 const socialImages = [
-  { src: "/images/produits/gigi-studios.jpg", alt: "Gigi Studios" },
-  { src: "/images/produits/gucci-campagne.jpg", alt: "Gucci campagne" },
-  { src: "/images/produits/isabel-marant-campagne.jpg", alt: "Isabel Marant" },
-  { src: "/images/produits/ray-ban-stories.jpg", alt: "Ray-Ban Stories" },
-  { src: "/images/produits/chloe-tendance.jpg", alt: "Chloé tendance" },
-  { src: "/images/produits/carrera-ducati.jpg", alt: "Carrera Ducati" },
-  { src: "/images/produits/moscot-miltzen.jpg", alt: "Moscot Miltzen" },
-  { src: "/images/produits/talla.jpg", alt: "Talla" },
+  { src: "/images/produits/gigi-studios.webp", alt: "Gigi Studios" },
+  { src: "/images/produits/gucci-campagne.webp", alt: "Gucci campagne" },
+  { src: "/images/produits/isabel-marant-campagne.webp", alt: "Isabel Marant" },
+  { src: "/images/produits/ray-ban-stories.webp", alt: "Ray-Ban Stories" },
+  { src: "/images/produits/chloe-tendance.webp", alt: "Chloé tendance" },
+  { src: "/images/produits/carrera-ducati.webp", alt: "Carrera Ducati" },
+  { src: "/images/produits/moscot-miltzen.webp", alt: "Moscot Miltzen" },
+  { src: "/images/produits/talla.webp", alt: "Talla" },
 ];
 
 export default function Home() {
@@ -115,8 +122,8 @@ export default function Home() {
               addressCountry: "FR",
             },
             telephone: "+33387373036",
-            url: "https://optique-queuleu.vercel.app",
-            image: "https://optique-queuleu.vercel.app/images/logo/optique-queuleu.png",
+            url: "https://www.optiquequeuleu.com",
+            image: "https://www.optiquequeuleu.com/images/logo/optique-queuleu.webp",
             openingHoursSpecification: [
               {
                 "@type": "OpeningHoursSpecification",
@@ -167,7 +174,7 @@ export default function Home() {
       {/* ═══ Hero ═══ */}
       <section className="relative flex min-h-screen items-center overflow-hidden pt-20" aria-label="Bannière d'accueil">
         <Image
-          src="/images/boutique/interieur-1.jpg"
+          src="/images/boutique/interieur-1.webp"
           alt="Intérieur élégant de la boutique Optique Queuleu à Metz avec exposition de lunettes de vue et lunettes de soleil"
           fill
           className="animate-hero-bg object-cover"
@@ -220,7 +227,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <SectionTitle>Collections</SectionTitle>
+              <SectionTitle id="collections-heading">Collections</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 Découvrez notre sélection de lunettes : des montures tendance et
                 originales en passant par des modèles classiques pour un look
@@ -266,7 +273,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <SectionTitle>Verres</SectionTitle>
+              <SectionTitle id="verres-heading">Verres</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 Chez Optique Queuleu, nous avons sélectionné pour vous les
                 meilleurs fournisseurs de verres optiques pour la qualité de
@@ -309,7 +316,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <SectionTitle>Magasin</SectionTitle>
+              <SectionTitle id="magasin-heading">Magasin</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 Plongez dans un monde de clarté et de style chez Optique
                 Queuleu &ndash; où la vision rencontre l&apos;élégance.
@@ -329,7 +336,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-5">
                 <div className="img-lift relative aspect-[4/3] overflow-hidden rounded-2xl shadow-layered">
                   <Image
-                    src="/images/boutique/facade.jpg"
+                    src="/images/boutique/facade.webp"
                     alt="Façade de la boutique Optique Queuleu située au 28 rue de Queuleu à Metz"
                     fill
                     className="object-cover"
@@ -338,7 +345,7 @@ export default function Home() {
                 </div>
                 <div className="img-lift relative mt-8 aspect-[4/3] overflow-hidden rounded-2xl shadow-layered">
                   <Image
-                    src="/images/boutique/interieur-2.jpg"
+                    src="/images/boutique/interieur-2.webp"
                     alt="Intérieur moderne et élégant du magasin Optique Queuleu avec présentoirs de lunettes"
                     fill
                     className="object-cover"
@@ -356,7 +363,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <SectionTitle>Services</SectionTitle>
+              <SectionTitle id="services-heading">Services</SectionTitle>
               <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">
                 Toute l&apos;équipe d&apos;Optique Queuleu est à votre
                 disposition afin de vous guider dans le choix de votre solution
@@ -441,7 +448,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <SectionTitle>Contact</SectionTitle>
+              <SectionTitle id="contact-heading">Contact</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 Vos spécialistes de l&apos;optique restent à votre écoute pour
                 toutes questions relatives aux produits ou services proposés en
@@ -474,7 +481,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <SectionTitle color="accent">Parking privé</SectionTitle>
+              <SectionTitle id="parking-heading" color="accent">Parking privé</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 Vous vous déplacez en voiture et avez du mal à trouver une place
                 de parking autour du magasin ? Nous disposons d&apos;un parking
@@ -487,7 +494,7 @@ export default function Home() {
             <ScrollReveal className="reveal-scale">
               <div className="img-lift relative aspect-[4/3] overflow-hidden rounded-3xl shadow-layered">
                 <Image
-                  src="/images/boutique/parking.jpg"
+                  src="/images/boutique/parking.webp"
                   alt="Parking privé gratuit avec ouverture automatique chez Optique Queuleu à Metz"
                   fill
                   className="object-cover"
@@ -508,7 +515,7 @@ export default function Home() {
               <article className="card-3d group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-layered">
                 <div className="relative aspect-[3/2] overflow-hidden">
                   <Image
-                    src="/images/boutique/prescription.jpg"
+                    src="/images/boutique/prescription.webp"
                     alt="Service de prescription de lunettes et lentilles en 48h par télé-expertise avec ophtalmologiste"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -525,7 +532,7 @@ export default function Home() {
                     ophtalmologiste.
                   </p>
                   <Link
-                    href="/blog"
+                    href="/prescription-48h"
                     className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary transition-all hover:gap-4"
                   >
                     Découvrir
@@ -538,7 +545,7 @@ export default function Home() {
               <article className="card-3d group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-layered">
                 <div className="flex aspect-[3/2] items-center justify-center bg-muted p-10">
                   <Image
-                    src="/images/marques/oomade.png"
+                    src="/images/marques/oomade.webp"
                     alt="Logo Oomade - Service d'impression 3D de montures de lunettes en 10 minutes"
                     width={400}
                     height={80}
@@ -556,7 +563,7 @@ export default function Home() {
                     existants.
                   </p>
                   <Link
-                    href="/blog"
+                    href="/oomade"
                     className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary transition-all hover:gap-4"
                   >
                     En savoir plus
@@ -575,7 +582,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
-              <SectionTitle>Retrouvez-nous sur les réseaux</SectionTitle>
+              <SectionTitle id="social-heading">Retrouvez-nous sur les réseaux</SectionTitle>
             </div>
           </ScrollReveal>
 

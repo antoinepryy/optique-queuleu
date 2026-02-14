@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "Optique Queuleu",
     images: [
       {
-        url: "/images/produits/lentilles.jpg",
+        url: "/images/produits/lentilles.webp",
         width: 1200,
         height: 630,
         alt: "Lentilles de contact chez Optique Queuleu à Metz",
@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     ],
     locale: "fr_FR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lentilles de Contact à Metz | Optique Queuleu",
+    description:
+      "Adaptation personnalisée de lentilles de contact à Metz. Lentilles journalières, mensuelles et rigides. Marques premium et suivi expert.",
+    images: ["/images/produits/lentilles.webp"],
   },
 };
 
@@ -50,10 +57,10 @@ export default function LentillesPage() {
             "provider": {
               "@type": "LocalBusiness",
               "name": "Optique Queuleu",
-              "image": "https://www.optiquequeuleu.com/images/produits/lentilles.jpg",
+              "image": "https://www.optiquequeuleu.com/images/produits/lentilles.webp",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "29 RueQueuleu",
+                "streetAddress": "28 Rue de Queuleu",
                 "addressLocality": "Metz",
                 "postalCode": "57070",
                 "addressCountry": "FR"
@@ -77,7 +84,7 @@ export default function LentillesPage() {
       {/* Hero Banner */}
       <section className="relative flex h-64 items-center pt-20 sm:h-80" aria-label="Bannière lentilles de contact">
         <Image
-          src="/images/produits/lentilles.jpg"
+          src="/images/produits/lentilles.webp"
           alt="Lentilles de contact souples et rigides disponibles chez Optique Queuleu à Metz"
           fill
           className="object-cover"

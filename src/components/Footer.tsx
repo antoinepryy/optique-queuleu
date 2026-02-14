@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/images/logo/optique-queuleu.png"
+                src="/images/logo/optique-queuleu.webp"
                 alt="Optique Queuleu"
                 width={36}
                 height={36}
@@ -146,15 +146,18 @@ export default function Footer() {
         <div className="mt-10 border-t border-gray-200 pt-6 text-center text-xs text-muted-foreground">
           <p>
             &copy; {new Date().getFullYear()} Optique Queuleu |{" "}
-            <Link href="/mentions-legales" className="hover:text-primary">
+            <Link
+              href="/mentions-legales"
+              className="text-muted-foreground transition-colors hover:text-primary"
+            >
               Mentions l&eacute;gales
             </Link>{" "}
             |{" "}
-            <Link href="/cookies" className="hover:text-primary">
+            <span className="text-muted-foreground">
               Gestion des cookies
-            </Link>{" "}
+            </span>{" "}
             |{" "}
-            <Link href="/plan-du-site" className="hover:text-primary">
+            <Link href="/plan-du-site" className="text-muted-foreground transition-colors hover:text-primary">
               Plan du site
             </Link>
           </p>

@@ -18,12 +18,19 @@ export const metadata: Metadata = {
     siteName: "Optique Queuleu",
     images: [
       {
-        url: "https://www.optiquequeuleu.com/images/produits/oomade.jpg",
+        url: "https://www.optiquequeuleu.com/images/produits/oomade.webp",
         width: 1200,
         height: 630,
         alt: "OOMADE impression 3D de montures chez Optique Queuleu Metz",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OOMADE Impression 3D Lunettes Metz | Réparation Monture Cassée",
+    description:
+      "Service OOMADE chez Optique Queuleu Metz : impression 3D de montures de remplacement en 15 minutes. Gratuit, écologique, primé au Silmo d'Or 2024.",
+    images: ["https://www.optiquequeuleu.com/images/produits/oomade.webp"],
   },
 };
 
@@ -128,9 +135,9 @@ export default function OomadePage() {
       "name": "Optique Queuleu",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "5 Rue du Général de Gaulle",
+        "streetAddress": "28 Rue de Queuleu",
         "addressLocality": "Metz",
-        "postalCode": "57050",
+        "postalCode": "57070",
         "addressCountry": "FR"
       },
       "telephone": "+33387373036",
@@ -160,7 +167,7 @@ export default function OomadePage() {
       {/* Hero Banner */}
       <section className="relative flex h-64 items-center pt-20 sm:h-80" aria-label="Bannière OOMADE">
         <Image
-          src="/images/produits/oomade.jpg"
+          src="/images/produits/oomade.webp"
           alt="Imprimante 3D OOMADE pour réparation de montures de lunettes cassées en magasin à Metz"
           fill
           className="object-cover"
@@ -230,7 +237,7 @@ export default function OomadePage() {
             <ScrollReveal className="reveal-right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/produits/oomade.jpg"
+                  src="/images/produits/oomade.webp"
                   alt="Machine impression 3D OOMADE en magasin opticien Metz pour dépannage monture cassée"
                   fill
                   className="object-cover"
@@ -356,7 +363,7 @@ export default function OomadePage() {
               <div className="flex flex-col items-center gap-6 rounded-2xl border border-gray-100 bg-white p-10">
                 <div className="relative h-16 w-40">
                   <Image
-                    src="/images/marques/oomade.png"
+                    src="/images/marques/oomade.webp"
                     alt="Logo OOMADE impression 3D lunettes"
                     fill
                     className="object-contain"
@@ -366,7 +373,7 @@ export default function OomadePage() {
                 <div className="h-px w-16 bg-gray-200" />
                 <div className="relative h-16 w-40">
                   <Image
-                    src="/images/verriers/zeiss.jpg"
+                    src="/images/verriers/zeiss.webp"
                     alt="Logo ZEISS partenaire OOMADE"
                     fill
                     className="object-contain"

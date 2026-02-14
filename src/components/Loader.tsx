@@ -8,8 +8,8 @@ export default function Loader() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setFadeOut(true), 1800);
-    const remove = setTimeout(() => setHidden(true), 2500);
+    const timer = setTimeout(() => setFadeOut(true), 100);
+    const remove = setTimeout(() => setHidden(true), 400);
     return () => {
       clearTimeout(timer);
       clearTimeout(remove);
@@ -20,14 +20,14 @@ export default function Loader() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-700 ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-300 ${
         fadeOut ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
       <div className="flex flex-col items-center gap-6">
         <div className="animate-loader-logo">
           <Image
-            src="/images/logo/optique-queuleu.png"
+            src="/images/logo/optique-queuleu.webp"
             alt="Optique Queuleu"
             width={100}
             height={100}

@@ -16,6 +16,21 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://www.optiquequeuleu.com/marques",
     siteName: "Optique Queuleu",
+    images: [
+      {
+        url: "/images/verriers/bandeau-marque.webp",
+        width: 1200,
+        height: 630,
+        alt: "Marques de lunettes de créateurs chez Optique Queuleu à Metz",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marques de Lunettes à Metz | +60 Créateurs & Designers",
+    description:
+      "Plus de 60 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable.",
+    images: ["/images/verriers/bandeau-marque.webp"],
   },
 };
 

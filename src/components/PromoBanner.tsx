@@ -26,7 +26,7 @@ export default function PromoBanner() {
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-3 sm:flex-row sm:justify-center sm:gap-8 sm:py-3">
           {/* Service 1: Prescription */}
           <Link
-            href="/blog"
+            href="/prescription-48h"
             className="group flex items-center gap-3 transition-opacity hover:opacity-90"
           >
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/20">
@@ -49,12 +49,12 @@ export default function PromoBanner() {
 
           {/* Service 2: Oomade */}
           <Link
-            href="/blog"
+            href="/vision-minute"
             className="group flex items-center gap-3 transition-opacity hover:opacity-90"
           >
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/20">
               <Image
-                src="/images/marques/oomade.png"
+                src="/images/marques/oomade.webp"
                 alt="Oomade"
                 width={24}
                 height={24}

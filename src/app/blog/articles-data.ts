@@ -16,7 +16,7 @@ export const articles: Article[] = [
       "Nouvelle façade, nouvelles collections : découvrez Optique Queuleu autrement",
     date: "11 septembre 2025",
     dateISO: "2025-09-11",
-    image: "/images/boutique/facade.jpg",
+    image: "/images/boutique/facade.webp",
     imageAlt:
       "Nouvelle façade du magasin Optique Queuleu à Metz après rénovation",
     excerpt:
@@ -40,7 +40,7 @@ export const articles: Article[] = [
     title: "Vos ordonnances en 48h avec Lyleoo",
     date: "30 juin 2025",
     dateISO: "2025-06-30",
-    image: "/images/boutique/optique.jpg",
+    image: "/images/boutique/optique.webp",
     imageAlt:
       "Service télé-ophtalmologie Lyleoo chez Optique Queuleu Metz pour ordonnances rapides",
     excerpt:
@@ -66,7 +66,7 @@ export const articles: Article[] = [
     title: "Soldes d'été 2025",
     date: "25 juin 2025",
     dateISO: "2025-06-25",
-    image: "/images/produits/collection.jpg",
+    image: "/images/produits/collection.webp",
     imageAlt:
       "Soldes d'été 2025 Optique Queuleu Metz : promotions montures lunettes",
     excerpt:
@@ -91,7 +91,7 @@ export const articles: Article[] = [
       "Impression 3D de pièces de lunettes à Metz – Optique Queuleu innove avec OOMADE",
     date: "23 juin 2025",
     dateISO: "2025-06-23",
-    image: "/images/boutique/interieur-4.jpg",
+    image: "/images/boutique/interieur-4.webp",
     imageAlt:
       "Service impression 3D OOMADE pour réparation lunettes Optique Queuleu Metz",
     excerpt:
@@ -115,7 +115,7 @@ export const articles: Article[] = [
     title: "Découvrez nos dernières collections",
     date: "6 décembre 2024",
     dateISO: "2024-12-06",
-    image: "/images/produits/talla.jpg",
+    image: "/images/produits/talla.webp",
     imageAlt:
       "Collection lunettes TALLA design minimaliste chez Optique Queuleu Metz",
     excerpt:
@@ -141,7 +141,7 @@ export const articles: Article[] = [
     title: "Le masque de ski Izipizi : l'accessoire mode incontournable",
     date: "6 décembre 2024",
     dateISO: "2024-12-06",
-    image: "/images/produits/izipizi-ski.jpg",
+    image: "/images/produits/izipizi-ski.webp",
     imageAlt:
       "Masque de ski Izipizi disponible chez Optique Queuleu Metz pour Noël",
     excerpt:
@@ -167,7 +167,7 @@ export const articles: Article[] = [
     title: "Où trouver des lunettes Moscot à Metz ?",
     date: "6 décembre 2024",
     dateISO: "2024-12-06",
-    image: "/images/produits/moscot-miltzen.jpg",
+    image: "/images/produits/moscot-miltzen.webp",
     imageAlt:
       "Lunettes Moscot Miltzen disponibles chez Optique Queuleu opticien à Metz",
     excerpt:
@@ -193,7 +193,7 @@ export const articles: Article[] = [
     title: "Découvrez Kaleos : L'Essence de l'Art Lunetier",
     date: "22 mai 2024",
     dateISO: "2024-05-22",
-    image: "/images/produits/galerie.jpg",
+    image: "/images/produits/galerie.webp",
     imageAlt:
       "Collection lunettes Kaleos espagnole créative chez Optique Queuleu Metz",
     excerpt:
