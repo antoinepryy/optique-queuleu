@@ -168,6 +168,17 @@ export default function MentionsLegalesPage() {
                   Suite 06-104, San Francisco, CA 94108, &Eacute;tats-Unis
                 </li>
                 <li>
+                  <strong>Contact&nbsp;:</strong>{" "}
+                  <a
+                    href="https://vercel.com/contact"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    vercel.com/contact
+                  </a>
+                </li>
+                <li>
                   <strong>Site web&nbsp;:</strong>{" "}
                   <a
                     href="https://vercel.com"
@@ -305,7 +316,40 @@ export default function MentionsLegalesPage() {
                 Les donn&eacute;es collect&eacute;es via le formulaire de
                 contact sont utilis&eacute;es uniquement pour r&eacute;pondre
                 &agrave; votre demande et assurer le suivi de la relation
-                commerciale qui peut en d&eacute;couler.
+                commerciale qui peut en d&eacute;couler. La base l&eacute;gale
+                du traitement est l&apos;ex&eacute;cution de mesures
+                pr&eacute;contractuelles prises &agrave; votre demande
+                (article 6.1.b du RGPD).
+              </p>
+
+              <h3 className="mt-6 text-lg font-semibold text-accent">
+                Sous-traitants et transferts hors UE
+              </h3>
+              <p>
+                L&apos;envoi des messages du formulaire de contact est
+                assur&eacute; par le service{" "}
+                <strong>EmailJS</strong> (EmailJS Inc., soci&eacute;t&eacute;
+                am&eacute;ricaine). Les donn&eacute;es transitent donc par des
+                serveurs situ&eacute;s aux &Eacute;tats-Unis, encadr&eacute;es
+                par les clauses contractuelles types de la Commission
+                europ&eacute;enne et le cadre{" "}
+                <em>EU&ndash;US Data Privacy Framework</em>. Plus
+                d&apos;informations&nbsp;:{" "}
+                <a
+                  href="https://www.emailjs.com/legal/privacy-policy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  politique de confidentialit&eacute; EmailJS
+                </a>
+                .
+              </p>
+              <p>
+                L&apos;h&eacute;bergement du site est assur&eacute; par{" "}
+                <strong>Vercel Inc.</strong> (&Eacute;tats-Unis), dans les
+                m&ecirc;mes conditions contractuelles de conformit&eacute;
+                RGPD.
               </p>
 
               <h3 className="mt-6 text-lg font-semibold text-accent">
@@ -492,7 +536,7 @@ export default function MentionsLegalesPage() {
           {/* Back to top / contact CTA */}
           <div className="mt-16 text-center">
             <p className="text-sm text-muted-foreground">
-              Derni&egrave;re mise &agrave; jour&nbsp;: F&eacute;vrier 2026
+              Derni&egrave;re mise &agrave; jour&nbsp;: Avril 2026
             </p>
             <Link
               href="/contact"

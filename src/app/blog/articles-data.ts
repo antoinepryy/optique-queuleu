@@ -21,7 +21,7 @@ export const articles: Article[] = [
       "Nouvelle façade du magasin Optique Queuleu à Metz après rénovation",
     excerpt:
       "Optique Queuleu fait peau neuve ! Nouvelle façade, nouvel accès… et surtout de nouvelles collections exclusives : Eleven Paris pour les ados, Star Wars, Barbie et Tête à Lunettes pour les enfants...",
-    content: `<p>Optique Queuleu fait peau neuve ! Après plusieurs semaines de travaux, notre magasin situé au 7 rue de Queuleu à Metz arbore une toute nouvelle façade, plus moderne et plus accueillante. L'entrée a été repensée pour vous offrir un accès plus confortable et une vitrine entièrement rénovée qui met en valeur nos plus belles <a href="/marques" class="text-primary hover:underline">collections de montures</a>.</p>
+    content: `<p>Optique Queuleu fait peau neuve ! Après plusieurs semaines de travaux, notre magasin situé au 28 rue de Queuleu à Metz arbore une toute nouvelle façade, plus moderne et plus accueillante. L'entrée a été repensée pour vous offrir un accès plus confortable et une vitrine entièrement rénovée qui met en valeur nos plus belles <a href="/marques" class="text-primary hover:underline">collections de montures</a>.</p>
 
 <h2 class="text-xl font-bold text-foreground mt-8 mb-4">Des collections exclusives pour toute la famille</h2>
 
@@ -83,7 +83,7 @@ export const articles: Article[] = [
 
 <p>Pour accompagner ces offres, nous offrons un <strong>examen de vue complet</strong> réalisé en magasin par notre opticien diplômé. En quelques minutes, nous vérifions votre correction actuelle et détectons toute évolution de votre vue. Si votre ordonnance est toujours valide, nous pouvons l'utiliser directement. Sinon, notre service de télé-ophtalmologie Lyleoo vous permet d'obtenir une nouvelle prescription en 48 heures.</p>
 
-<p>N'attendez pas la fin des soldes pour en profiter ! Prenez rendez-vous sur Doctolib ou rendez-vous directement dans notre <a href="/magasin" class="text-primary hover:underline">magasin au 7 rue de Queuleu à Metz</a>. Notre équipe vous accueille du mardi au samedi avec ou sans rendez-vous. Et pensez à découvrir nos <a href="/verres" class="text-primary hover:underline">verres ZEISS, Essilor et Seiko</a> pour un confort visuel optimal.</p>`,
+<p>N'attendez pas la fin des soldes pour en profiter ! Prenez rendez-vous sur Doctolib ou rendez-vous directement dans notre <a href="/magasin" class="text-primary hover:underline">magasin au 28 rue de Queuleu à Metz</a>. Notre équipe vous accueille du mardi au samedi avec ou sans rendez-vous. Et pensez à découvrir nos <a href="/verres" class="text-primary hover:underline">verres ZEISS, Essilor et Seiko</a> pour un confort visuel optimal.</p>`,
   },
   {
     slug: "impression-3d-lunettes-oomade",
@@ -186,7 +186,7 @@ export const articles: Article[] = [
 
 <p>Chez Optique Queuleu, nous proposons une <strong>sélection complète de montures Moscot</strong>, en optique comme en solaire. Notre équipe connaît parfaitement la marque et saura vous guider vers le modèle qui sublimera votre visage. Chaque monture peut être équipée de <a href="/verres" class="text-primary hover:underline">verres correcteurs ZEISS, Essilor ou Seiko</a> pour un équipement à la fois esthétique et performant.</p>
 
-<p>Pour découvrir la collection Moscot et bien d'autres <a href="/marques" class="text-primary hover:underline">marques de créateurs</a>, rendez-vous dans notre <a href="/magasin" class="text-primary hover:underline">magasin au 7 rue de Queuleu à Metz</a>. Vous pouvez également prendre rendez-vous sur Doctolib pour un essayage et un examen de vue personnalisé.</p>`,
+<p>Pour découvrir la collection Moscot et bien d'autres <a href="/marques" class="text-primary hover:underline">marques de créateurs</a>, rendez-vous dans notre <a href="/magasin" class="text-primary hover:underline">magasin au 28 rue de Queuleu à Metz</a>. Vous pouvez également prendre rendez-vous sur Doctolib pour un essayage et un examen de vue personnalisé.</p>`,
   },
   {
     slug: "decouvrez-kaleos-art-lunetier",
