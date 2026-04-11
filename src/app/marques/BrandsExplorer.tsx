@@ -214,7 +214,7 @@ function BrandCard({ brand }: { brand: Brand }) {
   const hasHero = !!brand.heroImage;
 
   // Generate descriptive alt text
-  const altText = `Lunettes ${brand.name} - ${brand.french ? 'Créateur français' : brand.country} - ${brand.categories.join(', ')} - ${brand.priceRange}`;
+  const altText = `Lunettes ${brand.name} - ${brand.french ? 'Créateur français' : brand.country} - ${brand.categories.join(', ')}`;
 
   if (hasHero) {
     return (
@@ -240,14 +240,6 @@ function BrandCard({ brand }: { brand: Brand }) {
           {getCountryCode(brand.country)}
         </span>
 
-        {/* Price pill top-left */}
-        <span
-          className="absolute left-2.5 top-2.5 z-10 rounded-full bg-black/30 px-2 py-0.5 text-[10px] font-medium text-white/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          aria-label={`Gamme de prix: ${brand.priceRange}`}
-        >
-          {brand.priceRange}
-        </span>
-
         {/* Bottom content */}
         <div className="absolute inset-x-0 bottom-0 z-10 p-3">
           <h3 className="text-base font-semibold tracking-tight text-white">{brand.name}</h3>
@@ -269,14 +261,6 @@ function BrandCard({ brand }: { brand: Brand }) {
     <article className="group relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_20px_40px_-15px_rgba(0,151,199,0.15)]">
       {/* Corner accent on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-accent/[0.03] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-      {/* Price pill */}
-      <span
-        className="absolute left-3 top-3 rounded-full bg-muted px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        aria-label={`Gamme de prix: ${brand.priceRange}`}
-      >
-        {brand.priceRange}
-      </span>
 
       {/* Country code */}
       <span

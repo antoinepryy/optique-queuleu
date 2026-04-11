@@ -191,17 +191,13 @@ export default function MarquesPage() {
                       </p>
                     )}
 
-                    {/* Price range & tags */}
-                    <div className="mt-3 flex items-center gap-3">
-                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
-                        {brand.priceRange}
-                      </span>
-                      {brand.french && (
+                    {brand.french && (
+                      <div className="mt-3">
                         <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm">
                           Made in France
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Hover border glow */}
