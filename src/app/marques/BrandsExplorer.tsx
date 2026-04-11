@@ -250,20 +250,9 @@ function BrandCard({ brand }: { brand: Brand }) {
 
         {/* Bottom content */}
         <div className="absolute inset-x-0 bottom-0 z-10 p-3">
-          {/* Logo (white) */}
-          {brand.image && (
-            <Image
-              src={brand.image}
-              alt={`Logo de la marque ${brand.name}`}
-              width={80}
-              height={32}
-              className="mb-1.5 h-6 w-auto max-w-[80px] object-contain brightness-0 invert"
-              loading="lazy"
-            />
-          )}
-          <h3 className="text-sm font-semibold text-white">{brand.name}</h3>
+          <h3 className="text-base font-semibold tracking-tight text-white">{brand.name}</h3>
           {brand.french && (
-            <p className="mt-0.5 text-[10px] font-medium text-white/60">
+            <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/70">
               Made in France
             </p>
           )}

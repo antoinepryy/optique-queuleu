@@ -183,21 +183,7 @@ export default function MarquesPage() {
 
                   {/* Content overlay at bottom */}
                   <div className="absolute inset-x-0 bottom-0 z-10 p-6">
-                    {/* Logo */}
-                    {brand.image && (
-                      <div className="mb-4">
-                        <Image
-                          src={brand.image}
-                          alt={`Logo ${brand.name}`}
-                          width={100}
-                          height={40}
-                          className="h-8 w-auto max-w-[100px] object-contain brightness-0 invert"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-
-                    <h3 className="text-xl font-bold tracking-wide text-white">{brand.name}</h3>
+                    <h3 className="text-2xl font-bold tracking-tight text-white">{brand.name}</h3>
 
                     {brand.description && (
                       <p className="mt-2 text-sm leading-relaxed text-white/70 transition-all duration-500 group-hover:text-white/90">
