@@ -73,7 +73,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC\u20AC\u20AC",
     categories: ["luxe"],
     french: true,
-    description: "Maison fran\u00E7aise fond\u00E9e en 1952, synonyme de f\u00E9minit\u00E9 boh\u00E8me chic.",
+    description: "Gaby Aghion choisit le nom Chloé pour baptiser sa marque en 1952 par rapport à sa consonance chaude et féminine. D’origine égyptienne, cette parisienne souhaitait que sa marque soit à l’image du Paris des années 50 ; jeune, moderne et plein d’audace. C’est ainsi que se définit la collection de lunettes Chloé. Les modèles sont destinés principalement aux femmes de plus de 35 ans passionnées de mode.",
   },
   {
     name: "Oliver Peoples",
@@ -85,7 +85,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC\u20AC\u20AC",
     categories: ["luxe", "createur"],
     french: false,
-    description: "Marque de luxe californienne fond\u00E9e en 1987. Esth\u00E9tique vintage raffin\u00E9e.",
+    description: "Oliver Peoples, est une grande histoire de famille. C’est l’histoire de deux frères, Larry et Dennis Light qui lors de l’achat de leur première boutique d’optique en 1986 à Hollywood, sur le mythique Sunset Boulevard, font l’acquisition d’une collection de lunettes vintage américaines des années 1940-1960 pour lancer leur magasin. Lors du déballage de la collection les deux frères y découvrent un reçu au nom d’Oliver Peoples, sans doute le dernier propriétaire ou le distributeur de ces lunettes. Ces milliers de lunettes découvertes étaient fabriquées par des fournisseurs américains, mais n’avaient encore jamais été portées. En hommage à ce signe du destin, ils décidèrent d’appeler la collection Oliver Peoples, et c’est le début de l’aventure. Cette marque vintage américaine aura su résister à toutes les modes. Actuellement cette marque de lunettes est très en vogue et branchée, la collection comprend des montures solaires mais également des lunettes de vue à accessoiriser avec des clips solaires. Tout visage a son modèle Oliver peoples qui lui convient ! Son succès a été total lorsque Andy Warhol a porté un modèle de la collection et qu’il a très vite été imité par de nombreuses stars américaines.",
   },
   {
     name: "Persol",
@@ -97,7 +97,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC\u20AC",
     categories: ["luxe"],
     french: false,
-    description: "Ic\u00F4ne du savoir-faire artisanal italien depuis 1917. C\u00E9l\u00E8bre pour sa fl\u00E8che lat\u00E9rale.",
+    description: "L’histoire de Persol commence en 1917 en Italie à Turin quand le photographe et inventeur Giuseppe Ratti crée l’entreprise « Ratti » pour fabriquer des lunettes de protection pour les pilotes (aussi bien de trams que de voitures de courses). Giuseppe Ratti veut des lunettes avant-gardistes. Il est rapidement sollicité par l’armée qui adopte le modèle « Protector ». Puis la popularité des modèles de lunettes qu’il invente s’étend auprès des civils. Elle devient internationale lorsque les starlettes et stars adoptent également ses lunettes. Riche de treize ans d’innovations, « Ratti » devient Persol en 1930. Le nom de Persol vient de la contraction des mots « per il sol », c’est-à-dire « pour le soleil ». Avant même Steve McQueen, c’est le grand Marcello Mastroianni qui a popularisé les Persol avec sa participation au film « La Dolce Vita », le légendaire film réalisé par Federico Fellini en 1960.",
   },
   {
     name: "MOSCOT Eyewear",
@@ -111,7 +111,7 @@ export const brands: Brand[] = [
     french: false,
     featured: true,
     badge: "Tendance",
-    description: "Montures iconiques new-yorkaises depuis 1915, h\u00E9ritage de cinq g\u00E9n\u00E9rations.",
+    description: "Chez Optique Queuleu à Metz, nous sommes fiers de vous présenter la marque MOSCOT EYEWEAR, menée par la famille Moscot depuis cinq générations. L’entreprise de lunettes de luxe éponyme est une incontournable de la ville de New York, et en particulier du Lower East Side. Depuis sa création, il y a plus d’un siècle, la marque s’est fait un nom et l’histoire de ses débuts ne fait qu’ajouter à sa légende.",
   },
   {
     name: "Isabel Marant",
@@ -135,7 +135,7 @@ export const brands: Brand[] = [
     categories: ["luxe", "createur"],
     french: true,
     artisanal: true,
-    description: "Maison fond\u00E9e en 1932, a habill\u00E9 Grace Kelly et Jackie Kennedy.",
+    description: "Depuis plus de 60 ans, la maison parisienne François Pinton habille le visage des stars et célébrités. Créée en 1935 par Robert Pinton, c’est son petit-fils, François, qui va lui donner ses lettres de noblesse en axant la marque sur le marché créateur. Lunettes de soleil ou lunettes de vue, les montures François Pinton ont orné les plus grands. De Grâce Kelly à Marlène Dietrich, le lunetier a su conquérir le cœur de l’élite mondaine grâce à ses modèles rétro auquel se mêle ce je-ne-sais-quoi de chic parisien. Grâce à son savoir-faire et la qualité de ses créations, François Pinton a donné à sa maison une envergure internationale ; en attestent les deux célèbres modèles Jackie O et Ona du lunetier, en référence à Jackie Kennedy et Aristote Onassis, deux des plus prestigieux clients de la marque.Et si le vintage vous fait fuir, pas de crainte ! Il y en a pour tous les goûts. Aux lunettes classiques s’ajoutent des modèles plus originaux, aux couleurs vives et aux matières novatrices, qui sauront ravir la personnalité de chacun.",
   },
   {
     name: "Pierre Cardin",
@@ -173,7 +173,7 @@ export const brands: Brand[] = [
     categories: ["createur"],
     french: true,
     artisanal: true,
-    description: "Cr\u00E9ateur avant-gardiste du Jura, propri\u00E9taire de l\u2019usine Ellaps.",
+    description: "Le nom Jean-François Rey c’est l’histoire de Joëlle et Jean-François, deux passionnés qui fondent leur marque en 1995. Les montures JF REY, sont tout d’abord un véritable travail sur les matériaux. Un assemblage minutieux de manière à proposer des produits d’une grande légèreté, élégants, faciles à porter et confortables. Les matières utilisées sont le métal, l’acétate, mais aussi le bois, le titane et le carbone. La marque dispose de sa propre usine de fabrication dans le Jura (Ellaps) qui lui permet de fabriquer ses propres produits en métal. Ils proposent également un travail très spécifique sur la couleur, qui est véritablement inscrite dans leur ADN, on trouvera dans la collection JF REY, de belles plaques d’acétates colorées.",
   },
   {
     name: "Nathalie Blanc",
@@ -185,7 +185,7 @@ export const brands: Brand[] = [
     categories: ["createur"],
     french: true,
     artisanal: true,
-    description: "Laur\u00E9ate du Silmo d\u2019Or 2018, dorure or 22 carats, verres Zeiss.",
+    description: "Audacieuse et passionnée, Nathalie Blanc est une créatrice parisienne qui met tout son esprit avant-gardiste et son talent pour créer des montures de lunettes d’exception. Depuis la naissance de sa marque, elle n’a qu’un mantra : le Made in France ! S’engageant de tout son cœur pour défendre un artisanat hexagonal d’excellence, elle choisit les meilleurs ateliers pour manufacturer ses lunettes raffinées et délicates, harmonie parfaite entre l’œil, le style et la matière : c’est en Normandie et dans le Jura, berceau de la lunetterie française, que naissent ces merveilleuses créations !",
   },
   {
     name: "Monsieur Blanc",
@@ -210,7 +210,7 @@ export const brands: Brand[] = [
     categories: ["createur"],
     french: true,
     artisanal: true,
-    description: "N\u00E9e en 1997, d\u00E9velopp\u00E9e par le studio J.F. Rey. Inspir\u00E9e de la joaillerie.",
+    description: "Fabienne Coudray-Meisel a le goût pour les belles choses. Créatrice-designer et fondatrice de la marque Volte Face, elle impose son savoir-faire très personnel dans l’univers chic et décalé des créateurs de lunettes haut de gamme. Le souci du détail et des volumes, l’alliance subtile de matières, mais aussi la maîtrise des couleurs et des formes sont tout autant d’éléments différenciateurs du style Volte Face. Reflets inédits et richesse des motifs décoratifs, effets de surfaces patinées et oxydées, collages délicats ou encore travail en volume de l’acétate distinguent le travail exceptionnel et très qualitatif des matières. Avec des nuances douces et subtilement contrastées, Volte Face s’adresse aux femmes raffinées, sensibles aux matières et aux détails, plutôt urbaines et désireuses de porter un produit chic et différent.",
   },
   {
     name: "Tarian",
@@ -223,7 +223,7 @@ export const brands: Brand[] = [
     categories: ["createur"],
     french: true,
     artisanal: true,
-    description: "Triple laur\u00E9at du Silmo d\u2019Or. Micro-\u00E9ditions limit\u00E9es \u00E0 500 paires.",
+    description: "Lunettes atypiques et élégantes Tarian Le nom de Jeremy Tarian vous dit peut-être quelque chose, et pour cause ! Celui-ci n’est rien d’autre que le fils du célèbre lunetier créateur des années 80 Alain Mikli, connu pour ses lunettes à la fois mode et fantasques. Jérémy Tarian, de nombreuses récompenses En digne successeur, Jeremy Tarian a hérité de la passion de son père pour les lunettes. Designer atypique, les modèles qu’il crée sont aussi originaux qu’élégants. Son talent a par ailleurs été récompensé plusieurs fois par le Silmo d’or, prix prestigieux décerné chaque année à Paris aux meilleurs lunetiers créateurs.",
   },
   {
     name: "Roussilhe",
@@ -261,7 +261,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC\u20AC",
     categories: ["createur"],
     french: true,
-    description: "Marque parisienne ind\u00E9pendante fond\u00E9e en 2012, luxe discret.",
+    description: "La collection de lunettes Peter and May se caractérise par son approche artisanale et son engagement envers le design et la qualité. Fondée par Laura Le Bihan et Xavier Matrand, la marque se distingue par ses créations uniques qui mêlent esthétique contemporaine et savoir-faire traditionnel. Les lunettes Peter and May sont reconnues pour leur utilisation de matériaux de haute qualité, comme l’acétate de cellulose et le métal précieux, ainsi que pour leurs finitions soignées. Chaque pièce est conçue avec une attention particulière portée aux détails, offrant une variété de formes, de couleurs et de textures pour répondre aux goûts variés des porteurs. La collection s’étend des montures classiques revisitées avec une touche moderne aux designs plus avant-gardistes, soulignant ainsi la personnalité et le style individuel. La marque se distingue également par son engagement envers la durabilité, cherchant à réduire son impact environnemental à travers des choix de production et de matériaux responsables. Peter and May s’associe à des artisans expérimentés et utilise des techniques traditionnelles pour créer des lunettes qui ne sont pas seulement belles, mais également durables et confortables à porter. En résumé, la collection de lunettes Peter and May représente un mariage réussi entre design contemporain, artisanat de qualité et responsabilité environnementale.",
   },
   {
     name: "Noego",
@@ -273,7 +273,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC\u20AC",
     categories: ["createur"],
     french: true,
-    description: "Collection avant-gardiste de Hugo Martin, plus de 20 ans de savoir-faire.",
+    description: "L’originalité jusqu’au bout du nez Noego est la collection de montures du créateur Hugo Martin, également concepteur de la marque Parasite. Les lunettes Noego sont contemporaines et sophistiquées, elles conviennent aux personnes qui ont un style original et singulier. La ligne créatrice de Noego est avant-gardiste et propose un design hors du commun, pensé avec des matériaux innovants et des couleurs inédites. La qualité de fabrication et de finition des lunettes Noego fait de ces montures un produit optique haut de gamme.",
   },
   {
     name: "Oxibis",
@@ -285,7 +285,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["createur"],
     french: true,
-    description: "Fond\u00E9e en 1992 dans le Jura, label Origine France Garantie.",
+    description: "C’est dans le bassin des lunetiers français, dans le Jura, qu’Oxibis Group® voit le jour en 1992. C’est en défendant des valeurs comme la créativité et la qualité qu’Oxibis Group® a pu se développer et s’imposer parmi les grands noms de la lunetterie. Les lunettes Oxibis® sont pétillantes et audacieuses, les couleurs sont sélectionnées avec choix pour souligner au mieux les formes des montures. Oxibis® s’inspirent des tendances actuelles et les réinterprètent. Les lunettes Oxibis®, aux couleurs dynamiques, sont le reflet de l’expertise du groupe. Les hommes et les femmes à la recherche de lunettes éclatantes, où couleurs et formes sont en parfaites harmonie trouveront leur bonheur avec les montures Oxibis®.",
   },
   {
     name: "Dilem",
@@ -296,7 +296,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["createur"],
     french: true,
-    description: "Syst\u00E8me brevet\u00E9 de branches interchangeables depuis 2006.",
+    description: "Une nouvelle philosophie : la trilogie ! 3, 2, 1… Go ! Prenant un virage à 180 degrés, la marque Dilem® voit maintenant la vie, ou plutôt ses collections, en trois dimensions. Désormais, chaque monture sera déclinée en 3 niveaux de créativité. Un concept « Show » extravagant, tiré de l’inspiration sans filtre des designers, et produit en édition limitée : l’aîné est le plus déjanté ! Dans sa lignée, des modèles « Studio », au design créatif légèrement assagi : le cadet conserve un beau brin de folie ! Derniers-nés qui ne sauraient se faire oublier, des modèles « Live ! », plus sobres, pour un look classique indémodable : tel le petit poucet, le benjamin est toujours le plus raisonnable ! Les trois premières séries, 3A, 3B et 3C laissent déjà présager du meilleur : si 3A nous ramène à la fantaisie vintage des sixties avec ses acétates sculptées, 3B sur les pas des plus grands alpinistes nous invite à escalader les glaciers… quant à 3C, il nous entraîne par un fil perpétuel dans un tourbillon chic et doré. Les quatre séries suivantes 3 E, 3F, 3G et 3H confirment la tendance : 3 E avec sa forme pilote nous conduit par-delà l’horizon, quand 3F laisse ondoyer ses volutes de métal coloré… 3G quant à elle prend des airs de boule à facette disco, et 3H jongle entre pureté et originalité avec sa visière perforée ! Une chose est sûre : vous allez les adorer ! L’ADN de Dilem® Tressant trois fils indissociables, la firme tricolore tricote un style inimitable… La liberté Des designers totalement libres de donner vie à leur imagination, sans limites. Libres de s’exprimer, de créer pour faire fleurir la diversité ! La qualité Des lunettes haut de gamme, sculptées dans des matières premières de premier choix : des montures légères et confortables que tout le monde vous enviera. Le choix Avec Dilem®, pour les porteurs aussi les options se déclinent à l’infini… Choix du modèle, bien sûr, mais également celui de le personnaliser. Avec un concept breveté de branches interchangeables à l’envi, les créations de la marque s’adaptent en un clin d’œil. Pour sortir du train-train quotidien, couleurs, motifs et matériaux se troquent sans tracas, tragédie, ni trémolos !",
   },
   {
     name: "Woow",
@@ -319,7 +319,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["createur"],
     french: true,
-    description: "Marque parisienne \u00E0 l\u2019esprit arty, inspir\u00E9e du cin\u00E9ma hollywoodien.",
+    description: "Freakshow est une marque de lunettes originale et hybride. On peut imaginer que son nom soit tiré des Freak Show Américains qui étaient au XIXème siècle des expositions d’êtres humains à l’aspect physique sortant de l’ordinaire. Côté lunettes : les modèles sont clairement inspirés du cinéma hollywoodien et de la mode rétro des années 40 à 60. De nombreuses célébrités, fans de la marque, n’hésitent pas à poser avec leurs montures originales comme par exemple l’acteur François Berléand. Freakshow a su convaincre et s’imposer dans le milieu des lunetiers créateurs grâce à des modèles atypiques et décalés.",
   },
   {
     name: "Mazette",
@@ -342,7 +342,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC",
     categories: ["createur"],
     french: true,
-    description: "Marque du Var fond\u00E9e en 2015 par un fr\u00E8re et une s\u0153ur.",
+    description: "Chez Lou Création, la famille c’est sacré ! Lou Création, c’est avant tout une histoire de famille. Forte d’une expérience traditionnelle de création optique, la marque basée à La Motte dans le Sud de la France concocte pour tous des lunettes optiques raffinées. ​ Des lunettes artisanales et originales Pour les hommes comme pour les femmes, la petite entreprise familiale propose des montures élégantes, en acétate ou en métal, qui surfent sur les tendances du moment, tout en y incorporant des coloris et des motifs originaux. Des modèles pantos jusqu’à la forme pilote, en passant par des cerclages rectangulaires ou ovales, toutes les collections de Lou Création jouent avec les modes, les couleurs et les épaisseurs, pour un résultat final équilibré, qui siéra à merveille aux personnes en quête d’originalité, en toute discrétion.",
   },
   {
     name: "Osmose",
@@ -354,7 +354,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC",
     categories: ["createur"],
     french: true,
-    description: "Con\u00E7ue en Occitanie depuis 2009, bon rapport qualit\u00E9-prix.",
+    description: "Osmose, un concept original et innovant dans le monde la lunette basé sur la découpe de verres stylisés. La marque OSMOSE se décline en 2 collections de montures percées : la collection Boréale et la collection Australe.",
   },
   {
     name: "Minima",
@@ -366,7 +366,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC\u20AC",
     categories: ["createur"],
     french: true,
-    description: "Pionni\u00E8re du titane en France depuis 1989, montures ultra-l\u00E9g\u00E8res.",
+    description: "Une philosophie de la performance Minima, cultive la différence, pointe la performance, et vise l’excellence. En un mot, la marque s’adapte en permanence. Pour repousser toujours plus les limites du possible. Pour concevoir des lunettes qui assurent le bien-être de ceux qui les portent. Toutes les collections témoignent de cette exigence constante d’innovation et de technicité, avec des lunettes aussi légères que de qualité, aussi fiables que durables. Le tout marqué du style Minima : épuré et soigné, tout “simplement” élégant. Chez Minima, il y a du choix Pour les hommes et les femmes, les lunettes rétros côtoient les colorées, les ultralight se jouent des XXL, les précieuses font de l’œil aux invisibles, le titane fait valoir son ultralégèreté, quand l’acétate révèle ses couleurs et le métal argue de sa finesse… Avec une gamme de plus d’une vingtaine de références pour adultes, en optique et en solaire, tous les styles sont chez Minima. Cette performance technique est doublée d’une esthétique et d’un design innovants.",
   },
   {
     name: "Brett Eyewear",
@@ -378,7 +378,7 @@ export const brands: Brand[] = [
     categories: ["createur"],
     french: true,
     artisanal: true,
-    description: "Marque masculine du Jura cr\u00E9\u00E9e en 2019, nomin\u00E9e 3 fois au Silmo d\u2019Or.",
+    description: "BRETT trouve son essence dans les films et séries culte des années 70. Un vent de liberté souffle sur cette période qui se traduit par l’émergence de nouveaux styles vestimentaires et musicaux. Nos modèles s’inspirent des exploits fictifs et réels des héros et pilotes légendaires qui n’hésitaient pas à casser les codes, souvent au mépris de leur vie, mais toujours avec flegme et élégance. Même si elle puise sa source d’inspiration dans le passé, notre collection s’inscrit dans le présent avec des choix en matière de design et de fabrication qui lui confèrent son propre ADN.",
   },
   {
     name: "Cl\u00E9mence et Margaux",
@@ -390,7 +390,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["createur"],
     french: true,
-    description: "Montures f\u00E9minines en ac\u00E9tate et m\u00E9tal, tradition et modernit\u00E9.",
+    description: "Née de la complicité de deux sœurs… À l’origine de cette ligne de lunettes qui sonne comme une griffe de prêt-à-porter tendance, il y a le talent et surtout la complicité de deux sœurs. L’aventure commence, en effet, le jour où Margaux, jeune femme passionnée de mode, imagine des modèles de lunettes pour Clémence qui est mal-voyante. Très vite, cette dernière apporte sa propre inspiration et participe au design : la marque Clémence & Margaux est née ! Aujourd’hui, ce duo de charme conçoit des montures à l’architecture à la fois contemporaine et rétro, où se mêlent fraicheur, glamour, fantaisie et souci du détail, celui qui fait la différence et rend unique. À travers leurs créations, Clémence et Margaux s’adressent à des femmes modernes et pleines d’esprit : des femmes qui leur ressemblent, en quelque sorte. Clémence et Margaux, les deux jeunes sœurs créatrices de la ligne éponyme, proposent des modèles de lunettes à l’esprit unique, à l’image de leur tandem. La force de cette collection de la marque CCO repose sur la complicité magique de Clémence et Margaux, mais aussi sur les domaines où les deux jeunes femmes puisent leur inspiration : la mode et le design.",
   },
   {
     name: "Ancet & Fayolle",
@@ -403,7 +403,7 @@ export const brands: Brand[] = [
     categories: ["createur"],
     french: true,
     artisanal: true,
-    description: "Marque lyonnaise n\u00E9e en 2022, montures artisanales en titane et bois.",
+    description: "Ancet & Fayolle est une marque de lunetterie française de prestige, reconnue pour son artisanat d’exception, son engagement envers la qualité et son design innovant. Chaque paire de lunettes est une œuvre d’art, fabriquée à la main à Lyon, incarnant le luxe et la sophistication à la française",
   },
   {
     name: "Plein les Mirettes",
@@ -416,7 +416,7 @@ export const brands: Brand[] = [
     categories: ["createur"],
     french: true,
     artisanal: true,
-    description: "Manufacture normande, s\u00E9ries limit\u00E9es \u00E0 75 pi\u00E8ces par couleur.",
+    description: "Fondée en 2011, la marque Plein les Mirettes revendique une fabrication exclusivement française et artisanale. Chaque monture à la fois simple et raffinée, composée d’acétate de cellulose biodégradable, doit rehausser la personnalité de chaque femme. Les détails des montures font de chaque monture un objet unique.",
   },
   {
     name: "T\u00EAte \u00E0 Lunettes",
@@ -427,7 +427,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["enfant"],
     french: true,
-    description: "Collection enfants de Caroline Abram, laur\u00E9ate du Silmo d\u2019Or enfant.",
+    description: "Tête à Lunettes fait écho à la ligne Caroline Abram dédiée aux adultes : couleurs dynamiques et acétates translucides, s’adressant aux enfants à partir de trois ou quatre ans.",
   },
   {
     name: "Charles Stone",
@@ -438,7 +438,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC",
     categories: ["tendance"],
     french: false,
-    description: "Design r\u00E9tro urbain new-yorkais, couleurs vibrantes \u00E0 prix abordable.",
+    description: "Découvrez désormais en France les collections William Morris et Charles Stone New York qui sont déjà présentent dans 40 pays William Morris Depuis le 1er septembre 2015, la marque est arrivée en France pour vous présenter les nouvelles lignes de la marque anglaise créée par Robert Morris en 1997. Les montures en métal ou acétate ont un esprit rétro et sont très faciles à porter. La collection William Morris allie à la fois des formes originales et décalées. Charles Stone New York De la même manière, vous sont présentés la ligne Charles Stone New York, inédite en France. Ces montures à l’esprit contemporain ont un style new-yorkais.",
   },
 
   // ÉCO-RESPONSABLE
@@ -470,7 +470,7 @@ export const brands: Brand[] = [
     french: true,
     ecoResponsible: true,
     artisanal: true,
-    description: "Atelier artisanal strasbourgeois, montures en bois et bio-ac\u00E9tate.",
+    description: "Passionnés par l’optique, Vincent et Ben décident de fonder leur entreprise en 2016. Ils lancent ainsi leur première collection, fabriquée dans leur atelier strasbourgeois, et nomment la marque créateur d’après le prénom du fils de Vincent, Clément, qui accaparait toute leur attention durant leurs réunions. La principale source d’inspiration de leur création est la passion pour les avions-planeurs de Ben, qui leur permet d’inventer des lunettes aériennes et dynamiques !",
   },
   {
     name: "Shelter",
@@ -483,7 +483,7 @@ export const brands: Brand[] = [
     french: true,
     ecoResponsible: true,
     artisanal: true,
-    description: "Manufacture d\u2019Annecy, laur\u00E9ate du Silmo d\u2019Or 2022, bois et bio-ac\u00E9tate.",
+    description: "A l’origine de Shelter, Créateur Lunetier, un pari fou : celui de créer des lunettes en bois élégantes et racées, made in France, sans perdre de vue le confort et la légèreté. Été 2013, à Annecy, 5 amis fondateurs jettent la première pierre de ce qui deviendra la marque Shelter. Leur ambition : créer une marque de lunettes en bois qui soit créative, de manufacture Française et vertueuse pour l’environnement. Dès le début, Shelter travaille main dans la main avec Marotte, spécialiste des placages de bois très haut de gamme. Son savoir-faire et la richesse de sa collection d’essences permettent d’apporter à chaque monture une beauté singulière et une qualité exceptionnelle. 5 ans plus tard, Shelter s’impose comme une référence en terme de création lunetière en bois.",
   },
   {
     name: "Eco",
@@ -496,7 +496,7 @@ export const brands: Brand[] = [
     categories: ["eco"],
     french: false,
     ecoResponsible: true,
-    description: "95% mat\u00E9riaux recycl\u00E9s, un arbre plant\u00E9 par monture vendue.",
+    description: "95% du métal des montures est recyclé Eco propose des lunettes biosourcées fabriquées à partir d’huile de ricin. Un matériau léger, confortable et respectueux de l’environnement. Autre spécificité des montures : elles sont dotées d’aimants intégrés invisibles, de manière à positionner facilement des clips solaires magnétiques.​ La nouvelle collection Eco se compose de 11 modèles optiques avec des clips tendances et 4 solaires équipées de verres polarisés. Par ailleurs, la marque indique que 95% du métal de ses montures est recyclé. Cela représente une économie importante en ressources naturelles.",
   },
   {
     name: "La Brique & la Violette",
@@ -512,7 +512,7 @@ export const brands: Brand[] = [
     artisanal: true,
     featured: true,
     badge: "Exclusivit\u00E9",
-    description: "Cr\u00E9ations artisanales toulousaines, production \u00E0 la commande.",
+    description: "Marine et Romain deux opticiens à la créativité débordante ouvrent leur première boutique de lunettes en 2012. Ils y créent des montures sur mesure, de leurs propres mains, pour les beaux yeux de leurs clients. Leur première collection La Brique et la Violette est le fruit de ces années de passion, de rencontres et d’expériences. Les montures La Brique et la Violette sont fabriquées et assemblées dans un l’atelier familial à 15 minutes de Toulouse. Fabriqué veut dire découpé, usiné, poncé, poli, riveté, limé, ajusté…, et pas simplement emballé. Plus de 40 étapes sont nécessaires à la confection d’une monture. Toutes les montures sont faites en acétate de cellulose de chez MAZUCCHELLi, 100% issu de leur production italienne.",
   },
   {
     name: "Modo",
@@ -525,7 +525,7 @@ export const brands: Brand[] = [
     categories: ["eco", "createur"],
     french: false,
     ecoResponsible: true,
-    description: "Marque new-yorkaise, fusion de design italien et minimalisme scandinave.",
+    description: "Née il y a plus de 15 ans dans le quartier de Soho à New York, Modo n’a cessé de se transformer et de donner vie à ses partenaires. Ne se limitant pas à son propre environnement lunetier, la marque américaine conçoit, fabrique et distribue les réalisations de nombreux acteurs gravitant autour de l’optique. Créateurs, designers… chacun trouve sa place sur le chemin de l’innovation. Très contemporaine dans son approche, Modo s’est donné une ligne de conduite en harmonie avec ses valeurs. Avec un souci permanent de proposer une production durable et écoresponsable, le fondateur de la marque a souhaité construire son développement en s’appuyant sur des initiatives sociales fortes : bien qu’ayant des ambitions internationales, Modo met un point d’honneur à placer l’être humain au centre de ses préoccupations. Suivre les tendances de la mode n’empêche pas d’être lucide sur les réalités de ce monde. Montures issues de matériaux recyclés ou bio, programme de plantation d’un arbre pour chaque paire de lunettes achetée, aide aux enfants malvoyants… Modo a choisi de réunir expansion économique et actions humanitaires. Une belle façon de créer et de vivre avec son temps.",
   },
 
   // CRÉATEURS INTERNATIONAUX
@@ -541,7 +541,7 @@ export const brands: Brand[] = [
     french: false,
     featured: true,
     badge: "Tendance",
-    description: "Marque ind\u00E9pendante barcelonaise, h\u00E9ritage artisanal familial.",
+    description: "Ayant grandi dans les coulisses de l’usine de lunettes familiale, David Pellicier fonde Etnia Barcelona en 2001 avec la ferme intention de concrétiser son attrait pour la création. Nourri de 70 années d’expertise optique et encouragé par son grand-père qui apprécie sa modernité, le Catalan choisit son camp : il introduit de la couleur là où il n’y avait que du noir et du marron. Conscient de l’influence de son environnement, sous le soleil barcelonais, le lunetier puise son énergie dans le monde de l’art et de la mode. Précurseur de l’apport identitaire inhérent aux coloris, il travaille essentiellement l’acétate pour ses vertus chromatiques. Désireuse d’écrire son histoire au travers de collaborations créatives fécondes, Etnia Barcelona s’entoure de grands noms du graphisme et de la photographie pour donner vie à ses collections.Suivant les tendances et les inspirations saisonnières, Etnia Barcelona s’appuie sur une fabrication de haute qualité héritée de son passé. Avec des montures de lunettes affinées au fil du temps et un véritable goût pour les explorations colorées, la marque espagnole séduira les aficionados à la recherche d’accessoires affichant joie de vivre et sensibilité artistique.",
   },
   {
     name: "GIGI Studios",
@@ -581,7 +581,7 @@ export const brands: Brand[] = [
     categories: ["createur"],
     french: false,
     artisanal: true,
-    description: "100% made in Italy, ac\u00E9tate Mazzucchelli artisanal.",
+    description: "L’histoire de la marque Kyme est un pari fait par l’opticien inspiré et ingénieux : Antonello Calderoni. Tout a commencé par la production d’une petite collection de lunettes de soleil. Elles ont été timidement présentées à la clientèle du magasin d’Antonello. Ce qui a commencé comme une expérience est devenue un véritable succès ! Kyme veut dire vague en grec , suggérant l’ idée d’énergie et de mouvement. La marque est, effectivement , née en mars 2013, à Altamura. Elle est rapidement devenue une marque spécialisée dans la conception et la production de lunettes de soleil de haute qualité, avec pour mission de créer des modèles modernes et à la mode. La marque augmente, de jour en jour, sa propre identité, grâce à l’artisanat pointu Italien et à la recherche permanente de nouveaux modèles et dessins. La collection est entièrement fabriquée en Italie, à la main. Kyme utilise de l’acétate de cellulose ,de chez Mazzuchelli. Mais aussi du métal ,du nylon, du cuir ou encore de la soie… La Marque met en scène des combinaisons de couleurs, de nuances brillantes ou opaques. Les verres utilisés sont en CR39 ou en polycarbonate, avec des traitements miroir, flash ou bicolore.",
   },
   {
     name: "Talla Eyewear",
@@ -606,7 +606,7 @@ export const brands: Brand[] = [
     categories: ["createur"],
     french: false,
     artisanal: true,
-    description: "Titane fabriqu\u00E9 main au Japon, plus de 100 \u00E9tapes.",
+    description: "Lunettes de luxe dans des matériaux haut de gamme, connues pour leur style caractéristique et leurs combinaisons de couleurs innovantes. Fondée à Copenhague en 1997, notre objectif est de concevoir des montures solides et intemporelles pour des personnes soucieuses de qualité dans le monde entier. ​Orgreen Optics est le meilleur du design danois. Les valeurs et les normes établies dans les années 50 et 60 par des designers de renommée internationale tels qu’Arne Jacobsen et Louis Poulsen – innovation, qualité, minimalisme et lignes épurées – se retrouvent dans toutes nos montures, mais avec une touche Orgreen, composée de détails uniques et de touches subtiles, inspirée de la culture de la rue, des sports extrêmes et des voitures classiques.",
   },
   {
     name: "Veronika Wildgruber",
@@ -620,7 +620,7 @@ export const brands: Brand[] = [
     french: false,
     featured: true,
     badge: "Nouveaut\u00E9",
-    description: "Minimalisme allemand, laur\u00E9ate du Silmo d\u2019Or 2017 et 2023.",
+    description: "Découvrez les lunettes design Veronika Wildgruber chez Optique Queuleu à Metz : montures créatives, originales et haut de gamme. Essayez-les en boutique !",
   },
   {
     name: "Prodesign Eyewear",
@@ -643,7 +643,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["createur"],
     french: false,
-    description: "Fabricant allemand, plus de 100 ans d\u2019expertise en titane.",
+    description: "Plus de 100 ans d’expérience ont une valeur toute particulière à l’époque actuelle. Eschenbach Eyewear revient ainsi sur sa propre tradition pour créer une nouvelle marque : Jos. Eschenbach. Elle porte le nom du fondateur de l’entreprise et allie expérience et art professionnel de l’artisanat de plus de 102 ans dans le design et la fabrication des lunettes. Pour les hommes et les femmes pour qui l’esthétique et la vision comptent. ​Des montures équilibrées et innovantes Optique audacieuse, fort pouvoir innovant et tradition artisanale caractérisent le développement des lunettes de grande qualité Eschenbach Eyewear depuis le début. La nouvelle marque Jos. Eschenbach respecte particulièrement ces valeurs avec des lunettes traditionnelles et cependant modernes pour femmes et hommes et un design choisi. Eschenbach Eyewear transmet avec brio les traditions et les valeurs du passé à la nouvelle marque moderne. ​Des matières travaillées tout en sobriété Les coloris nordique sobres et les tons couleur terre naturels rendent les montures de lunettes Jos. Eschenbach particulièrement nobles et précieuses. Le béta-titane travaillé avec finesse offre un excellent confort de port ainsi qu’une grande solidité et des montures de lunettes aux propriétés élastiques.",
   },
 
   // MODE & TENDANCE
@@ -657,7 +657,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["luxe", "tendance"],
     french: false,
-    description: "Marque iconique fond\u00E9e en 1937, Aviator et Wayfarer intemporels.",
+    description: "On ne présente plus cette marque plus que centenaire: ses origines remontent aux années 1850 lorsque Bausch et Lomb fondent leur société de recherche en ophtalmologie. Leur but est alors de créer des verres solaires, le nom Ray-Ban est d’ailleurs la contraction de Ray-banner, « bannir les rayons du soleil ». ​La marque naît en 1937 avec la sortie du modèle Aviator créé spécialement pour les pilotes de l’ U.S. Air Force. En 1952, Ray-Ban lance la Wayfarer, un modèle novateur qui rompt avec les traditionnelles lunettes en métal, rendues célèbres car Ray Charles les portait. En 1986 la Clubmaster, inspirée des lunettes de Malcolm X voit le jour. Elle a, comme les autres, un grand succès auprès des stars américaines, et reprend le style « browline » très en vogue sans les années 50. ​Que ce soit en monture optique ou solaire, Ray-Ban est toujours une valeur sûre.",
   },
   {
     name: "Carrera",
@@ -693,7 +693,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["createur", "tendance"],
     french: true,
-    description: "Montures f\u00E9minines et color\u00E9es, imprim\u00E9s floraux.",
+    description: "Sophie Albou, crée sa propre marque en 1995 : Paul & Joe®, reprenant les noms de ses deux fils. A l’origine, Paul & Joe® est une marque qui vient rompre les codes de la mode, elle se veut fashion mais pas trop. Jeune, fun et colorée, Paul & Joe® cultive la fraîcheur et la joie de vivre qui règnent à travers les collections. Sophie Albou lance, en 2006, une collection plus jeune et plus accessible, Paul & Joe Sister®. En 2009, Paul & Joe® ouvre une ligne Eyewear à destination des hommes et des femmes puis en 2012 des enfants. Les montures sont élégantes et acidulées, certaines ont un esprit vintage d’autres plutôt classique. La collection Paul & Joe® Eyewear est un véritables succès. ​Les montures Paul & Joe® sont élégantes et discrètes, elles sauront délicatement habiller votre regard par quelques touches de gaieté à l’image de la marque.",
   },
   {
     name: "Eleven Paris",
@@ -704,7 +704,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["createur", "tendance"],
     french: true,
-    description: "C\u00E9l\u00E8bre pour \u2018Life is a Joke\u2019, style urbain et d\u00E9cal\u00E9.",
+    description: "Chez Optique Queuleu à Metz , nous vous proposons les lunettes Eleven Paris , une marque urbaine et tendance qui allie style et confort. Eleven Paris est connue pour son univers audacieux et décalé . Ses montures reprennent les codes de la mode contemporaine, avec des lignes modernes, des formes actuelles et une touche rebelle qui séduit ceux qui veulent se démarquer. Des lunettes pour affirmer votre style Les lunettes Eleven Paris sont idéales si vous recherchez : Des montures au design affirmé et original , Un look urbain et branché , Une combinaison parfaite entre mode et accessibilité . Votre opticien indépendant Optique Queuleu est revendeur officiel Eleven Paris . Venez découvrir la collection en magasin, essayez les modèles qui vous plaisent et bénéficiez de nos conseils personnalisés pour trouver la paire parfaite.",
   },
   {
     name: "Izipizi",
@@ -716,7 +716,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC",
     categories: ["tendance", "enfant"],
     french: true,
-    description: "Ph\u00E9nom\u00E8ne de mode accessible pr\u00E9sent dans 90 pays.",
+    description: "Lancée en 2010 par trois jeunes entrepreneurs français, la marque se distingue en proposant des lunettes de lecture remises au goût du jour, adaptées à la fois aux amoureux de vieux bouquins aux pages jaunies et aux amateurs des lectures numériques, que la lumière bleue des écrans fatigue. Mais Izipizi n’en reste pas là et innove avec des lunettes de soleil au design coloré et sympathique. Sportifs, vous pourrez parader avec sur les pistes enneigées ou les vagues californiennes, ou au contraire ; bénéficier d’une version avec correction pour une lecture paisible au soleil. Izipizi… un jeu de mot familier qui fait écho à l’expression britannique « easy peasy », que l’on pourrait traduire par « les doigts dans le nez ».",
   },
 
   // SPORT & OUTDOOR
@@ -730,7 +730,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC\u20AC",
     categories: ["sport"],
     french: false,
-    description: "R\u00E9f\u00E9rence mondiale de la lunette sport depuis 1975.",
+    description: "Les origines de la marque Oakley est une marque qui a vue le jour en 1975, créée par Jim JANNARD, mais d’où vient ce nom « Oakley » ? Il s’agit en réalité du nom de son chien qui avait pour habitude de se coucher au pied d’un chêne, ce qui donne littéralement en anglais « Oak-Ley ». Cependant à l’origine la marque Oakley n’avait aucun rapport avec le monde de l’optique et de la lunetterie et pour cause, Jim Jannard a commencé par fabriquer des poignées de guidon pour moto grâce à un nouveau matériau appelé « unobtainium ». Ce n’est qu’en 1984 que la marque décide de se lancer dans la lunetterie, lorsque son créateur découvre que le matériau innovant qu’il utilise pour les guidons de moto peut également servir à la création de lunettes. C’est véritablement à partir de cette date que la marque devient synonyme d’innovation, de technique et de performance. La première paire de lunettes qu’il créera s’appellera « O-Frame », avec un verre de forme cylindrique qui deviendra plus tard le logo de la marque. Cette monture a été conçue principalement pour la pratique de la moto (la marque garde malgré tout un attachement à cette pratique, après avoir fabriqué des guidons). La marque faisant de plus en plus parler d’elle, les sportifs commencent à s’y intéresser, notamment un cycliste : Greg Lemond, qui deviendra représentant de la marque et montera à trois reprises sur la première marche du podium du Tour de France en 1986, 1989 et 1990. Celui arborait à l’époque la monture Eyeshades, qui a été conçue sur la base des O-frames, en plus légères et plus performantes. Oakley et le grand public A l’origine réservée aux sportifs, la marque Oakley décide de se diversifier et de s’ouvrir au grand public en proposant des lunettes de soleil et des lunettes de vue, en gardant toutefois son style et sa philosophie.",
   },
   {
     name: "Julbo",
@@ -741,7 +741,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["sport", "enfant"],
     french: true,
-    description: "Sp\u00E9cialiste montagne fond\u00E9 en 1888 \u00E0 Morez, verres REACTIV.",
+    description: "Julbo tire tout simplement son nom de son créateur jurassien Jules Baud. Créée en 1888, l’entreprise a démarré en fabriquant des lunettes de protection pour les tailleurs de pierres. Vers le 20ème siècle, la marque se lance dans l’optique solaire en créant une paire de lunettes de soleil protégeant les yeux des cristalliers chamoniards en montagne. Avec le seul mot innovation en tête, Julbo a marqué une révolution en créant les premières lunettes de glacier. On peut désormais aller haut, les yeux bien protégés",
   },
   {
     name: "Boll\u00E9",
@@ -753,7 +753,7 @@ export const brands: Brand[] = [
     priceRange: "\u20AC\u20AC",
     categories: ["sport"],
     french: true,
-    description: "Leader lunettes sport outdoor depuis 1888 \u00E0 Oyonnax.",
+    description: "Marque française, Bollé est depuis 1888 un des leaders mondiaux sur le marché des lunettes de soleil, des masques et des casques. Reconnue et distribuée dans le monde entier, Bollé est une marque de sport réputée pour sa créativité et son design de pointe, créateur de tendance et repoussant constamment les limites de l’industrie.",
   },
   {
     name: "C\u00E9b\u00E9",

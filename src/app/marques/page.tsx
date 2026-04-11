@@ -186,7 +186,7 @@ export default function MarquesPage() {
                     <h3 className="text-2xl font-bold tracking-tight text-white">{brand.name}</h3>
 
                     {brand.description && (
-                      <p className="mt-2 text-sm leading-relaxed text-white/70 transition-all duration-500 group-hover:text-white/90">
+                      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-white/70 transition-all duration-500 group-hover:text-white/90">
                         {brand.description}
                       </p>
                     )}
