@@ -68,7 +68,7 @@ export default function MarquesPage() {
       />
 
       {/* Hero Banner */}
-      <section className="relative flex min-h-[32rem] items-center overflow-hidden pt-24 sm:min-h-[36rem] sm:pt-28" aria-label="Bannière marques de lunettes">
+      <section className="relative flex min-h-[28rem] items-center overflow-hidden pt-24 sm:min-h-[32rem] sm:pt-28 lg:min-h-[36rem]" aria-label="Bannière marques de lunettes">
         <Image
           src="/images/verriers/bandeau-marque.webp"
           alt="Collection de marques de lunettes de créateurs - Optique Queuleu Metz"
@@ -79,39 +79,39 @@ export default function MarquesPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
 
-        <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-16 lg:px-8">
-          <nav className="text-xs font-medium uppercase tracking-[0.2em] text-white/60" aria-label="Fil d'Ariane">
+        <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:px-8">
+          <nav className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/60 sm:text-xs" aria-label="Fil d'Ariane">
             <Link href="/" className="transition-colors hover:text-white">Accueil</Link>
-            <span className="mx-3 text-white/30">/</span>
+            <span className="mx-2 text-white/30 sm:mx-3">/</span>
             <span className="text-white/90">Marques</span>
           </nav>
 
           <div className="max-w-3xl">
-            <span className="inline-block rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-sm">
+            <span className="inline-block rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-sm sm:px-4 sm:py-1.5 sm:text-xs">
               Créateurs &amp; Designers
             </span>
-            <h1 className="mt-6 text-5xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mt-5 text-4xl font-bold leading-[1.05] text-white sm:mt-6 sm:text-5xl lg:text-7xl">
               Nos marques<br />
               <span className="text-accent">de lunettes</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:mt-6 sm:text-lg">
               De Ray-Ban à Moscot, en passant par {frenchCount} créateurs français : {totalCount} marques sélectionnées avec passion pour sublimer votre regard.
             </p>
           </div>
 
           {/* KPIs */}
           <div className="grid max-w-2xl grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md">
-            <div className="flex flex-col items-center justify-center bg-black/20 px-4 py-5 text-center">
-              <span className="text-3xl font-bold text-white sm:text-4xl">{totalCount}+</span>
-              <span className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/60 sm:text-xs">Marques</span>
+            <div className="flex flex-col items-center justify-center bg-black/20 px-2 py-4 text-center sm:px-4 sm:py-5">
+              <span className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">{totalCount}+</span>
+              <span className="mt-1 text-[9px] font-semibold uppercase tracking-wider text-white/60 sm:text-[10px] lg:text-xs">Marques</span>
             </div>
-            <div className="flex flex-col items-center justify-center bg-black/20 px-4 py-5 text-center">
-              <span className="text-3xl font-bold text-white sm:text-4xl">{frenchCount}</span>
-              <span className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/60 sm:text-xs">Françaises</span>
+            <div className="flex flex-col items-center justify-center bg-black/20 px-2 py-4 text-center sm:px-4 sm:py-5">
+              <span className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">{frenchCount}</span>
+              <span className="mt-1 text-[9px] font-semibold uppercase tracking-wider text-white/60 sm:text-[10px] lg:text-xs">Françaises</span>
             </div>
-            <div className="flex flex-col items-center justify-center bg-black/20 px-4 py-5 text-center">
-              <span className="text-3xl font-bold text-white sm:text-4xl">2k+</span>
-              <span className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-white/60 sm:text-xs">Références</span>
+            <div className="flex flex-col items-center justify-center bg-black/20 px-2 py-4 text-center sm:px-4 sm:py-5">
+              <span className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">2k+</span>
+              <span className="mt-1 text-[9px] font-semibold uppercase tracking-wider text-white/60 sm:text-[10px] lg:text-xs">Références</span>
             </div>
           </div>
         </div>
@@ -210,18 +210,17 @@ export default function MarquesPage() {
       </section>
 
       {/* French Brands Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary-light py-16" aria-label="Marques françaises">
-        {/* Decorative pattern */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary-light py-14 sm:py-16" aria-label="Marques françaises">
         <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-        <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-10 px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-8 px-5 sm:gap-10 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
           <div className="flex-1">
-            <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-sm">
+            <span className="inline-block rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm sm:px-4 sm:py-1.5 sm:text-[11px] sm:tracking-[0.25em]">
               Made in France
             </span>
-            <h2 className="mt-5 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              <span className="text-5xl font-bold tabular-nums lg:text-6xl">{frenchCount}</span> créateurs français<br className="hidden sm:block" /> dans notre collection
+            <h2 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+              <span className="text-4xl font-bold tabular-nums sm:text-5xl lg:text-6xl">{frenchCount}</span> créateurs français<br className="hidden sm:block" /> dans notre collection
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/85 sm:mt-5 sm:text-base">
               Nous privilégions les créateurs français pour leur savoir-faire, leur originalité et leur engagement. De l'atelier jurassien à l'acétate lyonnais, chaque monture raconte une histoire.
             </p>
           </div>

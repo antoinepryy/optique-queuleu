@@ -186,35 +186,35 @@ export default function Home() {
         <div className="absolute top-1/4 left-10 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute bottom-1/4 right-10 h-48 w-48 rounded-full bg-accent/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-24 text-center lg:px-8">
-          <h1 className="animate-hero-title text-5xl font-bold uppercase tracking-[0.2em] text-white drop-shadow-lg sm:text-6xl lg:text-8xl">
+        <div className="relative mx-auto max-w-7xl px-5 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
+          <h1 className="animate-hero-title text-[2.25rem] font-bold uppercase leading-tight tracking-[0.12em] text-white drop-shadow-lg sm:text-6xl sm:tracking-[0.2em] lg:text-8xl">
             Optique Queuleu
           </h1>
-          <p className="animate-hero-subtitle mx-auto mt-6 max-w-xl text-xl font-light tracking-wide text-white/90 drop-shadow-md">
+          <p className="animate-hero-subtitle mx-auto mt-5 max-w-xl text-base font-light tracking-wide text-white/90 drop-shadow-md sm:mt-6 sm:text-xl">
             Votre boutique d&apos;optique à Metz
           </p>
 
-          <div className="animate-hero-cta mt-12 flex flex-col items-center gap-5 sm:flex-row sm:justify-center">
+          <div className="animate-hero-cta mt-10 flex flex-col items-center gap-4 sm:mt-12 sm:flex-row sm:justify-center sm:gap-5">
             <a
               href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-full bg-primary px-10 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/40"
+              className="group relative w-full max-w-xs overflow-hidden rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/40 sm:w-auto sm:px-10 sm:py-4"
             >
               <span className="relative z-10">Prendre rendez-vous</span>
               <div className="absolute inset-0 bg-primary-light opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </a>
             <Link
               href="/marques"
-              className="glass rounded-full px-10 py-4 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-white/20"
+              className="glass w-full max-w-xs rounded-full px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-white/20 sm:w-auto sm:px-10 sm:py-4"
             >
               Découvrir nos collections
             </Link>
           </div>
 
           {/* Scroll indicator */}
-          <div className="animate-hero-scroll mt-20">
-            <svg className="mx-auto h-8 w-8 text-white/60" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+          <div className="animate-hero-scroll mt-14 sm:mt-20">
+            <svg className="mx-auto h-7 w-7 text-white/60 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
             </svg>
           </div>
@@ -222,10 +222,10 @@ export default function Home() {
       </section>
 
       {/* ═══ Collections ═══ */}
-      <section className="relative overflow-hidden bg-white py-28" aria-labelledby="collections-heading">
+      <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-28" aria-labelledby="collections-heading">
         <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid items-center gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <SectionTitle id="collections-heading">Collections</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
@@ -268,10 +268,10 @@ export default function Home() {
       </section>
 
       {/* ═══ Verres ═══ */}
-      <section className="relative overflow-hidden bg-muted py-28" aria-labelledby="verres-heading">
+      <section className="relative overflow-hidden bg-muted py-16 sm:py-20 lg:py-28" aria-labelledby="verres-heading">
         <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-accent/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid items-center gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <SectionTitle id="verres-heading">Verres</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
@@ -312,9 +312,9 @@ export default function Home() {
       </section>
 
       {/* ═══ Magasin ═══ */}
-      <section className="bg-white py-28" aria-labelledby="magasin-heading">
+      <section className="bg-white py-16 sm:py-20 lg:py-28" aria-labelledby="magasin-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid items-center gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <SectionTitle id="magasin-heading">Magasin</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
@@ -359,7 +359,7 @@ export default function Home() {
       </section>
 
       {/* ═══ Services ═══ */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-muted via-white to-muted py-28" aria-labelledby="services-heading">
+      <section className="relative overflow-hidden bg-gradient-to-br from-muted via-white to-muted py-16 sm:py-20 lg:py-28" aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
@@ -400,11 +400,11 @@ export default function Home() {
       </section>
 
       {/* ═══ Doctolib ═══ */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-primary to-primary-light py-28 text-white" aria-labelledby="doctolib-heading">
+      <section className="relative overflow-hidden bg-gradient-to-r from-primary to-primary-light py-16 text-white sm:py-20 lg:py-28" aria-labelledby="doctolib-heading">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)]" />
         <div className="absolute -bottom-10 -left-10 h-60 w-60 rounded-full bg-white/5 blur-2xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <h2 id="doctolib-heading" className="text-4xl font-bold uppercase tracking-[0.15em] drop-shadow-md sm:text-5xl">
                 Doctolib
@@ -444,9 +444,9 @@ export default function Home() {
       <Testimonials />
 
       {/* ═══ Contact ═══ */}
-      <section className="bg-white py-28" aria-labelledby="contact-heading">
+      <section className="bg-white py-16 sm:py-20 lg:py-28" aria-labelledby="contact-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <SectionTitle id="contact-heading">Contact</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
@@ -476,10 +476,10 @@ export default function Home() {
       </section>
 
       {/* ═══ Parking Privé ═══ */}
-      <section className="relative overflow-hidden bg-muted py-28" aria-labelledby="parking-heading">
+      <section className="relative overflow-hidden bg-muted py-16 sm:py-20 lg:py-28" aria-labelledby="parking-heading">
         <div className="absolute top-10 right-1/4 h-72 w-72 rounded-full bg-accent/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <SectionTitle id="parking-heading" color="accent">Parking privé</SectionTitle>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
@@ -507,7 +507,7 @@ export default function Home() {
       </section>
 
       {/* ═══ Prescription & Oomade ═══ */}
-      <section className="bg-white py-28" aria-label="Services innovants">
+      <section className="bg-white py-16 sm:py-20 lg:py-28" aria-label="Services innovants">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal className="stagger-children">
             <div className="grid gap-8 md:grid-cols-2">
@@ -577,7 +577,7 @@ export default function Home() {
       </section>
 
       {/* ═══ Réseaux sociaux ═══ */}
-      <section className="relative overflow-hidden bg-muted py-28" aria-labelledby="social-heading">
+      <section className="relative overflow-hidden bg-muted py-16 sm:py-20 lg:py-28" aria-labelledby="social-heading">
         <div className="absolute -top-20 left-1/3 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>

@@ -92,7 +92,7 @@ export default function LentillesPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-4xl font-bold uppercase tracking-[0.15em] text-white sm:text-5xl">
+          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
             Lentilles de contact à Metz
           </h1>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
@@ -106,7 +106,7 @@ export default function LentillesPage() {
       </section>
 
       {/* Introduction */}
-      <section className="bg-white py-24" aria-labelledby="intro-lentilles">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="intro-lentilles">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="mx-auto max-w-3xl text-center">
@@ -127,7 +127,7 @@ export default function LentillesPage() {
       </section>
 
       {/* Fabricants */}
-      <section className="bg-muted py-24" aria-labelledby="fabricants-lentilles">
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="fabricants-lentilles">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
@@ -158,7 +158,7 @@ export default function LentillesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-white py-24" aria-labelledby="contact-lentilles">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="contact-lentilles">
         <ScrollReveal className="reveal-scale">
           <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
             <SectionTitle id="contact-lentilles">Adaptation de lentilles à Metz</SectionTitle>

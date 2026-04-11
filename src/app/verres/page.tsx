@@ -168,7 +168,7 @@ export default function VerresPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-4xl font-bold uppercase tracking-[0.15em] text-white sm:text-5xl">
+          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
             Verres Optiques Haut de Gamme
           </h1>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
@@ -182,9 +182,9 @@ export default function VerresPage() {
       </section>
 
       {/* ZEISS */}
-      <section className="bg-white py-24" aria-labelledby="zeiss-heading">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="zeiss-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-start gap-16 lg:grid-cols-2">
+          <div className="grid items-start gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <h2 id="zeiss-heading" className="text-3xl font-bold text-foreground">
                 Verres ZEISS Metz : Innovation et Précision Optique
@@ -249,9 +249,9 @@ export default function VerresPage() {
       </section>
 
       {/* Essilor */}
-      <section className="bg-muted py-24" aria-labelledby="essilor-heading">
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="essilor-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-start gap-16 lg:grid-cols-2">
+          <div className="grid items-start gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <div className="flex items-center justify-center rounded-2xl bg-white p-12 lg:order-first">
                 <Image
@@ -293,9 +293,9 @@ export default function VerresPage() {
       </section>
 
       {/* Seiko */}
-      <section className="bg-white py-24" aria-labelledby="seiko-heading">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="seiko-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-start gap-16 lg:grid-cols-2">
+          <div className="grid items-start gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <h2 id="seiko-heading" className="text-3xl font-bold text-foreground">
                 Verres Seiko Metz : Progressifs Made in France
@@ -339,7 +339,7 @@ export default function VerresPage() {
       </section>
 
       {/* Novacel Mega Optic */}
-      <section className="bg-muted py-24" aria-labelledby="novacel-heading">
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="novacel-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal className="reveal-scale">
             <div className="mx-auto max-w-3xl text-center">

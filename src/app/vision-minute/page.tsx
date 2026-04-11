@@ -214,7 +214,7 @@ export default function VisionMinutePage() {
         />
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-4xl font-bold uppercase tracking-[0.15em] text-white sm:text-5xl">
+          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
             Vision Minute
           </h1>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
@@ -243,9 +243,9 @@ export default function VisionMinutePage() {
       </section>
 
       {/* Introduction */}
-      <section className="bg-white py-24" aria-labelledby="intro-heading">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="intro-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid items-center gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <p className="text-sm font-semibold uppercase tracking-widest text-accent">
                 Service exclusif OOMADE
@@ -281,7 +281,7 @@ export default function VisionMinutePage() {
       </section>
 
       {/* Processus en 3 étapes */}
-      <section className="bg-muted py-24" aria-labelledby="process-heading">
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
@@ -321,7 +321,7 @@ export default function VisionMinutePage() {
       </section>
 
       {/* Avantages */}
-      <section className="bg-white py-24" aria-labelledby="advantages-heading">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="advantages-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
@@ -358,7 +358,7 @@ export default function VisionMinutePage() {
       </section>
 
       {/* C'est pour vous si... */}
-      <section className="bg-muted py-24" aria-labelledby="usecases-heading">
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="usecases-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
@@ -434,7 +434,7 @@ export default function VisionMinutePage() {
       </section>
 
       {/* CTA Doctolib */}
-      <section className="bg-muted py-24" aria-labelledby="cta-heading">
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="cta-heading">
         <ScrollReveal className="reveal-scale">
           <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
             <h2 id="cta-heading" className="text-3xl font-bold uppercase tracking-wide text-foreground sm:text-4xl">

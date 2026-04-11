@@ -119,7 +119,7 @@ export default function MagasinPage() {
         />
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-4xl font-bold uppercase tracking-[0.15em] text-white sm:text-5xl">
+          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
             Magasin Optique Queuleu à Metz
           </h1>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
@@ -133,9 +133,9 @@ export default function MagasinPage() {
       </section>
 
       {/* Presentation */}
-      <section className="bg-white py-24" aria-labelledby="presentation-heading">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="presentation-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-start gap-16 lg:grid-cols-2">
+          <div className="grid items-start gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <h2 id="presentation-heading" className="text-sm font-semibold uppercase tracking-widest text-accent">
                 Vos spécialistes vous conseillent
@@ -213,7 +213,7 @@ export default function MagasinPage() {
       </section>
 
       {/* Services & Avantages */}
-      <section className="bg-muted py-24" aria-labelledby="avantages-heading">
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="avantages-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
@@ -284,9 +284,9 @@ export default function MagasinPage() {
       </section>
 
       {/* Parking */}
-      <section className="bg-white py-24" aria-labelledby="parking-heading">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="parking-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <SectionTitle id="parking-heading" color="accent">Parking privé gratuit</SectionTitle>
               <p className="mt-6 leading-relaxed text-muted-foreground">
@@ -311,7 +311,7 @@ export default function MagasinPage() {
       </section>
 
       {/* Doctolib CTA */}
-      <section className="bg-muted py-24" aria-labelledby="rdv-heading">
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="rdv-heading">
         <ScrollReveal className="reveal-scale">
           <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
             <SectionTitle id="rdv-heading">Prendre rendez-vous chez votre opticien à Metz</SectionTitle>

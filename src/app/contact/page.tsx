@@ -108,7 +108,7 @@ export default function ContactPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-4xl font-bold uppercase tracking-[0.15em] text-white sm:text-5xl">
+          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
             Prendre contact
           </h1>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
@@ -155,12 +155,12 @@ export default function ContactPage() {
       </section>
 
       {/* Contact section: Map + Form */}
-      <section className="bg-muted py-24" aria-labelledby="contact-heading">
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="contact-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 id="contact-heading" className="sr-only">
             Nous contacter et nous localiser
           </h2>
-          <div className="grid gap-12 lg:grid-cols-2">
+          <div className="grid gap-10 sm:gap-12 lg:grid-cols-2">
             {/* Google Maps */}
             <ScrollReveal className="reveal-left">
               <div className="overflow-hidden rounded-2xl">
@@ -192,9 +192,9 @@ export default function ContactPage() {
       </section>
 
       {/* Parking */}
-      <section className="bg-white py-24" aria-labelledby="parking-heading">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="parking-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
               <SectionTitle color="accent" id="parking-heading">
                 Parking gratuit
