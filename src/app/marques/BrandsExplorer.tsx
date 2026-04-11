@@ -5,6 +5,7 @@ import Image from "next/image";
 import {
   brands,
   categoryLabels,
+  getCountryCode,
   type Brand,
   type BrandCategory,
 } from "./brands-data";
@@ -231,12 +232,12 @@ function BrandCard({ brand }: { brand: Brand }) {
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent transition-opacity duration-300" />
 
-        {/* Country flag top-right */}
+        {/* Country code top-right */}
         <span
-          className="absolute right-2.5 top-2.5 z-10 text-sm drop-shadow-md opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          className="absolute right-2.5 top-2.5 z-10 rounded-full border border-white/20 bg-black/30 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white backdrop-blur-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           aria-label={`Pays: ${brand.country}`}
         >
-          {brand.countryFlag}
+          {getCountryCode(brand.country)}
         </span>
 
         {/* Price pill top-left */}
@@ -288,12 +289,12 @@ function BrandCard({ brand }: { brand: Brand }) {
         {brand.priceRange}
       </span>
 
-      {/* Country flag */}
+      {/* Country code */}
       <span
-        className="absolute right-3 top-3 text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="absolute right-3 top-3 rounded-full bg-muted px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         aria-label={`Pays: ${brand.country}`}
       >
-        {brand.countryFlag}
+        {getCountryCode(brand.country)}
       </span>
 
       {/* Logo or name */}
@@ -320,14 +321,9 @@ function BrandCard({ brand }: { brand: Brand }) {
       </h3>
 
       {brand.french && (
-        <div className="relative mt-1.5 flex items-center gap-1 text-[9px] font-medium uppercase tracking-wider text-accent">
-          <svg className="h-2.5 w-3" viewBox="0 0 24 16" fill="none">
-            <rect width="8" height="16" fill="#002395" />
-            <rect x="8" width="8" height="16" fill="currentColor" opacity="0.3" />
-            <rect x="16" width="8" height="16" fill="#ED2939" />
-          </svg>
-          France
-        </div>
+        <p className="relative mt-1.5 text-[9px] font-semibold uppercase tracking-[0.15em] text-accent">
+          Made in France
+        </p>
       )}
     </article>
   );

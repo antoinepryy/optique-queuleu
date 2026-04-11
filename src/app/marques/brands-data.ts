@@ -35,6 +35,20 @@ export const categoryLabels: Record<BrandCategory, string> = {
   tendance: "Tendance",
 };
 
+export function getCountryCode(country: string): string {
+  const map: Record<string, string> = {
+    France: "FR",
+    Italie: "IT",
+    USA: "US",
+    UK: "GB",
+    Allemagne: "DE",
+    Autriche: "AT",
+    Espagne: "ES",
+    Danemark: "DK",
+  };
+  return map[country] || country.slice(0, 2).toUpperCase();
+}
+
 export const brands: Brand[] = [
   // LUXE & CRÉATEURS
   {

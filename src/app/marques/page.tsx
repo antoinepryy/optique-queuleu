@@ -4,7 +4,7 @@ import Link from "next/link";
 import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
 import BrandsExplorer from "./BrandsExplorer";
-import { brands } from "./brands-data";
+import { brands, getCountryCode } from "./brands-data";
 
 const frenchCount = brands.filter((b) => b.french).length;
 const totalCount = brands.length;
@@ -173,8 +173,13 @@ export default function MarquesPage() {
                     }`} aria-label={`Badge ${brand.badge}`}>{brand.badge}</span>
                   )}
 
-                  {/* Country flag */}
-                  <span className="absolute left-4 top-4 z-10 text-lg drop-shadow-md" aria-label={`Pays d'origine: ${brand.country}`}>{brand.countryFlag}</span>
+                  {/* Country code */}
+                  <span
+                    className="absolute left-4 top-4 z-10 rounded-full border border-white/20 bg-black/30 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm"
+                    aria-label={`Pays d'origine: ${brand.country}`}
+                  >
+                    {getCountryCode(brand.country)}
+                  </span>
 
                   {/* Content overlay at bottom */}
                   <div className="absolute inset-x-0 bottom-0 z-10 p-6">
@@ -226,37 +231,27 @@ export default function MarquesPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary-light py-16" aria-label="Marques françaises">
         {/* Decorative pattern */}
         <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 text-center lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:text-left">
+        <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-10 px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
           <div className="flex-1">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
-              <svg className="h-3.5 w-3.5" viewBox="0 0 24 16" fill="none">
-                <rect width="8" height="16" fill="#002395" />
-                <rect x="8" width="8" height="16" fill="white" />
-                <rect x="16" width="8" height="16" fill="#ED2939" />
-              </svg>
+            <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-sm">
               Made in France
-            </div>
-            <h2 className="mt-5 text-3xl font-bold text-white sm:text-4xl">
-              {frenchCount} créateurs français<br className="hidden sm:block" /> dans notre collection
+            </span>
+            <h2 className="mt-5 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+              <span className="text-5xl font-bold tabular-nums lg:text-6xl">{frenchCount}</span> créateurs français<br className="hidden sm:block" /> dans notre collection
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/85">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85">
               Nous privilégions les créateurs français pour leur savoir-faire, leur originalité et leur engagement. De l'atelier jurassien à l'acétate lyonnais, chaque monture raconte une histoire.
             </p>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="flex -space-x-2">
-              {["FR", "FR", "FR"].map((_, i) => (
-                <div key={i} className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white/30 bg-white/15 text-sm font-bold text-white backdrop-blur-sm">
-                  <svg className="h-5 w-5" viewBox="0 0 24 16" fill="none">
-                    <rect width="8" height="16" fill="#002395" />
-                    <rect x="8" width="8" height="16" fill="white" />
-                    <rect x="16" width="8" height="16" fill="#ED2939" />
-                  </svg>
-                </div>
-              ))}
-              <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white/30 bg-accent text-sm font-bold text-white">
-                +{frenchCount - 3}
-              </div>
+          <div className="hidden lg:block">
+            <div className="rounded-3xl border border-white/15 bg-white/5 p-8 backdrop-blur-sm">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/60">Part française</p>
+              <p className="mt-3 text-7xl font-bold tabular-nums text-white">
+                {Math.round((frenchCount / totalCount) * 100)}<span className="text-4xl text-white/60">%</span>
+              </p>
+              <p className="mt-2 text-xs text-white/70">
+                de notre catalogue de {totalCount} marques
+              </p>
             </div>
           </div>
         </div>
