@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
+import LentillesForm from "@/components/LentillesForm";
 
 export const metadata: Metadata = {
   title: "Lentilles de Contact à Metz | Adaptation & Suivi Personnalisé | Optique Queuleu",
@@ -126,8 +127,38 @@ export default function LentillesPage() {
         </div>
       </section>
 
+      {/* Formulaire pré-commande */}
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="precommande-heading">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl">
+            <ScrollReveal>
+              <div className="mb-10 text-center">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                  Retrait en magasin
+                </span>
+                <h2
+                  id="precommande-heading"
+                  className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
+                >
+                  Pré-commander vos lentilles
+                </h2>
+                <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+                  Renseignez vos informations et votre correction, nous préparons
+                  votre commande pour un retrait rapide au magasin.
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm sm:p-8">
+                <LentillesForm />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* Fabricants */}
-      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="fabricants-lentilles">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="fabricants-lentilles">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center">
