@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { articles } from "./blog/articles-data";
+import { brands } from "./marques/brands-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.optiquequeuleu.com";
@@ -86,5 +87,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticPages, ...blogPages];
+  const brandPages: MetadataRoute.Sitemap = brands.map((brand) => ({
+    url: `${baseUrl}/marques/${brand.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
+
+  return [...staticPages, ...blogPages, ...brandPages];
 }

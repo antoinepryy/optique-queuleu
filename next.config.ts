@@ -16,8 +16,17 @@ const nextConfig: NextConfig = {
       { source: "/shopdetail/:path*", destination: "/marques", permanent: true },
       { source: "/category/:path*", destination: "/marques", permanent: true },
 
-      // Individual brand pages (izipizi, minima, modo, nike, noego, osmose, brett-eyewear, caroline-abram, clement-lunetier, olivier-peoples, …)
-      { source: "/marques/:slug+", destination: "/marques", permanent: true },
+      // Old WP brand slugs that differ from new slugs
+      { source: "/marques/isabelle-marant", destination: "/marques/isabel-marant", permanent: true },
+      { source: "/marques/olivier-peoples", destination: "/marques/oliver-peoples", permanent: true },
+      { source: "/marques/rousshile", destination: "/marques/roussilhe", permanent: true },
+      { source: "/marques/julbo-2", destination: "/marques/julbo", permanent: true },
+      { source: "/marques/lookino", destination: "/marques/lookkino", permanent: true },
+      { source: "/marques/jos-eschanbash", destination: "/marques/jos-eschenbach", permanent: true },
+      { source: "/marques/ancet-fayolle-a-metz-elegance-et-artisanat-en-lunetterie-de-luxe", destination: "/marques/ancet-fayolle", permanent: true },
+      { source: "/marques/la-brique-la-violette", destination: "/marques/la-brique-et-la-violette", permanent: true },
+      { source: "/marques/charles-stone-william-morris", destination: "/marques/charles-stone", permanent: true },
+      { source: "/marques/brouillon-auto", destination: "/marques", permanent: true },
 
       // WP "Actualités" → /blog
       { source: "/actualites", destination: "/blog", permanent: true },
