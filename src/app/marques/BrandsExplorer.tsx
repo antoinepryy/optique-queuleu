@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion, LayoutGroup } from "motion/react";
 import {
   brands,
   categoryLabels,
@@ -138,11 +139,23 @@ export default function BrandsExplorer() {
         </div>
 
         {filteredBrands.length > 0 ? (
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {filteredBrands.map((brand) => (
-              <BrandCard key={brand.slug} brand={brand} />
-            ))}
-          </div>
+          <LayoutGroup>
+            <motion.div
+              layout
+              className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+              style={{ perspective: 1400 }}
+            >
+              <AnimatePresence mode="popLayout" initial={false}>
+                {filteredBrands.map((brand, index) => (
+                  <AnimatedBrandCard
+                    key={brand.slug}
+                    brand={brand}
+                    index={index}
+                  />
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          </LayoutGroup>
         ) : (
           <div className="py-20 text-center">
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-sm">
@@ -207,6 +220,92 @@ function FilterButton({
         {count}
       </span>
     </button>
+  );
+}
+
+// Pseudo-random but deterministic per slug — gives each brand its own signature motion
+function hashSlug(slug: string): number {
+  let h = 0;
+  for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+function AnimatedBrandCard({ brand, index }: { brand: Brand; index: number }) {
+  const seed = hashSlug(brand.slug);
+  // Each card picks one of 5 entrance archetypes based on its hash —
+  // gives the impression of multiple choreographers, not one stagger.
+  const archetype = seed % 5;
+
+  const initial = (() => {
+    switch (archetype) {
+      case 0: // slide from left + slight tilt
+        return { opacity: 0, x: -48, y: 12, rotateY: 18, scale: 0.92, filter: "blur(8px)" };
+      case 1: // slide from right + tilt
+        return { opacity: 0, x: 48, y: 12, rotateY: -18, scale: 0.92, filter: "blur(8px)" };
+      case 2: // emerge from below with depth
+        return { opacity: 0, y: 56, rotateX: -22, scale: 0.88, filter: "blur(10px)" };
+      case 3: // zoom in from front (closer to camera)
+        return { opacity: 0, z: 80, scale: 1.18, filter: "blur(12px)" };
+      default: // recede from back
+        return { opacity: 0, z: -120, scale: 0.78, rotateX: 8, filter: "blur(10px)" };
+    }
+  })();
+
+  const exit = (() => {
+    switch (archetype) {
+      case 0:
+        return { opacity: 0, x: -36, scale: 0.9, filter: "blur(6px)" };
+      case 1:
+        return { opacity: 0, x: 36, scale: 0.9, filter: "blur(6px)" };
+      case 2:
+        return { opacity: 0, y: -28, scale: 0.92, filter: "blur(6px)" };
+      case 3:
+        return { opacity: 0, scale: 1.08, filter: "blur(8px)" };
+      default:
+        return { opacity: 0, scale: 0.85, filter: "blur(8px)" };
+    }
+  })();
+
+  // Staggered entry — capped so large filter sets don't drag forever
+  const delay = Math.min(index, 28) * 0.035 + (seed % 7) * 0.012;
+
+  return (
+    <motion.div
+      layout
+      initial={initial}
+      animate={{
+        opacity: 1,
+        x: 0,
+        y: 0,
+        z: 0,
+        rotateX: 0,
+        rotateY: 0,
+        scale: 1,
+        filter: "blur(0px)",
+      }}
+      exit={exit}
+      transition={{
+        layout: {
+          type: "spring",
+          stiffness: 320,
+          damping: 32,
+          mass: 0.9,
+        },
+        opacity: { duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] },
+        filter: { duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] },
+        default: {
+          type: "spring",
+          stiffness: 180,
+          damping: 22,
+          mass: 0.7,
+          delay,
+        },
+      }}
+      style={{ transformStyle: "preserve-3d", transformPerspective: 1400 }}
+      className="will-change-transform"
+    >
+      <BrandCard brand={brand} />
+    </motion.div>
   );
 }
 
