@@ -25,7 +25,20 @@ const nextConfig: NextConfig = {
       { source: "/marques/jos-eschanbash", destination: "/marques/jos-eschenbach", permanent: true },
       { source: "/marques/ancet-fayolle-a-metz-elegance-et-artisanat-en-lunetterie-de-luxe", destination: "/marques/ancet-fayolle", permanent: true },
       { source: "/marques/la-brique-la-violette", destination: "/marques/la-brique-et-la-violette", permanent: true },
-      { source: "/marques/charles-stone-william-morris", destination: "/marques/charles-stone", permanent: true },
+      { source: "/marques/charles-stone-william-morris", destination: "/marques", permanent: true },
+
+      // Brands removed from catalogue -> back to the marques index
+      { source: "/marques/francois-pinton", destination: "/marques", permanent: true },
+      { source: "/marques/volte-face", destination: "/marques", permanent: true },
+      { source: "/marques/freakshow", destination: "/marques", permanent: true },
+      { source: "/marques/mazette", destination: "/marques", permanent: true },
+      { source: "/marques/lou-creation", destination: "/marques", permanent: true },
+      { source: "/marques/charles-stone", destination: "/marques", permanent: true },
+      { source: "/marques/kyme", destination: "/marques", permanent: true },
+      { source: "/marques/carrera", destination: "/marques", permanent: true },
+      { source: "/marques/eyewear-by-david-beckham", destination: "/marques", permanent: true },
+      { source: "/marques/cebe", destination: "/marques", permanent: true },
+      { source: "/marques/nike", destination: "/marques", permanent: true },
       { source: "/marques/brouillon-auto", destination: "/marques", permanent: true },
 
       // WP "Actualités" → /blog
@@ -51,6 +64,8 @@ const nextConfig: NextConfig = {
 
       // WP-specific standalone pages
       { source: "/vision-minute-par-oomade", destination: "/vision-minute", permanent: true },
+      // OOMADE merged into Vision Minute (same service)
+      { source: "/oomade", destination: "/vision-minute", permanent: true },
       { source: "/precommande-lentilles", destination: "/lentilles", permanent: true },
       { source: "/paiement-flexible-alma", destination: "/", permanent: true },
 

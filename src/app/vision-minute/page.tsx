@@ -7,12 +7,14 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Vision Minute Metz | Monture de Remplacement en 15 Minutes | OOMADE",
   description:
-    "Monture cassée à Metz ? Vision Minute OOMADE : impression 3D de lunettes de remplacement en 15 minutes chrono. Service gratuit, écologique et rapide chez Optique Queuleu.",
+    "Monture cassée à Metz ? Vision Minute par OOMADE : impression 3D de lunettes de remplacement en 15 minutes chrono. Service gratuit, écologique, primé au Silmo d'Or 2024, chez Optique Queuleu.",
   keywords: [
     "vision minute metz",
     "monture remplacement rapide",
     "impression 3D lunettes",
     "OOMADE metz",
+    "oomade impression 3D",
+    "silmo d'or 2024",
     "lunettes 15 minutes",
     "monture cassée urgence",
     "opticien express metz",
@@ -184,6 +186,7 @@ export default function VisionMinutePage() {
               "url": "https://www.optiquequeuleu.com",
             },
             "serviceType": "Réparation express de lunettes",
+            "award": "Silmo d'Or 2024 - Innovation Technologique",
             "areaServed": {
               "@type": "City",
               "name": "Metz",
@@ -252,7 +255,7 @@ export default function VisionMinutePage() {
               </p>
               <SectionTitle id="intro-heading">Monture cass&eacute;e ? On s&apos;en occupe.</SectionTitle>
               <p className="mt-6 leading-relaxed text-muted-foreground">
-                Gr&acirc;ce &agrave; la technologie <Link href="/oomade" className="font-semibold text-primary hover:underline">OOMADE</Link> d&apos;impression 3D, nous
+                Gr&acirc;ce &agrave; la technologie <strong className="font-semibold text-primary">OOMADE</strong> d&apos;impression 3D, nous
                 fabriquons une monture de remplacement directement en <Link href="/magasin" className="font-semibold text-primary hover:underline">magasin</Link>. Vos
                 verres existants sont mont&eacute;s sur la nouvelle monture et vous
                 repartez en quelques minutes seulement.
@@ -394,8 +397,60 @@ export default function VisionMinutePage() {
         </div>
       </section>
 
+      {/* L'histoire OOMADE */}
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="story-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid items-center gap-10 sm:gap-16 lg:grid-cols-2">
+            <ScrollReveal className="reveal-left">
+              <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+                La technologie derri&egrave;re Vision Minute
+              </p>
+              <h2 id="story-heading" className="mt-4 text-3xl font-bold uppercase tracking-wide text-foreground sm:text-4xl">
+                OOMADE, une startup fran&ccedil;aise primée
+              </h2>
+              <p className="mt-6 leading-relaxed text-muted-foreground">
+                Vision Minute repose sur la technologie <strong className="text-foreground">OOMADE</strong>, créée en
+                2022 par Michel Hodzaj et Paul-&Eacute;ric Robert, qui cumulent plus de 40 ans
+                d&apos;expérience dans les télécommunications et l&apos;optique.
+              </p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                Leur idée : transformer le service après-vente en lunetterie grâce à
+                l&apos;impression 3D. Fini les tubes de résine et l&apos;attente de plusieurs
+                jours &mdash; le dépannage devient un moment spectaculaire.
+              </p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                Récompensée par le{" "}
+                <strong className="text-foreground">Silmo d&apos;Or 2024</strong> dans la
+                catégorie innovation technologique, la technologie OOMADE équipe déjà plus de
+                130 magasins en France.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal className="reveal-right">
+              <div className="grid grid-cols-2 gap-5">
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-gray-100 bg-muted p-8 text-center">
+                  <p className="text-4xl font-extrabold text-primary sm:text-5xl">2024</p>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Silmo d&apos;Or</p>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-gray-100 bg-muted p-8 text-center">
+                  <p className="text-4xl font-extrabold text-primary sm:text-5xl">130+</p>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Magasins équipés</p>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-gray-100 bg-muted p-8 text-center">
+                  <p className="text-4xl font-extrabold text-primary sm:text-5xl">2022</p>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Fondée en France</p>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-gray-100 bg-muted p-8 text-center">
+                  <p className="text-4xl font-extrabold text-primary sm:text-5xl">15 min</p>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Pour repartir</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* Partenariat ZEISS / OOMADE */}
-      <section className="bg-white py-16" aria-labelledby="partners-heading">
+      <section className="bg-muted py-16" aria-labelledby="partners-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal>
             <div className="flex flex-col items-center justify-center gap-8 rounded-2xl border border-gray-100 bg-muted p-8 sm:flex-row sm:gap-16">
@@ -434,7 +489,7 @@ export default function VisionMinutePage() {
       </section>
 
       {/* CTA Doctolib */}
-      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="cta-heading">
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="cta-heading">
         <ScrollReveal className="reveal-scale">
           <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
             <h2 id="cta-heading" className="text-3xl font-bold uppercase tracking-wide text-foreground sm:text-4xl">

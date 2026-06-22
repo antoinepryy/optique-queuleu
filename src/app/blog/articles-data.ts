@@ -59,7 +59,7 @@ export const articles: Article[] = [
 
 <h2 class="text-xl font-bold text-foreground mt-8 mb-4">Prenez rendez-vous dès maintenant</h2>
 
-<p>N'attendez plus des semaines pour renouveler vos lunettes. Prenez rendez-vous directement sur Doctolib ou passez nous voir au <a href="/magasin" class="text-primary hover:underline">magasin</a>. Notre équipe vous accueille du mardi au samedi pour réaliser votre bilan visuel et vous accompagner dans le choix de votre nouvel équipement parmi nos <a href="/marques" class="text-primary hover:underline">60 marques de créateurs</a>.</p>`,
+<p>N'attendez plus des semaines pour renouveler vos lunettes. Prenez rendez-vous directement sur Doctolib ou passez nous voir au <a href="/magasin" class="text-primary hover:underline">magasin</a>. Notre équipe vous accueille du mardi au samedi pour réaliser votre bilan visuel et vous accompagner dans le choix de votre nouvel équipement parmi nos <a href="/marques" class="text-primary hover:underline">50 marques de créateurs</a>.</p>`,
   },
   {
     slug: "soldes-ete-2025",
@@ -96,7 +96,7 @@ export const articles: Article[] = [
       "Service impression 3D OOMADE pour réparation lunettes Optique Queuleu Metz",
     excerpt:
       "Une branche cassée ? Une pièce introuvable ? Ce n'est plus une fatalité. On recrée la pièce manquante en boutique grâce à l'impression 3D, en moins de 15 minutes.",
-    content: `<p>Une branche de lunettes cassée, un plaquette nasale perdue, une charnière endommagée... Jusqu'à récemment, ces petits accidents du quotidien pouvaient signifier des jours d'attente pour une réparation, voire l'obligation de racheter une monture complète si la pièce n'était plus disponible. Chez Optique Queuleu, c'est désormais du passé grâce à notre partenariat avec <a href="/oomade" class="text-primary hover:underline">OOMADE</a>.</p>
+    content: `<p>Une branche de lunettes cassée, un plaquette nasale perdue, une charnière endommagée... Jusqu'à récemment, ces petits accidents du quotidien pouvaient signifier des jours d'attente pour une réparation, voire l'obligation de racheter une monture complète si la pièce n'était plus disponible. Chez Optique Queuleu, c'est désormais du passé grâce à notre partenariat avec <a href="/vision-minute" class="text-primary hover:underline">OOMADE</a>.</p>
 
 <h2 class="text-xl font-bold text-foreground mt-8 mb-4">La technologie 3D au service de vos lunettes</h2>
 
@@ -132,7 +132,7 @@ export const articles: Article[] = [
 
 <h2 class="text-xl font-bold text-foreground mt-8 mb-4">Un conseil personnalisé pour trouver votre style</h2>
 
-<p>Avec plus de <strong>60 marques</strong> en magasin, le choix peut sembler vaste. C'est pourquoi notre équipe prend le temps de comprendre vos besoins, votre style de vie et vos préférences esthétiques pour vous orienter vers les montures qui vous correspondent le mieux. Associées à des <a href="/verres" class="text-primary hover:underline">verres de qualité ZEISS, Essilor ou Seiko</a>, vos nouvelles lunettes deviendront un véritable accessoire de mode au service de votre vision.</p>
+<p>Avec plus de <strong>50 marques</strong> en magasin, le choix peut sembler vaste. C'est pourquoi notre équipe prend le temps de comprendre vos besoins, votre style de vie et vos préférences esthétiques pour vous orienter vers les montures qui vous correspondent le mieux. Associées à des <a href="/verres" class="text-primary hover:underline">verres de qualité ZEISS, Essilor ou Seiko</a>, vos nouvelles lunettes deviendront un véritable accessoire de mode au service de votre vision.</p>
 
 <p>Venez découvrir ces nouvelles collections dans notre <a href="/magasin" class="text-primary hover:underline">magasin à Metz</a>, ouvert du mardi au samedi. N'hésitez pas à prendre rendez-vous sur Doctolib pour un essayage personnalisé.</p>`,
   },
@@ -198,7 +198,7 @@ export const articles: Article[] = [
       "Collection lunettes Kaleos espagnole créative chez Optique Queuleu Metz",
     excerpt:
       "Bienvenue chez Kaleos, la marque espagnole qui révolutionne l'univers de la lunetterie avec des créations où l'art, la mode et la qualité se rencontrent.",
-    content: `<p>Dans l'univers de la lunetterie, certaines marques se contentent de suivre les tendances. D'autres les créent. <strong>Kaleos</strong>, marque espagnole fondée à Barcelone, appartient résolument à la seconde catégorie. Chez Optique Queuleu, nous sommes fiers de compter Kaleos parmi nos <a href="/marques" class="text-primary hover:underline">60 marques de créateurs</a>, et nous souhaitons vous faire découvrir l'univers unique de cette maison.</p>
+    content: `<p>Dans l'univers de la lunetterie, certaines marques se contentent de suivre les tendances. D'autres les créent. <strong>Kaleos</strong>, marque espagnole fondée à Barcelone, appartient résolument à la seconde catégorie. Chez Optique Queuleu, nous sommes fiers de compter Kaleos parmi nos <a href="/marques" class="text-primary hover:underline">50 marques de créateurs</a>, et nous souhaitons vous faire découvrir l'univers unique de cette maison.</p>
 
 <h2 class="text-xl font-bold text-foreground mt-8 mb-4">L'art comme inspiration</h2>
 

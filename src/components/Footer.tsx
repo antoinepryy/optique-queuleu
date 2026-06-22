@@ -83,14 +83,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/oomade"
-                  className="text-sm text-foreground/80 transition-colors hover:text-primary"
-                >
-                  OOMADE
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/prescription-48h"
                   className="text-sm text-foreground/80 transition-colors hover:text-primary"
                 >

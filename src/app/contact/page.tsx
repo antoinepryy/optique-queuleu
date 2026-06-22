@@ -221,16 +221,6 @@ export default function ContactPage() {
                   </Link>
                   .
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  Vous souhaitez commander en ligne ? Visitez{" "}
-                  <Link
-                    href="/oomade"
-                    className="text-primary underline hover:text-primary/80"
-                  >
-                    notre boutique Oomade
-                  </Link>
-                  .
-                </p>
               </div>
             </ScrollReveal>
             <ScrollReveal className="reveal-right">

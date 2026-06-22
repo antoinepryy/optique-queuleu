@@ -6,15 +6,16 @@ import ScrollReveal from "@/components/ScrollReveal";
 import BrandsExplorer from "./BrandsExplorer";
 import { brands, getCountryCode } from "./brands-data";
 
-const frenchCount = brands.filter((b) => b.french).length;
 const totalCount = brands.length;
+const frenchCount = brands.filter((b) => b.french).length;
+const createurCount = brands.filter((b) => b.categories.includes("createur")).length;
 
 export const metadata: Metadata = {
-  title: "Marques de Lunettes à Metz | +60 Créateurs & Designers | Optique Queuleu",
-  description: "Découvrez plus de 60 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable. Ray-Ban, Persol, Anne & Valentin, L.A. Eyeworks et bien plus.",
+  title: "Marques de Lunettes à Metz | +50 Créateurs & Designers | Optique Queuleu",
+  description: "Découvrez plus de 50 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable. Ray-Ban, Persol, Anne & Valentin, L.A. Eyeworks et bien plus.",
   openGraph: {
-    title: "Marques de Lunettes à Metz | +60 Créateurs & Designers",
-    description: "Plus de 60 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable. Trouvez votre monture parfaite.",
+    title: "Marques de Lunettes à Metz | +50 Créateurs & Designers",
+    description: "Plus de 50 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable. Trouvez votre monture parfaite.",
     type: "website",
     locale: "fr_FR",
     url: "https://www.optiquequeuleu.com/marques",
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marques de Lunettes à Metz | +60 Créateurs & Designers",
+    title: "Marques de Lunettes à Metz | +50 Créateurs & Designers",
     description:
-      "Plus de 60 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable.",
+      "Plus de 50 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable.",
     images: ["/images/verriers/bandeau-marque.webp"],
   },
 };
@@ -95,23 +96,19 @@ export default function MarquesPage() {
               <span className="text-accent">de lunettes</span>
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:mt-6 sm:text-lg">
-              De Ray-Ban à Moscot, en passant par {frenchCount} créateurs français : {totalCount} marques sélectionnées avec passion pour sublimer votre regard.
+              De Ray-Ban à Moscot, en passant par nos créateurs français : {totalCount} marques sélectionnées avec passion pour sublimer votre regard.
             </p>
           </div>
 
           {/* KPIs */}
-          <div className="grid max-w-2xl grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md">
-            <div className="flex flex-col items-center justify-center bg-black/20 px-2 py-4 text-center sm:px-4 sm:py-5">
-              <span className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">{totalCount}+</span>
-              <span className="mt-1 text-[9px] font-semibold uppercase tracking-wider text-white/60 sm:text-[10px] lg:text-xs">Marques</span>
-            </div>
+          <div className="grid max-w-md grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md">
             <div className="flex flex-col items-center justify-center bg-black/20 px-2 py-4 text-center sm:px-4 sm:py-5">
               <span className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">{frenchCount}</span>
-              <span className="mt-1 text-[9px] font-semibold uppercase tracking-wider text-white/60 sm:text-[10px] lg:text-xs">Françaises</span>
+              <span className="mt-1 text-[9px] font-semibold uppercase tracking-wider text-white/60 sm:text-[10px] lg:text-xs">Marques françaises</span>
             </div>
             <div className="flex flex-col items-center justify-center bg-black/20 px-2 py-4 text-center sm:px-4 sm:py-5">
-              <span className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">2k+</span>
-              <span className="mt-1 text-[9px] font-semibold uppercase tracking-wider text-white/60 sm:text-[10px] lg:text-xs">Références</span>
+              <span className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">{createurCount}</span>
+              <span className="mt-1 text-[9px] font-semibold uppercase tracking-wider text-white/60 sm:text-[10px] lg:text-xs">Créateurs</span>
             </div>
           </div>
         </div>
@@ -218,7 +215,7 @@ export default function MarquesPage() {
               Made in France
             </span>
             <h2 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              <span className="text-4xl font-bold tabular-nums sm:text-5xl lg:text-6xl">{frenchCount}</span> créateurs français<br className="hidden sm:block" /> dans notre collection
+              Le savoir-faire français<br className="hidden sm:block" /> au cœur de notre collection
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/85 sm:mt-5 sm:text-base">
               Nous privilégions les créateurs français pour leur savoir-faire, leur originalité et leur engagement. De l'atelier jurassien à l'acétate lyonnais, chaque monture raconte une histoire.
@@ -226,12 +223,12 @@ export default function MarquesPage() {
           </div>
           <div className="hidden lg:block">
             <div className="rounded-3xl border border-white/15 bg-white/5 p-8 backdrop-blur-sm">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/60">Part française</p>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/60">Marques françaises</p>
               <p className="mt-3 text-7xl font-bold tabular-nums text-white">
-                {Math.round((frenchCount / totalCount) * 100)}<span className="text-4xl text-white/60">%</span>
+                {frenchCount}
               </p>
               <p className="mt-2 text-xs text-white/70">
-                de notre catalogue de {totalCount} marques
+                parmi notre catalogue de {totalCount} marques
               </p>
             </div>
           </div>

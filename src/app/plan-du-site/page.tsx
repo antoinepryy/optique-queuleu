@@ -28,8 +28,7 @@ const sections = [
     title: "Nos services",
     links: [
       { href: "/prescription-48h", label: "Prescription en 48h" },
-      { href: "/oomade", label: "OOMADE - Impression 3D" },
-      { href: "/vision-minute", label: "Vision Minute" },
+      { href: "/vision-minute", label: "Vision Minute · OOMADE (impression 3D)" },
     ],
   },
 ];

@@ -386,7 +386,7 @@ export default function VerresPage() {
                 Nos Montures et Marques
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Découvrez notre sélection de 60 marques de lunettes haut de gamme pour accompagner vos verres.
+                Découvrez notre sélection de 50 marques de lunettes haut de gamme pour accompagner vos verres.
               </p>
               <Link
                 href="/marques"

@@ -53,12 +53,10 @@ export const metadata: Metadata = {
 const marques = [
   { name: "Ray-Ban", src: "/images/marques/ray-ban.webp" },
   { name: "Gucci", src: "/images/marques/gucci.webp" },
-  { name: "Carrera", src: "/images/marques/carrera.webp" },
   { name: "Julbo", src: "/images/marques/julbo.webp" },
   { name: "Chloé", src: "/images/marques/chloe.webp" },
   { name: "Isabel Marant", src: "/images/marques/isabel-marant.webp" },
   { name: "Pierre Cardin", src: "/images/marques/pierre-cardin.webp" },
-  { name: "François Pinton", src: "/images/marques/francois-pinton.webp" },
   { name: "Moscot", src: "/images/marques/moscot.webp" },
 ];
 
@@ -97,7 +95,6 @@ const socialImages = [
   { src: "/images/produits/isabel-marant-campagne.webp", alt: "Isabel Marant" },
   { src: "/images/produits/ray-ban-stories.webp", alt: "Ray-Ban Stories" },
   { src: "/images/produits/chloe-tendance.webp", alt: "Chloé tendance" },
-  { src: "/images/produits/carrera-ducati.webp", alt: "Carrera Ducati" },
   { src: "/images/produits/moscot-miltzen.webp", alt: "Moscot Miltzen" },
   { src: "/images/produits/talla.webp", alt: "Talla" },
 ];
@@ -563,7 +560,7 @@ export default function Home() {
                     existants.
                   </p>
                   <Link
-                    href="/oomade"
+                    href="/vision-minute"
                     className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary transition-all hover:gap-4"
                   >
                     En savoir plus
