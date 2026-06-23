@@ -79,7 +79,7 @@ export default function VerresPage() {
       },
       {
         "@type": "Product",
-        "position": 2,
+        "position": 3,
         "name": "Verres Essilor",
         "description": "Verres Essilor, leader mondial : innovation constante pour améliorer votre santé visuelle et votre qualité de vie.",
         "brand": {
@@ -102,7 +102,7 @@ export default function VerresPage() {
       },
       {
         "@type": "Product",
-        "position": 3,
+        "position": 2,
         "name": "Verres Seiko",
         "description": "Verres progressifs Seiko adaptés au mode de vie digital, fabrication française, certification Origine France Garantie.",
         "brand": {
@@ -248,12 +248,58 @@ export default function VerresPage() {
         </div>
       </section>
 
-      {/* Essilor */}
-      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="essilor-heading">
+      {/* Seiko */}
+      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="seiko-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-start gap-10 sm:gap-16 lg:grid-cols-2">
             <ScrollReveal className="reveal-left">
-              <div className="flex items-center justify-center rounded-2xl bg-white p-12 lg:order-first">
+              <h2 id="seiko-heading" className="text-3xl font-bold text-foreground">
+                Verres Seiko Metz : Progressifs Made in France
+              </h2>
+              <p className="mt-6 leading-relaxed text-muted-foreground">
+                Nos yeux subissent de plus en plus l&apos;exposition aux outils
+                digitaux et à la lumière bleue. C&apos;est pourquoi Seiko a décidé de repenser les
+                verres progressifs pour qu&apos;ils s&apos;adaptent au mieux à
+                nos styles de vie numériques. Il renforce son intérêt pour
+                l&apos;éco-responsabilité et la qualité de ses services, en
+                proposant des verres disponibles en fabrication française et en
+                obtenant la certification Origine France Garantie.
+              </p>
+              <h3 className="mt-6 text-lg font-semibold text-primary">
+                Garantie 3 ans et Qualité Japonaise
+              </h3>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                Il place la précision au c&oelig;ur de sa stratégie, c&apos;est
+                pourquoi il offre 3 ans de garantie sur tous les types de
+                verre*. Faire le choix Seiko, c&apos;est faire confiance aux 95%
+                des 3,5 millions de Français(es) ayant déjà adopté ces verres progressifs.
+              </p>
+              <p className="mt-4 text-xs text-muted-foreground">
+                *sous réserve de posséder la carte d&apos;authenticité.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal className="reveal-right">
+              <div className="flex items-center justify-center rounded-2xl bg-white p-12">
+                <Image
+                  src="/images/marques/seiko.webp"
+                  alt="Logo Seiko - Verres progressifs Made in France Origine France Garantie - Optique Queuleu Metz"
+                  width={300}
+                  height={150}
+                  className="h-auto w-full max-w-[300px] object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Essilor */}
+      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="essilor-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid items-start gap-10 sm:gap-16 lg:grid-cols-2">
+            <ScrollReveal className="reveal-left">
+              <div className="flex items-center justify-center rounded-2xl bg-muted p-12 lg:order-first">
                 <Image
                   src="/images/verriers/essilor-logo.webp"
                   alt="Logo Essilor - Leader mondial des verres optiques - Optique Queuleu Metz"
@@ -287,52 +333,6 @@ export default function VerresPage() {
                 conviendra le mieux&hellip; C&apos;est le tout Essilor qui
                 s&apos;engage en faveur de votre santé visuelle.
               </p>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Seiko */}
-      <section className="bg-white py-14 sm:py-20 lg:py-24" aria-labelledby="seiko-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-start gap-10 sm:gap-16 lg:grid-cols-2">
-            <ScrollReveal className="reveal-left">
-              <h2 id="seiko-heading" className="text-3xl font-bold text-foreground">
-                Verres Seiko Metz : Progressifs Made in France
-              </h2>
-              <p className="mt-6 leading-relaxed text-muted-foreground">
-                Nos yeux subissent de plus en plus l&apos;exposition aux outils
-                digitaux et à la lumière bleue. C&apos;est pourquoi Seiko a décidé de repenser les
-                verres progressifs pour qu&apos;ils s&apos;adaptent au mieux à
-                nos styles de vie numériques. Il renforce son intérêt pour
-                l&apos;éco-responsabilité et la qualité de ses services, en
-                proposant des verres disponibles en fabrication française et en
-                obtenant la certification Origine France Garantie.
-              </p>
-              <h3 className="mt-6 text-lg font-semibold text-primary">
-                Garantie 3 ans et Qualité Japonaise
-              </h3>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                Il place la précision au c&oelig;ur de sa stratégie, c&apos;est
-                pourquoi il offre 3 ans de garantie sur tous les types de
-                verre*. Faire le choix Seiko, c&apos;est faire confiance aux 95%
-                des 3,5 millions de Français(es) ayant déjà adopté ces verres progressifs.
-              </p>
-              <p className="mt-4 text-xs text-muted-foreground">
-                *sous réserve de posséder la carte d&apos;authenticité.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal className="reveal-right">
-              <div className="flex items-center justify-center rounded-2xl bg-muted p-12">
-                <Image
-                  src="/images/marques/seiko.webp"
-                  alt="Logo Seiko - Verres progressifs Made in France Origine France Garantie - Optique Queuleu Metz"
-                  width={300}
-                  height={150}
-                  className="h-auto w-full max-w-[300px] object-contain"
-                  loading="lazy"
-                />
-              </div>
             </ScrollReveal>
           </div>
         </div>

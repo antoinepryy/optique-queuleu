@@ -634,6 +634,18 @@ export const brands: Brand[] = [
     french: true,
     description: "Lancée en 2010 par trois jeunes entrepreneurs français, la marque se distingue en proposant des lunettes de lecture remises au goût du jour, adaptées à la fois aux amoureux de vieux bouquins aux pages jaunies et aux amateurs des lectures numériques, que la lumière bleue des écrans fatigue. Mais Izipizi n’en reste pas là et innove avec des lunettes de soleil au design coloré et sympathique. Sportifs, vous pourrez parader avec sur les pistes enneigées ou les vagues californiennes, ou au contraire ; bénéficier d’une version avec correction pour une lecture paisible au soleil. Izipizi… un jeu de mot familier qui fait écho à l’expression britannique « easy peasy », que l’on pourrait traduire par « les doigts dans le nez ».",
   },
+  {
+    name: "Komono",
+    slug: "komono",
+    image: null,
+    heroImage: "/images/produits/komono.webp",
+    country: "Belgique",
+    countryFlag: "🇧🇪",
+    priceRange: "€€",
+    categories: ["tendance"],
+    french: false,
+    description: "Fondée en 2009 à Anvers en Belgique, Komono (contraction de « koffie » et « mono ») est devenue une référence de l'accessoire au style affirmé et accessible. Ses lunettes de soleil mêlent design contemporain, formes audacieuses et palettes de couleurs travaillées, pour un look mode qui séduit autant les ados que les adultes. Montures rétro revisitées, masques sportifs ou silhouettes graphiques : Komono cultive une esthétique pointue à prix juste, devenue culte sur la scène lifestyle européenne.",
+  },
 
   // SPORT & OUTDOOR
   {
@@ -658,6 +670,18 @@ export const brands: Brand[] = [
     categories: ["sport", "enfant"],
     french: true,
     description: "Julbo tire tout simplement son nom de son créateur jurassien Jules Baud. Créée en 1888, l’entreprise a démarré en fabriquant des lunettes de protection pour les tailleurs de pierres. Vers le 20ème siècle, la marque se lance dans l’optique solaire en créant une paire de lunettes de soleil protégeant les yeux des cristalliers chamoniards en montagne. Avec le seul mot innovation en tête, Julbo a marqué une révolution en créant les premières lunettes de glacier. On peut désormais aller haut, les yeux bien protégés",
+  },
+  {
+    name: "Rudy Project",
+    slug: "rudy-project",
+    image: null,
+    heroImage: "/images/produits/rudy-project.webp",
+    country: "Italie",
+    countryFlag: "\uD83C\uDDEE\uD83C\uDDF9",
+    priceRange: "\u20AC\u20AC",
+    categories: ["sport"],
+    french: false,
+    description: "Fond\u00E9e en 1985 \u00E0 Tr\u00E9vise en Italie par Rudy Barbazza, Rudy Project s'est impos\u00E9e comme une r\u00E9f\u00E9rence mondiale de la lunette de sport et de performance. Cyclisme, running, triathlon, trail ou ski : chaque mod\u00E8le est pens\u00E9 pour la haute intensit\u00E9, avec des verres interchangeables, des traitements photochromiques et des montures ultra-l\u00E9g\u00E8res en Grilamid. Port\u00E9e par de nombreux athl\u00E8tes olympiques, la marque conjugue innovation technique, a\u00E9rodynamisme et protection optimale pour repousser vos limites.",
   },
   {
     name: "Boll\u00E9",
