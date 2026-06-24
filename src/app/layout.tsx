@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PromoBanner from "@/components/PromoBanner";
+import SummerSaleStrip from "@/components/SummerSaleStrip";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -53,6 +54,7 @@ export default function RootLayout({
     <html lang="fr">
       <body className={`${montserrat.variable} antialiased`}>
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-primary">Aller au contenu</a>
+        <SummerSaleStrip />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

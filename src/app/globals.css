@@ -29,6 +29,8 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: clip;
   --promo-banner-height: 0px;
+  --promo-strip-height: 0px;
+  padding-top: var(--promo-strip-height);
   padding-bottom: var(--promo-banner-height);
 }
 
@@ -179,6 +181,21 @@ html {
 
 .animate-slide-up {
   animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* ── Loader animations ── */

@@ -64,7 +64,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+      style={{ top: "var(--promo-strip-height, 0px)" }}
+      className={`fixed z-50 w-full transition-all duration-300 ${
         isHome && !scrolled ? "bg-transparent" : "bg-white shadow-sm"
       }`}
     >
