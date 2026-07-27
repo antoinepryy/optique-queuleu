@@ -84,6 +84,26 @@ const checks = [
       }
     },
   },
+  {
+    url: `${BASE}/marques/persol`,
+    label: "Persol — formulaire contextualisé",
+    assert: async (page) => {
+      const form = page.locator("[data-testid='brand-contact']");
+      if ((await form.count()) !== 1) throw new Error("section contact marque absente");
+      const message = await page.locator("#contact-message").inputValue();
+      if (!message.includes("Persol")) throw new Error(`message non pré-rempli : "${message}"`);
+      const doctolib = page.locator("[data-testid='brand-contact'] a[href*='doctolib']");
+      if ((await doctolib.count()) !== 1) throw new Error("lien Doctolib absent de la section contact");
+    },
+  },
+  {
+    url: `${BASE}/contact`,
+    label: "Contact générique — message vide",
+    assert: async (page) => {
+      const message = await page.locator("#contact-message").inputValue();
+      if (message !== "") throw new Error(`le formulaire générique est pré-rempli : "${message}"`);
+    },
+  },
 ];
 
 const browser = await chromium.launch();

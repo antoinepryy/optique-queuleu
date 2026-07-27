@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import { brands, categoryLabels, getCountryCode } from "../brands-data";
 import { getBrandDetail } from "../brands-details";
+import BrandContactSection from "./BrandContactSection";
 import BrandGallery from "./BrandGallery";
 import BrandSpecsTable from "./BrandSpecsTable";
 
@@ -324,34 +325,7 @@ export default async function BrandPage({
         <BrandGallery images={detail.gallery} brandName={brand.name} />
       ) : null}
 
-      {/* CTA Doctolib */}
-      <section className="bg-gradient-to-r from-primary to-primary-light py-14 sm:py-16">
-        <div className="mx-auto max-w-7xl px-5 text-center sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Essayez {brand.name} chez Optique Queuleu
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
-            Venez découvrir la collection {brand.name} dans notre magasin au 28
-            rue de Queuleu à Metz. Notre équipe vous guide dans votre choix.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <a
-              href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full max-w-xs rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-white/90 sm:w-auto"
-            >
-              Prendre rendez-vous
-            </a>
-            <Link
-              href="/contact"
-              className="w-full max-w-xs rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:w-auto"
-            >
-              Nous contacter
-            </Link>
-          </div>
-        </div>
-      </section>
+      <BrandContactSection brandName={brand.name} />
 
       {/* Marques similaires */}
       {relatedBrands.length > 0 && (
