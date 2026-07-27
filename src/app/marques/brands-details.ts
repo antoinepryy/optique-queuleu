@@ -41,7 +41,6 @@ export const brandDetails: Record<string, BrandDetail> = {
     specs: {
       founded: "1917",
       origin: "Turin, Italie",
-      group: "EssilorLuxottica",
       madeIn: ["Italie"],
     },
     website: "https://www.persol.com/",

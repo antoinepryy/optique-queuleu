@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import { brands, categoryLabels, getCountryCode } from "../brands-data";
 import { getBrandDetail } from "../brands-details";
+import BrandSpecsTable from "./BrandSpecsTable";
 
 export function generateStaticParams() {
   return brands.map((b) => ({ slug: b.slug }));
@@ -251,6 +252,8 @@ export default async function BrandPage({
                   </p>
                 )
               )}
+
+              {detail?.specs && <BrandSpecsTable specs={detail.specs} />}
 
               {(detail?.website ?? brand.website) && (
                 <p className="mt-6">

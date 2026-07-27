@@ -13,6 +13,30 @@ const checks = [
       if (tagline !== 1) throw new Error("tagline absente ou dupliquée");
     },
   },
+  {
+    url: `${BASE}/marques/persol`,
+    label: "Persol — tableau de caractéristiques",
+    assert: async (page) => {
+      const table = page.locator("[data-testid='brand-specs']");
+      if ((await table.count()) !== 1) throw new Error("tableau de specs absent");
+      const text = await table.textContent();
+      for (const expected of ["Création", "1917", "Origine", "Turin, Italie", "Fabrication", "Italie"]) {
+        if (!text.includes(expected)) throw new Error(`"${expected}" absent du tableau`);
+      }
+      for (const absent of ["Groupe", "EssilorLuxottica", "Matériaux", "Garantie", "N/A", "Non communiqué"]) {
+        if (text.includes(absent)) throw new Error(`"${absent}" ne devrait pas être rendu`);
+      }
+    },
+  },
+  {
+    url: `${BASE}/marques/chloe`,
+    label: "Chloé — pas de tableau sans données",
+    assert: async (page) => {
+      if ((await page.locator("[data-testid='brand-specs']").count()) !== 0) {
+        throw new Error("un tableau de specs vide est rendu");
+      }
+    },
+  },
 ];
 
 const browser = await chromium.launch();
