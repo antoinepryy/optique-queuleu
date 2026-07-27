@@ -5,6 +5,7 @@ import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
 import BrandsExplorer from "./BrandsExplorer";
 import { brands, getCountryCode } from "./brands-data";
+import { getBrandDetail } from "./brands-details";
 
 const totalCount = brands.length;
 const frenchCount = brands.filter((b) => b.french).length;
@@ -54,7 +55,7 @@ export default function MarquesPage() {
       "item": {
         "@type": "Brand",
         "name": brand.name,
-        "description": brand.description || `Lunettes de créateur ${brand.name}`,
+        "description": getBrandDetail(brand.slug)?.story?.[0] || brand.description || `Lunettes de créateur ${brand.name}`,
         "image": brand.heroImage || brand.image,
       }
     }))

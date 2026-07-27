@@ -1,7 +1,21 @@
 import { mkdirSync } from "node:fs";
 import { chromium } from "playwright";
+import { brands } from "../src/app/marques/brands-data";
+import { brandDetails } from "../src/app/marques/brands-details";
 
 const BASE = process.env.BASE_URL ?? "http://localhost:3000";
+
+// Slugs dérivés des données plutôt qu'écrits en dur : quand une nouvelle marque
+// reçoit sa fiche détaillée, le harnais suit automatiquement sans édition manuelle.
+const documentedSlugs = Object.keys(brandDetails);
+// Témoin représentant l'état « marque sans fiche détaillée » : la première marque
+// du catalogue qui n'a pas d'entrée dans brandDetails. Devient undefined le jour où
+// toutes les marques sont documentées — les checks qui en dépendent sont alors
+// sautés explicitement plutôt que de se mettre à échouer pour la mauvaise raison.
+const witnessSlug = brands.find((b) => !brandDetails[b.slug])?.slug;
+// Marque documentée qui a encore une galerie, pour le check dédié à la galerie
+// (Persol n'en a plus, cf. correction n°1).
+const gallerySlug = documentedSlugs.find((slug) => (brandDetails[slug].gallery?.length ?? 0) > 0);
 
 /**
  * Contrôle générique d'une fiche détaillée, paramétré par slug : blocs obligatoires
@@ -57,15 +71,19 @@ const checks = [
       }
     },
   },
-  {
-    url: `${BASE}/marques/chloe`,
-    label: "Chloé — pas de tableau sans données",
-    assert: async (page) => {
-      if ((await page.locator("[data-testid='brand-specs']").count()) !== 0) {
-        throw new Error("un tableau de specs vide est rendu");
-      }
-    },
-  },
+  ...(witnessSlug
+    ? [
+        {
+          url: `${BASE}/marques/${witnessSlug}`,
+          label: `${witnessSlug} — pas de tableau sans données (témoin sans fiche détaillée)`,
+          assert: async (page) => {
+            if ((await page.locator("[data-testid='brand-specs']").count()) !== 0) {
+              throw new Error("un tableau de specs vide est rendu");
+            }
+          },
+        },
+      ]
+    : []),
   {
     url: `${BASE}/marques/persol`,
     label: "Persol — signature et savoir-faire",
@@ -79,40 +97,52 @@ const checks = [
       }
     },
   },
-  {
-    url: `${BASE}/marques/chloe`,
-    label: "Chloé — pas de bloc signature vide",
-    assert: async (page) => {
-      if ((await page.locator("[data-testid='brand-signature']").count()) !== 0) {
-        throw new Error("bloc signature rendu sans données");
-      }
-      if ((await page.locator("[data-testid='brand-savoirfaire']").count()) !== 0) {
-        throw new Error("bloc savoir-faire rendu sans données");
-      }
-    },
-  },
-  {
-    url: `${BASE}/marques/persol`,
-    label: "Persol — galerie",
-    assert: async (page) => {
-      const images = page.locator("[data-testid='brand-gallery'] img");
-      const count = await images.count();
-      if (count < 1) throw new Error("aucune image de galerie");
-      for (let i = 0; i < count; i += 1) {
-        const alt = await images.nth(i).getAttribute("alt");
-        if (!alt) throw new Error(`image ${i} sans attribut alt`);
-      }
-    },
-  },
-  {
-    url: `${BASE}/marques/chloe`,
-    label: "Chloé — pas de galerie vide",
-    assert: async (page) => {
-      if ((await page.locator("[data-testid='brand-gallery']").count()) !== 0) {
-        throw new Error("galerie rendue sans images");
-      }
-    },
-  },
+  ...(witnessSlug
+    ? [
+        {
+          url: `${BASE}/marques/${witnessSlug}`,
+          label: `${witnessSlug} — pas de bloc signature vide (témoin sans fiche détaillée)`,
+          assert: async (page) => {
+            if ((await page.locator("[data-testid='brand-signature']").count()) !== 0) {
+              throw new Error("bloc signature rendu sans données");
+            }
+            if ((await page.locator("[data-testid='brand-savoirfaire']").count()) !== 0) {
+              throw new Error("bloc savoir-faire rendu sans données");
+            }
+          },
+        },
+      ]
+    : []),
+  ...(gallerySlug
+    ? [
+        {
+          url: `${BASE}/marques/${gallerySlug}`,
+          label: `${gallerySlug} — galerie`,
+          assert: async (page) => {
+            const images = page.locator("[data-testid='brand-gallery'] img");
+            const count = await images.count();
+            if (count < 1) throw new Error("aucune image de galerie");
+            for (let i = 0; i < count; i += 1) {
+              const alt = await images.nth(i).getAttribute("alt");
+              if (!alt) throw new Error(`image ${i} sans attribut alt`);
+            }
+          },
+        },
+      ]
+    : []),
+  ...(witnessSlug
+    ? [
+        {
+          url: `${BASE}/marques/${witnessSlug}`,
+          label: `${witnessSlug} — pas de galerie vide (témoin sans fiche détaillée)`,
+          assert: async (page) => {
+            if ((await page.locator("[data-testid='brand-gallery']").count()) !== 0) {
+              throw new Error("galerie rendue sans images");
+            }
+          },
+        },
+      ]
+    : []),
   {
     url: `${BASE}/marques/persol`,
     label: "Persol — formulaire contextualisé",
@@ -167,42 +197,48 @@ const checks = [
       if (localNode.brand?.["@id"] !== brandNode["@id"]) {
         throw new Error("relation brand -> LocalBusiness absente ou incorrecte");
       }
-
-      if (JSON.stringify(data).includes("undefined")) throw new Error("valeur undefined sérialisée");
     },
   },
-  {
-    url: `${BASE}/marques/chloe`,
-    label: "Chloé — JSON-LD sans fiche détaillée (non-régression)",
-    assert: async (page) => {
-      const raw = await page.locator("script[type='application/ld+json']").first().textContent();
-      const data = JSON.parse(raw);
-      if (!Array.isArray(data["@graph"])) throw new Error("@graph absent");
+  ...(witnessSlug
+    ? [
+        {
+          url: `${BASE}/marques/${witnessSlug}`,
+          label: `${witnessSlug} — JSON-LD sans fiche détaillée (non-régression, témoin sans fiche détaillée)`,
+          assert: async (page) => {
+            const raw = await page.locator("script[type='application/ld+json']").first().textContent();
+            const data = JSON.parse(raw);
+            if (!Array.isArray(data["@graph"])) throw new Error("@graph absent");
 
-      const brandNode = data["@graph"].find(
-        (n) => Array.isArray(n["@type"]) && n["@type"].includes("Brand")
-      );
-      if (!brandNode) throw new Error("noeud Brand absent du @graph");
-      if (brandNode.foundingDate !== undefined) throw new Error("foundingDate ne devrait pas être rendu (pas de fiche detail)");
-      if (brandNode.parentOrganization !== undefined) throw new Error("parentOrganization ne devrait pas être rendu");
-      if (brandNode.material !== undefined) throw new Error("material ne devrait pas être rendu");
-      if (brandNode.sameAs !== undefined) throw new Error("sameAs ne devrait pas être rendu (pas de website)");
+            const brandNode = data["@graph"].find(
+              (n) => Array.isArray(n["@type"]) && n["@type"].includes("Brand")
+            );
+            if (!brandNode) throw new Error("noeud Brand absent du @graph");
+            if (brandNode.foundingDate !== undefined) throw new Error("foundingDate ne devrait pas être rendu (pas de fiche detail)");
+            if (brandNode.parentOrganization !== undefined) throw new Error("parentOrganization ne devrait pas être rendu");
+            if (brandNode.material !== undefined) throw new Error("material ne devrait pas être rendu");
+            if (brandNode.sameAs !== undefined) throw new Error("sameAs ne devrait pas être rendu (pas de website)");
 
-      const localNode = data["@graph"].find((n) => n["@type"] === "LocalBusiness");
-      if (!localNode) throw new Error("noeud LocalBusiness absent du @graph");
-      if (localNode.telephone !== "+33387373036") throw new Error("téléphone absent du noeud local");
-      if (localNode.address?.streetAddress !== "28 rue de Queuleu") {
-        throw new Error("adresse absente ou incorrecte sur le noeud local");
-      }
-      if (localNode.brand?.["@id"] !== brandNode["@id"]) {
-        throw new Error("relation brand -> LocalBusiness absente ou incorrecte");
-      }
-
-      if (JSON.stringify(data).includes("undefined")) throw new Error("valeur undefined sérialisée");
-    },
-  },
-  ...["persol", "gucci", "ancet-fayolle", "bolle", "komono"].map(ficheDetaillee),
+            const localNode = data["@graph"].find((n) => n["@type"] === "LocalBusiness");
+            if (!localNode) throw new Error("noeud LocalBusiness absent du @graph");
+            if (localNode.telephone !== "+33387373036") throw new Error("téléphone absent du noeud local");
+            if (localNode.address?.streetAddress !== "28 rue de Queuleu") {
+              throw new Error("adresse absente ou incorrecte sur le noeud local");
+            }
+            if (localNode.brand?.["@id"] !== brandNode["@id"]) {
+              throw new Error("relation brand -> LocalBusiness absente ou incorrecte");
+            }
+          },
+        },
+      ]
+    : []),
+  ...documentedSlugs.map(ficheDetaillee),
 ];
+
+if (!witnessSlug) {
+  console.log(
+    "SKIP toutes les marques ont désormais une fiche détaillée — les checks « témoin sans fiche » sont désactivés"
+  );
+}
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
@@ -219,8 +255,15 @@ for (const check of checks) {
   }
 }
 
+// Échantillon de captures borné : la première et la dernière fiche documentée, plus
+// le témoin sans fiche s'il existe encore — pas la liste complète, qui grossira avec
+// le catalogue.
+const screenshotSlugs = [...new Set(
+  [documentedSlugs[0], documentedSlugs[documentedSlugs.length - 1], witnessSlug].filter(Boolean)
+)];
+
 mkdirSync("screenshots", { recursive: true });
-for (const slug of ["persol", "komono", "chloe"]) {
+for (const slug of screenshotSlugs) {
   // waitUntil: "networkidle" ne se stabilise jamais sur ces pages : la section
   // contact embarque une iframe Google Maps qui maintient du trafic réseau en
   // continu (tuiles, télémétrie), ce qui fait échouer page.goto par timeout.

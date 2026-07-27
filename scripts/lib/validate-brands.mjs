@@ -19,6 +19,9 @@ export function validateBrandDetails({ brands, details, imageExists }) {
     if (!Array.isArray(detail.story) || detail.story.length === 0) {
       errors.push(`${detail.slug} : story vide`);
     }
+    if (!detail.tagline || detail.tagline.trim() === "") {
+      errors.push(`${detail.slug} : tagline vide ou absente`);
+    }
     if (!Array.isArray(detail.sources) || detail.sources.length === 0) {
       errors.push(`${detail.slug} : aucune source renseignée`);
     }

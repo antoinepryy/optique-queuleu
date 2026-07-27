@@ -17,7 +17,7 @@ export interface BrandGalleryImage {
 
 export interface BrandDetail {
   slug: string;
-  tagline?: string;
+  tagline: string;
   story: string[];
   savoirFaire?: string[];
   signature?: string[];
@@ -53,12 +53,6 @@ export const brandDetails: Record<string, BrandDetail> = {
       origin: "Turin, Italie",
       madeIn: ["Italie"],
     },
-    gallery: [
-      {
-        src: "/images/marques/persol.webp",
-        alt: "Steve McQueen portant des lunettes de soleil Persol, image emblématique associée à la marque",
-      },
-    ],
     website: "https://www.persol.com/",
     sources: [
       "https://www.otticavascellari.it/en/100-years-of-persol/",

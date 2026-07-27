@@ -13,6 +13,7 @@ test("aucune erreur sur des données valides", () => {
   const details = {
     persol: {
       slug: "persol",
+      tagline: "Une accroche.",
       story: ["Un paragraphe."],
       specs: { founded: "1917" },
       sources: ["https://www.persol.com/"],
@@ -24,7 +25,7 @@ test("aucune erreur sur des données valides", () => {
 
 test("signale une clé qui ne correspond pas au slug", () => {
   const details = {
-    persol: { slug: "persoll", story: ["x"], specs: {}, sources: ["https://a.fr"], verified: false },
+    persol: { slug: "persoll", tagline: "x", story: ["x"], specs: {}, sources: ["https://a.fr"], verified: false },
   };
   const errors = validateBrandDetails({ brands, details, imageExists: ok });
   assert.equal(errors.length, 2);
@@ -34,7 +35,7 @@ test("signale une clé qui ne correspond pas au slug", () => {
 
 test("signale un slug inconnu de brands-data", () => {
   const details = {
-    inconnue: { slug: "inconnue", story: ["x"], specs: {}, sources: ["https://a.fr"], verified: false },
+    inconnue: { slug: "inconnue", tagline: "x", story: ["x"], specs: {}, sources: ["https://a.fr"], verified: false },
   };
   const errors = validateBrandDetails({ brands, details, imageExists: ok });
   assert.equal(errors.length, 1);
@@ -43,7 +44,7 @@ test("signale un slug inconnu de brands-data", () => {
 
 test("signale une story vide et des sources vides", () => {
   const details = {
-    persol: { slug: "persol", story: [], specs: {}, sources: [], verified: false },
+    persol: { slug: "persol", story: [], tagline: "Une accroche.", specs: {}, sources: [], verified: false },
   };
   const errors = validateBrandDetails({ brands, details, imageExists: ok });
   assert.equal(errors.length, 2);
@@ -51,10 +52,22 @@ test("signale une story vide et des sources vides", () => {
   assert.match(errors[1], /aucune source/);
 });
 
+test("signale une tagline absente ou vide", () => {
+  const details = {
+    persol: { slug: "persol", story: ["x"], specs: {}, sources: ["https://a.fr"], verified: false },
+    komono: { slug: "komono", story: ["x"], tagline: "   ", specs: {}, sources: ["https://a.fr"], verified: false },
+  };
+  const errors = validateBrandDetails({ brands, details, imageExists: ok });
+  assert.equal(errors.length, 2);
+  assert.match(errors[0], /persol : tagline vide ou absente/);
+  assert.match(errors[1], /komono : tagline vide ou absente/);
+});
+
 test("signale une image de galerie introuvable et un alt manquant", () => {
   const details = {
     persol: {
       slug: "persol",
+      tagline: "x",
       story: ["x"],
       specs: {},
       sources: ["https://a.fr"],
