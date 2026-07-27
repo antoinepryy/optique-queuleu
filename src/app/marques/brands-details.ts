@@ -38,6 +38,16 @@ export const brandDetails: Record<string, BrandDetail> = {
       "L’histoire de Persol commence en 1917 à Turin, quand le photographe et inventeur Giuseppe Ratti crée l’entreprise Ratti pour fabriquer des lunettes de protection destinées aux aviateurs et aux pilotes de voitures de course. Le modèle Protector est rapidement adopté par l’armée italienne, puis par les civils.",
       "Riche de vingt-et-un ans d’innovations, la maison devient Persol en 1938. Le nom est une contraction de « per il sol », pour le soleil. Avant même Steve McQueen, c’est Marcello Mastroianni qui popularise la marque dans La Dolce Vita de Federico Fellini, en 1960.",
     ],
+    savoirFaire: [
+      "Trois éléments distinguent une Persol : la flèche Supreme Arrow qui orne la charnière, la branche Meflecto à lamelles flexibles brevetée dans les années 1930, et les verres minéraux Crystal introduits par Ratti pour leur clarté visuelle.",
+      "Les montures sont assemblées à la main dans les ateliers italiens de la marque, en acétate ou en métal.",
+    ],
+    signature: [
+      "Flèche Supreme Arrow sur la charnière",
+      "Branches Meflecto à lamelles flexibles",
+      "Verres minéraux Crystal",
+      "Modèle 649, dessiné en 1957 pour les conducteurs de tram turinois",
+    ],
     specs: {
       founded: "1917",
       origin: "Turin, Italie",
@@ -48,6 +58,9 @@ export const brandDetails: Record<string, BrandDetail> = {
       "https://www.otticavascellari.it/en/100-years-of-persol/",
       "https://marques-de-luxe.fr/persol/",
       "https://www.made-in-italy.com/italian-fashion/shopping/sunglasses-and-eyeglasses/attachment/marcello-mastroianni-in-la-dolce-vita/",
+      "https://www.persol.com/fr-fr/blogs/editorials/heritage",
+      "https://www.monopticien.com/marques/persol",
+      "https://www.optique-sergent.com/lunettes-de-soleil/persol/",
     ],
     verified: false,
   },

@@ -255,6 +255,40 @@ export default async function BrandPage({
 
               {detail?.specs && <BrandSpecsTable specs={detail.specs} />}
 
+              {detail?.signature?.length ? (
+                <div className="mt-12">
+                  <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    Ce qui distingue {brand.name}
+                  </h2>
+                  <ul
+                    data-testid="brand-signature"
+                    className="mt-5 space-y-3"
+                  >
+                    {detail.signature.map((item) => (
+                      <li key={item} className="flex gap-3 text-base leading-relaxed text-foreground/85">
+                        <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+
+              {detail?.savoirFaire?.length ? (
+                <div data-testid="brand-savoirfaire" className="mt-12">
+                  <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    Savoir-faire
+                  </h2>
+                  <div className="mt-5 space-y-5">
+                    {detail.savoirFaire.map((paragraph, index) => (
+                      <p key={index} className="text-base leading-relaxed text-foreground/85">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
               {(detail?.website ?? brand.website) && (
                 <p className="mt-6">
                   <a

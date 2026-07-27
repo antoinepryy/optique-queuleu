@@ -37,6 +37,31 @@ const checks = [
       }
     },
   },
+  {
+    url: `${BASE}/marques/persol`,
+    label: "Persol — signature et savoir-faire",
+    assert: async (page) => {
+      const items = page.locator("[data-testid='brand-signature'] li");
+      if ((await items.count()) < 3) throw new Error("moins de 3 points signature");
+      const savoir = page.locator("[data-testid='brand-savoirfaire']");
+      if ((await savoir.count()) !== 1) throw new Error("bloc savoir-faire absent");
+      if (!(await savoir.textContent()).includes("Meflecto")) {
+        throw new Error("le savoir-faire Persol ne mentionne pas la branche Meflecto");
+      }
+    },
+  },
+  {
+    url: `${BASE}/marques/chloe`,
+    label: "Chloé — pas de bloc signature vide",
+    assert: async (page) => {
+      if ((await page.locator("[data-testid='brand-signature']").count()) !== 0) {
+        throw new Error("bloc signature rendu sans données");
+      }
+      if ((await page.locator("[data-testid='brand-savoirfaire']").count()) !== 0) {
+        throw new Error("bloc savoir-faire rendu sans données");
+      }
+    },
+  },
 ];
 
 const browser = await chromium.launch();
