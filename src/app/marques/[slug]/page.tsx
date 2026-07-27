@@ -84,22 +84,27 @@ export default async function BrandPage({
     )
     .slice(0, 6);
 
+  const site = "https://www.optiquequeuleu.com";
+  const specs = detail?.specs;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Brand",
     name: brand.name,
-    description: brand.description,
-    url: `https://www.optiquequeuleu.com/marques/${brand.slug}`,
-    image: brand.heroImage
-      ? `https://www.optiquequeuleu.com${brand.heroImage}`
+    description: detail?.story?.[0] ?? brand.description,
+    url: `${site}/marques/${brand.slug}`,
+    image: brand.heroImage ? `${site}${brand.heroImage}` : undefined,
+    logo: brand.image ? `${site}${brand.image}` : undefined,
+    foundingDate: specs?.founded,
+    material: specs?.materials?.length ? specs.materials : undefined,
+    parentOrganization: specs?.group
+      ? { "@type": "Organization", name: specs.group }
       : undefined,
-    logo: brand.image
-      ? `https://www.optiquequeuleu.com${brand.image}`
-      : undefined,
+    sameAs: detail?.website ? [detail.website] : undefined,
     provider: {
       "@type": "LocalBusiness",
       name: "Optique Queuleu",
-      url: "https://www.optiquequeuleu.com",
+      url: site,
       telephone: "+33387373036",
       address: {
         "@type": "PostalAddress",

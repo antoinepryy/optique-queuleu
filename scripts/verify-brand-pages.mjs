@@ -104,6 +104,23 @@ const checks = [
       if (message !== "") throw new Error(`le formulaire générique est pré-rempli : "${message}"`);
     },
   },
+  {
+    url: `${BASE}/marques/persol`,
+    label: "Persol — JSON-LD enrichi",
+    assert: async (page) => {
+      const raw = await page.locator("script[type='application/ld+json']").first().textContent();
+      const data = JSON.parse(raw);
+      if (data.foundingDate !== "1917") throw new Error("foundingDate absent ou incorrect");
+      if (data.sameAs?.[0] !== "https://www.persol.com/") throw new Error("sameAs absent");
+      if (data.parentOrganization !== undefined) {
+        throw new Error("parentOrganization ne devrait pas être rendu (specs.group absent)");
+      }
+      if (data.material !== undefined) {
+        throw new Error("material ne devrait pas être rendu (specs.materials absent)");
+      }
+      if (JSON.stringify(data).includes("undefined")) throw new Error("valeur undefined sérialisée");
+    },
+  },
 ];
 
 const browser = await chromium.launch();
