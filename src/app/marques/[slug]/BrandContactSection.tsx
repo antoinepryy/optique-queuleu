@@ -4,7 +4,7 @@ export default function BrandContactSection({ brandName }: { brandName: string }
   return (
     <section
       data-testid="brand-contact"
-      className="bg-white py-14 sm:py-20 lg:py-24"
+      className="border-t border-gray-200 bg-white py-14 sm:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
