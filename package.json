@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --test scripts/lib/",
-    "check:brands": "tsx scripts/check-brands.ts"
+    "check:brands": "tsx scripts/check-brands.ts",
+    "verify:brands": "node scripts/verify-brand-pages.mjs"
   },
   "dependencies": {
     "emailjs-com": "^3.2.0",

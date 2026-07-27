@@ -30,7 +30,25 @@ export interface BrandDetail {
   verified: boolean;
 }
 
-export const brandDetails: Record<string, BrandDetail> = {};
+export const brandDetails: Record<string, BrandDetail> = {
+  persol: {
+    slug: "persol",
+    tagline: "Depuis 1917, la lunette turinoise « pour le soleil ».",
+    story: [
+      "L’histoire de Persol commence en 1917 à Turin, quand le photographe et inventeur Giuseppe Ratti crée l’entreprise Ratti pour fabriquer des lunettes de protection destinées aux pilotes — de trams comme de voitures de course. Le modèle Protector est rapidement adopté par l’armée italienne, puis par les civils.",
+      "Riche de treize ans d’innovations, la maison devient Persol en 1930. Le nom est une contraction de « per il sol », pour le soleil. Avant même Steve McQueen, c’est Marcello Mastroianni qui popularise la marque dans La Dolce Vita de Federico Fellini, en 1960.",
+    ],
+    specs: {
+      founded: "1917",
+      origin: "Turin, Italie",
+      group: "EssilorLuxottica",
+      madeIn: ["Italie"],
+    },
+    website: "https://www.persol.com/",
+    sources: ["https://www.persol.com/", "https://www.essilorluxottica.com/"],
+    verified: false,
+  },
+};
 
 export function getBrandDetail(slug: string): BrandDetail | undefined {
   return brandDetails[slug];

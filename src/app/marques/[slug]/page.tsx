@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import { brands, categoryLabels, getCountryCode } from "../brands-data";
+import { getBrandDetail } from "../brands-details";
 
 export function generateStaticParams() {
   return brands.map((b) => ({ slug: b.slug }));
@@ -69,6 +70,8 @@ export default async function BrandPage({
   if (!brand) {
     notFound();
   }
+
+  const detail = getBrandDetail(brand.slug);
 
   const relatedBrands = brands
     .filter(
@@ -221,16 +224,38 @@ export default async function BrandPage({
                 ))}
               </div>
 
-              {brand.description && (
-                <p className="mt-8 text-lg leading-relaxed text-foreground/85">
-                  {brand.description}
+              {detail?.tagline && (
+                <p
+                  data-testid="brand-tagline"
+                  className="mt-8 text-xl font-medium leading-snug text-foreground sm:text-2xl"
+                >
+                  {detail.tagline}
                 </p>
               )}
 
-              {brand.website && (
+              {detail?.story?.length ? (
+                <div className="mt-6 space-y-5">
+                  {detail.story.map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="text-lg leading-relaxed text-foreground/85"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                brand.description && (
+                  <p className="mt-8 text-lg leading-relaxed text-foreground/85">
+                    {brand.description}
+                  </p>
+                )
+              )}
+
+              {(detail?.website ?? brand.website) && (
                 <p className="mt-6">
                   <a
-                    href={brand.website}
+                    href={detail?.website ?? brand.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-light"
