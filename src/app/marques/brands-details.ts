@@ -70,6 +70,152 @@ export const brandDetails: Record<string, BrandDetail> = {
     ],
     verified: false,
   },
+  gucci: {
+    slug: "gucci",
+    tagline: "Florence, 1921 : l’artisanat italien devenu langage du luxe.",
+    story: [
+      "Gucci naît à Florence en 1921, quand Guccio Gucci y ouvre sa première boutique. Sa passion pour l’artisanat italien pose les bases d’un style qui mêle les codes aristocratiques traditionnels à l’esprit de la dolce vita.",
+      "La maison s’impose d’abord par la maroquinerie : le mocassin Horsebit 1953, le sac Jackie 1961 et la ligne Bamboo 1947 deviennent des classiques immédiats. Gucci appartient aujourd’hui au groupe de luxe Kering, qui a nommé Demna directeur artistique de la maison en 2025.",
+    ],
+    savoirFaire: [
+      "Les lunettes Gucci sont dessinées, développées et distribuées par Kering Eyewear, société fondée en 2014 par Kering et une équipe de dirigeants menée par Roberto Vedovotto pour internaliser la lunetterie de ses maisons.",
+      "La collection printemps-été 2026 relit les codes de la maison en acétate épais : papillons larges, rectangles étroits, et un logo métal repositionné à la verticale le long du profil de la branche.",
+    ],
+    signature: [
+      "Logo Gucci en métal sur le profil de la branche",
+      "Acétate épais sculpté en papillon large ou en rectangle étroit",
+      "Logo découpé en trois dimensions sur les branches des montures optiques",
+    ],
+    specs: {
+      founded: "1921",
+      origin: "Florence, Italie",
+      group: "Kering",
+    },
+    gallery: [
+      {
+        src: "/images/produits/gucci-campagne.webp",
+        alt: "Lunettes de soleil Gucci à monture écaille et verres verts, portées dans une campagne de la maison",
+      },
+    ],
+    website: "https://www.gucci.com",
+    sources: [
+      "https://www.kering.com/en/houses/fashion-and-leather-goods/gucci/",
+      "https://www.kering.com/en/houses/kering-eyewear/",
+      "https://www.keringeyewear.com/en/brands/gucci",
+    ],
+    verified: false,
+  },
+  "ancet-fayolle": {
+    slug: "ancet-fayolle",
+    tagline: "L’atelier lyonnais où la soie a laissé place à l’acétate.",
+    story: [
+      "L’histoire commence dans la soierie lyonnaise. Marcel Fayolle s’associe à Louis Ancet — le cousin de sa femme, Adèle — pour mettre au point le premier métier à tisser circulaire, puis un métier sans navette. Fiables, abordables et réparables, ces machines connaissent un succès international après les foires de New-York en 1948 et de Bruxelles en 1955 ; on en trouve encore aujourd’hui dans les ateliers.",
+      "Soixante-dix ans plus tard, Florentin, l’arrière-petit-fils de Marcel, reprend le fil sur la colline de la Croix-Rousse. La soie laisse place à l’acétate de cellulose. Artisan-lunetier depuis 2013, il fabrique d’abord des montures sur mesure pour ses premiers clients, avant que l’atelier ne s’agrandisse et que la marque ne voie le jour.",
+    ],
+    savoirFaire: [
+      "Formé par un Meilleur Ouvrier de France, Florentin maîtrise toutes les étapes, de la conception à la finition de la monture.",
+      "Les montures sont fabriquées à la main dans l’atelier lyonnais de la marque : chaque paire est assemblée individuellement par des artisans expérimentés, selon des méthodes traditionnelles.",
+      "L’atelier associe techniques artisanales et technologie de pointe, comme l’avait fait Marcel Fayolle en son temps.",
+    ],
+    signature: [
+      "Fabrication sur mesure à la Croix-Rousse, à Lyon",
+      "Acétate de cellulose, héritage direct du travail de la soie",
+      "Montures optiques et solaires, pour homme et pour femme",
+    ],
+    specs: {
+      origin: "Lyon, France",
+      madeIn: ["France"],
+      materials: ["Acétate de cellulose"],
+    },
+    gallery: [
+      {
+        src: "/images/produits/ancet-fayolle.webp",
+        alt: "Monture ronde en acétate écaille signée ancet + fayolle, atelier lunetier lyonnais distribué à Metz",
+      },
+    ],
+    sources: [
+      "https://www.carrerondopticiens.com/createurs/ancet-fayolle",
+      "https://histoire-dy-voir.com/ancetfayolle",
+      "https://www.sacreesmirettes.com/ancetfayolle/",
+    ],
+    verified: false,
+  },
+  bolle: {
+    slug: "bolle",
+    tagline: "Née à Oyonnax en 1888, passée du peigne au verre de sport.",
+    story: [
+      "L’entreprise Bollé est fondée en 1888 à Oyonnax, dans l’Ain, par Séraphin Bollé. Elle se spécialise dans la fabrication de peignes et ne commercialise sa première paire de lunettes qu’en 1946, avant de lancer sa première collection de lunettes de ski dans les années 1960.",
+      "En 2018, après le rachat de Bollé, Cébé et Serengeti au groupe Vista Outdoor, une holding est créée sous le nom de Bollé Brands. Son siège reste en France, pays où la marque est basée depuis 1888.",
+    ],
+    savoirFaire: [
+      "Bollé s’appuie sur deux technologies de verres maison : Phantom, photochromique, et Volt +, présenté par la marque comme le premier verre solaire développé à l’aide de l’intelligence artificielle.",
+      "Volt + a été mis au point en analysant plus de 20 millions de combinaisons. Il améliore la perception des couleurs de 30 % par rapport à un verre standard, en empruntant notamment aux verres destinés aux daltoniens, tout en conservant naturellement les blancs.",
+    ],
+    signature: [
+      "Verres photochromiques Phantom",
+      "Verres Volt + à polarisation haute performance, nommés aux Silmo d’Or 2020 dans la catégorie Vision",
+      "Lunettes, masques de ski et casques dessinés pour la pratique sportive",
+    ],
+    specs: {
+      founded: "1888",
+      origin: "Oyonnax, France",
+      group: "Bollé Brands",
+    },
+    gallery: [
+      {
+        src: "/images/produits/bolle-icarus.webp",
+        alt: "Cycliste portant des lunettes de soleil et un casque Bollé, verres teintés ambre",
+      },
+    ],
+    website: "https://www.bolle.com/",
+    sources: [
+      "https://fr.wikipedia.org/wiki/Boll%C3%A9_(entreprise)",
+      "https://www.acuite.fr/actualite/economie/144760/les-marques-bolle-cebe-et-serengeti-regroupees-au-sein-dune-nouvelle",
+      "https://www.acuite.fr/actualite/produit/206416/bolle-ameliore-la-perception-des-couleurs-au-dela-de-lhumainement-possible",
+    ],
+    verified: false,
+  },
+  komono: {
+    slug: "komono",
+    tagline: "Anvers, 2009 : l’avant-garde rendue accessible.",
+    story: [
+      "Komono est fondée en 2009 en Belgique par Anton Janssens et Raf Maes, deux anciens snowboardeurs professionnels qui se sont connus sur les pistes bien avant leurs années mode. La marque est profondément ancrée dans la scène anversoise, réputée pour sa vision radicale.",
+      "Son nom vient du japonais, où komono désigne un petit objet du quotidien. Le choix est d’abord graphique : les deux premiers O évoquent les verres d’une paire de lunettes, le dernier le boîtier d’une montre. Le catalogue suit la même logique — lunettes de soleil, montures optiques, montres et masques de ski.",
+    ],
+    savoirFaire: [
+      "Le prix juste est un parti pris assumé : Anton Janssens explique travailler avec de bonnes usines en acceptant des marges modestes, et réinvestir dans le produit ce que d’autres consacrent aux campagnes de célébrités.",
+    ],
+    signature: [
+      "Palette de couleurs inattendue et esthétique résolument avant-gardiste",
+      "Monogramme Komono discret, posé sur le verre ou sur la branche",
+      "Lunettes de soleil, montures optiques, montres et masques de ski",
+    ],
+    specs: {
+      founded: "2009",
+      origin: "Anvers, Belgique",
+    },
+    gallery: [
+      {
+        src: "/images/produits/komono.webp",
+        alt: "Cinq mannequins portant des lunettes de soleil Komono aux formes et teintes variées",
+      },
+      {
+        src: "/images/marques/komono/01.webp",
+        alt: "Lunettes de soleil Komono Hayden, monture rectangulaire en acétate noir et verres verts",
+      },
+      {
+        src: "/images/marques/komono/02.webp",
+        alt: "Lunettes de soleil Komono Lani, monture métal fine et verres orangés",
+      },
+    ],
+    website: "https://komono.com/fr",
+    sources: [
+      "https://komono.com/pages/about",
+      "https://metalmagazine.eu/en/post/komono-vision-and-timing",
+      "https://komono.com/fr",
+    ],
+    verified: false,
+  },
 };
 
 export function getBrandDetail(slug: string): BrandDetail | undefined {

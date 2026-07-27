@@ -2,6 +2,28 @@ import { chromium } from "playwright";
 
 const BASE = process.env.BASE_URL ?? "http://localhost:3000";
 
+/**
+ * Contrôle générique d'une fiche détaillée, paramétré par slug : blocs obligatoires
+ * présents une seule fois, et aucun placeholder rendu à l'écran.
+ */
+const ficheDetaillee = (slug) => ({
+  url: `${BASE}/marques/${slug}`,
+  label: `${slug} — fiche complète`,
+  assert: async (page) => {
+    for (const testid of ["brand-tagline", "brand-specs", "brand-contact"]) {
+      if ((await page.locator(`[data-testid='${testid}']`).count()) !== 1) {
+        throw new Error(`${testid} absent ou dupliqué`);
+      }
+    }
+    // innerText et non textContent : ce dernier remonte aussi le contenu des balises
+    // <script>, où la charge utile RSC de Next contient légitimement "undefined".
+    const visible = await page.locator("body").innerText();
+    for (const forbidden of ["N/A", "Non communiqué", "undefined", "TODO"]) {
+      if (visible.includes(forbidden)) throw new Error(`"${forbidden}" visible dans la page`);
+    }
+  },
+});
+
 const checks = [
   {
     url: `${BASE}/marques/persol`,
@@ -172,6 +194,7 @@ const checks = [
       if (JSON.stringify(data).includes("undefined")) throw new Error("valeur undefined sérialisée");
     },
   },
+  ...["persol", "gucci", "ancet-fayolle", "bolle", "komono"].map(ficheDetaillee),
 ];
 
 const browser = await chromium.launch();
