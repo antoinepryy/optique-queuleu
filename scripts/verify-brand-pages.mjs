@@ -51,7 +51,7 @@ const checks = [
     label: "Persol — accroche et histoire",
     assert: async (page) => {
       const main = await page.textContent("body");
-      if (!main.includes("per il sol")) throw new Error("le récit Persol est absent");
+      if (!main.includes("per il sole")) throw new Error("le récit Persol est absent");
       const tagline = await page.locator("[data-testid='brand-tagline']").count();
       if (tagline !== 1) throw new Error("tagline absente ou dupliquée");
     },
@@ -63,7 +63,7 @@ const checks = [
       const table = page.locator("[data-testid='brand-specs']");
       if ((await table.count()) !== 1) throw new Error("tableau de specs absent");
       const text = await table.textContent();
-      for (const expected of ["Création", "1917", "Origine", "Turin, Italie", "Fabrication", "Italie"]) {
+      for (const expected of ["Création", "1917", "Origine de la marque", "Turin, Italie", "Fabrication", "Italie"]) {
         if (!text.includes(expected)) throw new Error(`"${expected}" absent du tableau`);
       }
       for (const absent of ["Groupe", "EssilorLuxottica", "Matériaux", "Garantie", "N/A", "Non communiqué"]) {

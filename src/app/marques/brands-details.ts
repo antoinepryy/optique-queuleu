@@ -35,7 +35,7 @@ export const brandDetails: Record<string, BrandDetail> = {
     slug: "persol",
     tagline: "Depuis 1917, la lunette turinoise « pour le soleil ».",
     story: [
-      "L’histoire de Persol commence en 1917 à Turin, quand Giuseppe Ratti, photographe et opticien à la tête de la maison Ratti, se met à fabriquer des lunettes de protection destinées aux aviateurs et aux pilotes de voitures de course. Le modèle Protector est rapidement adopté par l’armée italienne, puis par les civils.",
+      "L’histoire de Persol commence en 1917 à Turin, quand Giuseppe Ratti, photographe et opticien au sein de la maison Ratti, se met à fabriquer des lunettes de protection destinées aux aviateurs et aux pilotes de voitures de course. Le modèle Protector est rapidement adopté par l’armée italienne, puis par les civils.",
       "Riche de vingt-et-un ans d’innovations, la maison devient Persol en 1938. Le nom est une contraction de « per il sole », pour le soleil. Avant même Steve McQueen, c’est Marcello Mastroianni qui popularise la marque dans La Dolce Vita de Federico Fellini, en 1960.",
     ],
     savoirFaire: [
@@ -171,14 +171,11 @@ export const brandDetails: Record<string, BrandDetail> = {
     slug: "komono",
     tagline: "Anvers, 2009 : l’avant-garde rendue accessible.",
     story: [
-      "Komono est fondée en 2009 en Belgique par Anton Janssens et Raf Maes, deux anciens snowboardeurs professionnels qui se sont connus bien avant leurs années mode. La marque est profondément ancrée dans la scène anversoise, une ville tournée vers la mode, entre l’Académie et les Antwerp Six.",
+      "Komono est fondée en 2009 en Belgique par Anton Janssens et Raf Maes, deux anciens snowboardeurs professionnels qui se sont connus bien avant leurs années mode. La marque est profondément ancrée dans la scène anversoise, une ville tournée vers la mode, entre son académie de mode et le groupe des Antwerp Six.",
       "Son nom vient du japonais, où komono désigne un petit objet. Le choix est d’abord graphique : les deux premiers O évoquent les verres d’une paire de lunettes, le dernier le boîtier d’une montre. Le catalogue suit la même logique — lunettes de soleil, montures optiques, montres et masques de ski.",
     ],
     savoirFaire: [
-      "Le prix juste est un parti pris assumé : Anton Janssens dit vouloir des marges « fair » plutôt que les marges « fake » de certains concurrents, et préfère réduire son budget publicitaire plutôt que financer de grandes campagnes portées par des stars.",
-    ],
-    signature: [
-      "Lunettes de soleil, montures optiques, montres et masques de ski",
+      "Le prix juste est un parti pris assumé : Anton Janssens dit vouloir des marges « fair » plutôt que les marges « fake » de certains concurrents, alors que la marque travaille avec les mêmes usines qu’eux. Face à ces grandes campagnes portées par des stars, Komono se dit plus limitée et doit souvent renoncer à un gros budget publicitaire.",
     ],
     specs: {
       founded: "2009",
