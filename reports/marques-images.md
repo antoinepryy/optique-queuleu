@@ -5,10 +5,10 @@ Diffuser un visuel de marque sur un site commercial sans accord du distributeur
 est un risque juridique : ce tableau permet de retirer en bloc ce qui ne doit pas
 être conservé.
 
-| Fichier | Marque | URL source | Date |
-|---|---|---|---|
-| `public/images/marques/komono/01.webp` | Komono | https://komono.com/cdn/shop/files/0012_KOM-S20001-Hayden-Black_20Celadon-Face.jpg (visuel produit du modèle Hayden, référencé sur https://komono.com/fr) | 2026-07-27 |
-| `public/images/marques/komono/02.webp` | Komono | https://komono.com/cdn/shop/files/0000_KOM-S20226-Lani-Amber_20Tide-Face.jpg (visuel produit du modèle Lani, référencé sur https://komono.com/fr) | 2026-07-27 |
+| Fichier | Marque | URL source | Date | Utilisé dans |
+|---|---|---|---|---|
+| `public/images/marques/komono/01.webp` | Komono | https://komono.com/cdn/shop/files/0012_KOM-S20001-Hayden-Black_20Celadon-Face.jpg (visuel produit du modèle Hayden, référencé sur https://komono.com/fr) | 2026-07-27 | `brandDetails.komono.gallery` — galerie de la page `/marques/komono` |
+| `public/images/marques/komono/02.webp` | Komono | https://komono.com/cdn/shop/files/0000_KOM-S20226-Lani-Amber_20Tide-Face.jpg (visuel produit du modèle Lani, référencé sur https://komono.com/fr) | 2026-07-27 | `brandDetails.komono.gallery` — galerie de la page `/marques/komono` |
 
 Les deux fichiers ont été convertis en WebP et redimensionnés à 1600 px de large
 (qualité 82) avec `cwebp`. Aucune dépendance n’a été ajoutée au projet.

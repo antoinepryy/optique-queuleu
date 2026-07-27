@@ -79,7 +79,7 @@ export const brandDetails: Record<string, BrandDetail> = {
     ],
     savoirFaire: [
       "Les lunettes Gucci sont dessinées, développées et distribuées par Kering Eyewear, société fondée en 2014 par Kering et une équipe de dirigeants menée par Roberto Vedovotto pour internaliser la lunetterie de ses maisons.",
-      "La collection printemps-été 2026 relit les codes de la maison en acétate épais : papillons larges, rectangles étroits, et un logo métal repositionné à la verticale le long du profil de la branche.",
+      "Les collections de lunettes relisent les codes de la maison en acétate épais : papillons larges, rectangles étroits, et un logo métal posé à la verticale le long du profil de la branche.",
     ],
     signature: [
       "Logo Gucci en métal sur le profil de la branche",
@@ -110,7 +110,7 @@ export const brandDetails: Record<string, BrandDetail> = {
     tagline: "L’atelier lyonnais où la soie a laissé place à l’acétate.",
     story: [
       "L’histoire commence dans la soierie lyonnaise. Marcel Fayolle s’associe à Louis Ancet — le cousin de sa femme, Adèle — pour mettre au point le premier métier à tisser circulaire, puis un métier sans navette. Fiables, abordables et réparables, ces machines connaissent un succès international après les foires de New-York en 1948 et de Bruxelles en 1955 ; on en trouve encore aujourd’hui dans les ateliers.",
-      "Soixante-dix ans plus tard, Florentin, l’arrière-petit-fils de Marcel, reprend le fil sur la colline de la Croix-Rousse. La soie laisse place à l’acétate de cellulose. Artisan-lunetier depuis 2013, il fabrique d’abord des montures sur mesure pour ses premiers clients, avant que l’atelier ne s’agrandisse et que la marque ne voie le jour.",
+      "Deux générations plus tard, Florentin, l’arrière-petit-fils de Marcel, reprend le fil sur la colline de la Croix-Rousse. La soie laisse place à l’acétate de cellulose. Artisan-lunetier depuis 2013, il fabrique d’abord des montures sur mesure pour ses premiers clients, avant que l’atelier ne s’agrandisse et que la marque ne voie le jour.",
     ],
     savoirFaire: [
       "Formé par un Meilleur Ouvrier de France, Florentin maîtrise toutes les étapes, de la conception à la finition de la monture.",
@@ -119,18 +119,16 @@ export const brandDetails: Record<string, BrandDetail> = {
     ],
     signature: [
       "Fabrication sur mesure à la Croix-Rousse, à Lyon",
-      "Acétate de cellulose, héritage direct du travail de la soie",
       "Montures optiques et solaires, pour homme et pour femme",
     ],
     specs: {
       origin: "Lyon, France",
       madeIn: ["France"],
-      materials: ["Acétate de cellulose"],
     },
     gallery: [
       {
         src: "/images/produits/ancet-fayolle.webp",
-        alt: "Monture ronde en acétate écaille signée ancet + fayolle, atelier lunetier lyonnais distribué à Metz",
+        alt: "Monture ronde écaille signée ancet + fayolle, atelier lunetier lyonnais distribué à Metz",
       },
     ],
     sources: [
@@ -179,7 +177,7 @@ export const brandDetails: Record<string, BrandDetail> = {
     slug: "komono",
     tagline: "Anvers, 2009 : l’avant-garde rendue accessible.",
     story: [
-      "Komono est fondée en 2009 en Belgique par Anton Janssens et Raf Maes, deux anciens snowboardeurs professionnels qui se sont connus sur les pistes bien avant leurs années mode. La marque est profondément ancrée dans la scène anversoise, réputée pour sa vision radicale.",
+      "Komono est fondée en 2009 en Belgique par Anton Janssens et Raf Maes, deux anciens snowboardeurs professionnels qui se sont connus bien avant leurs années mode. La marque est profondément ancrée dans la scène anversoise, réputée pour sa vision radicale.",
       "Son nom vient du japonais, où komono désigne un petit objet du quotidien. Le choix est d’abord graphique : les deux premiers O évoquent les verres d’une paire de lunettes, le dernier le boîtier d’une montre. Le catalogue suit la même logique — lunettes de soleil, montures optiques, montres et masques de ski.",
     ],
     savoirFaire: [

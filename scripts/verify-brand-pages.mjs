@@ -15,6 +15,12 @@ const ficheDetaillee = (slug) => ({
         throw new Error(`${testid} absent ou dupliqué`);
       }
     }
+    // Sur serveur froid le DOM est présent — les count() ci-dessus passent — alors que
+    // la page n'est pas encore peinte : innerText ne remonte alors que le header et le
+    // balayage anti-placeholder ne voit qu'une fraction du contenu. On attend donc que
+    // le dernier bloc de la page soit visible avant de lire.
+    await page.locator("[data-testid='brand-contact']").waitFor({ state: "visible" });
+
     // innerText et non textContent : ce dernier remonte aussi le contenu des balises
     // <script>, où la charge utile RSC de Next contient légitimement "undefined".
     const visible = await page.locator("body").innerText();
