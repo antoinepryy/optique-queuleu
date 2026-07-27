@@ -2,7 +2,7 @@ import type { BrandSpecs } from "../brands-details";
 
 const LABELS: Array<{ key: keyof BrandSpecs; label: string }> = [
   { key: "founded", label: "Création" },
-  { key: "origin", label: "Origine" },
+  { key: "origin", label: "Origine de la marque" },
   { key: "group", label: "Groupe" },
   { key: "madeIn", label: "Fabrication" },
   { key: "materials", label: "Matériaux" },
