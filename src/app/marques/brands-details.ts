@@ -35,7 +35,7 @@ export const brandDetails: Record<string, BrandDetail> = {
     slug: "persol",
     tagline: "Depuis 1917, la lunette turinoise « pour le soleil ».",
     story: [
-      "L’histoire de Persol commence en 1917 à Turin, quand le photographe et inventeur Giuseppe Ratti crée l’entreprise Ratti pour fabriquer des lunettes de protection destinées aux pilotes — de trams comme de voitures de course. Le modèle Protector est rapidement adopté par l’armée italienne, puis par les civils.",
+      "L’histoire de Persol commence en 1917 à Turin, quand le photographe et inventeur Giuseppe Ratti crée l’entreprise Ratti pour fabriquer des lunettes de protection destinées aux aviateurs et aux pilotes de voitures de course. Le modèle Protector est rapidement adopté par l’armée italienne, puis par les civils.",
       "Riche de vingt-et-un ans d’innovations, la maison devient Persol en 1938. Le nom est une contraction de « per il sol », pour le soleil. Avant même Steve McQueen, c’est Marcello Mastroianni qui popularise la marque dans La Dolce Vita de Federico Fellini, en 1960.",
     ],
     specs: {
