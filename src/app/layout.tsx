@@ -5,6 +5,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PromoBanner from "@/components/PromoBanner";
 import SummerSaleStrip from "@/components/SummerSaleStrip";
+import GoogleAdsScripts from "@/components/analytics/GoogleAdsScripts";
+import OutboundClickTracker from "@/components/analytics/OutboundClickTracker";
+import ConsentBanner from "@/components/analytics/ConsentBanner";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -53,12 +56,15 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${montserrat.variable} antialiased`}>
+        <GoogleAdsScripts />
+        <OutboundClickTracker />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-primary">Aller au contenu</a>
         <SummerSaleStrip />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
         <PromoBanner />
+        <ConsentBanner />
       </body>
     </html>
   );

@@ -442,6 +442,17 @@ export default function MentionsLegalesPage() {
                 .
               </p>
               <p>
+                Avec votre consentement, ce site utilise &eacute;galement des
+                cookies de mesure d&apos;audience publicitaire (Google Ads) afin
+                d&apos;&eacute;valuer l&apos;efficacit&eacute; de nos campagnes
+                (prises de rendez-vous, demandes de contact et appels issus de
+                nos annonces). Ces cookies ne sont d&eacute;pos&eacute;s
+                qu&apos;apr&egrave;s acceptation de votre part et peuvent
+                impliquer un transfert de donn&eacute;es vers Google. Vous pouvez
+                &agrave; tout moment modifier votre choix via le lien
+                &laquo;&nbsp;Gestion des cookies&nbsp;&raquo; en bas de page.
+              </p>
+              <p>
                 Vous pouvez &agrave; tout moment param&eacute;trer votre
                 navigateur pour refuser ou supprimer les cookies. La
                 d&eacute;sactivation des cookies peut toutefois limiter
