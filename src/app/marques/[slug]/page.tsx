@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import { brands, categoryLabels, getCountryCode } from "../brands-data";
 import { getBrandDetail } from "../brands-details";
+import BrandGallery from "./BrandGallery";
 import BrandSpecsTable from "./BrandSpecsTable";
 
 export function generateStaticParams() {
@@ -318,6 +319,10 @@ export default async function BrandPage({
           </div>
         </div>
       </section>
+
+      {detail?.gallery?.length ? (
+        <BrandGallery images={detail.gallery} brandName={brand.name} />
+      ) : null}
 
       {/* CTA Doctolib */}
       <section className="bg-gradient-to-r from-primary to-primary-light py-14 sm:py-16">

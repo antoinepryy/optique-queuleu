@@ -62,6 +62,28 @@ const checks = [
       }
     },
   },
+  {
+    url: `${BASE}/marques/persol`,
+    label: "Persol — galerie",
+    assert: async (page) => {
+      const images = page.locator("[data-testid='brand-gallery'] img");
+      const count = await images.count();
+      if (count < 1) throw new Error("aucune image de galerie");
+      for (let i = 0; i < count; i += 1) {
+        const alt = await images.nth(i).getAttribute("alt");
+        if (!alt) throw new Error(`image ${i} sans attribut alt`);
+      }
+    },
+  },
+  {
+    url: `${BASE}/marques/chloe`,
+    label: "Chloé — pas de galerie vide",
+    assert: async (page) => {
+      if ((await page.locator("[data-testid='brand-gallery']").count()) !== 0) {
+        throw new Error("galerie rendue sans images");
+      }
+    },
+  },
 ];
 
 const browser = await chromium.launch();
