@@ -1,3 +1,4 @@
+import { mkdirSync } from "node:fs";
 import { chromium } from "playwright";
 
 const BASE = process.env.BASE_URL ?? "http://localhost:3000";
@@ -216,6 +217,22 @@ for (const check of checks) {
     failed += 1;
     console.error(`FAIL ${check.label} — ${error.message}`);
   }
+}
+
+mkdirSync("screenshots", { recursive: true });
+for (const slug of ["persol", "komono", "chloe"]) {
+  // waitUntil: "networkidle" ne se stabilise jamais sur ces pages : la section
+  // contact embarque une iframe Google Maps qui maintient du trafic réseau en
+  // continu (tuiles, télémétrie), ce qui fait échouer page.goto par timeout.
+  // On attend plutôt que le dernier bloc de la page soit visible.
+  await page.goto(`${BASE}/marques/${slug}`, { waitUntil: "domcontentloaded", timeout: 30000 });
+  await page.locator("[data-testid='brand-contact']").waitFor({ state: "visible", timeout: 30000 });
+  // L'animation d'entrée (fondu) du bloc accroche/récit n'est pas terminée dès que
+  // brand-contact devient visible : sans cette pause la capture fige le contenu
+  // en cours de fondu, quasi invisible. Un court délai laisse la transition finir.
+  await page.waitForTimeout(1500);
+  await page.screenshot({ path: `screenshots/marque-${slug}-desktop.png`, fullPage: true });
+  console.log(`Capture screenshots/marque-${slug}-desktop.png`);
 }
 
 await browser.close();
