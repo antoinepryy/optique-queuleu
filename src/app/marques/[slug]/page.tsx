@@ -4,6 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import { brands, categoryLabels, getCountryCode } from "../brands-data";
+import { getBrandDetail } from "../brands-details";
+import BrandContactSection from "./BrandContactSection";
+import BrandGallery from "./BrandGallery";
+import BrandSpecsTable from "./BrandSpecsTable";
 
 export function generateStaticParams() {
   return brands.map((b) => ({ slug: b.slug }));
@@ -70,6 +74,8 @@ export default async function BrandPage({
     notFound();
   }
 
+  const detail = getBrandDetail(brand.slug);
+
   const relatedBrands = brands
     .filter(
       (b) =>
@@ -78,31 +84,59 @@ export default async function BrandPage({
     )
     .slice(0, 6);
 
+  const site = "https://www.optiquequeuleu.com";
+  const specs = detail?.specs;
+  const brandId = `${site}/marques/${brand.slug}#brand`;
+  const localBusinessId = `${site}/#localbusiness`;
+
+  // Brand n'est pas un sous-type d'Organization dans le vocabulaire Schema.org : il ne
+  // possede en propre que logo/slogan/review/aggregateRating. foundingDate et
+  // parentOrganization sont des proprietes d'Organization. On type donc ce noeud a la
+  // fois Brand et Organization (le multi-typage JSON-LD est valide) pour pouvoir porter
+  // ces deux proprietes legitimement. "material" n'est valide ni sur Brand ni sur
+  // Organization (c'est une propriete de Product/CreativeWork) : il n'est plus balise,
+  // la donnee reste affichee dans le tableau de caracteristiques visible de la page.
+  const brandNode = {
+    "@id": brandId,
+    "@type": ["Brand", "Organization"],
+    name: brand.name,
+    description: detail?.story?.[0] ?? brand.description,
+    url: `${site}/marques/${brand.slug}`,
+    image: brand.heroImage ? `${site}${brand.heroImage}` : undefined,
+    logo: brand.image ? `${site}${brand.image}` : undefined,
+    foundingDate: specs?.founded,
+    parentOrganization: specs?.group
+      ? { "@type": "Organization", name: specs.group }
+      : undefined,
+    sameAs: detail?.website ? [detail.website] : undefined,
+  };
+
+  // La relation "Optique Queuleu distribue cette marque a Metz" n'est pas exprimable via
+  // une propriete directe de Brand ("provider" n'existe pas sur ce type). On modelise donc
+  // deux entites distinctes dans un @graph, reliees par "brand" : une propriete
+  // d'Organization qui designe "the brand(s) maintained by an organization". Le noeud
+  // LocalBusiness (sous-type d'Organization) porte le signal de referencement local :
+  // nom, adresse et telephone d'Optique Queuleu restent donc presents et rattaches a la
+  // marque de facon comprehensible par un crawler.
+  const localBusinessNode = {
+    "@id": localBusinessId,
+    "@type": "LocalBusiness",
+    name: "Optique Queuleu",
+    url: site,
+    telephone: "+33387373036",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "28 rue de Queuleu",
+      addressLocality: "Metz",
+      postalCode: "57070",
+      addressCountry: "FR",
+    },
+    brand: { "@id": brandId },
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Brand",
-    name: brand.name,
-    description: brand.description,
-    url: `https://www.optiquequeuleu.com/marques/${brand.slug}`,
-    image: brand.heroImage
-      ? `https://www.optiquequeuleu.com${brand.heroImage}`
-      : undefined,
-    logo: brand.image
-      ? `https://www.optiquequeuleu.com${brand.image}`
-      : undefined,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Optique Queuleu",
-      url: "https://www.optiquequeuleu.com",
-      telephone: "+33387373036",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "28 rue de Queuleu",
-        addressLocality: "Metz",
-        postalCode: "57070",
-        addressCountry: "FR",
-      },
-    },
+    "@graph": [brandNode, localBusinessNode],
   };
 
   return (
@@ -221,16 +255,74 @@ export default async function BrandPage({
                 ))}
               </div>
 
-              {brand.description && (
-                <p className="mt-8 text-lg leading-relaxed text-foreground/85">
-                  {brand.description}
+              {detail?.tagline && (
+                <p
+                  data-testid="brand-tagline"
+                  className="mt-8 text-xl font-medium leading-snug text-foreground sm:text-2xl"
+                >
+                  {detail.tagline}
                 </p>
               )}
 
-              {brand.website && (
+              {detail?.story?.length ? (
+                <div className="mt-6 space-y-5">
+                  {detail.story.map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="text-lg leading-relaxed text-foreground/85"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                brand.description && (
+                  <p className="mt-8 text-lg leading-relaxed text-foreground/85">
+                    {brand.description}
+                  </p>
+                )
+              )}
+
+              {detail?.specs && <BrandSpecsTable specs={detail.specs} />}
+
+              {detail?.signature?.length ? (
+                <div className="mt-12">
+                  <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    Ce qui distingue {brand.name}
+                  </h2>
+                  <ul
+                    data-testid="brand-signature"
+                    className="mt-5 space-y-3"
+                  >
+                    {detail.signature.map((item) => (
+                      <li key={item} className="flex gap-3 text-base leading-relaxed text-foreground/85">
+                        <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+
+              {detail?.savoirFaire?.length ? (
+                <div data-testid="brand-savoirfaire" className="mt-12">
+                  <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    Savoir-faire
+                  </h2>
+                  <div className="mt-5 space-y-5">
+                    {detail.savoirFaire.map((paragraph, index) => (
+                      <p key={index} className="text-base leading-relaxed text-foreground/85">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {(detail?.website ?? brand.website) && (
                 <p className="mt-6">
                   <a
-                    href={brand.website}
+                    href={detail?.website ?? brand.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-light"
@@ -257,34 +349,11 @@ export default async function BrandPage({
         </div>
       </section>
 
-      {/* CTA Doctolib */}
-      <section className="bg-gradient-to-r from-primary to-primary-light py-14 sm:py-16">
-        <div className="mx-auto max-w-7xl px-5 text-center sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Essayez {brand.name} chez Optique Queuleu
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
-            Venez découvrir la collection {brand.name} dans notre magasin au 28
-            rue de Queuleu à Metz. Notre équipe vous guide dans votre choix.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <a
-              href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full max-w-xs rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-white/90 sm:w-auto"
-            >
-              Prendre rendez-vous
-            </a>
-            <Link
-              href="/contact"
-              className="w-full max-w-xs rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:w-auto"
-            >
-              Nous contacter
-            </Link>
-          </div>
-        </div>
-      </section>
+      {detail?.gallery?.length ? (
+        <BrandGallery images={detail.gallery} brandName={brand.name} />
+      ) : null}
+
+      <BrandContactSection brandName={brand.name} />
 
       {/* Marques similaires */}
       {relatedBrands.length > 0 && (

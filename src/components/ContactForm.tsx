@@ -3,16 +3,20 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 
-export default function ContactForm() {
+export default function ContactForm({ brand }: { brand?: string }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const defaultMessage = brand
+    ? `Bonjour, je suis intéressé(e) par les lunettes ${brand}.`
+    : "";
 
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
-    message: "",
+    message: defaultMessage,
   });
 
   const handleChange = (
@@ -37,13 +41,15 @@ export default function ContactForm() {
           name: formData.name,
           phone: formData.phone,
           email: formData.email,
-          message: formData.message,
+          message: brand
+            ? `[Marque : ${brand}]\n\n${formData.message}`
+            : formData.message,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
       .then(() => {
         setIsSubmitted(true);
-        setFormData({ name: "", phone: "", email: "", message: "" });
+        setFormData({ name: "", phone: "", email: "", message: defaultMessage });
       })
       .catch(() => {
         setError(
