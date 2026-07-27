@@ -106,18 +106,69 @@ const checks = [
   },
   {
     url: `${BASE}/marques/persol`,
-    label: "Persol — JSON-LD enrichi",
+    label: "Persol — JSON-LD enrichi (@graph Brand+Organization / LocalBusiness)",
     assert: async (page) => {
       const raw = await page.locator("script[type='application/ld+json']").first().textContent();
       const data = JSON.parse(raw);
-      if (data.foundingDate !== "1917") throw new Error("foundingDate absent ou incorrect");
-      if (data.sameAs?.[0] !== "https://www.persol.com/") throw new Error("sameAs absent");
-      if (data.parentOrganization !== undefined) {
+      if (!Array.isArray(data["@graph"])) throw new Error("@graph absent");
+
+      const brandNode = data["@graph"].find(
+        (n) => Array.isArray(n["@type"]) && n["@type"].includes("Brand")
+      );
+      if (!brandNode) throw new Error("noeud Brand absent du @graph");
+      if (!brandNode["@type"].includes("Organization")) {
+        throw new Error("le noeud Brand doit aussi être typé Organization (foundingDate n'est valide que sur Organization)");
+      }
+      if (brandNode.foundingDate !== "1917") throw new Error("foundingDate absent ou incorrect");
+      if (brandNode.sameAs?.[0] !== "https://www.persol.com/") throw new Error("sameAs absent");
+      if (brandNode.parentOrganization !== undefined) {
         throw new Error("parentOrganization ne devrait pas être rendu (specs.group absent)");
       }
-      if (data.material !== undefined) {
-        throw new Error("material ne devrait pas être rendu (specs.materials absent)");
+      if (brandNode.material !== undefined) {
+        throw new Error("material n'est valide ni sur Brand ni sur Organization, il ne doit pas être rendu");
       }
+
+      const localNode = data["@graph"].find((n) => n["@type"] === "LocalBusiness");
+      if (!localNode) throw new Error("noeud LocalBusiness absent du @graph");
+      if (localNode.name !== "Optique Queuleu") throw new Error("nom du noeud local absent ou incorrect");
+      if (localNode.telephone !== "+33387373036") throw new Error("téléphone absent du noeud local");
+      if (localNode.address?.streetAddress !== "28 rue de Queuleu") {
+        throw new Error("adresse absente ou incorrecte sur le noeud local");
+      }
+      if (localNode.brand?.["@id"] !== brandNode["@id"]) {
+        throw new Error("relation brand -> LocalBusiness absente ou incorrecte");
+      }
+
+      if (JSON.stringify(data).includes("undefined")) throw new Error("valeur undefined sérialisée");
+    },
+  },
+  {
+    url: `${BASE}/marques/chloe`,
+    label: "Chloé — JSON-LD sans fiche détaillée (non-régression)",
+    assert: async (page) => {
+      const raw = await page.locator("script[type='application/ld+json']").first().textContent();
+      const data = JSON.parse(raw);
+      if (!Array.isArray(data["@graph"])) throw new Error("@graph absent");
+
+      const brandNode = data["@graph"].find(
+        (n) => Array.isArray(n["@type"]) && n["@type"].includes("Brand")
+      );
+      if (!brandNode) throw new Error("noeud Brand absent du @graph");
+      if (brandNode.foundingDate !== undefined) throw new Error("foundingDate ne devrait pas être rendu (pas de fiche detail)");
+      if (brandNode.parentOrganization !== undefined) throw new Error("parentOrganization ne devrait pas être rendu");
+      if (brandNode.material !== undefined) throw new Error("material ne devrait pas être rendu");
+      if (brandNode.sameAs !== undefined) throw new Error("sameAs ne devrait pas être rendu (pas de website)");
+
+      const localNode = data["@graph"].find((n) => n["@type"] === "LocalBusiness");
+      if (!localNode) throw new Error("noeud LocalBusiness absent du @graph");
+      if (localNode.telephone !== "+33387373036") throw new Error("téléphone absent du noeud local");
+      if (localNode.address?.streetAddress !== "28 rue de Queuleu") {
+        throw new Error("adresse absente ou incorrecte sur le noeud local");
+      }
+      if (localNode.brand?.["@id"] !== brandNode["@id"]) {
+        throw new Error("relation brand -> LocalBusiness absente ou incorrecte");
+      }
+
       if (JSON.stringify(data).includes("undefined")) throw new Error("valeur undefined sérialisée");
     },
   },

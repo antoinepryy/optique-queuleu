@@ -86,34 +86,57 @@ export default async function BrandPage({
 
   const site = "https://www.optiquequeuleu.com";
   const specs = detail?.specs;
+  const brandId = `${site}/marques/${brand.slug}#brand`;
+  const localBusinessId = `${site}/#localbusiness`;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Brand",
+  // Brand n'est pas un sous-type d'Organization dans le vocabulaire Schema.org : il ne
+  // possede en propre que logo/slogan/review/aggregateRating. foundingDate et
+  // parentOrganization sont des proprietes d'Organization. On type donc ce noeud a la
+  // fois Brand et Organization (le multi-typage JSON-LD est valide) pour pouvoir porter
+  // ces deux proprietes legitimement. "material" n'est valide ni sur Brand ni sur
+  // Organization (c'est une propriete de Product/CreativeWork) : il n'est plus balise,
+  // la donnee reste affichee dans le tableau de caracteristiques visible de la page.
+  const brandNode = {
+    "@id": brandId,
+    "@type": ["Brand", "Organization"],
     name: brand.name,
     description: detail?.story?.[0] ?? brand.description,
     url: `${site}/marques/${brand.slug}`,
     image: brand.heroImage ? `${site}${brand.heroImage}` : undefined,
     logo: brand.image ? `${site}${brand.image}` : undefined,
     foundingDate: specs?.founded,
-    material: specs?.materials?.length ? specs.materials : undefined,
     parentOrganization: specs?.group
       ? { "@type": "Organization", name: specs.group }
       : undefined,
     sameAs: detail?.website ? [detail.website] : undefined,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Optique Queuleu",
-      url: site,
-      telephone: "+33387373036",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "28 rue de Queuleu",
-        addressLocality: "Metz",
-        postalCode: "57070",
-        addressCountry: "FR",
-      },
+  };
+
+  // La relation "Optique Queuleu distribue cette marque a Metz" n'est pas exprimable via
+  // une propriete directe de Brand ("provider" n'existe pas sur ce type). On modelise donc
+  // deux entites distinctes dans un @graph, reliees par "brand" : une propriete
+  // d'Organization qui designe "the brand(s) maintained by an organization". Le noeud
+  // LocalBusiness (sous-type d'Organization) porte le signal de referencement local :
+  // nom, adresse et telephone d'Optique Queuleu restent donc presents et rattaches a la
+  // marque de facon comprehensible par un crawler.
+  const localBusinessNode = {
+    "@id": localBusinessId,
+    "@type": "LocalBusiness",
+    name: "Optique Queuleu",
+    url: site,
+    telephone: "+33387373036",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "28 rue de Queuleu",
+      addressLocality: "Metz",
+      postalCode: "57070",
+      addressCountry: "FR",
     },
+    brand: { "@id": brandId },
+  };
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [brandNode, localBusinessNode],
   };
 
   return (
