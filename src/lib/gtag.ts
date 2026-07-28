@@ -33,31 +33,25 @@ function canTrack(): boolean {
   );
 }
 
+// Déduplication temporelle : un même type de conversion déclenché plusieurs
+// fois en < DEDUP_MS (double-clic sur tel:, re-clic Doctolib) n'envoie qu'un
+// seul hit. Protège la donnée indépendamment du réglage de comptage Google Ads.
+const DEDUP_MS = 1500;
+const lastSent: Partial<Record<ConversionKind, number>> = {};
+
 /**
  * Envoie une conversion Google Ads.
- * @param kind      doctolib | form | phone
- * @param onComplete callback exécuté APRÈS l'envoi (ou immédiatement si tracking
- *                   indisponible). Toujours appelé une seule fois — utile pour
- *                   enchaîner une navigation sans jamais bloquer l'UX.
+ * @param kind  doctolib | form | phone
  */
-export function trackConversion(kind: ConversionKind, onComplete?: () => void) {
-  if (!canTrack()) {
-    onComplete?.();
-    return;
-  }
+export function trackConversion(kind: ConversionKind) {
+  if (!canTrack()) return;
 
-  let done = false;
-  const fireOnce = () => {
-    if (done) return;
-    done = true;
-    onComplete?.();
-  };
+  const now = Date.now();
+  const previous = lastSent[kind];
+  if (previous !== undefined && now - previous < DEDUP_MS) return;
+  lastSent[kind] = now;
 
   window.gtag("event", "conversion", {
     send_to: `${GOOGLE_ADS_ID}/${CONVERSION_LABELS[kind]}`,
-    event_callback: fireOnce,
   });
-
-  // Filet de sécurité : si le hit réseau échoue/traîne, on n'attend pas.
-  setTimeout(fireOnce, 1200);
 }

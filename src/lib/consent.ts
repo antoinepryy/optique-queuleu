@@ -23,8 +23,18 @@ export function persistConsent(choice: ConsentChoice) {
 }
 
 // Met à jour les 4 signaux Consent Mode v2 selon le choix utilisateur.
+// Ne dépend PAS de l'ordre de chargement de la lib gtag : on passe par le
+// stub dataLayer (créé si absent) pour que l'update soit mis en file d'attente
+// et traité dès que gtag/js est chargé. Évite la course de rejeu au montage.
 export function updateConsent(choice: ConsentChoice) {
-  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== "function") {
+    window.gtag = function () {
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer.push(arguments);
+    };
+  }
   window.gtag("consent", "update", {
     ad_storage: choice,
     ad_user_data: choice,
