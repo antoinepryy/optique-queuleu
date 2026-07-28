@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion, LayoutGroup } from "motion/react";
 import {
   brands,
@@ -304,7 +305,13 @@ function AnimatedBrandCard({ brand, index }: { brand: Brand; index: number }) {
       style={{ transformStyle: "preserve-3d", transformPerspective: 1400 }}
       className="will-change-transform"
     >
-      <BrandCard brand={brand} />
+      <Link
+        href={`/marques/${brand.slug}`}
+        aria-label={`Découvrir la marque ${brand.name}`}
+        className="block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        <BrandCard brand={brand} />
+      </Link>
     </motion.div>
   );
 }

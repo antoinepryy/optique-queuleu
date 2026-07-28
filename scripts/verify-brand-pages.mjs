@@ -46,6 +46,31 @@ const ficheDetaillee = (slug) => ({
 });
 
 const checks = [
+  // Les fiches détaillées ne valent que si un visiteur peut y arriver. Tous les
+  // autres contrôles de ce harnais naviguent par URL directe : ils passaient
+  // alors que la grille de /marques ne comportait aucun lien vers les fiches.
+  {
+    url: `${BASE}/marques`,
+    label: "/marques — les cartes mènent aux fiches",
+    assert: async (page) => {
+      const liens = page.locator('a[href^="/marques/"]');
+      const total = await liens.count();
+      if (total < brands.length) {
+        throw new Error(
+          `${total} lien(s) vers une fiche marque pour ${brands.length} marques au catalogue`
+        );
+      }
+      // Un lien présent dans le DOM peut rester inatteignable (recouvert, masqué).
+      // On vérifie donc une navigation réelle, pas seulement la présence du href.
+      const premier = liens.first();
+      const cible = await premier.getAttribute("href");
+      await premier.click();
+      await page.waitForURL(`**${cible}`, { timeout: 10000 });
+      if ((await page.locator("h1").first().textContent())?.trim().length === 0) {
+        throw new Error(`la fiche ${cible} s'affiche sans titre`);
+      }
+    },
+  },
   {
     url: `${BASE}/marques/persol`,
     label: "Persol — accroche et histoire",
