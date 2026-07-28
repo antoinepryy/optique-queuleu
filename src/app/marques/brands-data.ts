@@ -90,7 +90,7 @@ export const brands: Brand[] = [
     name: "Oliver Peoples",
     slug: "oliver-peoples",
     image: "/images/marques/oliver-peoples.webp",
-    heroImage: "/images/produits/steve-mcqueen.webp",
+    heroImage: "/images/marques/oliver-peoples.webp",
     country: "USA",
     countryFlag: "\uD83C\uDDFA\uD83C\uDDF8",
     priceRange: "\u20AC\u20AC\u20AC\u20AC",
