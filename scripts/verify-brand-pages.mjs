@@ -255,6 +255,76 @@ for (const check of checks) {
   }
 }
 
+// ── Contrôles de dégradation ──
+// Les blocs animés au défilement partent à opacity 0. Deux situations doivent
+// malgré tout afficher le contenu : l'absence de JavaScript, et la préférence
+// système « mouvement réduit ». Ces deux cas exigent un contexte de navigateur
+// dédié (options posées à la création du contexte), d'où cette boucle séparée.
+const pagesDegradation = [`${BASE}/`, `${BASE}/marques/${documentedSlugs[0]}`];
+
+const etatDesBlocsReveles = async (contextOptions, url) => {
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+    ...contextOptions,
+  });
+  const p = await context.newPage();
+  try {
+    await p.goto(url, { waitUntil: "load", timeout: 20000 });
+    return await p.evaluate(() => {
+      const blocs = Array.from(
+        document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale")
+      );
+      const style = (el) => getComputedStyle(el);
+      return {
+        total: blocs.length,
+        invisibles: blocs.filter((el) => Number(style(el).opacity) < 1).length,
+        animes: blocs.filter((el) =>
+          style(el)
+            .transitionDuration.split(",")
+            .some((d) => parseFloat(d) > 0)
+        ).length,
+      };
+    });
+  } finally {
+    await context.close();
+  }
+};
+
+for (const url of pagesDegradation) {
+  for (const [label, options, sansTransition] of [
+    ["sans JavaScript", { javaScriptEnabled: false }, false],
+    // Sous mouvement réduit on vérifie aussi que la transition est neutralisée :
+    // l'opacité seule serait sensible au minutage (une animation de 0,8 s peut
+    // s'être achevée avant la mesure et masquer une régression), alors que la
+    // durée de transition calculée est déterministe.
+    ["mouvement réduit", { reducedMotion: "reduce" }, true],
+  ]) {
+    const nom = `${url.replace(BASE, "") || "/"} — contenu visible ${label}`;
+    try {
+      const { total, invisibles, animes } = await etatDesBlocsReveles(options, url);
+      if (total === 0) {
+        throw new Error(
+          "aucun bloc .reveal trouvé — le contrôle ne teste rien, vérifier le sélecteur"
+        );
+      }
+      if (invisibles > 0) {
+        throw new Error(
+          `${invisibles} bloc(s) sur ${total} restent à opacity < 1 : le contenu est invisible`
+        );
+      }
+      if (sansTransition && animes > 0) {
+        throw new Error(
+          `${animes} bloc(s) sur ${total} conservent une transition alors que le mouvement réduit est demandé`
+        );
+      }
+      console.log(`OK   ${nom} (${total} blocs)`);
+    } catch (error) {
+      failed += 1;
+      console.error(`FAIL ${nom} — ${error.message}`);
+    }
+  }
+}
+
 // Échantillon de captures borné : la première et la dernière fiche documentée, plus
 // le témoin sans fiche s'il existe encore — pas la liste complète, qui grossira avec
 // le catalogue.
