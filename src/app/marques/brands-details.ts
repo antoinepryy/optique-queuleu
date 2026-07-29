@@ -119,12 +119,6 @@ export const brandDetails: Record<string, BrandDetail> = {
       origin: "Lyon, France",
       madeIn: ["France"],
     },
-    gallery: [
-      {
-        src: "/images/produits/ancet-fayolle.webp",
-        alt: "Monture ronde écaille signée ancet + fayolle, atelier lunetier lyonnais distribué à Metz",
-      },
-    ],
     sources: [
       "https://www.carrerondopticiens.com/createurs/ancet-fayolle",
       "https://histoire-dy-voir.com/ancetfayolle",
