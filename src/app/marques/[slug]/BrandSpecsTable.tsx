@@ -24,23 +24,28 @@ export default function BrandSpecsTable({ specs }: { specs: BrandSpecs }) {
   if (rows.length === 0) return null;
 
   return (
-    <dl
-      data-testid="brand-specs"
-      className="mt-12 grid gap-x-8 gap-y-0 border-t border-gray-200 sm:grid-cols-2"
-    >
-      {rows.map((row) => (
-        <div
-          key={row.label}
-          className="flex items-baseline justify-between gap-4 border-b border-gray-200 py-4"
-        >
-          <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
-            {row.label}
-          </dt>
-          <dd className="text-right text-sm font-medium text-foreground">
-            {formatValue(row.value)}
-          </dd>
-        </div>
-      ))}
-    </dl>
+    <div data-testid="brand-specs" className="mt-12">
+      <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+        La marque en bref
+      </h2>
+      {/* Tuiles autoportantes plutôt que rangées filaires : chaque cellule tient
+          seule, la grille reste équilibrée de 1 à 8 entrées, y compris en nombre
+          impair. Fond blanc + bordure : lisible sur section blanche comme muted. */}
+      <dl className="mt-5 grid gap-3 sm:grid-cols-2">
+        {rows.map((row) => (
+          <div
+            key={row.label}
+            className="rounded-xl border border-gray-100 bg-white px-5 py-4 shadow-sm"
+          >
+            <dt className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+              {row.label}
+            </dt>
+            <dd className="mt-1.5 text-base font-semibold text-foreground">
+              {formatValue(row.value)}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
   );
 }
