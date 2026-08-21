@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ScrollReveal from "@/components/ScrollReveal";
-import { brands, categoryLabels, getCountryCode } from "../brands-data";
+import { brands, categoryLabels } from "../brands-data";
+import { getBrandDetail } from "../brands-details";
+import BrandContactSection from "./BrandContactSection";
+import BrandGallery from "./BrandGallery";
+import BrandHero from "./BrandHero";
+import BrandSignature from "./BrandSignature";
+import BrandSpecsTable from "./BrandSpecsTable";
+import RelatedBrands from "./RelatedBrands";
 
 export function generateStaticParams() {
   return brands.map((b) => ({ slug: b.slug }));
@@ -70,6 +76,8 @@ export default async function BrandPage({
     notFound();
   }
 
+  const detail = getBrandDetail(brand.slug);
+
   const relatedBrands = brands
     .filter(
       (b) =>
@@ -78,31 +86,61 @@ export default async function BrandPage({
     )
     .slice(0, 6);
 
+  const hasGallery = (detail?.gallery?.length ?? 0) > 0;
+
+  const site = "https://www.optiquequeuleu.com";
+  const specs = detail?.specs;
+  const brandId = `${site}/marques/${brand.slug}#brand`;
+  const localBusinessId = `${site}/#localbusiness`;
+
+  // Brand n'est pas un sous-type d'Organization dans le vocabulaire Schema.org : il ne
+  // possede en propre que logo/slogan/review/aggregateRating. foundingDate et
+  // parentOrganization sont des proprietes d'Organization. On type donc ce noeud a la
+  // fois Brand et Organization (le multi-typage JSON-LD est valide) pour pouvoir porter
+  // ces deux proprietes legitimement. "material" n'est valide ni sur Brand ni sur
+  // Organization (c'est une propriete de Product/CreativeWork) : il n'est plus balise,
+  // la donnee reste affichee dans le tableau de caracteristiques visible de la page.
+  const brandNode = {
+    "@id": brandId,
+    "@type": ["Brand", "Organization"],
+    name: brand.name,
+    description: detail?.story?.[0] ?? brand.description,
+    url: `${site}/marques/${brand.slug}`,
+    image: brand.heroImage ? `${site}${brand.heroImage}` : undefined,
+    logo: brand.image ? `${site}${brand.image}` : undefined,
+    foundingDate: specs?.founded,
+    parentOrganization: specs?.group
+      ? { "@type": "Organization", name: specs.group }
+      : undefined,
+    sameAs: detail?.website ? [detail.website] : undefined,
+  };
+
+  // La relation "Optique Queuleu distribue cette marque a Metz" n'est pas exprimable via
+  // une propriete directe de Brand ("provider" n'existe pas sur ce type). On modelise donc
+  // deux entites distinctes dans un @graph, reliees par "brand" : une propriete
+  // d'Organization qui designe "the brand(s) maintained by an organization". Le noeud
+  // LocalBusiness (sous-type d'Organization) porte le signal de referencement local :
+  // nom, adresse et telephone d'Optique Queuleu restent donc presents et rattaches a la
+  // marque de facon comprehensible par un crawler.
+  const localBusinessNode = {
+    "@id": localBusinessId,
+    "@type": "LocalBusiness",
+    name: "Optique Queuleu",
+    url: site,
+    telephone: "+33387373036",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "28 rue de Queuleu",
+      addressLocality: "Metz",
+      postalCode: "57070",
+      addressCountry: "FR",
+    },
+    brand: { "@id": brandId },
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Brand",
-    name: brand.name,
-    description: brand.description,
-    url: `https://www.optiquequeuleu.com/marques/${brand.slug}`,
-    image: brand.heroImage
-      ? `https://www.optiquequeuleu.com${brand.heroImage}`
-      : undefined,
-    logo: brand.image
-      ? `https://www.optiquequeuleu.com${brand.image}`
-      : undefined,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Optique Queuleu",
-      url: "https://www.optiquequeuleu.com",
-      telephone: "+33387373036",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "28 rue de Queuleu",
-        addressLocality: "Metz",
-        postalCode: "57070",
-        addressCountry: "FR",
-      },
-    },
+    "@graph": [brandNode, localBusinessNode],
   };
 
   return (
@@ -113,100 +151,14 @@ export default async function BrandPage({
       />
 
       {/* Hero */}
-      {brand.heroImage ? (
-        <section className="relative flex min-h-[22rem] items-end overflow-hidden pt-20 sm:min-h-[28rem]">
-          <Image
-            src={brand.heroImage}
-            alt={`Lunettes ${brand.name} - ${brand.french ? "Créateur français" : brand.country}`}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
-          <div className="relative mx-auto w-full max-w-7xl px-5 pb-10 sm:px-6 sm:pb-14 lg:px-8">
-            <nav
-              className="mb-6 text-[10px] font-medium uppercase tracking-[0.2em] text-white/60 sm:text-xs"
-              aria-label="Fil d'Ariane"
-            >
-              <Link href="/" className="transition-colors hover:text-white">
-                Accueil
-              </Link>
-              <span className="mx-2 text-white/30 sm:mx-3">/</span>
-              <Link
-                href="/marques"
-                className="transition-colors hover:text-white"
-              >
-                Marques
-              </Link>
-              <span className="mx-2 text-white/30 sm:mx-3">/</span>
-              <span className="text-white/90">{brand.name}</span>
-            </nav>
-            <div className="flex items-center gap-3">
-              <span className="rounded-full border border-white/20 bg-black/30 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-                {getCountryCode(brand.country)}
-              </span>
-              {brand.french && (
-                <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
-                  Made in France
-                </span>
-              )}
-            </div>
-            <h1 className="mt-4 text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
-              {brand.name}
-            </h1>
-          </div>
-        </section>
-      ) : (
-        <section className="relative flex min-h-[18rem] items-end overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 pt-20 sm:min-h-[22rem]">
-          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
-          <div className="relative mx-auto w-full max-w-7xl px-5 pb-10 sm:px-6 sm:pb-14 lg:px-8">
-            <nav
-              className="mb-6 text-[10px] font-medium uppercase tracking-[0.2em] text-white/60 sm:text-xs"
-              aria-label="Fil d'Ariane"
-            >
-              <Link href="/" className="transition-colors hover:text-white">
-                Accueil
-              </Link>
-              <span className="mx-2 text-white/30 sm:mx-3">/</span>
-              <Link
-                href="/marques"
-                className="transition-colors hover:text-white"
-              >
-                Marques
-              </Link>
-              <span className="mx-2 text-white/30 sm:mx-3">/</span>
-              <span className="text-white/90">{brand.name}</span>
-            </nav>
-            {brand.image && (
-              <div className="mb-6">
-                <Image
-                  src={brand.image}
-                  alt={`Logo ${brand.name}`}
-                  width={140}
-                  height={60}
-                  className="h-12 w-auto object-contain brightness-0 invert sm:h-16"
-                />
-              </div>
-            )}
-            <div className="flex items-center gap-3">
-              <span className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-                {getCountryCode(brand.country)}
-              </span>
-              {brand.french && (
-                <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
-                  Made in France
-                </span>
-              )}
-            </div>
-            <h1 className="mt-4 text-4xl font-bold text-white sm:text-5xl">
-              {brand.name}
-            </h1>
-          </div>
-        </section>
-      )}
+      <BrandHero brand={brand} />
 
-      {/* Fiche marque */}
-      <section className="bg-white py-14 sm:py-20 lg:py-24">
+      {/* Fiche marque — sur fond muted quand la galerie (muted) est absente :
+          la section contact qui suit est toujours blanche, deux fonds identiques
+          ne doivent jamais se toucher. */}
+      <section
+        className={`${hasGallery ? "bg-white" : "bg-muted"} py-14 sm:py-20 lg:py-24`}
+      >
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <ScrollReveal>
@@ -214,23 +166,66 @@ export default async function BrandPage({
                 {brand.categories.map((cat) => (
                   <span
                     key={cat}
-                    className="rounded-full bg-muted px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+                    className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground"
                   >
                     {categoryLabels[cat]}
                   </span>
                 ))}
               </div>
 
-              {brand.description && (
-                <p className="mt-8 text-lg leading-relaxed text-foreground/85">
-                  {brand.description}
+              {detail?.tagline && (
+                <p
+                  data-testid="brand-tagline"
+                  className="mt-8 text-xl font-medium leading-snug text-foreground sm:text-2xl"
+                >
+                  {detail.tagline}
                 </p>
               )}
 
-              {brand.website && (
+              {detail?.story?.length ? (
+                <div className="mt-6 space-y-5">
+                  {detail.story.map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="text-lg leading-relaxed text-foreground/85"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                brand.description && (
+                  <p className="mt-8 text-lg leading-relaxed text-foreground/85">
+                    {brand.description}
+                  </p>
+                )
+              )}
+
+              {detail?.specs && <BrandSpecsTable specs={detail.specs} />}
+
+              {detail?.signature?.length ? (
+                <BrandSignature brandName={brand.name} items={detail.signature} />
+              ) : null}
+
+              {detail?.savoirFaire?.length ? (
+                <div data-testid="brand-savoirfaire" className="mt-12">
+                  <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    Savoir-faire
+                  </h2>
+                  <div className="mt-5 space-y-5">
+                    {detail.savoirFaire.map((paragraph, index) => (
+                      <p key={index} className="text-base leading-relaxed text-foreground/85">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {(detail?.website ?? brand.website) && (
                 <p className="mt-6">
                   <a
-                    href={brand.website}
+                    href={detail?.website ?? brand.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-light"
@@ -257,102 +252,20 @@ export default async function BrandPage({
         </div>
       </section>
 
-      {/* CTA Doctolib */}
-      <section className="bg-gradient-to-r from-primary to-primary-light py-14 sm:py-16">
-        <div className="mx-auto max-w-7xl px-5 text-center sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Essayez {brand.name} chez Optique Queuleu
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
-            Venez découvrir la collection {brand.name} dans notre magasin au 28
-            rue de Queuleu à Metz. Notre équipe vous guide dans votre choix.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <a
-              href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full max-w-xs rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-white/90 sm:w-auto"
-            >
-              Prendre rendez-vous
-            </a>
-            <Link
-              href="/contact"
-              className="w-full max-w-xs rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:w-auto"
-            >
-              Nous contacter
-            </Link>
-          </div>
-        </div>
-      </section>
+      {detail?.gallery?.length ? (
+        <BrandGallery images={detail.gallery} brandName={brand.name} />
+      ) : null}
+
+      <BrandContactSection brandName={brand.name} />
 
       {/* Marques similaires */}
-      {relatedBrands.length > 0 && (
-        <section className="bg-muted py-14 sm:py-20 lg:py-24">
-          <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-            <ScrollReveal>
-              <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                    Dans le même univers
-                  </span>
-                  <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                    Marques similaires
-                  </h2>
-                </div>
-                <Link
-                  href="/marques"
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-light"
-                >
-                  Toutes les marques
-                  <svg
-                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13 7l5 5-5 5M5 12h13"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            </ScrollReveal>
+      <RelatedBrands brands={relatedBrands} />
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-              {relatedBrands.map((b) => (
-                <Link key={b.slug} href={`/marques/${b.slug}`}>
-                  <article className="group relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
-                    {b.image ? (
-                      <Image
-                        src={b.image}
-                        alt={`Logo ${b.name}`}
-                        width={80}
-                        height={40}
-                        className="max-h-10 w-auto max-w-[80px] object-contain opacity-70 transition-all duration-300 group-hover:opacity-100"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <span className="text-center text-sm font-bold text-foreground">
-                        {b.name}
-                      </span>
-                    )}
-                    <h3 className="mt-3 text-center text-[11px] font-semibold uppercase tracking-wider text-muted-foreground transition-colors group-hover:text-primary">
-                      {b.name}
-                    </h3>
-                  </article>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Services complémentaires */}
-      <section className="bg-white py-14 sm:py-20 lg:py-24">
+      {/* Services complémentaires — muted si les similaires (muted) sont absentes :
+          la section contact qui précède alors est blanche. */}
+      <section
+        className={`${relatedBrands.length > 0 ? "bg-white" : "bg-muted"} py-14 sm:py-20 lg:py-24`}
+      >
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-2xl font-bold text-foreground">

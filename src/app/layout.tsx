@@ -56,6 +56,15 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${montserrat.variable} antialiased`}>
+        {/* Pose `js` sur <html> avant tout rendu. Les animations de révélation
+            au défilement ne masquent leur contenu que sous cette classe : si ce
+            script ne s'exécute pas, la page reste lisible au lieu de rester
+            vide. Doit demeurer le premier élément du body. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add("js")`,
+          }}
+        />
         <GoogleAdsScripts />
         <OutboundClickTracker />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-primary">Aller au contenu</a>

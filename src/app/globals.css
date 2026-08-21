@@ -45,75 +45,80 @@ html {
   overflow-x: clip;
 }
 
-/* ── Scroll-reveal animations ── */
+/* ── Scroll-reveal animations ──
+   Le masquage initial est conditionné à la classe `js` que le script inline
+   du layout pose sur <html>. Sans JavaScript — désactivé, script bloqué ou
+   erreur d'exécution — aucune règle ne s'applique et le contenu reste
+   visible. Une animation est un bonus : si elle ne peut pas jouer, on doit
+   retomber sur du contenu fixe, jamais sur une page vide. */
 
-.reveal {
+html.js .reveal {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal.visible {
+html.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.reveal-left {
+html.js .reveal-left {
   opacity: 0;
   transform: translateX(-60px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal-left.visible {
+html.js .reveal-left.visible {
   opacity: 1;
   transform: translateX(0);
 }
 
-.reveal-right {
+html.js .reveal-right {
   opacity: 0;
   transform: translateX(60px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal-right.visible {
+html.js .reveal-right.visible {
   opacity: 1;
   transform: translateX(0);
 }
 
-.reveal-scale {
+html.js .reveal-scale {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal-scale.visible {
+html.js .reveal-scale.visible {
   opacity: 1;
   transform: scale(1);
 }
 
 /* Stagger children */
-.stagger-children > * {
+html.js .stagger-children > * {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.stagger-children.visible > *:nth-child(1) { transition-delay: 0ms; }
-.stagger-children.visible > *:nth-child(2) { transition-delay: 80ms; }
-.stagger-children.visible > *:nth-child(3) { transition-delay: 160ms; }
-.stagger-children.visible > *:nth-child(4) { transition-delay: 240ms; }
-.stagger-children.visible > *:nth-child(5) { transition-delay: 320ms; }
-.stagger-children.visible > *:nth-child(6) { transition-delay: 400ms; }
-.stagger-children.visible > *:nth-child(7) { transition-delay: 480ms; }
-.stagger-children.visible > *:nth-child(8) { transition-delay: 560ms; }
-.stagger-children.visible > *:nth-child(9) { transition-delay: 640ms; }
+html.js .stagger-children.visible > *:nth-child(1) { transition-delay: 0ms; }
+html.js .stagger-children.visible > *:nth-child(2) { transition-delay: 80ms; }
+html.js .stagger-children.visible > *:nth-child(3) { transition-delay: 160ms; }
+html.js .stagger-children.visible > *:nth-child(4) { transition-delay: 240ms; }
+html.js .stagger-children.visible > *:nth-child(5) { transition-delay: 320ms; }
+html.js .stagger-children.visible > *:nth-child(6) { transition-delay: 400ms; }
+html.js .stagger-children.visible > *:nth-child(7) { transition-delay: 480ms; }
+html.js .stagger-children.visible > *:nth-child(8) { transition-delay: 560ms; }
+html.js .stagger-children.visible > *:nth-child(9) { transition-delay: 640ms; }
 
-.stagger-children.visible > * {
+html.js .stagger-children.visible > * {
   opacity: 1;
   transform: translateY(0);
 }
@@ -324,4 +329,63 @@ html {
     0 24px 48px rgba(0, 0, 0, 0.08),
     0 48px 80px rgba(0, 0, 0, 0.06);
   transform: translateY(-4px);
+}
+
+/* ── Mouvement réduit ──
+   Respecte la préférence système « Réduire les animations » (macOS, iOS,
+   Windows, Android), activée notamment pour des troubles vestibulaires ou
+   des migraines déclenchées par le mouvement.
+
+   Ce bloc doit rester en fin de fichier : il neutralise des règles plus
+   spécifiques (`html.js .reveal`), d'où les `!important`. */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Les blocs révélés au défilement s'affichent d'emblée, sans transition. */
+  html.js .reveal,
+  html.js .reveal-left,
+  html.js .reveal-right,
+  html.js .reveal-scale,
+  html.js .stagger-children > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  html.js .stagger-children.visible > * {
+    transition-delay: 0ms !important;
+  }
+
+  /* Animations d'entrée : on affiche l'état final immédiatement. */
+  .animate-hero-title,
+  .animate-hero-subtitle,
+  .animate-hero-cta,
+  .animate-hero-bg,
+  .animate-slide-up,
+  .animate-slide-down {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* La flèche de défilement flottait en boucle : le mouvement perpétuel est
+     précisément ce que cette préférence vise. On la garde visible, fixe. */
+  .animate-hero-scroll {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Les effets de survol perdent leur déplacement, gardent leur retour
+     visuel via l'ombre et la couleur. */
+  .shadow-layered-hover {
+    transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .shadow-layered-hover:hover {
+    transform: none;
+  }
 }
