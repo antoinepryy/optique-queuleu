@@ -26,6 +26,11 @@ export default function GoogleAdsScripts() {
             analytics_storage: 'denied',
             wait_for_update: 500
           });
+          // Sans consentement : pas d'identifiants publicitaires dans les hits
+          // (ads_data_redaction) et le gclid est propage via l'URL plutot que
+          // par un cookie (url_passthrough) -> l'attribution reste possible.
+          gtag('set', 'ads_data_redaction', true);
+          gtag('set', 'url_passthrough', true);
           gtag('js', new Date());
           gtag('config', '${GOOGLE_ADS_ID}', { send_page_view: false });
         `}
