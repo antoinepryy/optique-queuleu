@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import CookieSettingsButton from "@/components/analytics/CookieSettingsButton";
 
 export default function Footer() {
   return (
@@ -145,9 +146,7 @@ export default function Footer() {
               Mentions l&eacute;gales
             </Link>{" "}
             |{" "}
-            <span className="text-muted-foreground">
-              Gestion des cookies
-            </span>{" "}
+            <CookieSettingsButton />{" "}
             |{" "}
             <Link href="/plan-du-site" className="text-muted-foreground transition-colors hover:text-primary">
               Plan du site

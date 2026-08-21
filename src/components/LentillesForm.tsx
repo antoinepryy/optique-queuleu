@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import { trackConversion } from "@/lib/gtag";
 
 export default function LentillesForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -58,6 +59,7 @@ export default function LentillesForm() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
       .then(() => {
+        trackConversion("form");
         setIsSubmitted(true);
         setForm({
           name: "",
