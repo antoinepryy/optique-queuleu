@@ -90,17 +90,31 @@ const services = [
   },
 ];
 
-// Galerie Instagram « manuelle » : chaque tuile pointe vers le post d'origine
-// (href) si on l'a, sinon vers le profil. Remplacer ces photos par de vraies
-// captures de posts + leur lien pour que la galerie reflète le compte réel.
+// Galerie Instagram « manuelle » : vrais posts du compte @optique_queuleu,
+// captés le 27/08/2026. Chaque tuile pointe vers son post d'origine (href).
+// Pour rafraîchir : remplacer un visuel dans /public/images/instagram/ et
+// mettre à jour son href avec le lien du nouveau post.
 const socialImages: { src: string; alt: string; href?: string }[] = [
-  { src: "/images/produits/gigi-studios.webp", alt: "Gigi Studios" },
-  { src: "/images/produits/gucci-campagne.webp", alt: "Gucci campagne" },
-  { src: "/images/produits/isabel-marant-campagne.webp", alt: "Isabel Marant" },
-  { src: "/images/produits/ray-ban-stories.webp", alt: "Ray-Ban Stories" },
-  { src: "/images/produits/chloe-tendance.webp", alt: "Chloé tendance" },
-  { src: "/images/produits/moscot-miltzen.webp", alt: "Moscot Miltzen" },
-  { src: "/images/produits/talla.webp", alt: "Talla" },
+  {
+    src: "/images/instagram/offre-rentree.webp",
+    alt: "Offre de rentrée : -20% sur toutes les lunettes",
+    href: "https://www.instagram.com/p/Dcf-S7xNvTz/",
+  },
+  {
+    src: "/images/instagram/myopie-solutions.webp",
+    alt: "Sa myopie évolue ? Des solutions existent",
+    href: "https://www.instagram.com/p/Dcf983gth6X/",
+  },
+  {
+    src: "/images/instagram/derniers-rayons-solaires.webp",
+    alt: "Derniers rayons : -30% sur toutes les solaires",
+    href: "https://www.instagram.com/p/DcQkHTAN-kJ/",
+  },
+  {
+    src: "/images/instagram/soldes-ete.webp",
+    alt: "Soldes d'été : jusqu'à -50% sur les montures en stock",
+    href: "https://www.instagram.com/p/DZ9nYsBtkB7/",
+  },
 ];
 
 export default function Home() {
@@ -588,7 +602,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal className="stagger-children">
-            <div className="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="mt-16 grid grid-cols-2 gap-5 lg:grid-cols-4">
               {socialImages.map((img) => (
                 <a
                   key={img.src}
