@@ -5,8 +5,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 
+// Pas d'entrée « Accueil » : le logo, à gauche, pointe déjà vers la page d'accueil.
 const navigation = [
-  { name: "Accueil", href: "/" },
   { name: "Marques", href: "/marques" },
   { name: "Verres", href: "/verres" },
   { name: "Magasin", href: "/magasin" },

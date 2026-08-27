@@ -373,11 +373,20 @@ html.js .stagger-children.visible > * {
 
   /* La flèche de défilement flottait en boucle : le mouvement perpétuel est
      précisément ce que cette préférence vise. On la garde visible, fixe. */
-  .animate-hero-scroll {
+  .animate-hero-scroll,
+  /* `animate-bounce` est un utilitaire Tailwind, donc absent des classes
+     maison ci-dessus : la flèche « Explorer » de /marques rebondissait
+     encore malgré la préférence. */
+  .animate-bounce {
     animation: none !important;
     opacity: 1;
     transform: none;
   }
+
+  /* `animate-spin` du loader n'est volontairement PAS neutralisé : une
+     rotation qui signale un chargement en cours porte une information, et
+     les recommandations d'accessibilité admettent le mouvement essentiel.
+     Même arbitrage que pour la barre de progression du loader. */
 
   /* Les effets de survol perdent leur déplacement, gardent leur retour
      visuel via l'ombre et la couleur. */
