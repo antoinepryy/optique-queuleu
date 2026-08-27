@@ -113,6 +113,11 @@ margins, no stretching.
 - **`og:image` is a crop**, not the post — never use it for the gallery.
 - **Dedupe**: two "recent" posts can be the same visual; check the captured
   images, not just codes.
+- **Check offer validity dates before using promo posts.** Instagram promos are
+  time-limited — read the end-date in the `alt`/image ("du … au …") and drop any
+  that are already expired. Showing a lapsed "-50%" is worse than showing no
+  promo. Prefer evergreen posts for a static gallery; if you use dated promos,
+  tell the caller they must be pruned at their end date.
 - If the Lens button ever *does* appear (e.g. you screenshotted a plain `<img>`),
   the button anchors to the image's bottom-right over the poster's contact bar —
   re-do via canvas, or crop above the bar as a fallback.

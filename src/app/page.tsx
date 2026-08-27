@@ -110,11 +110,9 @@ const socialImages: { src: string; alt: string; href?: string }[] = [
     alt: "Derniers rayons : -30% sur toutes les solaires",
     href: "https://www.instagram.com/p/DcQkHTAN-kJ/",
   },
-  {
-    src: "/images/instagram/soldes-ete.webp",
-    alt: "Soldes d'été : jusqu'à -50% sur les montures en stock",
-    href: "https://www.instagram.com/p/DZ9nYsBtkB7/",
-  },
+  // NB : ne garder ici que des offres EN COURS. « Soldes d'été -50% »
+  // (24 juin → 21 juillet) a été retiré car périmé. Ajouter la prochaine
+  // promo quand elle est publiée, et retirer les tuiles à leur date de fin.
 ];
 
 export default function Home() {
@@ -602,7 +600,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal className="stagger-children">
-            <div className="mt-16 grid grid-cols-2 gap-5 lg:grid-cols-4">
+            <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-3">
               {socialImages.map((img) => (
                 <a
                   key={img.src}
