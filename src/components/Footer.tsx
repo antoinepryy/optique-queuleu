@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import CookieSettingsButton from "@/components/analytics/CookieSettingsButton";
+import { INSTAGRAM_URL, FACEBOOK_URL } from "@/lib/social";
 
 export default function Footer() {
   return (
@@ -32,7 +33,7 @@ export default function Footer() {
             </p>
             <div className="mt-2 flex items-center gap-3">
               <a
-                href="https://www.facebook.com/optiquequeuleu"
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-light"
@@ -43,7 +44,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/optiquequeuleu"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-light"

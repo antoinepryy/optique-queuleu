@@ -43,11 +43,16 @@ function Breadcrumb({ name }: { name: string }) {
 }
 
 export default function BrandHero({ brand }: { brand: Brand }) {
-  if (brand.heroImage) {
+  // À défaut de photo hero dédiée, on retombe sur le visuel de la grille : une
+  // vraie image vaut mieux que l'aplat gris. Certains brand.image sont des
+  // logos et rendront moins bien en plein cadre, mais c'est le compromis choisi.
+  const heroSrc = brand.heroImage ?? brand.image;
+
+  if (heroSrc) {
     return (
       <section className="relative flex min-h-[24rem] items-end overflow-hidden pt-20 sm:min-h-[30rem]">
         <Image
-          src={brand.heroImage}
+          src={heroSrc}
           alt={`Lunettes ${brand.name} - ${brand.french ? "Créateur français" : brand.country}`}
           fill
           className="object-cover"
