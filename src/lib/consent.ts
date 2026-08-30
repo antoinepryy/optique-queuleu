@@ -1,5 +1,8 @@
 // Gestion du consentement (Google Consent Mode v2) — 4 signaux Ads/Analytics.
+// Le même choix pilote aussi le Pixel Meta (voir updateMetaConsent).
 // Choix persisté en localStorage et rejoué à chaque visite.
+
+import { updateMetaConsent } from "./meta";
 
 export const CONSENT_STORAGE_KEY = "oq_consent_v1";
 export type ConsentChoice = "granted" | "denied";
@@ -41,6 +44,9 @@ export function updateConsent(choice: ConsentChoice) {
     ad_personalization: choice,
     analytics_storage: choice,
   });
+
+  // Le Pixel Meta suit le même choix : un seul clic pilote les deux systèmes.
+  updateMetaConsent(choice);
 }
 
 // Événement interne pour rouvrir la bannière depuis le lien "Gestion des cookies".

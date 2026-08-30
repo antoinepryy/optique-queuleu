@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { trackConversion } from "@/lib/gtag";
+import { trackMetaEvent } from "@/lib/meta";
 
 // Écouteur de clic unique monté dans le layout. Capte tous les liens sortants
 // Doctolib et les liens tel: où qu'ils soient (y compris dans des Server
@@ -21,12 +22,14 @@ export default function OutboundClickTracker() {
 
       if (href.startsWith("tel:")) {
         trackConversion("phone");
+        trackMetaEvent("phone");
         return;
       }
 
       // Doctolib : matching sur le domaine (le blog utilise un chemin différent).
       if (/^https?:\/\/(www\.)?doctolib\.fr\//i.test(href)) {
         trackConversion("doctolib");
+        trackMetaEvent("doctolib");
       }
     };
 

@@ -426,6 +426,27 @@ export default function MentionsLegalesPage() {
                 techniques n&eacute;cessaires &agrave; son bon fonctionnement.
               </p>
               <p>
+                Le site utilise &eacute;galement des cookies de mesure
+                d&apos;audience publicitaire, d&eacute;pos&eacute;s par Google
+                Ads et par le Pixel Meta (Facebook, Instagram), afin de mesurer
+                l&apos;efficacit&eacute; de nos campagnes. Ces cookies ne sont
+                d&eacute;pos&eacute;s qu&apos;apr&egrave;s votre accord&nbsp;:
+                tant que vous n&apos;avez pas accept&eacute;, aucune donn&eacute;e
+                n&apos;est transmise &agrave; Google ni &agrave; Meta. Vous
+                pouvez modifier ou retirer votre choix &agrave; tout moment via
+                le lien &laquo;&nbsp;Gestion des cookies&nbsp;&raquo; en bas de
+                page. Pour en savoir plus, consultez la{" "}
+                <a
+                  href="https://www.facebook.com/privacy/policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  politique de confidentialit&eacute; de Meta
+                </a>
+                .
+              </p>
+              <p>
                 Par ailleurs, l&apos;int&eacute;gration de la carte Google Maps
                 (via iframe) est susceptible de d&eacute;poser des cookies tiers
                 provenant de Google. Ces cookies sont soumis &agrave; la
