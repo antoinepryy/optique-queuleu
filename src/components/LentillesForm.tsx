@@ -3,6 +3,7 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import { trackConversion } from "@/lib/gtag";
+import { trackMetaEvent } from "@/lib/meta";
 
 export default function LentillesForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -60,6 +61,7 @@ export default function LentillesForm() {
       )
       .then(() => {
         trackConversion("form");
+        trackMetaEvent("form");
         setIsSubmitted(true);
         setForm({
           name: "",

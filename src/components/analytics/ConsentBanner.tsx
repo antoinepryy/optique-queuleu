@@ -47,8 +47,8 @@ export default function ConsentBanner() {
       <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm leading-relaxed text-foreground">
           Nous utilisons des cookies de mesure d&apos;audience publicitaire
-          (Google Ads) pour comprendre l&apos;efficacité de nos campagnes. Vous
-          pouvez accepter ou refuser. En savoir plus dans nos{" "}
+          (Google Ads et Meta) pour comprendre l&apos;efficacité de nos
+          campagnes. Vous pouvez accepter ou refuser. En savoir plus dans nos{" "}
           <Link
             href="/mentions-legales"
             className="font-semibold text-primary hover:underline"

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import { trackConversion } from "@/lib/gtag";
+import { trackMetaEvent } from "@/lib/meta";
 
 export default function ContactForm({ brand }: { brand?: string }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -50,6 +51,7 @@ export default function ContactForm({ brand }: { brand?: string }) {
       )
       .then(() => {
         trackConversion("form");
+        trackMetaEvent("form");
         setIsSubmitted(true);
         setFormData({ name: "", phone: "", email: "", message: defaultMessage });
       })
