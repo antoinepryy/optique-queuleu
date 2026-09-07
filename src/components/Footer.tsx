@@ -153,6 +153,10 @@ export default function Footer() {
               Plan du site
             </Link>
           </p>
+          <p className="mt-2">
+            Site réalisé par{" "}
+            <a href="https://antoineperry.fr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">Antoine Perry</a>{" · "}<a href="https://www.dna-engineering.lu/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">DNA Engineering</a>
+          </p>
         </div>
       </div>
     </footer>
