@@ -20,6 +20,7 @@ const sections = [
       { href: "/marques", label: "Nos marques" },
       { href: "/verres", label: "Nos verres" },
       { href: "/magasin", label: "Le magasin" },
+      { href: "/notre-approche", label: "Notre approche" },
       { href: "/lentilles", label: "Lentilles de contact" },
       { href: "/contact", label: "Contact" },
     ],

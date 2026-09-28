@@ -43,7 +43,7 @@ export const mainNavigation: NavEntry[] = [
       { name: "Lentilles", href: "/lentilles" },
     ],
   },
-  { name: "Notre approche", href: "/magasin" },
+  { name: "Notre approche", href: "/notre-approche" },
   {
     name: "Services",
     id: "services",
