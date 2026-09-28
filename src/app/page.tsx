@@ -9,29 +9,33 @@ import { DOCTOLIB_URL } from "@/components/BookingCta";
 import { VISUCORE_PHOTO } from "@/lib/visuals";
 import { brands, type Brand } from "@/app/marques/brands-data";
 
+// Textes rédigés par nous (à valider par Romain) : title, description,
+// openGraph et twitter, construits sur la promesse du plan 2026-2027.
+const HOME_TITLE = "Opticien indépendant à Metz | Optique Queuleu";
+const HOME_DESCRIPTION =
+  "Optique Queuleu, opticien indépendant à Metz. Voir mieux. Choisir autrement. Belles lunettes, expertise visuelle et technologie ZEISS. Rendez-vous sur Doctolib.";
+
 export const metadata: Metadata = {
-  title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
-  description:
-    "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil (Ray-Ban, Gucci, Carrera), lentilles de contact, examen de vue. Verres Zeiss, Essilor, Seiko. Parking privé. RDV sur Doctolib.",
+  title: { absolute: HOME_TITLE },
+  description: HOME_DESCRIPTION,
   keywords: [
     "opticien Metz",
-    "lunettes Metz",
-    "lentilles de contact Metz",
-    "examen de vue Metz",
+    "opticien indépendant Metz",
     "opticien Queuleu",
-    "Ray-Ban Metz",
-    "Gucci lunettes Metz",
-    "verres Zeiss Metz",
-    "verres Essilor Metz",
-    "opticien parking privé Metz",
-    "Doctolib opticien Metz",
+    "lunettes créateurs Metz",
+    "Bilan Vision ZEISS Metz",
+    "verres ZEISS Metz",
     "lunettes de vue Metz",
     "lunettes de soleil Metz",
+    "lunettes de sport Metz",
+    "myopie enfant Metz",
+    "lentilles de contact Metz",
+    "opticien parking privé Metz",
+    "Doctolib opticien Metz",
   ],
   openGraph: {
-    title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
-    description:
-      "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil, lentilles, examen de vue. Parking privé. RDV Doctolib.",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     type: "website",
     locale: "fr_FR",
     url: "https://www.optiquequeuleu.com",
@@ -47,9 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
-    description:
-      "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil, lentilles, examen de vue. Parking privé. RDV Doctolib.",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     images: ["https://www.optiquequeuleu.com/images/boutique/facade.webp"],
   },
 };
@@ -73,8 +76,8 @@ const bilanBenefices = [
   "Explications personnalisées",
 ];
 
-// Bloc 5 : les univers du plan. Le lot 2 rebranchera « Enfants & myopie »
-// vers sa page dédiée (/enfants-myopie) : changer son href ici suffit.
+// Bloc 5 : les univers du plan. Sport & performance et Enfants & myopie
+// pointent vers leurs pages dédiées (/sport, /enfants-myopie).
 const univers: { title: string; tagline?: string; href: string; image: string; alt: string }[] = [
   {
     title: "Créateurs & acétates",
@@ -100,13 +103,13 @@ const univers: { title: string; tagline?: string; href: string; image: string; a
   {
     title: "Sport & performance",
     tagline: "Équipements adaptés aux pratiques sportives et aux besoins techniques.",
-    href: "/marques#sport-performance",
+    href: "/sport",
     image: "/images/produits/rudy-project.webp",
     alt: "Lunettes de sport Rudy Project",
   },
   {
     title: "Enfants & myopie",
-    href: "/verres",
+    href: "/enfants-myopie",
     image: "/images/marques/tete-a-lunettes.webp",
     alt: "Enfants portant des lunettes Tête à Lunettes",
   },
@@ -230,6 +233,18 @@ export default function Home() {
               FACEBOOK_URL,
               INSTAGRAM_URL,
               "https://www.doctolib.fr/opticien/metz/optique-queuleu",
+            ],
+            makesOffer: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Bilan Vision ZEISS",
+                  url: "https://www.optiquequeuleu.com/bilan-vision-zeiss",
+                  description:
+                    "Une nouvelle expérience de mesure et de conseil avec le ZEISS VISUCORE 500.",
+                },
+              },
             ],
           }),
         }}

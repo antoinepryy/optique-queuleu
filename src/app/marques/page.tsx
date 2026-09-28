@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import BrandsExplorer, { BrandsExplorerFromUrl } from "./BrandsExplorer";
-import { brands, getCountryCode, universList, type Brand } from "./brands-data";
+import { brands, getCountryCode, universList } from "./brands-data";
+import UniversBrandCard from "./UniversBrandCard";
 import { getBrandDetail } from "./brands-details";
 
 const universSections = universList.map((univers) => ({
@@ -12,12 +13,17 @@ const universSections = universList.map((univers) => ({
   brands: brands.filter((b) => b.univers === univers.id),
 }));
 
+// Textes rédigés par nous (à valider par Romain) : title, description,
+// openGraph et twitter (référencement local « lunettes créateurs Metz »).
+const MARQUES_DESCRIPTION =
+  "Lunettes de créateurs à Metz chez Optique Queuleu : plus de 50 marques choisies, pas simplement exposées, et classées en 5 univers.";
+
 export const metadata: Metadata = {
-  title: "Marques de Lunettes à Metz | +50 Créateurs & Designers | Optique Queuleu",
-  description: "Découvrez plus de 50 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable. Ray-Ban, Persol, Anne & Valentin, L.A. Eyeworks et bien plus.",
+  title: "Lunettes créateurs à Metz",
+  description: MARQUES_DESCRIPTION,
   openGraph: {
-    title: "Marques de Lunettes à Metz | +50 Créateurs & Designers",
-    description: "Plus de 50 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable. Trouvez votre monture parfaite.",
+    title: "Lunettes créateurs à Metz | Optique Queuleu",
+    description: MARQUES_DESCRIPTION,
     type: "website",
     locale: "fr_FR",
     url: "https://www.optiquequeuleu.com/marques",
@@ -33,9 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marques de Lunettes à Metz | +50 Créateurs & Designers",
-    description:
-      "Plus de 50 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable.",
+    title: "Lunettes créateurs à Metz | Optique Queuleu",
+    description: MARQUES_DESCRIPTION,
     images: ["/images/verriers/bandeau-marque.webp"],
   },
 };
@@ -139,6 +144,11 @@ export default function MarquesPage() {
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
                   {univers.tagline}
                 </p>
+                {univers.id === "sport-performance" && (
+                  <Link href="/sport" className="mt-3 inline-block text-sm font-semibold text-primary hover:underline">
+                    Lunettes de sport à Metz : notre sélection
+                  </Link>
+                )}
               </div>
             </ScrollReveal>
 
@@ -283,47 +293,5 @@ export default function MarquesPage() {
         </div>
       </section>
     </>
-  );
-}
-
-function UniversBrandCard({ brand }: { brand: Brand }) {
-  return (
-    <Link
-      href={`/marques/${brand.slug}`}
-      aria-label={`Découvrir la marque ${brand.name}`}
-      className="group block h-full overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-    >
-      <div className="relative aspect-[4/3] overflow-hidden bg-white">
-        {brand.heroImage ? (
-          <Image
-            src={brand.heroImage}
-            alt={`Lunettes ${brand.name}`}
-            fill
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        ) : brand.image ? (
-          <div className="flex h-full items-center justify-center p-6">
-            <Image
-              src={brand.image}
-              alt={`Logo de la marque ${brand.name}`}
-              width={140}
-              height={70}
-              className="max-h-16 w-auto max-w-[70%] object-contain opacity-80 transition-opacity group-hover:opacity-100"
-            />
-          </div>
-        ) : (
-          <div className="flex h-full items-center justify-center p-6">
-            <span className="text-center text-lg font-bold text-foreground">{brand.name}</span>
-          </div>
-        )}
-      </div>
-      <div className="flex items-center justify-between gap-2 px-4 py-3">
-        <h3 className="text-sm font-semibold text-foreground group-hover:text-primary">{brand.name}</h3>
-        <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-          {getCountryCode(brand.country)}
-        </span>
-      </div>
-    </Link>
   );
 }

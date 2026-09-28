@@ -18,8 +18,7 @@ type NavGroup = { name: string; id: string; children: NavLink[] };
 type NavEntry = NavLink | NavGroup;
 
 // Arborescence du menu (plan 2026-2027). Source unique pour le desktop et le
-// mobile : pour rebrancher une entrée vers sa page définitive (lot 2 : Sport,
-// Enfants, Enfants & myopie, Notre approche), il suffit de changer son href ici.
+// mobile : pour changer la cible d'une entrée, il suffit de changer son href ici.
 // Pas d'entrée « Accueil » : le logo, à gauche, pointe déjà vers la page d'accueil.
 export const mainNavigation: NavEntry[] = [
   {
@@ -29,8 +28,8 @@ export const mainNavigation: NavEntry[] = [
       { name: "Nos collections", href: "/marques" },
       { name: "Créateurs", href: "/marques#createurs-acetates" },
       { name: "Fabrication française", href: "/marques#savoir-faire-francais" },
-      { name: "Sport", href: "/marques#sport-performance" },
-      { name: "Enfants", href: "/marques?categorie=enfant#explorer" },
+      { name: "Sport", href: "/sport" },
+      { name: "Enfants", href: "/enfants-myopie" },
     ],
   },
   {
@@ -39,11 +38,11 @@ export const mainNavigation: NavEntry[] = [
     children: [
       { name: "Bilan Vision ZEISS", href: "/bilan-vision-zeiss" },
       { name: "Verres", href: "/verres" },
-      { name: "Enfants & myopie", href: "/verres" },
+      { name: "Enfants & myopie", href: "/enfants-myopie" },
       { name: "Lentilles", href: "/lentilles" },
     ],
   },
-  { name: "Notre approche", href: "/magasin" },
+  { name: "Notre approche", href: "/notre-approche" },
   {
     name: "Services",
     id: "services",
