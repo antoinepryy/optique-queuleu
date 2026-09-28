@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { validateBrandDetails } from "./validate-brands.mjs";
+import { validateBrandDetails, validateBrandUnivers } from "./validate-brands.mjs";
 
 const brands = [
   { slug: "persol", image: "/images/marques/persol.webp", heroImage: null },
@@ -89,4 +89,34 @@ test("signale une image de brands-data introuvable", () => {
   const errors = validateBrandDetails({ brands: brandsKo, details: {}, imageExists: ok });
   assert.equal(errors.length, 1);
   assert.match(errors[0], /gucci/);
+});
+
+const univers = [
+  "createurs-acetates",
+  "design-legerete",
+  "savoir-faire-francais",
+  "sport-performance",
+  "mode-maisons",
+];
+
+test("univers : aucune erreur quand chaque marque a un univers connu", () => {
+  const catalogue = [
+    { slug: "persol", univers: "mode-maisons" },
+    { slug: "orgreen", univers: "design-legerete" },
+  ];
+  assert.deepEqual(validateBrandUnivers(catalogue, univers), []);
+});
+
+test("univers : signale une marque sans univers", () => {
+  const catalogue = [{ slug: "gucci" }, { slug: "persol", univers: "mode-maisons" }];
+  const errors = validateBrandUnivers(catalogue, univers);
+  assert.equal(errors.length, 1);
+  assert.match(errors[0], /^gucci : univers absent/);
+});
+
+test("univers : signale une valeur inconnue", () => {
+  const catalogue = [{ slug: "komono", univers: "luxe" }];
+  const errors = validateBrandUnivers(catalogue, univers);
+  assert.equal(errors.length, 1);
+  assert.match(errors[0], /^komono : univers inconnu "luxe"/);
 });

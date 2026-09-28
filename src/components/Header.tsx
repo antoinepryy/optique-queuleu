@@ -30,7 +30,7 @@ export const mainNavigation: NavEntry[] = [
       { name: "Créateurs", href: "/marques#createurs-acetates" },
       { name: "Fabrication française", href: "/marques#savoir-faire-francais" },
       { name: "Sport", href: "/marques#sport-performance" },
-      { name: "Enfants", href: "/marques" },
+      { name: "Enfants", href: "/marques?categorie=enfant#explorer" },
     ],
   },
   {

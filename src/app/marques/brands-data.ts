@@ -6,6 +6,57 @@ export type BrandCategory =
   | "eco"
   | "tendance";
 
+/**
+ * Les cinq univers du plan 2026-2027 (section 5). L'ordre de `universList`
+ * est l'ordre d'affichage sur /marques ; libellés et accroches viennent du plan.
+ */
+export type BrandUnivers =
+  | "createurs-acetates"
+  | "design-legerete"
+  | "savoir-faire-francais"
+  | "sport-performance"
+  | "mode-maisons";
+
+export interface UniversInfo {
+  id: BrandUnivers;
+  label: string;
+  tagline: string;
+}
+
+export const universList: readonly UniversInfo[] = [
+  {
+    id: "createurs-acetates",
+    label: "Cr\u00E9ateurs & ac\u00E9tates",
+    tagline: "Pour les clients qui cherchent une monture avec du caract\u00E8re.",
+  },
+  {
+    id: "design-legerete",
+    label: "Design & l\u00E9g\u00E8ret\u00E9",
+    tagline: "Lignes fines, confort, titane et minimalisme.",
+  },
+  {
+    id: "savoir-faire-francais",
+    label: "Savoir-faire fran\u00E7ais",
+    tagline: "Fabrication, mati\u00E8re et identit\u00E9.",
+  },
+  {
+    id: "sport-performance",
+    label: "Sport & performance",
+    tagline: "\u00C9quipements adapt\u00E9s aux pratiques sportives et aux besoins techniques.",
+  },
+  {
+    id: "mode-maisons",
+    label: "Mode & maisons reconnues",
+    tagline: "Une s\u00E9lection compl\u00E9mentaire coh\u00E9rente avec le magasin.",
+  },
+];
+
+export function getUnivers(id: BrandUnivers): UniversInfo {
+  const info = universList.find((u) => u.id === id);
+  if (!info) throw new Error(`Univers inconnu : ${id}`);
+  return info;
+}
+
 export type PriceRange = "\u20AC" | "\u20AC\u20AC" | "\u20AC\u20AC\u20AC" | "\u20AC\u20AC\u20AC\u20AC";
 
 export interface Brand {
@@ -16,6 +67,8 @@ export interface Brand {
   country: string;
   countryFlag: string;
   priceRange: PriceRange;
+  /** Univers du plan 2026-2027, obligatoire (contrôlé par check:brands). */
+  univers: BrandUnivers;
   categories: BrandCategory[];
   french: boolean;
   featured?: boolean;
@@ -24,6 +77,8 @@ export interface Brand {
   website?: string;
   ecoResponsible?: boolean;
   artisanal?: boolean;
+  /** « Pourquoi nous l'avons choisie » : une phrase, affichée sur la fiche seulement si remplie. */
+  whyChosen?: string;
 }
 
 export const categoryLabels: Record<BrandCategory, string> = {
@@ -54,6 +109,7 @@ export const brands: Brand[] = [
   {
     name: "Gucci",
     slug: "gucci",
+    univers: "mode-maisons",
     image: "/images/marques/gucci.webp",
     heroImage: "/images/produits/gucci-campagne.webp",
     country: "Italie",
@@ -66,6 +122,7 @@ export const brands: Brand[] = [
   {
     name: "Chlo\u00E9",
     slug: "chloe",
+    univers: "mode-maisons",
     image: "/images/marques/chloe.webp",
     heroImage: "/images/produits/chloe-tendance.webp",
     country: "France",
@@ -78,6 +135,9 @@ export const brands: Brand[] = [
   {
     name: "Céline Paris",
     slug: "celine-paris",
+    univers: "mode-maisons",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour son minimalisme sophistiqué, ses lignes épurées et ses montures en matières premium aux finitions soignées.",
     image: "/images/marques/celine-paris.webp",
     country: "France",
     countryFlag: "🇫🇷",
@@ -89,6 +149,7 @@ export const brands: Brand[] = [
   {
     name: "Oliver Peoples",
     slug: "oliver-peoples",
+    univers: "mode-maisons",
     image: "/images/marques/oliver-peoples.webp",
     heroImage: "/images/marques/oliver-peoples.webp",
     country: "USA",
@@ -101,6 +162,7 @@ export const brands: Brand[] = [
   {
     name: "Persol",
     slug: "persol",
+    univers: "mode-maisons",
     image: "/images/marques/persol.webp",
     heroImage: "/images/marques/persol.webp",
     country: "Italie",
@@ -113,6 +175,7 @@ export const brands: Brand[] = [
   {
     name: "MOSCOT Eyewear",
     slug: "moscot-eyewear",
+    univers: "createurs-acetates",
     image: "/images/marques/moscot.webp",
     heroImage: "/images/produits/moscot-miltzen.webp",
     country: "USA",
@@ -127,6 +190,7 @@ export const brands: Brand[] = [
   {
     name: "Isabel Marant",
     slug: "isabel-marant",
+    univers: "mode-maisons",
     image: "/images/marques/isabel-marant.webp",
     heroImage: "/images/produits/isabel-marant-campagne.webp",
     country: "France",
@@ -139,6 +203,7 @@ export const brands: Brand[] = [
   {
     name: "Pierre Cardin",
     slug: "pierre-cardin",
+    univers: "mode-maisons",
     image: "/images/marques/pierre-cardin.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -152,6 +217,7 @@ export const brands: Brand[] = [
   {
     name: "Caroline Abram",
     slug: "caroline-abram",
+    univers: "createurs-acetates",
     image: "/images/marques/caroline-abram.webp",
     heroImage: "/images/produits/caroline-abram-patchwork.webp",
     country: "France",
@@ -164,6 +230,7 @@ export const brands: Brand[] = [
   {
     name: "Jean-Fran\u00E7ois Rey",
     slug: "jean-francois-rey",
+    univers: "design-legerete",
     image: "/images/marques/jean-francois-rey.webp",
     heroImage: "/images/produits/jfrey.webp",
     country: "France",
@@ -177,6 +244,7 @@ export const brands: Brand[] = [
   {
     name: "Nathalie Blanc",
     slug: "nathalie-blanc",
+    univers: "savoir-faire-francais",
     image: "/images/marques/nathalie-blanc.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -189,6 +257,7 @@ export const brands: Brand[] = [
   {
     name: "Monsieur Blanc",
     slug: "monsieur-blanc",
+    univers: "design-legerete",
     image: "/images/marques/monsieur-blanc.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -201,6 +270,7 @@ export const brands: Brand[] = [
   {
     name: "Tarian",
     slug: "tarian",
+    univers: "savoir-faire-francais",
     image: "/images/marques/tarian.webp",
     heroImage: "/images/produits/tarian.webp",
     country: "France",
@@ -214,6 +284,7 @@ export const brands: Brand[] = [
   {
     name: "Roussilhe",
     slug: "roussilhe",
+    univers: "savoir-faire-francais",
     image: "/images/marques/roussilhe.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -226,6 +297,7 @@ export const brands: Brand[] = [
   {
     name: "Sarah Lavoine",
     slug: "sarah-lavoine",
+    univers: "savoir-faire-francais",
     image: "/images/marques/sarah-lavoine.webp",
     heroImage: "/images/produits/sarah-lavoisine-roussilhe.webp",
     country: "France",
@@ -240,6 +312,7 @@ export const brands: Brand[] = [
   {
     name: "Peter and May",
     slug: "peter-and-may",
+    univers: "createurs-acetates",
     image: "/images/marques/peter-and-may.webp",
     heroImage: "/images/produits/peter-and-may.webp",
     country: "France",
@@ -252,6 +325,7 @@ export const brands: Brand[] = [
   {
     name: "Noego",
     slug: "noego",
+    univers: "createurs-acetates",
     image: "/images/marques/noego.webp",
     heroImage: "/images/produits/noego-parasite.webp",
     country: "France",
@@ -264,6 +338,7 @@ export const brands: Brand[] = [
   {
     name: "Oxibis",
     slug: "oxibis",
+    univers: "createurs-acetates",
     image: "/images/marques/oxibis.webp",
     heroImage: "/images/produits/oxibis.webp",
     country: "France",
@@ -276,6 +351,7 @@ export const brands: Brand[] = [
   {
     name: "Dilem",
     slug: "dilem",
+    univers: "createurs-acetates",
     image: "/images/marques/dilem.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -287,6 +363,7 @@ export const brands: Brand[] = [
   {
     name: "Woow",
     slug: "woow",
+    univers: "createurs-acetates",
     image: "/images/marques/woow.gif",
     heroImage: "/images/produits/woow.gif",
     country: "France",
@@ -299,6 +376,7 @@ export const brands: Brand[] = [
   {
     name: "Osmose",
     slug: "osmose",
+    univers: "createurs-acetates",
     image: "/images/marques/osmose.webp",
     heroImage: "/images/produits/osmose.webp",
     country: "France",
@@ -311,6 +389,7 @@ export const brands: Brand[] = [
   {
     name: "Minima",
     slug: "minima",
+    univers: "design-legerete",
     image: "/images/marques/minima.webp",
     heroImage: "/images/produits/minima-femme.webp",
     country: "France",
@@ -323,6 +402,7 @@ export const brands: Brand[] = [
   {
     name: "Brett Eyewear",
     slug: "brett-eyewear",
+    univers: "savoir-faire-francais",
     image: "/images/marques/brett-eyewear.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -335,6 +415,7 @@ export const brands: Brand[] = [
   {
     name: "Cl\u00E9mence et Margaux",
     slug: "clemence-et-margaux",
+    univers: "createurs-acetates",
     image: "/images/marques/clemence-et-margaux.webp",
     heroImage: "/images/produits/clemence-margaux.webp",
     country: "France",
@@ -347,6 +428,9 @@ export const brands: Brand[] = [
   {
     name: "Ancet & Fayolle",
     slug: "ancet-fayolle",
+    univers: "savoir-faire-francais",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour ses montures fabriquées à la main dans son atelier de la Croix-Rousse, à Lyon.",
     image: "/images/marques/ancet-fayolle.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -359,6 +443,7 @@ export const brands: Brand[] = [
   {
     name: "Plein les Mirettes",
     slug: "plein-les-mirettes",
+    univers: "savoir-faire-francais",
     image: "/images/marques/plein-les-mirettes.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -371,6 +456,7 @@ export const brands: Brand[] = [
   {
     name: "T\u00EAte \u00E0 Lunettes",
     slug: "tete-a-lunettes",
+    univers: "createurs-acetates",
     image: "/images/marques/tete-a-lunettes.webp",
     heroImage: "/images/marques/tete-a-lunettes.webp",
     country: "France",
@@ -385,6 +471,7 @@ export const brands: Brand[] = [
   {
     name: "Friendly Frenchy",
     slug: "friendly-frenchy",
+    univers: "savoir-faire-francais",
     image: "/images/marques/friendly-frenchy.webp",
     heroImage: "/images/produits/friendly-frenchy.webp",
     country: "France",
@@ -401,6 +488,9 @@ export const brands: Brand[] = [
   {
     name: "Cl\u00E9ment Lunetier",
     slug: "clement-lunetier",
+    univers: "savoir-faire-francais",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour ses lunettes fabriquées dans l’atelier strasbourgeois de Vincent et Ben, aériennes et inspirées des avions-planeurs.",
     image: "/images/marques/clement-lunetier.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -414,6 +504,7 @@ export const brands: Brand[] = [
   {
     name: "Shelter",
     slug: "shelter",
+    univers: "savoir-faire-francais",
     image: "/images/marques/shelter.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -427,6 +518,7 @@ export const brands: Brand[] = [
   {
     name: "Eco",
     slug: "eco",
+    univers: "mode-maisons",
     image: "/images/marques/eco.webp",
     country: "USA",
     countryFlag: "\uD83C\uDDFA\uD83C\uDDF8",
@@ -439,6 +531,9 @@ export const brands: Brand[] = [
   {
     name: "La Brique & la Violette",
     slug: "la-brique-et-la-violette",
+    univers: "savoir-faire-francais",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour ses montures en acétate fabriquées dans un atelier familial près de Toulouse, en plus de 40 étapes.",
     image: "/images/marques/la-brique-et-la-violette.webp",
     heroImage: "/images/produits/collection.webp",
     country: "France",
@@ -455,6 +550,9 @@ export const brands: Brand[] = [
   {
     name: "Modo",
     slug: "modo",
+    univers: "design-legerete",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour sa production durable : montures issues de matériaux recyclés ou bio, et un arbre planté pour chaque paire achetée.",
     image: "/images/marques/modo.webp",
     heroImage: "/images/produits/modo-titanium.webp",
     country: "USA",
@@ -470,6 +568,7 @@ export const brands: Brand[] = [
   {
     name: "Etnia Barcelona",
     slug: "etnia-barcelona",
+    univers: "createurs-acetates",
     image: "/images/marques/etnia-barcelona.webp",
     heroImage: "/images/produits/etnia-barcelona.webp",
     country: "Espagne",
@@ -484,6 +583,7 @@ export const brands: Brand[] = [
   {
     name: "GIGI Studios",
     slug: "gigi-studios",
+    univers: "createurs-acetates",
     image: "/images/marques/gigi-studios.webp",
     heroImage: "/images/produits/gigi-studios.webp",
     country: "Espagne",
@@ -497,6 +597,7 @@ export const brands: Brand[] = [
   {
     name: "Kaleos",
     slug: "kaleos",
+    univers: "createurs-acetates",
     image: "/images/marques/kaleos.webp",
     country: "Espagne",
     countryFlag: "\uD83C\uDDEA\uD83C\uDDF8",
@@ -510,6 +611,7 @@ export const brands: Brand[] = [
   {
     name: "Talla Eyewear",
     slug: "talla-eyewear",
+    univers: "createurs-acetates",
     image: "/images/marques/talla.webp",
     country: "Italie",
     countryFlag: "\uD83C\uDDEE\uD83C\uDDF9",
@@ -522,6 +624,9 @@ export const brands: Brand[] = [
   {
     name: "Orgreen",
     slug: "orgreen",
+    univers: "design-legerete",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour son design danois, minimalisme et lignes épurées, avec des détails uniques et des combinaisons de couleurs innovantes.",
     image: "/images/marques/orgreen.webp",
     country: "Danemark",
     countryFlag: "\uD83C\uDDE9\uD83C\uDDF0",
@@ -534,6 +639,9 @@ export const brands: Brand[] = [
   {
     name: "Veronika Wildgruber",
     slug: "veronika-wildgruber",
+    univers: "createurs-acetates",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour ses montures créatives, originales et haut de gamme.",
     image: "/images/marques/veronika-wildgruber.webp",
     heroImage: "/images/boutique/veronika.webp",
     country: "Allemagne",
@@ -548,6 +656,7 @@ export const brands: Brand[] = [
   {
     name: "Prodesign Eyewear",
     slug: "prodesign-eyewear",
+    univers: "design-legerete",
     image: "/images/marques/prodesign.webp",
     heroImage: "/images/produits/prodesign.webp",
     country: "Danemark",
@@ -560,6 +669,7 @@ export const brands: Brand[] = [
   {
     name: "Jos Eschenbach",
     slug: "jos-eschenbach",
+    univers: "design-legerete",
     image: "/images/marques/jos-eschenbach.webp",
     country: "Allemagne",
     countryFlag: "\uD83C\uDDE9\uD83C\uDDEA",
@@ -573,6 +683,7 @@ export const brands: Brand[] = [
   {
     name: "Ray-Ban",
     slug: "ray-ban",
+    univers: "mode-maisons",
     image: "/images/marques/ray-ban.webp",
     heroImage: "/images/produits/ray-ban-stories.webp",
     country: "USA",
@@ -585,6 +696,9 @@ export const brands: Brand[] = [
   {
     name: "TAG Heuer",
     slug: "tag-heuer",
+    univers: "mode-maisons",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour son ADN technique hérité du chronométrage sportif : montures en titane, acétate premium ou caoutchouc, légères et robustes.",
     image: "/images/marques/tag-heuer.webp",
     country: "Suisse",
     countryFlag: "🇨🇭",
@@ -596,6 +710,7 @@ export const brands: Brand[] = [
   {
     name: "Paul & Joe",
     slug: "paul-joe",
+    univers: "createurs-acetates",
     image: "/images/marques/paul-joe.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -607,6 +722,7 @@ export const brands: Brand[] = [
   {
     name: "Eleven Paris",
     slug: "eleven-paris",
+    univers: "createurs-acetates",
     image: "/images/marques/eleven-paris.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -618,6 +734,7 @@ export const brands: Brand[] = [
   {
     name: "Izipizi",
     slug: "izipizi",
+    univers: "mode-maisons",
     image: "/images/marques/izipizi.webp",
     heroImage: "/images/produits/izipizi.webp",
     country: "France",
@@ -630,6 +747,7 @@ export const brands: Brand[] = [
   {
     name: "Komono",
     slug: "komono",
+    univers: "mode-maisons",
     image: null,
     heroImage: "/images/produits/komono.webp",
     country: "Belgique",
@@ -644,6 +762,9 @@ export const brands: Brand[] = [
   {
     name: "Oakley",
     slug: "oakley",
+    univers: "sport-performance",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour son histoire d’innovation, de technique et de performance, née de la moto et adoptée par les sportifs.",
     image: "/images/marques/oakley.webp",
     heroImage: "/images/produits/oakley-hero.webp",
     country: "USA",
@@ -656,6 +777,7 @@ export const brands: Brand[] = [
   {
     name: "Julbo",
     slug: "julbo",
+    univers: "sport-performance",
     image: "/images/marques/julbo.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -667,6 +789,9 @@ export const brands: Brand[] = [
   {
     name: "Rudy Project",
     slug: "rudy-project",
+    univers: "sport-performance",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour ses lunettes pensées pour la haute intensité : verres interchangeables, traitements photochromiques et montures ultra-légères en Grilamid.",
     image: null,
     heroImage: "/images/produits/rudy-project.webp",
     country: "Italie",
@@ -679,6 +804,7 @@ export const brands: Brand[] = [
   {
     name: "Boll\u00E9",
     slug: "bolle",
+    univers: "sport-performance",
     image: "/images/marques/bolle.webp",
     heroImage: "/images/produits/bolle-icarus.webp",
     country: "France",
@@ -691,6 +817,9 @@ export const brands: Brand[] = [
   {
     name: "Vuarnet",
     slug: "vuarnet",
+    univers: "mode-maisons",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour ses verres minéraux haute performance et ses lunettes montées à la main en France.",
     image: "/images/marques/vuarnet.webp",
     country: "France",
     countryFlag: "🇫🇷",
@@ -703,6 +832,9 @@ export const brands: Brand[] = [
   {
     name: "Demetz",
     slug: "demetz",
+    univers: "sport-performance",
+    // À VALIDER ROMAIN
+    whyChosen: "Nous l’avons choisie pour son expérience de spécialiste français de l’optique sportive, depuis plus de 60 ans.",
     image: "/images/marques/demetz.webp",
     country: "France",
     countryFlag: "\uD83C\uDDEB\uD83C\uDDF7",
@@ -716,6 +848,7 @@ export const brands: Brand[] = [
   {
     name: "Lookkino",
     slug: "lookkino",
+    univers: "mode-maisons",
     image: "/images/marques/lookkino.webp",
     country: "Italie",
     countryFlag: "\uD83C\uDDEE\uD83C\uDDF9",

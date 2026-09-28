@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion, LayoutGroup } from "motion/react";
 import {
   brands,
@@ -14,11 +15,30 @@ import {
 
 const allCategories = Object.keys(categoryLabels) as BrandCategory[];
 
-export default function BrandsExplorer() {
+type ExplorerFilter = BrandCategory | "all" | "francais";
+
+function parseFilter(value: string | null): ExplorerFilter {
+  if (value === "francais") return value;
+  return allCategories.includes(value as BrandCategory) ? (value as BrandCategory) : "all";
+}
+
+/**
+ * Explorateur dont le filtre de départ vient de l'URL : /marques?categorie=enfant
+ * (lien « Enfants » du menu). À rendre dans un <Suspense> : la page reste statique,
+ * le HTML prérendu est l'explorateur non filtré (fallback).
+ */
+export function BrandsExplorerFromUrl() {
+  const initialCategory = parseFilter(useSearchParams().get("categorie"));
+  return <BrandsExplorer key={initialCategory} initialCategory={initialCategory} />;
+}
+
+export default function BrandsExplorer({
+  initialCategory = "all",
+}: {
+  initialCategory?: ExplorerFilter;
+}) {
   const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState<
-    BrandCategory | "all" | "francais"
-  >("all");
+  const [activeCategory, setActiveCategory] = useState<ExplorerFilter>(initialCategory);
 
   const filteredBrands = useMemo(() => {
     let result = brands;

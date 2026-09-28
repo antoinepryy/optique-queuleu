@@ -201,6 +201,20 @@ export default async function BrandPage({
                 )
               )}
 
+              {brand.whyChosen ? (
+                <div
+                  data-testid="brand-why-chosen"
+                  className="mt-10 border-l-2 border-accent pl-5"
+                >
+                  <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    Pourquoi nous l&rsquo;avons choisie
+                  </h2>
+                  <p className="mt-3 text-lg leading-relaxed text-foreground">
+                    {brand.whyChosen}
+                  </p>
+                </div>
+              ) : null}
+
               {detail?.specs && <BrandSpecsTable specs={detail.specs} />}
 
               {detail?.signature?.length ? (

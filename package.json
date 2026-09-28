@@ -7,7 +7,7 @@
     "build": "npm run check:brands && next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test scripts/lib/",
+    "test": "node --test scripts/lib/*.test.mjs",
     "check:brands": "tsx scripts/check-brands.ts",
     "verify:brands": "tsx scripts/verify-brand-pages.mjs"
   },
