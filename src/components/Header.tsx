@@ -56,8 +56,10 @@ export const mainNavigation: NavEntry[] = [
 
 const isGroup = (entry: NavEntry): entry is NavGroup => "children" in entry;
 
-// Chemin sans ancre : « /marques#sport-performance » est actif sur /marques.
-const pathOf = (href: string) => href.split("#")[0];
+// Un lien vers une ancre ou un filtre (« /marques#createurs-acetates ») pointe
+// vers une section de page, pas vers la page : seul le lien exact est actif,
+// sinon toutes les entrées vers /marques s'allument ensemble.
+const isPageLink = (href: string) => !/[#?]/.test(href);
 
 function ChevronIcon({ open, className }: { open: boolean; className: string }) {
   return (
@@ -87,7 +89,7 @@ export default function Header() {
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   const transparent = isHome && !scrolled;
-  const isActive = (href: string) => pathname === pathOf(href);
+  const isActive = (href: string) => isPageLink(href) && pathname === href;
   const isGroupActive = (group: NavGroup) => group.children.some((c) => isActive(c.href));
 
   useEffect(() => {
