@@ -4,7 +4,7 @@ import Link from "next/link";
 import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { DOCTOLIB_URL } from "@/components/BookingCta";
-import { VISUCORE_PHOTO } from "@/lib/visuals";
+import { VISUCORE_DEVICE_PHOTO } from "@/lib/visuals";
 
 const PAGE_URL = "https://www.optiquequeuleu.com/bilan-vision-zeiss";
 const OG_IMAGE = "/images/boutique/magasin.webp";
@@ -160,13 +160,16 @@ export default function BilanVisionZeissPage() {
             <ScrollReveal className="reveal-right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
-                  src={VISUCORE_PHOTO.src}
-                  alt={VISUCORE_PHOTO.alt}
+                  src={VISUCORE_DEVICE_PHOTO.src}
+                  alt={VISUCORE_DEVICE_PHOTO.alt}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
                 />
               </div>
+              <p className="mt-2 text-right text-xs text-muted-foreground">
+                {VISUCORE_DEVICE_PHOTO.credit}
+              </p>
             </ScrollReveal>
           </div>
         </div>
