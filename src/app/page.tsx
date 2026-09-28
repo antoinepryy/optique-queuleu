@@ -6,6 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Testimonials from "@/components/Testimonials";
 import { INSTAGRAM_URL, FACEBOOK_URL } from "@/lib/social";
 import { DOCTOLIB_URL } from "@/components/BookingCta";
+import { VISUCORE_PHOTO } from "@/lib/visuals";
 import { brands, type Brand } from "@/app/marques/brands-data";
 
 export const metadata: Metadata = {
@@ -64,14 +65,6 @@ const maisonsSlugs = [
 const maisons = maisonsSlugs
   .map((slug) => brands.find((b) => b.slug === slug))
   .filter((b): b is Brand & { image: string } => Boolean(b?.image));
-
-// Bloc 3 : la photo du ZEISS VISUCORE 500 en magasin n'existe pas encore
-// (décision D2 du PRD). En attendant, une vraie photo du magasin.
-// À REMPLACER par la photo de l'appareil dès que Romain la fournit.
-const VISUCORE_PHOTO = {
-  src: "/images/boutique/interieur-1.webp",
-  alt: "Intérieur de la boutique Optique Queuleu à Metz",
-};
 
 const bilanBenefices = [
   "Analyse précise",
