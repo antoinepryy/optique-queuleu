@@ -392,6 +392,9 @@ export default function Home() {
                   loading="lazy"
                 />
               </div>
+              <p className="mt-2 text-right text-xs text-muted-foreground">
+                {VISUCORE_PHOTO.credit}
+              </p>
             </ScrollReveal>
           </div>
         </div>

@@ -1,10 +1,19 @@
-// Photo du ZEISS VISUCORE 500, partagée par l'accueil (bloc 3) et la page
-// /bilan-vision-zeiss. La photo de l'appareil en magasin n'existe pas encore
-// (décision D2 du PRD) : en attendant, une vraie photo du magasin.
-// À REMPLACER par la photo de l'appareil dès que Romain la fournit.
+// Photos du ZEISS VISUCORE 500 : photos presse officielles ZEISS (kit presse
+// VISUCORE 500 sur zeiss.com), à créditer « Photo : ZEISS » sous l'image.
+// Elles attendent une photo de l'appareil dans le magasin : quand Romain la
+// fournit, remplacer src/alt et retirer le crédit.
+// VISUCORE_PHOTO : appareil en situation, avec un client (accueil, bloc 3).
 export const VISUCORE_PHOTO = {
-  src: "/images/boutique/interieur-1.webp",
-  alt: "Intérieur de la boutique Optique Queuleu à Metz",
+  src: "/images/zeiss/visucore-500-patient.webp",
+  alt: "Mesure de la vision avec le ZEISS VISUCORE 500",
+  credit: "Photo : ZEISS",
+};
+
+// VISUCORE_DEVICE_PHOTO : l'appareil seul (page /bilan-vision-zeiss).
+export const VISUCORE_DEVICE_PHOTO = {
+  src: "/images/zeiss/visucore-500.webp",
+  alt: "L'appareil de réfraction ZEISS VISUCORE 500",
+  credit: "Photo : ZEISS",
 };
 
 // Photo de la section « Notre équipe » de /notre-approche. Il n'existe encore
