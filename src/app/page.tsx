@@ -9,29 +9,33 @@ import { DOCTOLIB_URL } from "@/components/BookingCta";
 import { VISUCORE_PHOTO } from "@/lib/visuals";
 import { brands, type Brand } from "@/app/marques/brands-data";
 
+// Textes rédigés par nous (à valider par Romain) : title, description,
+// openGraph et twitter, construits sur la promesse du plan 2026-2027.
+const HOME_TITLE = "Opticien indépendant à Metz | Optique Queuleu";
+const HOME_DESCRIPTION =
+  "Optique Queuleu, opticien indépendant à Metz. Voir mieux. Choisir autrement. Belles lunettes, expertise visuelle et technologie ZEISS. Rendez-vous sur Doctolib.";
+
 export const metadata: Metadata = {
-  title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
-  description:
-    "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil (Ray-Ban, Gucci, Carrera), lentilles de contact, examen de vue. Verres Zeiss, Essilor, Seiko. Parking privé. RDV sur Doctolib.",
+  title: { absolute: HOME_TITLE },
+  description: HOME_DESCRIPTION,
   keywords: [
     "opticien Metz",
-    "lunettes Metz",
-    "lentilles de contact Metz",
-    "examen de vue Metz",
+    "opticien indépendant Metz",
     "opticien Queuleu",
-    "Ray-Ban Metz",
-    "Gucci lunettes Metz",
-    "verres Zeiss Metz",
-    "verres Essilor Metz",
-    "opticien parking privé Metz",
-    "Doctolib opticien Metz",
+    "lunettes créateurs Metz",
+    "Bilan Vision ZEISS Metz",
+    "verres ZEISS Metz",
     "lunettes de vue Metz",
     "lunettes de soleil Metz",
+    "lunettes de sport Metz",
+    "myopie enfant Metz",
+    "lentilles de contact Metz",
+    "opticien parking privé Metz",
+    "Doctolib opticien Metz",
   ],
   openGraph: {
-    title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
-    description:
-      "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil, lentilles, examen de vue. Parking privé. RDV Doctolib.",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     type: "website",
     locale: "fr_FR",
     url: "https://www.optiquequeuleu.com",
@@ -47,9 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Optique Queuleu | Opticien à Metz - Lunettes, Lentilles & Examen de Vue",
-    description:
-      "Opticien à Metz (Queuleu). Large choix de lunettes de vue et soleil, lentilles, examen de vue. Parking privé. RDV Doctolib.",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     images: ["https://www.optiquequeuleu.com/images/boutique/facade.webp"],
   },
 };
@@ -230,6 +233,18 @@ export default function Home() {
               FACEBOOK_URL,
               INSTAGRAM_URL,
               "https://www.doctolib.fr/opticien/metz/optique-queuleu",
+            ],
+            makesOffer: [
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "Bilan Vision ZEISS",
+                  url: "https://www.optiquequeuleu.com/bilan-vision-zeiss",
+                  description:
+                    "Une nouvelle expérience de mesure et de conseil avec le ZEISS VISUCORE 500.",
+                },
+              },
             ],
           }),
         }}

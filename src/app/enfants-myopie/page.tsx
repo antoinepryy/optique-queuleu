@@ -25,13 +25,13 @@ const kidsBrands = brands.filter((b) => b.categories.includes("enfant"));
 // Texte rédigé par nous (à valider par Romain) : description, openGraph et
 // twitter ci-dessous, et la phrase sous le visuel myopie.
 const DESCRIPTION =
-  "Lunettes pour enfants et ados chez Optique Queuleu, opticien indépendant à Metz. Sa myopie évolue ? Des solutions existent : parlons-en en magasin.";
+  "Myopie de l'enfant à Metz : lunettes pour enfants et ados chez Optique Queuleu, opticien indépendant. Sa myopie évolue ? Des solutions existent, parlons-en.";
 
 export const metadata: Metadata = {
-  title: "Vision de l'enfant et myopie à Metz",
+  title: "Myopie enfant et lunettes à Metz",
   description: DESCRIPTION,
   openGraph: {
-    title: "Vision de l'enfant et myopie à Metz | Optique Queuleu",
+    title: "Myopie enfant et lunettes à Metz | Optique Queuleu",
     description: DESCRIPTION,
     url: PAGE_URL,
     siteName: "Optique Queuleu",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vision de l'enfant et myopie à Metz | Optique Queuleu",
+    title: "Myopie enfant et lunettes à Metz | Optique Queuleu",
     description: DESCRIPTION,
     images: [HERO_IMAGE],
   },

@@ -13,12 +13,17 @@ const universSections = universList.map((univers) => ({
   brands: brands.filter((b) => b.univers === univers.id),
 }));
 
+// Textes rédigés par nous (à valider par Romain) : title, description,
+// openGraph et twitter (référencement local « lunettes créateurs Metz »).
+const MARQUES_DESCRIPTION =
+  "Lunettes de créateurs à Metz chez Optique Queuleu : plus de 50 marques choisies, pas simplement exposées, et classées en 5 univers.";
+
 export const metadata: Metadata = {
-  title: "Marques de Lunettes à Metz | +50 Créateurs & Designers | Optique Queuleu",
-  description: "Découvrez plus de 50 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable. Ray-Ban, Persol, Anne & Valentin, L.A. Eyeworks et bien plus.",
+  title: "Lunettes créateurs à Metz",
+  description: MARQUES_DESCRIPTION,
   openGraph: {
-    title: "Marques de Lunettes à Metz | +50 Créateurs & Designers",
-    description: "Plus de 50 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable. Trouvez votre monture parfaite.",
+    title: "Lunettes créateurs à Metz | Optique Queuleu",
+    description: MARQUES_DESCRIPTION,
     type: "website",
     locale: "fr_FR",
     url: "https://www.optiquequeuleu.com/marques",
@@ -34,9 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marques de Lunettes à Metz | +50 Créateurs & Designers",
-    description:
-      "Plus de 50 marques de lunettes de créateurs à Metz : luxe français, sport, enfant, éco-responsable.",
+    title: "Lunettes créateurs à Metz | Optique Queuleu",
+    description: MARQUES_DESCRIPTION,
     images: ["/images/verriers/bandeau-marque.webp"],
   },
 };
@@ -140,6 +144,11 @@ export default function MarquesPage() {
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
                   {univers.tagline}
                 </p>
+                {univers.id === "sport-performance" && (
+                  <Link href="/sport" className="mt-3 inline-block text-sm font-semibold text-primary hover:underline">
+                    Lunettes de sport à Metz : notre sélection
+                  </Link>
+                )}
               </div>
             </ScrollReveal>
 

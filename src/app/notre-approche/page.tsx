@@ -13,11 +13,11 @@ const OG_IMAGE = "/images/boutique/magasin.webp";
 // twitter ci-dessous, introduction du hero, première phrase de « Notre
 // équipe », textes du bloc « Après l'achat ».
 export const metadata: Metadata = {
-  title: "Notre approche : votre opticien à Metz",
+  title: "Opticien à Metz : notre approche",
   description:
-    "Optique Queuleu, opticien indépendant à Metz : les 8 étapes de notre accompagnement, de l'écoute au suivi de vos lunettes, notre équipe et nos engagements.",
+    "Optique Queuleu, opticien indépendant à Metz : 8 étapes pour vous accompagner, de l'écoute au suivi de vos lunettes. Notre équipe et nos engagements.",
   openGraph: {
-    title: "Notre approche : votre opticien à Metz | Optique Queuleu",
+    title: "Opticien à Metz : notre approche | Optique Queuleu",
     description:
       "Notre façon de prendre soin de votre vision, de l'écoute au suivi de vos lunettes, chez Optique Queuleu à Metz.",
     url: PAGE_URL,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Notre approche : votre opticien à Metz | Optique Queuleu",
+    title: "Opticien à Metz : notre approche | Optique Queuleu",
     description:
       "Notre façon de prendre soin de votre vision, de l'écoute au suivi de vos lunettes, chez Optique Queuleu à Metz.",
     images: [OG_IMAGE],

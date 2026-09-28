@@ -14,7 +14,7 @@ const OG_IMAGE = "/images/boutique/magasin.webp";
 export const metadata: Metadata = {
   title: "Bilan Vision ZEISS à Metz",
   description:
-    "Bilan Vision ZEISS chez Optique Queuleu, opticien indépendant à Metz : échange sur vos habitudes, analyse de votre vision avec le ZEISS VISUCORE 500, correction affinée et explications personnalisées.",
+    "Bilan Vision ZEISS à Metz chez Optique Queuleu : échange sur vos habitudes, analyse de votre vision avec le ZEISS VISUCORE 500 et conseils personnalisés.",
   openGraph: {
     title: "Bilan Vision ZEISS à Metz | Optique Queuleu",
     description:
@@ -231,6 +231,11 @@ export default function BilanVisionZeissPage() {
               Le Bilan Vision réalisé par votre opticien ne remplace pas une
               consultation chez l&apos;ophtalmologiste lorsqu&apos;un suivi
               médical est nécessaire.
+            </p>
+            <p className="mt-6 text-sm">
+              <Link href="/notre-approche" className="font-semibold text-primary hover:underline">
+                Découvrir notre approche
+              </Link>
             </p>
           </div>
         </ScrollReveal>
