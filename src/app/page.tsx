@@ -73,8 +73,8 @@ const bilanBenefices = [
   "Explications personnalisées",
 ];
 
-// Bloc 5 : les univers du plan. Le lot 2 rebranchera « Enfants & myopie »
-// vers sa page dédiée (/enfants-myopie) : changer son href ici suffit.
+// Bloc 5 : les univers du plan. Sport & performance et Enfants & myopie
+// pointent vers leurs pages dédiées (/sport, /enfants-myopie).
 const univers: { title: string; tagline?: string; href: string; image: string; alt: string }[] = [
   {
     title: "Créateurs & acétates",
@@ -100,13 +100,13 @@ const univers: { title: string; tagline?: string; href: string; image: string; a
   {
     title: "Sport & performance",
     tagline: "Équipements adaptés aux pratiques sportives et aux besoins techniques.",
-    href: "/marques#sport-performance",
+    href: "/sport",
     image: "/images/produits/rudy-project.webp",
     alt: "Lunettes de sport Rudy Project",
   },
   {
     title: "Enfants & myopie",
-    href: "/verres",
+    href: "/enfants-myopie",
     image: "/images/marques/tete-a-lunettes.webp",
     alt: "Enfants portant des lunettes Tête à Lunettes",
   },

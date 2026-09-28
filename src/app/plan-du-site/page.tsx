@@ -18,6 +18,8 @@ const sections = [
     links: [
       { href: "/", label: "Accueil" },
       { href: "/marques", label: "Nos marques" },
+      { href: "/sport", label: "Sport & performance" },
+      { href: "/enfants-myopie", label: "Vision de l'enfant & myopie" },
       { href: "/verres", label: "Nos verres" },
       { href: "/magasin", label: "Le magasin" },
       { href: "/notre-approche", label: "Notre approche" },
