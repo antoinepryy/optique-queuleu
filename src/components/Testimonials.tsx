@@ -82,7 +82,9 @@ function GoogleIcon() {
   );
 }
 
-export default function Testimonials() {
+// `dataBlock` pose un attribut data-block sur la <section> (ordre des blocs de
+// l'accueil vérifiable dans le DOM).
+export default function Testimonials({ dataBlock }: { dataBlock?: string } = {}) {
   const aggregateRatingSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -105,6 +107,7 @@ export default function Testimonials() {
 
   return (
     <section
+      data-block={dataBlock}
       className="relative overflow-hidden bg-muted py-28"
       aria-labelledby="testimonials-heading"
     >

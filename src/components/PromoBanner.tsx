@@ -3,13 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function PromoBanner() {
   const [visible, setVisible] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
+  // Masqué sur l'accueil (plan 2026-2027, décision D4 : l'identité passe avant
+  // les promotions). --promo-banner-height retombe alors à 0px.
+  const isHome = usePathname() === "/";
+  const shown = visible && !isHome;
 
   useEffect(() => {
-    if (!visible) {
+    if (!shown) {
       document.body.style.setProperty("--promo-banner-height", "0px");
       return;
     }
@@ -28,9 +33,9 @@ export default function PromoBanner() {
       ro.disconnect();
       document.body.style.setProperty("--promo-banner-height", "0px");
     };
-  }, [visible]);
+  }, [shown]);
 
-  if (!visible) return null;
+  if (!shown) return null;
 
   return (
     <div ref={ref} className="fixed bottom-0 left-0 z-40 w-full animate-slide-up">

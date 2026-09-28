@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 // Promo soldes d'été : se cache automatiquement après cette date.
 const PROMO_END = new Date("2026-07-21T23:59:59+02:00");
@@ -10,6 +11,10 @@ const DISMISS_KEY = "summer-sale-2026-dismissed";
 export default function SummerSaleStrip() {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  // Jamais sur l'accueil (plan 2026-2027, décision D4 : l'identité passe avant
+  // les promotions).
+  const isHome = usePathname() === "/";
+  const shown = visible && !isHome;
 
   // Décision d'affichage côté client : période active + non fermé.
   useEffect(() => {
@@ -20,7 +25,7 @@ export default function SummerSaleStrip() {
 
   // Synchronise la hauteur du strip avec le header (top) et le body (padding).
   useEffect(() => {
-    if (!visible) {
+    if (!shown) {
       document.body.style.setProperty("--promo-strip-height", "0px");
       return;
     }
@@ -39,14 +44,14 @@ export default function SummerSaleStrip() {
       ro.disconnect();
       document.body.style.setProperty("--promo-strip-height", "0px");
     };
-  }, [visible]);
+  }, [shown]);
 
   const dismiss = () => {
     sessionStorage.setItem(DISMISS_KEY, "1");
     setVisible(false);
   };
 
-  if (!visible) return null;
+  if (!shown) return null;
 
   return (
     <div
