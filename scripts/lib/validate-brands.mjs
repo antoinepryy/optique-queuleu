@@ -45,3 +45,22 @@ export function validateBrandDetails({ brands, details, imageExists }) {
 
   return errors;
 }
+
+/**
+ * Vérifie que chaque marque du catalogue porte un univers parmi les valeurs autorisées.
+ * @param {Array<{slug: string, univers?: string}>} brands
+ * @param {readonly string[]} allowedUnivers les identifiants d'univers valides
+ * @returns {string[]} liste d'erreurs lisibles, vide si tout est valide
+ */
+export function validateBrandUnivers(brands, allowedUnivers) {
+  const allowed = new Set(allowedUnivers);
+  const errors = [];
+  for (const brand of brands) {
+    if (brand.univers === undefined || brand.univers === null || brand.univers === "") {
+      errors.push(`${brand.slug} : univers absent (attendu : ${[...allowed].join(", ")})`);
+    } else if (!allowed.has(brand.univers)) {
+      errors.push(`${brand.slug} : univers inconnu "${brand.univers}" (attendu : ${[...allowed].join(", ")})`);
+    }
+  }
+  return errors;
+}

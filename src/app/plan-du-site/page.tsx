@@ -27,6 +27,7 @@ const sections = [
   {
     title: "Nos services",
     links: [
+      { href: "/bilan-vision-zeiss", label: "Bilan Vision ZEISS" },
       { href: "/prescription-48h", label: "Prescription en 48h" },
       { href: "/vision-minute", label: "Vision Minute · OOMADE (impression 3D)" },
     ],

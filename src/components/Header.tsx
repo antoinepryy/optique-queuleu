@@ -3,33 +3,93 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FocusEvent as ReactFocusEvent,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
+import { DOCTOLIB_URL } from "@/components/BookingCta";
 
+type NavLink = { name: string; href: string; description?: string };
+type NavGroup = { name: string; id: string; children: NavLink[] };
+type NavEntry = NavLink | NavGroup;
+
+// Arborescence du menu (plan 2026-2027). Source unique pour le desktop et le
+// mobile : pour rebrancher une entrée vers sa page définitive (lot 2 : Sport,
+// Enfants, Enfants & myopie, Notre approche), il suffit de changer son href ici.
 // Pas d'entrée « Accueil » : le logo, à gauche, pointe déjà vers la page d'accueil.
-const navigation = [
-  { name: "Marques", href: "/marques" },
-  { name: "Verres", href: "/verres" },
-  { name: "Magasin", href: "/magasin" },
-  { name: "Lentilles", href: "/lentilles" },
-  { name: "Blog", href: "/blog" },
+export const mainNavigation: NavEntry[] = [
+  {
+    name: "Lunettes",
+    id: "lunettes",
+    children: [
+      { name: "Nos collections", href: "/marques" },
+      { name: "Créateurs", href: "/marques#createurs-acetates" },
+      { name: "Fabrication française", href: "/marques#savoir-faire-francais" },
+      { name: "Sport", href: "/marques#sport-performance" },
+      { name: "Enfants", href: "/marques?categorie=enfant#explorer" },
+    ],
+  },
+  {
+    name: "Votre vision",
+    id: "votre-vision",
+    children: [
+      { name: "Bilan Vision ZEISS", href: "/bilan-vision-zeiss" },
+      { name: "Verres", href: "/verres" },
+      { name: "Enfants & myopie", href: "/verres" },
+      { name: "Lentilles", href: "/lentilles" },
+    ],
+  },
+  { name: "Notre approche", href: "/magasin" },
+  {
+    name: "Services",
+    id: "services",
+    children: [
+      { name: "Vision Minute", href: "/vision-minute", description: "Monture 3D en 15 min · OOMADE" },
+      { name: "Prescription 48h", href: "/prescription-48h", description: "Ordonnance en 48h" },
+    ],
+  },
+  { name: "Actualités", href: "/blog" },
 ];
 
-const services = [
-  { name: "Vision Minute", href: "/vision-minute", description: "Monture 3D en 15 min · OOMADE" },
-  { name: "Prescription 48h", href: "/prescription-48h", description: "Ordonnance en 48h" },
-];
+const isGroup = (entry: NavEntry): entry is NavGroup => "children" in entry;
+
+// Chemin sans ancre : « /marques#sport-performance » est actif sur /marques.
+const pathOf = (href: string) => href.split("#")[0];
+
+function ChevronIcon({ open, className }: { open: boolean; className: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={`${className} transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      stroke="currentColor"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+    </svg>
+  );
+}
 
 export default function Header() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const servicesRef = useRef<HTMLDivElement>(null);
-  const servicesTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Un seul sous-menu ouvert à la fois (desktop), et un seul dépliant (mobile).
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [mobileOpenGroup, setMobileOpenGroup] = useState<string | null>(null);
+  const desktopNavRef = useRef<HTMLDivElement>(null);
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
-  const isServicePage = services.some((s) => pathname === s.href);
+  const transparent = isHome && !scrolled;
+  const isActive = (href: string) => pathname === pathOf(href);
+  const isGroupActive = (group: NavGroup) => group.children.some((c) => isActive(c.href));
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -38,38 +98,93 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Clic ou tap en dehors du menu desktop : on referme le sous-menu ouvert.
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
+    const handlePointerDownOutside = (e: PointerEvent) => {
+      if (desktopNavRef.current && !desktopNavRef.current.contains(e.target as Node)) {
+        setOpenMenu(null);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("pointerdown", handlePointerDownOutside);
+    return () => document.removeEventListener("pointerdown", handlePointerDownOutside);
   }, []);
 
-  const handleServicesEnter = () => {
-    if (servicesTimeoutRef.current) {
-      clearTimeout(servicesTimeoutRef.current);
-      servicesTimeoutRef.current = null;
+  useEffect(
+    () => () => {
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    },
+    []
+  );
+
+  const cancelHoverClose = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
     }
-    setServicesOpen(true);
   };
 
-  const handleServicesLeave = () => {
-    servicesTimeoutRef.current = setTimeout(() => {
-      setServicesOpen(false);
-    }, 150);
+  // Survol : seulement pour une vraie souris. Au toucher, pointerenter précède
+  // le clic : ouvrir ici ferait refermer le menu aussitôt par le clic.
+  const handlePointerEnter = (id: string) => (e: ReactPointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    cancelHoverClose();
+    setOpenMenu(id);
   };
+
+  const handlePointerLeave = (e: ReactPointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    cancelHoverClose();
+    hoverTimeoutRef.current = setTimeout(() => setOpenMenu(null), 150);
+  };
+
+  // Échap referme le sous-menu et rend le focus à son bouton.
+  const handleGroupKeyDown = (id: string) => (e: ReactKeyboardEvent) => {
+    if (e.key === "Escape" && openMenu === id) {
+      e.preventDefault();
+      setOpenMenu(null);
+      triggerRefs.current[id]?.focus();
+    }
+  };
+
+  // Le focus quitte le groupe (Tab au-delà du dernier lien) : on referme.
+  const handleGroupBlur = (id: string) => (e: ReactFocusEvent<HTMLDivElement>) => {
+    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+      setOpenMenu((current) => (current === id ? null : current));
+    }
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileOpenGroup(null);
+  };
+
+  const topLevelClass = (active: boolean) =>
+    `text-sm uppercase tracking-wide transition-colors ${
+      active
+        ? transparent
+          ? "font-semibold text-white"
+          : "font-semibold text-primary"
+        : transparent
+          ? "font-medium text-white/80 hover:text-white"
+          : "font-medium text-foreground/80 hover:text-primary"
+    }`;
+
+  const mobileTopLevelClass = (active: boolean) =>
+    `text-sm uppercase tracking-wide ${
+      active ? "font-semibold text-primary" : "font-medium text-foreground/80"
+    }`;
 
   return (
     <header
       style={{ top: "var(--promo-strip-height, 0px)" }}
       className={`fixed z-50 w-full transition-all duration-300 ${
-        isHome && !scrolled ? "bg-transparent" : "bg-white shadow-sm"
+        transparent ? "bg-transparent" : "bg-white shadow-sm"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
+      <nav
+        aria-label="Navigation principale"
+        className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8"
+      >
         <Link href="/">
           <Image
             src="/images/logo/optique-queuleu.webp"
@@ -81,116 +196,103 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex lg:items-center lg:gap-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`text-sm uppercase tracking-wide transition-colors ${
-                pathname === item.href
-                  ? isHome && !scrolled
-                    ? "font-semibold text-white"
-                    : "font-semibold text-primary"
-                  : isHome && !scrolled
-                    ? "font-medium text-white/80 hover:text-white"
-                    : "font-medium text-foreground/80 hover:text-primary"
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
-
-          {/* Services dropdown */}
-          <div
-            ref={servicesRef}
-            className="relative"
-            onMouseEnter={handleServicesEnter}
-            onMouseLeave={handleServicesLeave}
-          >
-            <button
-              type="button"
-              className={`flex items-center gap-1 text-sm uppercase tracking-wide transition-colors ${
-                isServicePage
-                  ? isHome && !scrolled
-                    ? "font-semibold text-white"
-                    : "font-semibold text-primary"
-                  : isHome && !scrolled
-                    ? "font-medium text-white/80 hover:text-white"
-                    : "font-medium text-foreground/80 hover:text-primary"
-              }`}
-              onClick={() => setServicesOpen(!servicesOpen)}
-              aria-expanded={servicesOpen}
-              aria-haspopup="true"
-            >
-              Services
-              <svg
-                className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  servicesOpen ? "rotate-180" : ""
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-              </svg>
-            </button>
-
-            <div
-              className={`absolute left-1/2 top-full z-50 mt-2 w-56 -translate-x-1/2 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg transition-all duration-200 ${
-                servicesOpen
-                  ? "pointer-events-auto translate-y-0 opacity-100"
-                  : "pointer-events-none -translate-y-1 opacity-0"
-              }`}
-            >
-              {services.map((service) => (
+        <div ref={desktopNavRef} className="hidden lg:flex lg:items-center lg:gap-5 xl:gap-8">
+          {mainNavigation.map((entry) => {
+            if (!isGroup(entry)) {
+              return (
                 <Link
-                  key={service.name}
-                  href={service.href}
-                  className={`block px-5 py-3 transition-colors hover:bg-muted ${
-                    pathname === service.href ? "bg-muted" : ""
-                  }`}
-                  onClick={() => setServicesOpen(false)}
+                  key={entry.name}
+                  href={entry.href}
+                  className={topLevelClass(isActive(entry.href))}
+                  aria-current={isActive(entry.href) ? "page" : undefined}
                 >
-                  <span
-                    className={`text-sm font-semibold ${
-                      pathname === service.href
-                        ? "text-primary"
-                        : "text-foreground"
-                    }`}
-                  >
-                    {service.name}
-                  </span>
-                  <span className="mt-0.5 block text-xs text-muted-foreground">
-                    {service.description}
-                  </span>
+                  {entry.name}
                 </Link>
-              ))}
-            </div>
-          </div>
+              );
+            }
+
+            const open = openMenu === entry.id;
+            const panelId = `nav-menu-${entry.id}`;
+            return (
+              <div
+                key={entry.id}
+                className="relative"
+                onPointerEnter={handlePointerEnter(entry.id)}
+                onPointerLeave={handlePointerLeave}
+                onKeyDown={handleGroupKeyDown(entry.id)}
+                onBlur={handleGroupBlur(entry.id)}
+              >
+                <button
+                  ref={(el) => {
+                    triggerRefs.current[entry.id] = el;
+                  }}
+                  type="button"
+                  className={`flex items-center gap-1 ${topLevelClass(isGroupActive(entry))}`}
+                  onClick={() => setOpenMenu(open ? null : entry.id)}
+                  aria-expanded={open}
+                  aria-controls={panelId}
+                >
+                  {entry.name}
+                  <ChevronIcon open={open} className="h-3.5 w-3.5" />
+                </button>
+
+                {/* Fermé = invisible : ses liens sortent de l'ordre de tabulation. */}
+                <div
+                  id={panelId}
+                  className={`absolute left-1/2 top-full z-50 mt-2 w-60 -translate-x-1/2 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg transition-all duration-200 ${
+                    open
+                      ? "visible translate-y-0 opacity-100"
+                      : "invisible -translate-y-1 opacity-0"
+                  }`}
+                >
+                  <ul>
+                    {entry.children.map((child) => (
+                      <li key={child.name}>
+                        <Link
+                          href={child.href}
+                          className={`block px-5 py-3 transition-colors hover:bg-muted focus-visible:bg-muted ${
+                            isActive(child.href) ? "bg-muted" : ""
+                          }`}
+                          aria-current={isActive(child.href) ? "page" : undefined}
+                          onClick={() => setOpenMenu(null)}
+                        >
+                          <span
+                            className={`text-sm font-semibold ${
+                              isActive(child.href) ? "text-primary" : "text-foreground"
+                            }`}
+                          >
+                            {child.name}
+                          </span>
+                          {child.description && (
+                            <span className="mt-0.5 block text-xs text-muted-foreground">
+                              {child.description}
+                            </span>
+                          )}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
 
           <Link
             href="/contact"
-            className={`text-sm uppercase tracking-wide transition-colors ${
-              pathname === "/contact"
-                ? isHome && !scrolled
-                  ? "font-semibold text-white"
-                  : "font-semibold text-primary"
-                : isHome && !scrolled
-                  ? "font-medium text-white/80 hover:text-white"
-                  : "font-medium text-foreground/80 hover:text-primary"
-            }`}
+            className={topLevelClass(pathname === "/contact")}
+            aria-current={pathname === "/contact" ? "page" : undefined}
           >
             Contact
           </Link>
 
           <a
-            href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
+            href={DOCTOLIB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+            className="flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
           >
             <svg
+              aria-hidden="true"
               className="h-4 w-4"
               fill="none"
               viewBox="0 0 24 24"
@@ -211,26 +313,21 @@ export default function Header() {
         <button
           type="button"
           className="lg:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => (mobileMenuOpen ? closeMobileMenu() : setMobileMenuOpen(true))}
           aria-label="Menu"
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
         >
           <svg
-            className={`h-6 w-6 ${
-              isHome && !scrolled ? "text-white" : "text-foreground"
-            }`}
+            aria-hidden="true"
+            className={`h-6 w-6 ${transparent ? "text-white" : "text-foreground"}`}
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
           >
             {mobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
               <path
                 strokeLinecap="round"
@@ -242,98 +339,96 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu : défile si les sous-menus dépliés dépassent la hauteur d'écran. */}
       <div
         id="mobile-menu"
-        className={`overflow-hidden transition-all duration-300 ${
-          mobileMenuOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
+        className={`transition-all duration-300 ${
+          mobileMenuOpen
+            ? "visible max-h-[calc(100dvh-4.25rem)] overflow-y-auto opacity-100"
+            : "invisible max-h-0 overflow-hidden opacity-0"
         } border-t border-gray-100 bg-white px-6 lg:hidden`}
       >
-        <div className="py-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`block py-3 text-sm uppercase tracking-wide ${
-                pathname === item.href
-                  ? "font-semibold text-primary"
-                  : "font-medium text-foreground/80"
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
+        <ul className="py-4">
+          {mainNavigation.map((entry) => {
+            if (!isGroup(entry)) {
+              return (
+                <li key={entry.name}>
+                  <Link
+                    href={entry.href}
+                    className={`block py-3 ${mobileTopLevelClass(isActive(entry.href))}`}
+                    aria-current={isActive(entry.href) ? "page" : undefined}
+                    onClick={closeMobileMenu}
+                  >
+                    {entry.name}
+                  </Link>
+                </li>
+              );
+            }
 
-          {/* Mobile Services accordion */}
-          <div>
-            <button
-              type="button"
-              className={`flex w-full items-center justify-between py-3 text-sm uppercase tracking-wide ${
-                isServicePage
-                  ? "font-semibold text-primary"
-                  : "font-medium text-foreground/80"
-              }`}
-              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              aria-expanded={mobileServicesOpen}
-            >
-              Services
-              <svg
-                className={`h-4 w-4 transition-transform duration-200 ${
-                  mobileServicesOpen ? "rotate-180" : ""
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-              </svg>
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-200 ${
-                mobileServicesOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-              }`}
-            >
-              {services.map((service) => (
-                <Link
-                  key={service.name}
-                  href={service.href}
-                  className={`block py-2 pl-4 text-sm ${
-                    pathname === service.href
-                      ? "font-semibold text-primary"
-                      : "text-foreground/70"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
+            const expanded = mobileOpenGroup === entry.id;
+            const panelId = `mobile-nav-menu-${entry.id}`;
+            return (
+              <li key={entry.id}>
+                <button
+                  type="button"
+                  className={`flex w-full items-center justify-between py-3 ${mobileTopLevelClass(
+                    isGroupActive(entry)
+                  )}`}
+                  onClick={() => setMobileOpenGroup(expanded ? null : entry.id)}
+                  aria-expanded={expanded}
+                  aria-controls={panelId}
                 >
-                  {service.name}
-                </Link>
-              ))}
-            </div>
-          </div>
+                  {entry.name}
+                  <ChevronIcon open={expanded} className="h-4 w-4" />
+                </button>
+                <ul
+                  id={panelId}
+                  className={`overflow-hidden transition-all duration-200 ${
+                    expanded ? "visible max-h-80 opacity-100" : "invisible max-h-0 opacity-0"
+                  }`}
+                >
+                  {entry.children.map((child) => (
+                    <li key={child.name}>
+                      <Link
+                        href={child.href}
+                        className={`block py-2 pl-4 text-sm ${
+                          isActive(child.href) ? "font-semibold text-primary" : "text-foreground/70"
+                        }`}
+                        aria-current={isActive(child.href) ? "page" : undefined}
+                        onClick={closeMobileMenu}
+                      >
+                        {child.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+          })}
 
-          <Link
-            href="/contact"
-            className={`block py-3 text-sm uppercase tracking-wide ${
-              pathname === "/contact"
-                ? "font-semibold text-primary"
-                : "font-medium text-foreground/80"
-            }`}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Contact
-          </Link>
+          <li>
+            <Link
+              href="/contact"
+              className={`block py-3 ${mobileTopLevelClass(pathname === "/contact")}`}
+              aria-current={pathname === "/contact" ? "page" : undefined}
+              onClick={closeMobileMenu}
+            >
+              Contact
+            </Link>
+          </li>
 
-          <a
-            href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 block rounded-full bg-primary px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-primary-light"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Prendre RDV
-          </a>
-        </div>
+          <li>
+            <a
+              href={DOCTOLIB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 block rounded-full bg-primary px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+              onClick={closeMobileMenu}
+            >
+              Prendre RDV
+            </a>
+          </li>
+        </ul>
       </div>
     </header>
   );
