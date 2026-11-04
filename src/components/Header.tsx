@@ -186,14 +186,25 @@ export default function Header() {
         aria-label="Navigation principale"
         className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8"
       >
-        <Link href="/">
+        <Link href="/" className="relative block">
           <Image
             src="/images/logo/optique-queuleu.svg"
             alt="Optique Queuleu"
             width={73}
             height={44}
-            className={`h-11 w-auto transition-[filter] duration-300 ${
-              transparent ? "brightness-0 invert" : ""
+            className={`h-11 w-auto transition-opacity duration-300 ${
+              transparent ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          {/* Variante à texte blanc pour la photo de l'accueil. Les deux images
+              restent chargées : le passage de l'une à l'autre ne clignote pas. */}
+          <Image
+            src="/images/logo/optique-queuleu-clair.svg"
+            alt=""
+            width={73}
+            height={44}
+            className={`absolute inset-0 h-11 w-auto transition-opacity duration-300 ${
+              transparent ? "opacity-100" : "opacity-0"
             }`}
           />
         </Link>
