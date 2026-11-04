@@ -12,9 +12,9 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/images/logo/optique-queuleu.webp"
+                src="/images/logo/optique-queuleu.svg"
                 alt="Optique Queuleu"
-                width={36}
+                width={60}
                 height={36}
                 className="h-9 w-auto"
               />
