@@ -427,12 +427,15 @@ export default function MentionsLegalesPage() {
               </p>
               <p>
                 Le site utilise &eacute;galement des cookies de mesure
-                d&apos;audience publicitaire, d&eacute;pos&eacute;s par Google
-                Ads et par le Pixel Meta (Facebook, Instagram), afin de mesurer
-                l&apos;efficacit&eacute; de nos campagnes. Ces cookies ne sont
-                d&eacute;pos&eacute;s qu&apos;apr&egrave;s votre accord&nbsp;:
-                tant que vous n&apos;avez pas accept&eacute;, aucune donn&eacute;e
-                n&apos;est transmise &agrave; Google ni &agrave; Meta. Vous
+                d&apos;audience, d&eacute;pos&eacute;s par Google Analytics, et
+                des cookies publicitaires, d&eacute;pos&eacute;s par Google Ads
+                et par le Pixel Meta (Facebook, Instagram), afin de comprendre
+                l&apos;utilisation du site et de mesurer l&apos;efficacit&eacute;
+                de nos campagnes. Ces cookies ne sont d&eacute;pos&eacute;s
+                qu&apos;apr&egrave;s votre accord&nbsp;: tant que vous n&apos;avez
+                pas accept&eacute;, aucune donn&eacute;e n&apos;est transmise
+                &agrave; Meta et Google ne re&ccedil;oit que des signaux sans
+                cookie ni identifiant publicitaire. Vous
                 pouvez modifier ou retirer votre choix &agrave; tout moment via
                 le lien &laquo;&nbsp;Gestion des cookies&nbsp;&raquo; en bas de
                 page. Pour en savoir plus, consultez la{" "}
