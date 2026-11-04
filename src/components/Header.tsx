@@ -188,11 +188,13 @@ export default function Header() {
       >
         <Link href="/">
           <Image
-            src="/images/logo/optique-queuleu.webp"
+            src="/images/logo/optique-queuleu.svg"
             alt="Optique Queuleu"
-            width={44}
+            width={73}
             height={44}
-            className="h-11 w-auto"
+            className={`h-11 w-auto transition-[filter] duration-300 ${
+              transparent ? "brightness-0 invert" : ""
+            }`}
           />
         </Link>
 

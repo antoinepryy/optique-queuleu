@@ -27,10 +27,10 @@ export default function Loader() {
       <div className="flex flex-col items-center gap-6">
         <div className="animate-loader-logo">
           <Image
-            src="/images/logo/optique-queuleu.webp"
+            src="/images/logo/optique-queuleu.svg"
             alt="Optique Queuleu"
-            width={100}
-            height={100}
+            width={159}
+            height={96}
             className="h-24 w-auto"
             priority
           />
