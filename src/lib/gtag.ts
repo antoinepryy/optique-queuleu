@@ -1,12 +1,16 @@
-// Couche unique d'accès à Google Ads (gtag.js).
+// Couche unique d'accès à Google Ads et Google Analytics 4 (gtag.js).
 // AUCUN composant ne doit appeler window.gtag directement : tout passe ici.
 //
 // Compte Google Ads : AW-489386530
+// Flux de données GA4 : G-PRJXWJVPJY
 // Les libellés de conversion sont configurables par env (NEXT_PUBLIC_*),
 // avec repli sur les valeurs réelles vérifiées via l'API Google Ads.
 
 export const GOOGLE_ADS_ID =
   process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-489386530";
+
+export const GA4_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID || "G-PRJXWJVPJY";
 
 // send_to = `${GOOGLE_ADS_ID}/${label}`
 export const CONVERSION_LABELS = {
@@ -31,6 +35,18 @@ function canTrack(): boolean {
     typeof window !== "undefined" &&
     typeof window.gtag === "function"
   );
+}
+
+// Page vue GA4 d'une navigation interne (App Router, sans rechargement).
+// La page vue du chargement initial part du gtag('config', ...).
+export function trackPageView() {
+  if (!canTrack()) return;
+
+  window.gtag("event", "page_view", {
+    send_to: GA4_MEASUREMENT_ID,
+    page_location: window.location.href,
+    page_title: document.title,
+  });
 }
 
 // Déduplication temporelle : un même type de conversion déclenché plusieurs
