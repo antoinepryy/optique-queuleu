@@ -25,9 +25,9 @@ export default function UniversBrandCard({ brand }: { brand: Brand }) {
             <Image
               src={brand.image}
               alt={`Logo de la marque ${brand.name}`}
-              width={140}
-              height={70}
-              className="max-h-16 w-auto max-w-[70%] object-contain opacity-80 transition-opacity group-hover:opacity-100"
+              width={280}
+              height={140}
+              className="max-h-20 w-auto max-w-[85%] object-contain opacity-80 transition-opacity group-hover:opacity-100"
             />
           </div>
         ) : (
