@@ -22,6 +22,14 @@ export const CONVERSION_LABELS = {
 
 export type ConversionKind = keyof typeof CONVERSION_LABELS;
 
+// Événements GA4 envoyés en parallèle des conversions Google Ads.
+// Ne pas les importer dans Google Ads : chaque contact y serait compté deux fois.
+const GA4_EVENTS: Record<ConversionKind, string> = {
+  doctolib: "click_doctolib",
+  form: "generate_lead",
+  phone: "click_phone",
+};
+
 // Kill-switch : le tracking est actif seulement si un ID est présent.
 // (Permet de désactiver proprement en preview/staging via env si besoin.)
 export const ANALYTICS_ENABLED =
@@ -56,7 +64,7 @@ const DEDUP_MS = 1500;
 const lastSent: Partial<Record<ConversionKind, number>> = {};
 
 /**
- * Envoie une conversion Google Ads.
+ * Envoie une conversion à Google Ads et l'événement correspondant à GA4.
  * @param kind  doctolib | form | phone
  */
 export function trackConversion(kind: ConversionKind) {
@@ -70,4 +78,5 @@ export function trackConversion(kind: ConversionKind) {
   window.gtag("event", "conversion", {
     send_to: `${GOOGLE_ADS_ID}/${CONVERSION_LABELS[kind]}`,
   });
+  window.gtag("event", GA4_EVENTS[kind], { send_to: GA4_MEASUREMENT_ID });
 }
