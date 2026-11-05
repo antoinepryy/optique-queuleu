@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import { trackConversion } from "@/lib/gtag";
+import { trackConversion, trackGa4Event } from "@/lib/gtag";
+import { GOOGLE_MAPS_DIRECTIONS_URL, GOOGLE_REVIEWS_URL } from "@/lib/social";
 import { trackMetaEvent } from "@/lib/meta";
 
 // Écouteur de clic unique monté dans le layout. Capte tous les liens sortants
-// Doctolib et les liens tel: où qu'ils soient (y compris dans des Server
+// Doctolib, les liens tel:, l'itinéraire et les avis Google où qu'ils soient (y compris dans des Server
 // Components), sans avoir à réécrire chaque page.
 export default function OutboundClickTracker() {
   useEffect(() => {
@@ -30,6 +31,16 @@ export default function OutboundClickTracker() {
       if (/^https?:\/\/(www\.)?doctolib\.fr\//i.test(href)) {
         trackConversion("doctolib");
         trackMetaEvent("doctolib");
+        return;
+      }
+
+      // Itinéraire et avis Google : GA4 seul (voir trackGa4Event).
+      if (href === GOOGLE_MAPS_DIRECTIONS_URL) {
+        trackGa4Event("itinerary");
+        return;
+      }
+      if (href === GOOGLE_REVIEWS_URL) {
+        trackGa4Event("reviews");
       }
     };
 

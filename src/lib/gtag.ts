@@ -61,7 +61,15 @@ export function trackPageView() {
 // fois en < DEDUP_MS (double-clic sur tel:, re-clic Doctolib) n'envoie qu'un
 // seul hit. Protège la donnée indépendamment du réglage de comptage Google Ads.
 const DEDUP_MS = 1500;
-const lastSent: Partial<Record<ConversionKind, number>> = {};
+const lastSent: Partial<Record<string, number>> = {};
+
+function isDuplicate(key: string): boolean {
+  const now = Date.now();
+  const previous = lastSent[key];
+  if (previous !== undefined && now - previous < DEDUP_MS) return true;
+  lastSent[key] = now;
+  return false;
+}
 
 /**
  * Envoie une conversion à Google Ads et l'événement correspondant à GA4.
@@ -70,13 +78,30 @@ const lastSent: Partial<Record<ConversionKind, number>> = {};
 export function trackConversion(kind: ConversionKind) {
   if (!canTrack()) return;
 
-  const now = Date.now();
-  const previous = lastSent[kind];
-  if (previous !== undefined && now - previous < DEDUP_MS) return;
-  lastSent[kind] = now;
+  if (isDuplicate(kind)) return;
 
   window.gtag("event", "conversion", {
     send_to: `${GOOGLE_ADS_ID}/${CONVERSION_LABELS[kind]}`,
   });
   window.gtag("event", GA4_EVENTS[kind], { send_to: GA4_MEASUREMENT_ID });
+}
+
+// Intentions de visite suivies dans GA4 seulement, sans conversion Google Ads :
+// elles ne valent pas un appel ou un rendez-vous et fausseraient les enchères.
+const GA4_ONLY_EVENTS = {
+  itinerary: "click_itinerary",
+  reviews: "click_reviews",
+} as const;
+
+export type Ga4OnlyKind = keyof typeof GA4_ONLY_EVENTS;
+
+/**
+ * Envoie à GA4 seul un événement d'intention (itinéraire, avis Google).
+ * @param kind  itinerary | reviews
+ */
+export function trackGa4Event(kind: Ga4OnlyKind) {
+  if (!canTrack()) return;
+  if (isDuplicate(`ga4:${kind}`)) return;
+
+  window.gtag("event", GA4_ONLY_EVENTS[kind], { send_to: GA4_MEASUREMENT_ID });
 }
