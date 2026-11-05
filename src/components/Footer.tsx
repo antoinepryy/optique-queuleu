@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import CookieSettingsButton from "@/components/analytics/CookieSettingsButton";
-import { INSTAGRAM_URL, FACEBOOK_URL } from "@/lib/social";
+import { INSTAGRAM_URL, FACEBOOK_URL, GOOGLE_MAPS_DIRECTIONS_URL } from "@/lib/social";
 
 export default function Footer() {
   return (
@@ -67,6 +67,14 @@ export default function Footer() {
               <br />
               57070 Metz
             </p>
+            <a
+              href={GOOGLE_MAPS_DIRECTIONS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-sm text-primary underline hover:text-primary/80"
+            >
+              Itinéraire
+            </a>
             <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-primary">
               Parking gratuit
             </p>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionTitle from "@/components/SectionTitle";
 import ScrollReveal from "@/components/ScrollReveal";
+import ItineraryButton from "@/components/ItineraryButton";
 
 export const metadata: Metadata = {
   title: "Magasin Optique Queuleu Metz | Opticien à Queuleu | Examen de Vue Gratuit",
@@ -294,6 +295,7 @@ export default function MagasinPage() {
                 Avancez jusqu&apos;à la porte de garage, ouverture automatique.
                 Un accès facile et pratique pour votre visite chez votre opticien à Metz Queuleu.
               </p>
+              <ItineraryButton className="mt-6" />
             </ScrollReveal>
             <ScrollReveal className="reveal-right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">

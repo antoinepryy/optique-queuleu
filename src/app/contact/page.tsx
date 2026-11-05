@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionTitle from "@/components/SectionTitle";
 import ContactForm from "@/components/ContactForm";
+import ItineraryButton from "@/components/ItineraryButton";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -203,6 +204,7 @@ export default function ContactPage() {
                 Nous disposons d&apos;un parking privé, totalement gratuit !
                 Avancez jusqu&apos;à la porte de garage, ouverture automatique.
               </p>
+              <ItineraryButton className="mt-6" />
               <div className="mt-6 space-y-4">
                 <p className="text-sm text-muted-foreground">
                   <strong>Besoin d&apos;un rendez-vous ?</strong> Consultez les{" "}
