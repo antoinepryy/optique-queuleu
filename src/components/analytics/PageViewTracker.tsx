@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { trackPageView } from "@/lib/gtag";
 
-// Compte les navigations internes dans GA4. La détection automatique de GA4
-// (« changements d'historique ») ne se déclenche pas sur ce site, malgré son
-// activation dans le flux : constaté au navigateur, quel que soit le consentement.
+// Compte les navigations internes dans GA4 : la mesure améliorée est désactivée
+// sur le flux. Si elle est réactivée, décocher son option « changements
+// d'historique », sinon ces navigations seraient comptées deux fois.
 // Le chemin initial est ignoré : sa page vue part déjà du gtag('config', ...).
 //
 // Next vide document.title quelques millisecondes pendant certaines navigations :
