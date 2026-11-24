@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BookingCta from "@/components/BookingCta";
 import PromoBanner from "@/components/PromoBanner";
-import SummerSaleStrip from "@/components/SummerSaleStrip";
+import BlackTicketStrip from "@/components/BlackTicketStrip";
 import GoogleAdsScripts from "@/components/analytics/GoogleAdsScripts";
 import MetaPixelScripts from "@/components/analytics/MetaPixelScripts";
 import OutboundClickTracker from "@/components/analytics/OutboundClickTracker";
@@ -73,7 +73,7 @@ export default function RootLayout({
         <OutboundClickTracker />
         <PageViewTracker />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-primary">Aller au contenu</a>
-        <SummerSaleStrip />
+        <BlackTicketStrip />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
