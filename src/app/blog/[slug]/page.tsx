@@ -193,7 +193,7 @@ export default async function ArticlePage({
             Besoin d&apos;un conseil personnalisé ?
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Notre équipe d&apos;opticiens diplômés vous accueille du mardi au
+            Notre équipe d&apos;opticiens diplômés vous accueille du lundi au
             samedi dans notre magasin à Metz. Prenez rendez-vous pour un examen
             de vue ou un essayage personnalisé.
           </p>

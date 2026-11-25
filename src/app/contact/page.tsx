@@ -63,19 +63,19 @@ export default function ContactPage() {
       openingHoursSpecification: [
         {
           "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Friday"],
-          opens: "09:00",
-          closes: "12:00",
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Friday"],
+          dayOfWeek: "Monday",
           opens: "14:00",
           closes: "19:00",
         },
         {
           "@type": "OpeningHoursSpecification",
-          dayOfWeek: "Thursday",
+          dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:00",
+          closes: "12:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday"],
           opens: "14:00",
           closes: "19:00",
         },
@@ -83,7 +83,13 @@ export default function ContactPage() {
           "@type": "OpeningHoursSpecification",
           dayOfWeek: "Saturday",
           opens: "09:00",
-          closes: "13:00",
+          closes: "12:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Saturday",
+          opens: "14:00",
+          closes: "18:00",
         },
       ],
       priceRange: "€€",

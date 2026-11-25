@@ -209,13 +209,13 @@ export default function VisionMinutePage() {
       {/* Hero Banner */}
       <section className="relative flex min-h-80 items-center pt-24 pb-10 sm:min-h-96" aria-label="Bannière Vision Minute">
         <Image
-          src="/images/produits/oomade.webp"
-          alt="Machine OOMADE d'impression 3D de montures de lunettes en magasin à Metz"
+          src="/images/boutique/interieur-1.webp"
+          alt="Murs de montures dans le magasin Optique Queuleu à Metz"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-black/65" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#0b1d2c]/70" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
           <h1 className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
             Votre monture a cassé ? Vous repartez équipé dans le quart d&apos;heure
