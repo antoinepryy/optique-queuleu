@@ -104,7 +104,7 @@ export default function ContactForm({ brand }: { brand?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
       {error && (
         <p
           className="rounded-lg bg-red-50 p-4 text-sm font-medium text-red-700"
@@ -114,7 +114,7 @@ export default function ContactForm({ brand }: { brand?: string }) {
         </p>
       )}
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid grid-cols-2 gap-3 sm:gap-6">
         <div>
           <label
             htmlFor="contact-name"
@@ -129,7 +129,7 @@ export default function ContactForm({ brand }: { brand?: string }) {
             required
             value={formData.name}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+            className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm sm:px-4 sm:py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
           />
         </div>
         <div>
@@ -146,7 +146,7 @@ export default function ContactForm({ brand }: { brand?: string }) {
             required
             value={formData.phone}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+            className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm sm:px-4 sm:py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
           />
         </div>
       </div>
@@ -165,7 +165,7 @@ export default function ContactForm({ brand }: { brand?: string }) {
           required
           value={formData.email}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+          className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm sm:px-4 sm:py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
         />
       </div>
 
@@ -179,11 +179,11 @@ export default function ContactForm({ brand }: { brand?: string }) {
         <textarea
           id="contact-message"
           name="message"
-          rows={5}
+          rows={3}
           required
           value={formData.message}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+          className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm sm:px-4 sm:py-3 text-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
         />
       </div>
 

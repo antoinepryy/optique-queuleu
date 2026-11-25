@@ -105,10 +105,10 @@ export default function ContactPage() {
       />
 
       {/* Contact en haut de page : le formulaire visible sans défiler */}
-      <section className="bg-muted pb-14 pt-24 sm:pb-20 sm:pt-28" aria-labelledby="contact-heading">
+      <section className="bg-muted pb-14 pt-[5.5rem] sm:pb-20 sm:pt-28" aria-labelledby="contact-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-6 text-center lg:mb-8 lg:text-left">
-            <nav className="text-xs text-muted-foreground" aria-label="Fil d'Ariane">
+          <div className="mb-4 text-center sm:mb-6 lg:mb-8 lg:text-left">
+            <nav className="hidden text-xs text-muted-foreground sm:block" aria-label="Fil d'Ariane">
               <Link href="/" className="hover:text-foreground">
                 Accueil
               </Link>
@@ -117,15 +117,15 @@ export default function ContactPage() {
             </nav>
             <h1
               id="contact-heading"
-              className="mt-2 text-2xl font-bold uppercase tracking-[0.12em] text-foreground sm:text-3xl"
+              className="text-xl font-bold uppercase sm:mt-2 tracking-[0.12em] text-foreground sm:text-3xl"
             >
               Prendre contact
             </h1>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-1 text-sm text-muted-foreground sm:mt-2">
               28 rue de Queuleu, 57070 Metz ·{" "}
               <a
                 href="tel:+333****3036"
-                className="font-semibold text-primary hover:underline"
+                className="whitespace-nowrap font-semibold text-primary hover:underline"
                 aria-label="Appeler Optique Queuleu au 03 87 37 30 36"
               >
                 03 87 37 30 36
@@ -135,8 +135,8 @@ export default function ContactPage() {
           <div className="grid gap-10 sm:gap-12 lg:grid-cols-2">
             {/* Formulaire : premier sur mobile, à droite sur ordinateur */}
             <div className="lg:order-2">
-              <div className="rounded-2xl border border-gray-100 bg-white p-6 sm:p-8">
-                <h2 className="mb-5 text-xl font-semibold text-foreground">
+              <div className="rounded-2xl border border-gray-100 bg-white p-5 sm:p-8">
+                <h2 className="mb-3 text-lg font-semibold sm:mb-5 sm:text-xl text-foreground">
                   Envoyez-nous un message
                 </h2>
                 <ContactForm />
