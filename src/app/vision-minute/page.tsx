@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/produits/oomade.webp",
-        width: 1200,
-        height: 630,
-        alt: "Service Vision Minute OOMADE - Impression 3D de montures",
+        url: "/images/boutique/magasin.webp",
+        width: 2305,
+        height: 1537,
+        alt: "Le magasin Optique Queuleu, 28 rue de Queuleu à Metz",
       },
     ],
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Vision Minute Metz | Monture en 15 Minutes",
     description:
       "Monture cassée ? Impression 3D en 15 minutes chez Optique Queuleu.",
-    images: ["/images/produits/oomade.webp"],
+    images: ["/images/boutique/magasin.webp"],
   },
 };
 
@@ -277,8 +277,8 @@ export default function VisionMinutePage() {
             <ScrollReveal className="reveal-right">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/produits/oomade.webp"
-                  alt="Imprimante 3D OOMADE créant une monture de lunettes de remplacement en magasin"
+                  src="/images/boutique/interieur-3.webp"
+                  alt="Comptoir et murs de montures du magasin Optique Queuleu à Metz"
                   fill
                   className="object-cover"
                 />

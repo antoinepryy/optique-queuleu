@@ -90,7 +90,7 @@ export default function PromoBanner() {
                 Vision Minute
               </span>
               <span className="mt-0.5 hidden text-xs text-white/60 sm:block">
-                Monture reconstituée en 10 min par impression 3D
+                Monture reconstituée en 15 min par impression 3D
               </span>
             </div>
           </Link>
