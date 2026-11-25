@@ -3,10 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-// Opération Black Ticket : visible uniquement du vendredi 27 au samedi
-// 28 novembre 2026 (heure de Paris), calculé côté visiteur. Disparaît seul
-// après la fin. Textes repris du post du magasin.
-const PROMO_START = new Date("2026-11-27T00:00:00+01:00");
+// Opération Black Ticket des vendredi 27 et samedi 28 novembre 2026.
+// Annoncée dès le 25/11 (demande d'Antoine) : avant le 27, le bandeau
+// affiche les dates à venir ; le 28, « Dernier jour ». Disparaît seul
+// après la fin (heure de Paris, calculé côté visiteur).
+const PROMO_START = new Date("2026-11-25T00:00:00+01:00");
 const PROMO_END = new Date("2026-11-28T23:59:59+01:00");
 const LAST_DAY = new Date("2026-11-28T00:00:00+01:00");
 const DISMISS_KEY = "black-ticket-2026-dismissed";
