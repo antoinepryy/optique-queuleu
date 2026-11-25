@@ -218,7 +218,7 @@ export default function VisionMinutePage() {
         <div className="absolute inset-0 bg-[#0b1d2c]/70" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
           <h1 className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-            Votre monture a cassé ? Vous repartez équipé dans le quart d&apos;heure
+            Votre monture a cassé&nbsp;? Vous repartez équipé dans le quart d&apos;heure
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
             Nous imprimons en 3D, au magasin, une monture provisoire à vos
