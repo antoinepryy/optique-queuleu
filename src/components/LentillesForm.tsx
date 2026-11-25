@@ -339,7 +339,7 @@ export default function LentillesForm() {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:opacity-50 sm:w-auto"
+        className="w-full rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:opacity-50 sm:w-auto"
       >
         {isLoading ? "Envoi en cours..." : "Pré-commander mes lentilles"}
       </button>

@@ -92,7 +92,7 @@ export default function EnfantsMyopiePage() {
             href={DOCTOLIB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+            className="mt-8 inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
           >
             {clockIcon}
             Prendre rendez-vous
@@ -148,13 +148,13 @@ export default function EnfantsMyopiePage() {
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href="/bilan-vision-zeiss"
-                  className="inline-flex items-center justify-center rounded-full border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+                  className="inline-flex items-center justify-center rounded-sm border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
                 >
                   Découvrir le Bilan Vision ZEISS
                 </Link>
                 <Link
                   href="/verres"
-                  className="inline-flex items-center justify-center rounded-full border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+                  className="inline-flex items-center justify-center rounded-sm border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
                 >
                   Nos verres
                 </Link>
@@ -176,7 +176,7 @@ export default function EnfantsMyopiePage() {
                 href={DOCTOLIB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+                className="inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
               >
                 {clockIcon}
                 Prendre rendez-vous

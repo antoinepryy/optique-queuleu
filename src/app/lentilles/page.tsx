@@ -210,7 +210,7 @@ export default function LentillesPage() {
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
                 href="tel:+33387373036"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+                className="inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
                 aria-label="Appeler Optique Queuleu au 03 87 37 30 36"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
@@ -220,7 +220,7 @@ export default function LentillesPage() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+                className="inline-flex items-center gap-2 rounded-sm border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
               >
                 Nous contacter
               </Link>

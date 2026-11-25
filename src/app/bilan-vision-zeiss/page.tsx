@@ -124,7 +124,7 @@ export default function BilanVisionZeissPage() {
             href={DOCTOLIB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+            className="mt-8 inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
           >
             {clockIcon}
             Prendre rendez-vous
@@ -226,7 +226,7 @@ export default function BilanVisionZeissPage() {
                 href={DOCTOLIB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+                className="inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
               >
                 {clockIcon}
                 Prendre rendez-vous pour mon bilan visuel

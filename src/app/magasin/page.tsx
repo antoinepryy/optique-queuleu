@@ -325,7 +325,7 @@ export default function MagasinPage() {
               href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+              className="mt-8 inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
               aria-label="Prendre rendez-vous sur Doctolib pour un examen de vue chez Optique Queuleu Metz"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">

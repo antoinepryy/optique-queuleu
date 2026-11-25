@@ -86,7 +86,7 @@ export default function SportPage() {
             href={DOCTOLIB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+            className="mt-8 inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
           >
             {clockIcon}
             Prendre rendez-vous
@@ -117,13 +117,13 @@ export default function SportPage() {
         <div className="mx-auto flex max-w-3xl flex-col items-center justify-center gap-4 px-6 sm:flex-row lg:px-8">
           <Link
             href="/verres"
-            className="inline-flex items-center rounded-full border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+            className="inline-flex items-center rounded-sm border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
           >
             Nos verres
           </Link>
           <Link
             href="/bilan-vision-zeiss"
-            className="inline-flex items-center rounded-full border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+            className="inline-flex items-center rounded-sm border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
           >
             Découvrir le Bilan Vision ZEISS
           </Link>
@@ -142,7 +142,7 @@ export default function SportPage() {
                 href={DOCTOLIB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+                className="inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
               >
                 {clockIcon}
                 Prendre rendez-vous

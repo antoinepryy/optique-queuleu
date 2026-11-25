@@ -208,7 +208,7 @@ export default function ContactForm({ brand }: { brand?: string }) {
       <button
         type="submit"
         disabled={isLoading}
-        className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:opacity-50"
+        className="rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light disabled:opacity-50"
       >
         {isLoading ? "Envoi en cours..." : "Envoyer"}
       </button>

@@ -24,7 +24,7 @@ export default function BrandContactSection({ brandName }: { brandName: string }
                 href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+                className="inline-flex rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
               >
                 Prendre rendez-vous
               </a>

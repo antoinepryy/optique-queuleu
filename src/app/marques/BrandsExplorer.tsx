@@ -146,7 +146,7 @@ export default function BrandsExplorer({
                     setSearch("");
                     setActiveCategory("all");
                   }}
-                  className="ml-1 inline-flex items-center gap-1 rounded-full px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-white hover:text-foreground"
+                  className="ml-1 inline-flex items-center gap-1 rounded-sm px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-white hover:text-foreground"
                   aria-label="Réinitialiser les filtres"
                 >
                   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -193,7 +193,7 @@ export default function BrandsExplorer({
                 setSearch("");
                 setActiveCategory("all");
               }}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+              className="mt-6 inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
               aria-label="Réinitialiser les filtres et voir toutes les marques"
             >
               Voir toutes les marques
@@ -225,7 +225,7 @@ function FilterButton({
       onClick={onClick}
       aria-label={ariaLabel}
       aria-pressed={active}
-      className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-all ${
+      className={`inline-flex items-center gap-1.5 rounded-sm px-4 py-2 text-sm font-medium transition-all ${
         active
           ? highlight
             ? "bg-accent text-white shadow-md"
