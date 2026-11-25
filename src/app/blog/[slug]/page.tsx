@@ -202,13 +202,13 @@ export default async function ArticlePage({
               href="https://www.doctolib.fr/opticien-lunetier/metz/optique-queuleu-metz"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-primary-light"
+              className="inline-flex items-center rounded-sm bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-primary-light"
             >
               Prendre rendez-vous
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-full border-2 border-foreground/20 px-8 py-3 text-sm font-semibold uppercase tracking-wider text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex items-center rounded-sm border-2 border-foreground/20 px-8 py-3 text-sm font-semibold uppercase tracking-wider text-foreground transition-colors hover:border-primary hover:text-primary"
             >
               Nous contacter
             </Link>
@@ -273,7 +273,7 @@ export default async function ArticlePage({
           <div className="mt-10 text-center">
             <Link
               href="/blog"
-              className="inline-flex items-center rounded-full border-2 border-primary px-8 py-3 text-sm font-semibold uppercase tracking-wider text-primary transition-colors hover:bg-primary hover:text-white"
+              className="inline-flex items-center rounded-sm border-2 border-primary px-8 py-3 text-sm font-semibold uppercase tracking-wider text-primary transition-colors hover:bg-primary hover:text-white"
             >
               Voir tous les articles
             </Link>

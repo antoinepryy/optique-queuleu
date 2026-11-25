@@ -303,7 +303,7 @@ export default function Header() {
             href={DOCTOLIB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+            className="flex shrink-0 items-center gap-2 rounded-sm bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
           >
             <svg
               aria-hidden="true"
@@ -436,7 +436,7 @@ export default function Header() {
               href={DOCTOLIB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 block rounded-full bg-primary px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+              className="mt-2 block rounded-sm bg-primary px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-primary-light"
               onClick={closeMobileMenu}
             >
               Prendre RDV

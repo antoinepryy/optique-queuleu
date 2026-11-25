@@ -510,7 +510,7 @@ export default function VisionMinutePage() {
                 href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
+                className="inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-primary-light"
                 aria-label="Prendre rendez-vous sur Doctolib pour Vision Minute"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
@@ -520,7 +520,7 @@ export default function VisionMinutePage() {
               </a>
               <a
                 href="tel:+33387373036"
-                className="inline-flex items-center gap-2 rounded-full border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+                className="inline-flex items-center gap-2 rounded-sm border border-primary px-8 py-3.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
                 aria-label="Appeler Optique Queuleu au 03 87 37 30 36"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">

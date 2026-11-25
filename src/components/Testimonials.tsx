@@ -192,7 +192,7 @@ export default function Testimonials({ dataBlock }: { dataBlock?: string } = {})
               href={GOOGLE_REVIEWS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full border-2 border-primary bg-white px-8 py-4 text-sm font-semibold text-primary shadow-sm transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/25"
+              className="group inline-flex items-center gap-3 rounded-sm border-2 border-primary bg-white px-8 py-4 text-sm font-semibold text-primary shadow-sm transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/25"
             >
               <GoogleIcon />
               <span>Voir tous les avis sur Google</span>
