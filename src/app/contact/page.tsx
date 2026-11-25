@@ -104,27 +104,62 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero Banner */}
-      <section className="relative flex h-64 items-center pt-20 sm:h-80">
-        <Image
-          src="/images/boutique/contact.webp"
-          alt="Contact opticien Metz - Optique Queuleu, 28 rue de Queuleu"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
-            Prendre contact
-          </h1>
-          <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
-            <Link href="/" className="hover:text-white">
-              Accueil
-            </Link>
-            <span className="mx-2">&gt;</span>
-            <span className="text-white">Contact</span>
-          </nav>
+      {/* Contact en haut de page : le formulaire visible sans défiler */}
+      <section className="bg-muted pb-14 pt-[5.5rem] sm:pb-20 sm:pt-28" aria-labelledby="contact-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-4 text-center sm:mb-6 lg:mb-8 lg:text-left">
+            <nav className="hidden text-xs text-muted-foreground sm:block" aria-label="Fil d'Ariane">
+              <Link href="/" className="hover:text-foreground">
+                Accueil
+              </Link>
+              <span className="mx-2">&gt;</span>
+              <span className="text-foreground">Contact</span>
+            </nav>
+            <h1
+              id="contact-heading"
+              className="text-xl font-bold uppercase sm:mt-2 tracking-[0.12em] text-foreground sm:text-3xl"
+            >
+              Prendre contact
+            </h1>
+            <p className="mt-1 text-sm text-muted-foreground sm:mt-2">
+              28 rue de Queuleu, 57070 Metz ·{" "}
+              <a
+                href="tel:+333****3036"
+                className="whitespace-nowrap font-semibold text-primary hover:underline"
+                aria-label="Appeler Optique Queuleu au 03 87 37 30 36"
+              >
+                03 87 37 30 36
+              </a>
+            </p>
+          </div>
+          <div className="grid gap-10 sm:gap-12 lg:grid-cols-2">
+            {/* Formulaire : premier sur mobile, à droite sur ordinateur */}
+            <div className="lg:order-2">
+              <div className="rounded-2xl border border-gray-100 bg-white p-5 sm:p-8">
+                <h2 className="mb-3 text-lg font-semibold sm:mb-5 sm:text-xl text-foreground">
+                  Envoyez-nous un message
+                </h2>
+                <ContactForm />
+              </div>
+            </div>
+
+            {/* Google Maps */}
+            <div className="lg:order-1">
+              <div className="overflow-hidden rounded-2xl">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2606.5!2d6.1977!3d49.0953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794dc1b16aa5555%3A0x0!2s28+Rue+de+Queuleu%2C+57070+Metz!5e0!3m2!1sfr!2sfr!4v1700000000000"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: "500px" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Carte Google Maps - Optique Queuleu, 28 rue de Queuleu, 57070 Metz"
+                  aria-label="Localisation Optique Queuleu sur Google Maps"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -159,43 +194,6 @@ export default function ContactPage() {
             </div>
           </div>
         </ScrollReveal>
-      </section>
-
-      {/* Contact section: Map + Form */}
-      <section className="bg-muted py-14 sm:py-20 lg:py-24" aria-labelledby="contact-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 id="contact-heading" className="sr-only">
-            Nous contacter et nous localiser
-          </h2>
-          <div className="grid gap-10 sm:gap-12 lg:grid-cols-2">
-            {/* Google Maps */}
-            <ScrollReveal className="reveal-left">
-              <div className="overflow-hidden rounded-2xl">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2606.5!2d6.1977!3d49.0953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794dc1b16aa5555%3A0x0!2s28+Rue+de+Queuleu%2C+57070+Metz!5e0!3m2!1sfr!2sfr!4v1700000000000"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, minHeight: "500px" }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Carte Google Maps - Optique Queuleu, 28 rue de Queuleu, 57070 Metz"
-                  aria-label="Localisation Optique Queuleu sur Google Maps"
-                />
-              </div>
-            </ScrollReveal>
-
-            {/* Contact Form */}
-            <ScrollReveal className="reveal-right">
-              <div className="rounded-2xl border border-gray-100 bg-white p-8">
-                <h3 className="mb-6 text-xl font-semibold text-foreground">
-                  Envoyez-nous un message
-                </h3>
-                <ContactForm />
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
       </section>
 
       {/* Parking */}
