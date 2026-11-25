@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Prescription Lunettes & Lentilles en 48h | Optique Queuleu Metz",
     description:
-      "Ordonnance en 48h par tele-expertise ophtalmologique. Bilan visuel complet en magasin, ordonnance officielle remboursee. RDV possibles jusqu'a 22h.",
+      "Ordonnance en 48h par tele-expertise ophtalmologique. Bilan visuel complet en magasin, ordonnance officielle remboursee.",
     url: "https://www.optiquequeuleu.com/prescription-48h",
     siteName: "Optique Queuleu",
     locale: "fr_FR",
@@ -159,27 +159,6 @@ const avantages = [
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
-        />
-      </svg>
-    ),
-  },
-  {
-    titre: "RDV jusqu'a 22h",
-    description:
-      "Optique Queuleu propose des creneaux de rendez-vous flexibles, y compris en soiree jusqu'a 22h pour s'adapter a votre emploi du temps.",
-    icon: (
-      <svg
-        className="h-7 w-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
         />
       </svg>
     ),

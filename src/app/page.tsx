@@ -576,8 +576,7 @@ export default function Home() {
                 disposition afin de vous guider dans le choix de votre solution
                 optique. Vous pouvez ainsi bénéficier de nos accords mutuelles des
                 réseaux de soins Kalixa et Carte Blanche ainsi que de conseils de
-                professionnels avec la possibilité de prendre rendez-vous
-                jusqu&apos;à 22h en nous contactant au magasin.
+                professionnels.
               </p>
             </div>
           </ScrollReveal>

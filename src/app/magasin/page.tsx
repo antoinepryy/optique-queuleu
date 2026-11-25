@@ -8,7 +8,7 @@ import ItineraryButton from "@/components/ItineraryButton";
 export const metadata: Metadata = {
   title: "Magasin Optique Queuleu Metz | Opticien à Queuleu | Examen de Vue Gratuit",
   description:
-    "Opticien à Metz Queuleu : examen de vue gratuit, lunettes de vue, lentilles de contact, verres fabriqués en France. RDV jusqu'à 22h. Parking privé gratuit. 28 Rue de Queuleu, 57070 Metz.",
+    "Opticien à Metz Queuleu : examen de vue gratuit, lunettes de vue, lentilles de contact, verres fabriqués en France. Parking privé gratuit. 28 Rue de Queuleu, 57070 Metz.",
   keywords: [
     "opticien Metz",
     "opticien Queuleu",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Magasin Optique Queuleu Metz | Opticien à Queuleu",
     description:
-      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. RDV jusqu'à 22h. Parking privé.",
+      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. Parking privé.",
     url: "https://www.optiquequeuleu.com/magasin",
     siteName: "Optique Queuleu",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Magasin Optique Queuleu Metz | Opticien à Queuleu",
     description:
-      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. RDV jusqu'à 22h.",
+      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français.",
     images: ["/images/boutique/facade.webp"],
   },
 };
@@ -166,11 +166,6 @@ export default function MagasinPage() {
                 notre prise de rendez-vous simple et rapide, directement sur
                 Doctolib. Choisissez un motif de consultation, une date, un
                 horaire, et le tour est joué !
-              </p>
-              <p className="mt-4 font-semibold text-primary">
-                Vous êtes frontalier ou travaillez tard le soir ? Nous nous
-                adaptons à votre emploi du temps chargé en vous proposant des
-                rendez-vous jusqu&apos;à 22h !
               </p>
             </ScrollReveal>
             <ScrollReveal className="reveal-right">
@@ -325,9 +320,6 @@ export default function MagasinPage() {
               Prenez rendez-vous en toute simplicité sur Doctolib ! Choisissez
               l&apos;heure qui vous convient parmi nos créneaux disponibles et
               laissez-nous prendre soin de votre vision. <strong>Examen de vue gratuit</strong> sur rendez-vous.
-            </p>
-            <p className="mt-4 font-semibold text-primary">
-              On s&apos;occupe de vous jusqu&apos;à 22h !
             </p>
             <a
               href="https://www.doctolib.fr/opticien/metz/optique-queuleu"
