@@ -33,7 +33,7 @@ export const articles: Article[] = [
 
 <p>Chez Optique Queuleu, le renouveau ne se limite pas à la façade. Notre équipe reste fidèle à sa philosophie : un accompagnement personnalisé pour chaque membre de la famille. Que vous ayez besoin d'un <a href="/verres" class="text-primary hover:underline">équipement en verres progressifs</a>, de lunettes pour votre enfant ou simplement de conseils sur les dernières tendances, nous prenons le temps de vous guider dans votre choix.</p>
 
-<p>Passez nous voir pour découvrir le nouveau visage d'Optique Queuleu. Notre <a href="/magasin" class="text-primary hover:underline">magasin</a> est ouvert du mardi au samedi, et vous pouvez également prendre rendez-vous directement sur Doctolib pour un examen de vue.</p>`,
+<p>Passez nous voir pour découvrir le nouveau visage d'Optique Queuleu. Notre <a href="/magasin" class="text-primary hover:underline">magasin</a> est ouvert du lundi au samedi, et vous pouvez également prendre rendez-vous directement sur Doctolib pour un examen de vue.</p>`,
   },
   {
     slug: "ordonnances-48h-lyleoo",
@@ -59,7 +59,7 @@ export const articles: Article[] = [
 
 <h2 class="text-xl font-bold text-foreground mt-8 mb-4">Prenez rendez-vous dès maintenant</h2>
 
-<p>N'attendez plus des semaines pour renouveler vos lunettes. Prenez rendez-vous directement sur Doctolib ou passez nous voir au <a href="/magasin" class="text-primary hover:underline">magasin</a>. Notre équipe vous accueille du mardi au samedi pour réaliser votre bilan visuel et vous accompagner dans le choix de votre nouvel équipement parmi nos <a href="/marques" class="text-primary hover:underline">50 marques de créateurs</a>.</p>`,
+<p>N'attendez plus des semaines pour renouveler vos lunettes. Prenez rendez-vous directement sur Doctolib ou passez nous voir au <a href="/magasin" class="text-primary hover:underline">magasin</a>. Notre équipe vous accueille du lundi au samedi pour réaliser votre bilan visuel et vous accompagner dans le choix de votre nouvel équipement parmi nos <a href="/marques" class="text-primary hover:underline">50 marques de créateurs</a>.</p>`,
   },
   {
     slug: "soldes-ete-2025",
@@ -83,7 +83,7 @@ export const articles: Article[] = [
 
 <p>Pour accompagner ces offres, nous offrons un <strong>examen de vue complet</strong> réalisé en magasin par notre opticien diplômé. En quelques minutes, nous vérifions votre correction actuelle et détectons toute évolution de votre vue. Si votre ordonnance est toujours valide, nous pouvons l'utiliser directement. Sinon, notre service de télé-ophtalmologie Lyleoo vous permet d'obtenir une nouvelle prescription en 48 heures.</p>
 
-<p>N'attendez pas la fin des soldes pour en profiter ! Prenez rendez-vous sur Doctolib ou rendez-vous directement dans notre <a href="/magasin" class="text-primary hover:underline">magasin au 28 rue de Queuleu à Metz</a>. Notre équipe vous accueille du mardi au samedi avec ou sans rendez-vous. Et pensez à découvrir nos <a href="/verres" class="text-primary hover:underline">verres ZEISS, Essilor et Seiko</a> pour un confort visuel optimal.</p>`,
+<p>N'attendez pas la fin des soldes pour en profiter ! Prenez rendez-vous sur Doctolib ou rendez-vous directement dans notre <a href="/magasin" class="text-primary hover:underline">magasin au 28 rue de Queuleu à Metz</a>. Notre équipe vous accueille du lundi au samedi avec ou sans rendez-vous. Et pensez à découvrir nos <a href="/verres" class="text-primary hover:underline">verres ZEISS, Essilor et Seiko</a> pour un confort visuel optimal.</p>`,
   },
   {
     slug: "impression-3d-lunettes-oomade",
@@ -134,7 +134,7 @@ export const articles: Article[] = [
 
 <p>Avec plus de <strong>50 marques</strong> en magasin, le choix peut sembler vaste. C'est pourquoi notre équipe prend le temps de comprendre vos besoins, votre style de vie et vos préférences esthétiques pour vous orienter vers les montures qui vous correspondent le mieux. Associées à des <a href="/verres" class="text-primary hover:underline">verres de qualité ZEISS, Essilor ou Seiko</a>, vos nouvelles lunettes deviendront un véritable accessoire de mode au service de votre vision.</p>
 
-<p>Venez découvrir ces nouvelles collections dans notre <a href="/magasin" class="text-primary hover:underline">magasin à Metz</a>, ouvert du mardi au samedi. N'hésitez pas à prendre rendez-vous sur Doctolib pour un essayage personnalisé.</p>`,
+<p>Venez découvrir ces nouvelles collections dans notre <a href="/magasin" class="text-primary hover:underline">magasin à Metz</a>, ouvert du lundi au samedi. N'hésitez pas à prendre rendez-vous sur Doctolib pour un essayage personnalisé.</p>`,
   },
   {
     slug: "masque-ski-izipizi",

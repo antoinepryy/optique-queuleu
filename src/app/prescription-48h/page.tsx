@@ -278,7 +278,7 @@ export default function Prescription48hPage() {
 
       {/* Hero Banner */}
       <section
-        className="relative flex min-h-80 items-center bg-gradient-to-br from-[#005a7a] to-primary pt-24 pb-10 sm:min-h-96"
+        className="relative flex min-h-80 items-center bg-gradient-to-br from-[#0b1d2c] to-[#0e2a3d] pt-24 pb-10 sm:min-h-96"
         aria-label="Banniere Prescription en 48h"
       >
         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
@@ -307,7 +307,7 @@ export default function Prescription48hPage() {
       </section>
 
       {/* Impact Banner */}
-      <section className="bg-primary py-10" aria-labelledby="impact-heading">
+      <section className="bg-[#0b1d2c] py-10" aria-labelledby="impact-heading">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
           <p
             className="text-6xl font-extrabold text-white sm:text-7xl"
@@ -317,7 +317,7 @@ export default function Prescription48hPage() {
           </p>
           <p
             id="impact-heading"
-            className="mt-2 text-lg font-semibold uppercase tracking-widest text-white/90"
+            className="mt-2 text-lg font-semibold uppercase tracking-widest text-accent-light"
           >
             pour obtenir votre ordonnance
           </p>
