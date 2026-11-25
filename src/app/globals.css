@@ -3,8 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #333333;
-  --primary: #0097C7;
-  --primary-light: #00aee0;
+  --primary: #0A7EA4;
+  --primary-light: #1590B8;
   --accent: #B5975E;
   --accent-light: #c4a265;
   --muted: #f5f5f5;
@@ -274,7 +274,7 @@ html.js .stagger-children.visible > * {
 .card-3d:hover {
   transform: translateY(-8px) rotateX(2deg);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15),
-    0 12px 24px -8px rgba(0, 151, 199, 0.08);
+    0 12px 24px -8px rgba(10, 126, 164, 0.08);
 }
 
 /* ── Glass morphism ── */

@@ -236,12 +236,12 @@ export default function VisionMinutePage() {
       </section>
 
       {/* Impact Banner */}
-      <section className="bg-primary py-10" aria-labelledby="impact-heading">
+      <section className="bg-[#0b1d2c] py-10" aria-labelledby="impact-heading">
         <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
           <p className="text-6xl font-extrabold text-white sm:text-7xl" aria-label="15 minutes">
             15<span className="text-3xl sm:text-4xl"> min</span>
           </p>
-          <p id="impact-heading" className="mt-2 text-lg font-semibold uppercase tracking-widest text-white/90">
+          <p id="impact-heading" className="mt-2 text-lg font-semibold uppercase tracking-widest text-accent-light">
             chrono pour repartir avec vos lunettes
           </p>
           <p className="mt-1 text-sm text-white/70">
