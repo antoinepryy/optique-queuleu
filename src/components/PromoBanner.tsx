@@ -38,7 +38,7 @@ export default function PromoBanner() {
   if (!shown) return null;
 
   return (
-    <div ref={ref} className="fixed bottom-0 left-0 z-40 w-full animate-slide-up">
+    <div ref={ref} className="fixed bottom-0 left-0 z-40 hidden w-full animate-slide-up lg:block">
       <div className="relative bg-gradient-to-r from-[#0b1d2c] via-[#0e2a3d] to-[#0b1d2c] shadow-[0_-4px_30px_rgba(0,0,0,0.25)]">
         <button
           onClick={() => setVisible(false)}
