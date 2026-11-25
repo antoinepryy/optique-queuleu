@@ -749,7 +749,7 @@ export default function Home() {
                 <div className="flex aspect-[3/2] items-center justify-center bg-muted p-10">
                   <Image
                     src="/images/marques/oomade.webp"
-                    alt="Logo Oomade - Service d'impression 3D de montures de lunettes en 10 minutes"
+                    alt="Logo Oomade - Service d'impression 3D de montures de lunettes en 15 minutes"
                     width={400}
                     height={80}
                     className="h-auto w-full max-w-xs object-contain transition-transform duration-700 group-hover:scale-105"
@@ -761,7 +761,7 @@ export default function Home() {
                     Oomade &ndash; Vision Minute
                   </h3>
                   <p className="mt-4 leading-relaxed text-muted-foreground">
-                    Votre monture reconstituée en seulement 10 minutes grâce à
+                    Votre monture reconstituée en 15 minutes grâce à
                     l&apos;impression 3D, directement à partir de vos verres
                     existants.
                   </p>
