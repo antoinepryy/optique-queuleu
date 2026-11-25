@@ -299,16 +299,18 @@ export default function Prescription48hPage() {
 
       {/* Hero Banner */}
       <section
-        className="relative flex h-64 items-center bg-gradient-to-br from-[#005a7a] to-primary pt-20 sm:h-80"
+        className="relative flex min-h-80 items-center bg-gradient-to-br from-[#005a7a] to-primary pt-24 pb-10 sm:min-h-96"
         aria-label="Banniere Prescription en 48h"
       >
         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
-            Prescription en 48h
+          <h1 className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+            Une ordonnance pour vos lunettes en 48 h, sans attendre l&apos;ophtalmo
           </h1>
-          <p className="mt-2 text-lg font-light tracking-wide text-white/90">
-            Votre ordonnance lunettes &amp; lentilles, sans attendre
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+            Le bilan visuel dure 20 à 30 minutes au magasin. Un ophtalmologiste
+            analyse vos résultats à distance et décide de délivrer
+            l&apos;ordonnance sous 48 heures ouvrées.
           </p>
           <nav
             className="mt-4 text-sm text-white/70"

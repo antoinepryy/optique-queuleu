@@ -110,7 +110,7 @@ export default function MagasinPage() {
       />
 
       {/* Hero Banner */}
-      <section className="relative flex h-64 items-center pt-20 sm:h-80" aria-label="Bannière d'accueil magasin">
+      <section className="relative flex min-h-80 items-center pt-24 pb-10 sm:min-h-96" aria-label="Bannière d'accueil magasin">
         <Image
           src="/images/boutique/facade.webp"
           alt="Façade du magasin Optique Queuleu situé 28 Rue de Queuleu à Metz, opticien spécialiste lunettes et lentilles"
@@ -120,9 +120,13 @@ export default function MagasinPage() {
         />
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
-            Magasin Optique Queuleu à Metz
+          <h1 className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+            Le magasin, 28 rue de Queuleu
           </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+            Lunettes de vue, solaires et lentilles, avec un parking privé
+            gratuit à ouverture automatique.
+          </p>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-white">
               Accueil

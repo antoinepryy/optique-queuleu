@@ -99,10 +99,10 @@ export default function MarquesPage() {
               Nos collections
             </span>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] text-white sm:mt-6 sm:text-5xl lg:text-6xl">
-              Des lunettes choisies, <span className="text-accent">pas simplement exposées.</span>
+              De nombreuses marques, choisies une à une
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:mt-6 sm:text-lg">
-              Nous sélectionnons chaque collection pour son identité, sa qualité de fabrication et ce qu&rsquo;elle apporte réellement à notre magasin.
+              Des créateurs comme Clément Lunetier ou Veronika Wildgruber, des lunetiers français, et quelques grands noms comme Persol ou Oliver Peoples.
             </p>
           </div>
 

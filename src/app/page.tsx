@@ -272,14 +272,13 @@ export default function Home() {
           <p className="animate-hero-subtitle text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
             Optique Queuleu
           </p>
-          <h1 className="animate-hero-title mt-4 text-[2.1rem] font-bold leading-tight text-white drop-shadow-lg sm:text-5xl lg:text-7xl">
-            Voir mieux. Choisir autrement.
+          <h1 className="animate-hero-title mx-auto mt-4 max-w-4xl text-[2.1rem] font-bold leading-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl">
+            Votre opticien indépendant, rue de Queuleu à Metz
           </h1>
-          <p className="animate-hero-subtitle mt-5 text-lg font-medium text-white drop-shadow-md sm:text-2xl">
-            Opticien indépendant à Metz
-          </p>
-          <p className="animate-hero-subtitle mt-2 text-sm font-light tracking-wide text-white/90 drop-shadow-md sm:text-lg">
-            Belles lunettes &bull; Expertise visuelle &bull; Technologie ZEISS
+          <p className="animate-hero-subtitle mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/90 drop-shadow-md sm:text-xl">
+            Romain et son équipe font votre bilan de vue et vous aident à
+            choisir parmi de nombreuses marques que l&apos;on ne voit pas
+            partout. Parking privé gratuit.
           </p>
 
           <div className="animate-hero-cta mt-8 flex flex-col items-center gap-3 sm:mt-12 sm:flex-row sm:justify-center sm:gap-5">

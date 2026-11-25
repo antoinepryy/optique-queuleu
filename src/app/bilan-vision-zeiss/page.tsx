@@ -108,8 +108,10 @@ export default function BilanVisionZeissPage() {
           <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
             Bilan Vision ZEISS
           </h1>
-          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.3em] text-white/80">
-            Optique Queuleu
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+            Votre examen se fait sur le VISUCORE 500, dans notre espace de
+            réfraction. Nous ajustons votre correction, puis nous vous
+            expliquons les résultats avant de choisir vos verres.
           </p>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-white">
