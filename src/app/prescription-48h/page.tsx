@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Prescription Lunettes & Lentilles en 48h | Optique Queuleu Metz",
     description:
-      "Ordonnance en 48h par tele-expertise ophtalmologique. Bilan visuel complet en magasin, ordonnance officielle remboursee. RDV possibles jusqu'a 22h.",
+      "Ordonnance en 48h par tele-expertise ophtalmologique. Bilan visuel complet en magasin, ordonnance officielle remboursee.",
     url: "https://www.optiquequeuleu.com/prescription-48h",
     siteName: "Optique Queuleu",
     locale: "fr_FR",
@@ -164,27 +164,6 @@ const avantages = [
     ),
   },
   {
-    titre: "RDV jusqu'a 22h",
-    description:
-      "Optique Queuleu propose des creneaux de rendez-vous flexibles, y compris en soiree jusqu'a 22h pour s'adapter a votre emploi du temps.",
-    icon: (
-      <svg
-        className="h-7 w-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-        />
-      </svg>
-    ),
-  },
-  {
     titre: "Pas de deplacement",
     description:
       "Tout se fait chez votre opticien a Metz. Aucun besoin de vous deplacer chez un ophtalmologiste, une solution ideale face aux deserts medicaux.",
@@ -299,16 +278,18 @@ export default function Prescription48hPage() {
 
       {/* Hero Banner */}
       <section
-        className="relative flex h-64 items-center bg-gradient-to-br from-[#005a7a] to-primary pt-20 sm:h-80"
+        className="relative flex min-h-80 items-center bg-gradient-to-br from-[#005a7a] to-primary pt-24 pb-10 sm:min-h-96"
         aria-label="Banniere Prescription en 48h"
       >
         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
-            Prescription en 48h
+          <h1 className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+            Une ordonnance pour vos lunettes en 48 h, sans attendre l&apos;ophtalmo
           </h1>
-          <p className="mt-2 text-lg font-light tracking-wide text-white/90">
-            Votre ordonnance lunettes &amp; lentilles, sans attendre
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+            Le bilan visuel dure 20 à 30 minutes au magasin. Un ophtalmologiste
+            analyse vos résultats à distance et décide de délivrer
+            l&apos;ordonnance sous 48 heures ouvrées.
           </p>
           <nav
             className="mt-4 text-sm text-white/70"

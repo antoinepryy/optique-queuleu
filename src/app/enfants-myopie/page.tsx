@@ -72,8 +72,8 @@ export default function EnfantsMyopiePage() {
             Votre vision
           </p>
           {/* Plan 2026-2027, section 9 (arborescence) */}
-          <h1 className="mt-3 text-3xl font-bold uppercase tracking-[0.1em] text-white sm:text-4xl lg:text-5xl">
-            Vision de l&apos;enfant &amp; myopie
+          <h1 className="mx-auto mt-3 max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+            La vue de vos enfants
           </h1>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-white">
@@ -84,8 +84,9 @@ export default function EnfantsMyopiePage() {
           </nav>
           {/* src/app/blog/articles-data.ts (article « fait peau neuve ») */}
           <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-white/90">
-            Notre équipe reste fidèle à sa philosophie : un accompagnement
-            personnalisé pour chaque membre de la famille.
+            Des montures qu&apos;ils ont envie de porter, comme Tête à
+            Lunettes, Izipizi ou Julbo, et un bilan pour suivre une myopie qui
+            évolue.
           </p>
           <a
             href={DOCTOLIB_URL}

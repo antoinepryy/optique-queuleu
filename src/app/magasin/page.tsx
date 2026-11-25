@@ -8,7 +8,7 @@ import ItineraryButton from "@/components/ItineraryButton";
 export const metadata: Metadata = {
   title: "Magasin Optique Queuleu Metz | Opticien à Queuleu | Examen de Vue Gratuit",
   description:
-    "Opticien à Metz Queuleu : examen de vue gratuit, lunettes de vue, lentilles de contact, verres fabriqués en France. RDV jusqu'à 22h. Parking privé gratuit. 28 Rue de Queuleu, 57070 Metz.",
+    "Opticien à Metz Queuleu : examen de vue gratuit, lunettes de vue, lentilles de contact, verres fabriqués en France. Parking privé gratuit. 28 Rue de Queuleu, 57070 Metz.",
   keywords: [
     "opticien Metz",
     "opticien Queuleu",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Magasin Optique Queuleu Metz | Opticien à Queuleu",
     description:
-      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. RDV jusqu'à 22h. Parking privé.",
+      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. Parking privé.",
     url: "https://www.optiquequeuleu.com/magasin",
     siteName: "Optique Queuleu",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Magasin Optique Queuleu Metz | Opticien à Queuleu",
     description:
-      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français. RDV jusqu'à 22h.",
+      "Votre opticien à Metz Queuleu : examen de vue gratuit, lunettes, lentilles, verres français.",
     images: ["/images/boutique/facade.webp"],
   },
 };
@@ -110,7 +110,7 @@ export default function MagasinPage() {
       />
 
       {/* Hero Banner */}
-      <section className="relative flex h-64 items-center pt-20 sm:h-80" aria-label="Bannière d'accueil magasin">
+      <section className="relative flex min-h-80 items-center pt-24 pb-10 sm:min-h-96" aria-label="Bannière d'accueil magasin">
         <Image
           src="/images/boutique/facade.webp"
           alt="Façade du magasin Optique Queuleu situé 28 Rue de Queuleu à Metz, opticien spécialiste lunettes et lentilles"
@@ -120,9 +120,13 @@ export default function MagasinPage() {
         />
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
-            Magasin Optique Queuleu à Metz
+          <h1 className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+            Le magasin, 28 rue de Queuleu
           </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+            Lunettes de vue, solaires et lentilles, avec un parking privé
+            gratuit à ouverture automatique.
+          </p>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-white">
               Accueil
@@ -162,11 +166,6 @@ export default function MagasinPage() {
                 notre prise de rendez-vous simple et rapide, directement sur
                 Doctolib. Choisissez un motif de consultation, une date, un
                 horaire, et le tour est joué !
-              </p>
-              <p className="mt-4 font-semibold text-primary">
-                Vous êtes frontalier ou travaillez tard le soir ? Nous nous
-                adaptons à votre emploi du temps chargé en vous proposant des
-                rendez-vous jusqu&apos;à 22h !
               </p>
             </ScrollReveal>
             <ScrollReveal className="reveal-right">
@@ -321,9 +320,6 @@ export default function MagasinPage() {
               Prenez rendez-vous en toute simplicité sur Doctolib ! Choisissez
               l&apos;heure qui vous convient parmi nos créneaux disponibles et
               laissez-nous prendre soin de votre vision. <strong>Examen de vue gratuit</strong> sur rendez-vous.
-            </p>
-            <p className="mt-4 font-semibold text-primary">
-              On s&apos;occupe de vous jusqu&apos;à 22h !
             </p>
             <a
               href="https://www.doctolib.fr/opticien/metz/optique-queuleu"

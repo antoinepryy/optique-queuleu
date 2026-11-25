@@ -207,7 +207,7 @@ export default function VisionMinutePage() {
       />
 
       {/* Hero Banner */}
-      <section className="relative flex h-64 items-center pt-20 sm:h-80" aria-label="Bannière Vision Minute">
+      <section className="relative flex min-h-80 items-center pt-24 pb-10 sm:min-h-96" aria-label="Bannière Vision Minute">
         <Image
           src="/images/produits/oomade.webp"
           alt="Machine OOMADE d'impression 3D de montures de lunettes en magasin à Metz"
@@ -215,11 +215,16 @@ export default function VisionMinutePage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
+        <div className="absolute inset-0 bg-black/65" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
-          <h1 className="text-3xl font-bold uppercase tracking-[0.12em] text-white sm:text-4xl sm:tracking-[0.15em] lg:text-5xl">
-            Vision Minute
+          <h1 className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+            Votre monture a cassé ? Vous repartez équipé dans le quart d&apos;heure
           </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+            Nous imprimons en 3D, au magasin, une monture provisoire à vos
+            mesures et nous y montons vos verres. Elle vous dépanne jusqu&apos;à
+            30 jours, gratuitement.
+          </p>
           <nav className="mt-4 text-sm text-white/70" aria-label="Fil d'Ariane">
             <Link href="/" className="hover:text-white">
               Accueil
